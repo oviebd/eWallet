@@ -8,35 +8,42 @@
 import SwiftUI
 
 struct AccountsListView: View {
-    
-    
-    private var data  = Array(1...20)
-       private let fixedColumn = [
-           
-        GridItem(.flexible(), spacing: 0),
-           GridItem(.flexible(), spacing: 0)
-       ]
-    
+    private var data = Array(1 ... 3)
+    private let fixedColumn = [
+        GridItem(.flexible(), spacing: 5),
+        GridItem(.flexible(), spacing: 5),
+    ]
+
     var body: some View {
         VStack {
             topTitleView
+
+            ScrollView {
+                LazyVGrid(columns: fixedColumn, spacing: 10) {
+                    ForEach(data, id: \.self) { _ in
+                        AccountGridItemView()
+                    }
+                }
+            }.background(Color.red)
             
-            ScrollView{
-                       LazyVGrid(columns: fixedColumn, spacing: 20) {
-                           ForEach(data, id: \.self) { item in
-                               AccountGridItemView()
-                                   .background(Color.red)
-                           }
-                       }
-                   }
-               }
+            HStack {
+                accountDetailsBtn
+
+                Spacer()
+
+                recordsBtn
+            }
             
-        }
+        }.padding(10)
+
+       
+        
+        Spacer()
+    }
 }
 
 extension AccountsListView {
-    
-    var topTitleView : some View {
+    var topTitleView: some View {
         HStack {
             Text("List of accounts")
                 .foregroundStyle(Color.theme.primaryText)
@@ -45,7 +52,6 @@ extension AccountsListView {
 
             Spacer()
             Button {
-                
             } label: {
                 Image(systemName: "gearshape.fill")
                     .resizable()
@@ -57,11 +63,45 @@ extension AccountsListView {
                     )
                     .foregroundColor(.blue)
                     .shadow(color: .gray, radius: 1)
-                
             }
         }
     }
-    
+
+    var accountDetailsBtn: some View {
+        Button {
+        } label: {
+            Text("ACCOUNT  DETAIL")
+                .foregroundStyle(Color.theme.primaryText)
+                .font(.headline)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.theme.white)
+                ).shadow(color: .gray, radius: 1)
+        }
+    }
+
+    var recordsBtn: some View {
+        Button {
+        } label: {
+            HStack {
+                Image(systemName: "list.bullet")
+                    .foregroundColor(/*@START_MENU_TOKEN@*/ .blue/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
+
+                Text("RECORDS")
+                    .foregroundStyle(Color.theme.primaryText)
+
+            }.font(.headline)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.theme.white)
+                ).shadow(color: .gray, radius: 1)
+        }
+    }
 }
 
 #Preview {

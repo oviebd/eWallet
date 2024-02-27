@@ -10,12 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+                Text("Hello, world!")
+                   .font(.largeTitle)
+                   .foregroundColor(.white)
+             }
+             .frame(maxWidth: .infinity)
+             .background(Color.blue)
+//             .edgesIgnoringSafeArea(.all)
+             .navigationTitle("VStack Example")
+             .navigationBarTitleDisplayMode(.inline)
     }
 }
 
