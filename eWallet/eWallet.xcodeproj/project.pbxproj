@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
 		F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B452E2B8CBD1100434B42 /* eWalletApp.swift */; };
 		F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45302B8CBD1100434B42 /* ContentView.swift */; };
 		F34B45332B8CBD1300434B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34B45322B8CBD1300434B42 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
 		F34B452B2B8CBD1100434B42 /* eWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B452E2B8CBD1100434B42 /* eWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eWalletApp.swift; sourceTree = "<group>"; };
 		F34B45302B8CBD1100434B42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				F34B45562B8CEDE800434B42 /* AccountsListView.swift */,
 				F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */,
+				F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,

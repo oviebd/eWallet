@@ -18,13 +18,11 @@ struct AccountsListView: View {
         VStack {
             topTitleView
 
-            ScrollView {
-                LazyVGrid(columns: fixedColumn, spacing: 10) {
-                    ForEach(data, id: \.self) { _ in
-                        AccountGridItemView()
-                    }
+            LazyVGrid(columns: fixedColumn, spacing: 10) {
+                ForEach(data, id: \.self) { _ in
+                    AccountGridItemView()
                 }
-            }.background(Color.red)
+            }
             
             HStack {
                 accountDetailsBtn
@@ -32,7 +30,7 @@ struct AccountsListView: View {
                 Spacer()
 
                 recordsBtn
-            }
+            }.padding(.top,20)
             
         }.padding(10)
 
@@ -53,7 +51,7 @@ extension AccountsListView {
             Spacer()
             Button {
             } label: {
-                Image(systemName: "gearshape.fill")
+                Image(systemName: "plus")
                     .resizable()
                     .frame(width: 20, height: 20)
                     .padding(.all, 10)
@@ -72,7 +70,7 @@ extension AccountsListView {
         } label: {
             Text("ACCOUNT  DETAIL")
                 .foregroundStyle(Color.theme.primaryText)
-                .font(.headline)
+                .font(.footnote)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
                 .background(
@@ -93,7 +91,7 @@ extension AccountsListView {
                 Text("RECORDS")
                     .foregroundStyle(Color.theme.primaryText)
 
-            }.font(.headline)
+            }.font(.footnote)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
                 .background(
