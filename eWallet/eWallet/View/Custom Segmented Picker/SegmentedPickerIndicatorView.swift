@@ -23,9 +23,8 @@ struct SegmentedPickerIndicatorView : View {
         Rectangle()
             .foregroundColor(backgroundColor)
             //.cornerRadius(6.0)
-            .padding(1)
             .frame(width: width)
-            .shadow(color: .black.opacity(0.1), radius: 2, x: 1, y: 1)
+          //  .shadow(color: .black.opacity(0.1), radius: 2, x: 1, y: 1)
           //  .animation(.spring().speed(1.5), value: 1)
             .offset(x: width * CGFloat(selectedItemIndex), y: 0)
     }

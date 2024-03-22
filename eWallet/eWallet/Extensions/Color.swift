@@ -1,9 +1,3 @@
-//
-//  Color.swift
-//  CryptoApp
-//
-//  Created by Habibur Rahman on 6/1/24.
-//
 
 import Foundation
 import SwiftUI
@@ -21,8 +15,12 @@ extension Color {
         let white = Color("White")
         let green = Color("GreenColor")
         let red = Color("RedColor")
-        let blue = Color("Blue")
         let gray = Color("Gray")
+        
+        let normalBlue = Color("Blue")
+        let darkBlue = Color("DarkBlue")
+        let mediumDarkBlue = Color("MediumDarkBlue")
+        let shadowColor = Color("ShadowColor")
         
     }
 }

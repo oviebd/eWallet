@@ -28,7 +28,7 @@ struct AccountGridItemView: View {
        
         .background(
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.theme.blue)
+                .fill(Color.theme.normalBlue)
         )
         .foregroundColor(.blue)
         .shadow(color: .gray, radius: 1)

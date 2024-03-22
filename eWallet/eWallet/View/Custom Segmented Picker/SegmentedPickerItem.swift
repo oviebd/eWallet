@@ -17,7 +17,8 @@ struct SegmentedPickerItem: View {
                 .font(Font.footnote
                     .weight(isSelected ? .heavy : .medium)
                 )
-                .foregroundColor(isSelected ? Color.white.opacity(1.0) : Color.white.opacity(0.8))
+                .foregroundStyle(Color.theme.primaryText)
+              //  .foregroundColor(isSelected ? Color.white.opacity(1.0) : Color.white.opacity(0.8))
                 .padding(.horizontal, 8)
                 .frame(maxWidth: .infinity)
                 .background(Color.clear)

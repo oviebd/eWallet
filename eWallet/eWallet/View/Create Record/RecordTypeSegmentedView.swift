@@ -21,9 +21,10 @@ struct RecordTypeSegmentedView: View {
                 
                 GeometryReader { geo in
                     SegmentedPickerIndicatorView(width: geo.size.width / CGFloat(RecordTypeEnum.allCases.count), selectedItemIndex: $selectedIndex)
-                        .backgroundColor(Color(red: 0.083, green: 0.283, blue: 0.638))
+                        .backgroundColor(Color.mediumDarkBlue)
                 }
                 .cornerRadius(0)
+                .shadow(color: Color.theme.darkBlue.opacity(0.5), radius: 2, x: 2, y: 0)
                 
                   
             },
@@ -43,7 +44,7 @@ struct RecordTypeSegmentedView: View {
                     }
                 }
             }
-        ).pickerBackgroundColor(Color(hue: 0.62, saturation: 0.898, brightness: 0.818))
+        ).pickerBackgroundColor(Color.theme.normalBlue)
     }
 }
 
