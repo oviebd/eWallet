@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
+		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
 		F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B452E2B8CBD1100434B42 /* eWalletApp.swift */; };
 		F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45302B8CBD1100434B42 /* ContentView.swift */; };
@@ -19,9 +21,18 @@
 		F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45522B8CED7A00434B42 /* HomeView.swift */; };
 		F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45562B8CEDE800434B42 /* AccountsListView.swift */; };
 		F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */; };
+		F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */; };
+		F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D80E2BAA647900224835 /* CustomSegmentedPickerExample.swift */; };
+		F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */; };
+		F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */; };
+		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
+		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
+		F3E43EC52BAD3A6000021FAB /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E43EC42BAD3A6000021FAB /* ContentView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
+		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
 		F34B452B2B8CBD1100434B42 /* eWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B452E2B8CBD1100434B42 /* eWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eWalletApp.swift; sourceTree = "<group>"; };
@@ -35,6 +46,14 @@
 		F34B45522B8CED7A00434B42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F34B45562B8CEDE800434B42 /* AccountsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListView.swift; sourceTree = "<group>"; };
 		F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridItemView.swift; sourceTree = "<group>"; };
+		F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordMainView.swift; sourceTree = "<group>"; };
+		F366D80E2BAA647900224835 /* CustomSegmentedPickerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPickerExample.swift; sourceTree = "<group>"; };
+		F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPicker.swift; sourceTree = "<group>"; };
+		F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPickerItem.swift; sourceTree = "<group>"; };
+		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
+		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
+		F3E43EC42BAD3A6000021FAB /* ContentView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F317D9862BAAFDA9003BB60A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		F34B45222B8CBD1100434B42 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +94,8 @@
 		F34B452D2B8CBD1100434B42 /* eWallet */ = {
 			isa = PBXGroup;
 			children = (
+				F39A6DA22BABFE2B0006E60E /* Info.plist */,
+				F317D9862BAAFDA9003BB60A /* Enums */,
 				F34B45502B8CED5D00434B42 /* View */,
 				F34B45432B8CCDE300434B42 /* Extensions */,
 				F34B452E2B8CBD1100434B42 /* eWalletApp.swift */,
@@ -99,6 +128,10 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3E43EC42BAD3A6000021FAB /* ContentView2.swift */,
+				F39A6D9F2BABF4410006E60E /* WebView */,
+				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
+				F366D8092BAA5A6D00224835 /* Create Record */,
 				F34B45542B8CEDB900434B42 /* Components */,
 				F34B45512B8CED6800434B42 /* Home */,
 			);
@@ -129,6 +162,34 @@
 				F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */,
 			);
 			path = Accounts;
+			sourceTree = "<group>";
+		};
+		F366D8092BAA5A6D00224835 /* Create Record */ = {
+			isa = PBXGroup;
+			children = (
+				F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */,
+				F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */,
+			);
+			path = "Create Record";
+			sourceTree = "<group>";
+		};
+		F366D80D2BAA645F00224835 /* Custom Segmented Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */,
+				F366D80E2BAA647900224835 /* CustomSegmentedPickerExample.swift */,
+				F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */,
+				F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */,
+			);
+			path = "Custom Segmented Picker";
+			sourceTree = "<group>";
+		};
+		F39A6D9F2BABF4410006E60E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F39A6DA02BABF45C0006E60E /* WebViewTest.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,16 +262,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E43EC52BAD3A6000021FAB /* ContentView2.swift in Sources */,
+				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
+				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
+				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
+				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
+				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
+				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
+				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
 				F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */,
+				F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +417,7 @@
 				DEVELOPMENT_TEAM = N7V5S5PJV4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eWallet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -376,6 +447,7 @@
 				DEVELOPMENT_TEAM = N7V5S5PJV4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eWallet/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

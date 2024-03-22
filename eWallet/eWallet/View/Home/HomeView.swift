@@ -25,7 +25,11 @@ struct HomeView: View {
                 AddAccountFormView()
             }
 
-        }.background(Color.white)
+        }.background(RoundedRectangle(cornerRadius: 15)
+            .fill(.cyan)
+            .frame(width: 200, height: 50)
+        )
+        //.background(Color.white)
 
         // Spacer()
     }
