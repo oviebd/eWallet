@@ -28,6 +28,10 @@
 		F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */; };
 		F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */; };
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
+		F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */; };
+		F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */; };
+		F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */; };
+		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 		F3E43EC52BAD3A6000021FAB /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E43EC42BAD3A6000021FAB /* ContentView2.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +60,10 @@
 		F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPickerItem.swift; sourceTree = "<group>"; };
 		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
 		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCircleItem.swift; sourceTree = "<group>"; };
+		F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCatagoryItem.swift; sourceTree = "<group>"; };
+		F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCatagoryItem.swift; sourceTree = "<group>"; };
+		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 		F3E43EC42BAD3A6000021FAB /* ContentView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +155,7 @@
 				F366D8092BAA5A6D00224835 /* Create Record */,
 				F34B45542B8CEDB900434B42 /* Components */,
 				F34B45512B8CED6800434B42 /* Home */,
+				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +213,17 @@
 				F39A6DA02BABF45C0006E60E /* WebViewTest.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */,
+				F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */,
+				F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */,
+				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
+			);
+			path = CircleWithIcon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +301,7 @@
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
+				F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
@@ -288,12 +309,15 @@
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
+				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
+				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
+				F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
 				F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */,
 				F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */,
