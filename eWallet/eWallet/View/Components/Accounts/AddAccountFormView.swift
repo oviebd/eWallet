@@ -43,5 +43,9 @@ struct AddAccountFormView: View {
 }
 
 #Preview {
-    AddAccountFormView()
+    Group{
+        AddAccountFormView()
+        
+    }
+   
 }

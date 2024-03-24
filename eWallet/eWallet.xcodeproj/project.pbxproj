@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
+		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
 		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
+		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
 		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BBBC79B2BB02FB400B417E0 /* Choose Account */ = {
+			isa = PBXGroup;
+			children = (
+				7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */,
+				7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */,
+			);
+			path = "Choose Account";
+			sourceTree = "<group>";
+		};
 		F317D9862BAAFDA9003BB60A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +180,7 @@
 		F366D8092BAA5A6D00224835 /* Create Record */ = {
 			isa = PBXGroup;
 			children = (
+				7BBBC79B2BB02FB400B417E0 /* Choose Account */,
 				F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */,
 				F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */,
 			);
@@ -268,7 +282,9 @@
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
+				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
+				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,

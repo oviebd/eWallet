@@ -10,65 +10,28 @@ import SwiftUI
 struct CreateRecordMainView: View {
     @State private var favoriteColor = "Red"
     @State private var amountInput = "0"
-   
-    
+
     var body: some View {
-        VStack(spacing:0){
+        VStack(spacing: 0) {
             headerView
                 .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
 
             RecordTypeSegmentedView()
                 .frame(height: 50)
-           
+
             Rectangle()
-               
+
                 .fill(Color.theme.shadowColor.opacity(1))
                 .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
                 .frame(height: 1)
-            
-                
-               
-            VStack{
-                HStack{
-                    Text("-")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                    
-                    TextField("0", text: $amountInput)
-                        .multilineTextAlignment(.trailing)
-                        .font(.system(size: 70))
-                        .minimumScaleFactor(0.01)
-                        .fontWeight(.semibold)
-                    
-                    Text("BDT")
-                        .font(.system(size: 20))
-                        .offset(x: 0, y: -10)
-                        .padding(.leading,10)
-                        .fontWeight(.medium)
-  
-                }.foregroundColor(Color.theme.primaryText)
-                    .padding(.leading,15)
-                
-                
-            }.frame(height: 250)
-            .background(Color.theme.normalBlue)
-            
-                
-//            Rectangle()
-//                .fill(Color.theme.normalBlue)
-//                .frame(height: 250)
-//               // .shadow(color: Color.theme.shadowColor.opacity(1), radius: 2, x: 0, y: 2)
-            
-            
+
+            middleView
+                .frame(height: 250)
+                .background(Color.theme.normalBlue)
+
             Spacer()
-            
         }
-       
     }
-    
-  
 }
 
 #Preview {
@@ -78,7 +41,6 @@ struct CreateRecordMainView: View {
 extension CreateRecordMainView {
     var headerView: some View {
         HStack {
-           
             Button {
             } label: {
                 Image(systemName: "xmark")
@@ -94,5 +56,71 @@ extension CreateRecordMainView {
             .foregroundColor(Color.white)
             .fontWeight(.bold)
             .background(Color.theme.mediumDarkBlue)
+    }
+}
+
+extension CreateRecordMainView {
+    var middleView: some View {
+        VStack {
+            Spacer()
+
+            addNumberView
+                .padding(.leading, 15)
+            Spacer()
+            HStack {
+                accountTypeView
+                Spacer()
+                categoryTypeView
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 20)
+        }
+    }
+
+    var addNumberView: some View {
+        HStack {
+            Text("-")
+                .font(.title)
+                .fontWeight(.bold)
+
+            Spacer()
+
+            TextField("0", text: $amountInput)
+                .multilineTextAlignment(.trailing)
+                .font(.system(size: 70))
+                .minimumScaleFactor(0.01)
+                .fontWeight(.semibold)
+
+            Text("BDT")
+                .font(.system(size: 20))
+                .offset(x: 0, y: -10)
+                .padding(.leading, 10)
+                .fontWeight(.medium)
+
+        }.foregroundColor(Color.theme.primaryText)
+    }
+
+    var accountTypeView: some View {
+        VStack {
+            Text("Account")
+                .foregroundStyle(Color.theme.white.opacity(0.5))
+                .font(.system(size: 15))
+            Text("Pocket Money")
+                .foregroundStyle(Color.theme.primaryText)
+                .font(.system(size: 15))
+                .fontWeight(.semibold)
+        }
+    }
+
+    var categoryTypeView: some View {
+        VStack {
+            Text("Categody")
+                .foregroundStyle(Color.theme.white.opacity(0.5))
+                .font(.system(size: 15))
+            Text("Charge, Fees")
+                .foregroundStyle(Color.theme.primaryText)
+                .font(.system(size: 15))
+                .fontWeight(.semibold)
+        }
     }
 }
