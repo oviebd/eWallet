@@ -11,6 +11,8 @@ import SwiftUI
 struct eWalletApp: App {
     var body: some Scene {
         WindowGroup {
+            
+            
             ChooseAccountView()
            // CreateRecordMainView()
         }
