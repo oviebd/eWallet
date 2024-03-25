@@ -9,9 +9,28 @@ import SwiftUI
 
 struct AllCatagoryItem: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List {
+                Section( header: Text("ALL CATAGORIES")) {
+                    ScrollView {
+                        VStack {
+                            ForEach(0 ..< 10) { item in
+                                Section {
+                                    HStack(spacing: 20) {
+                                        SingleCircleItem()
+                                        
+                                        Text("Health")
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }.listStyle(GroupedListStyle())
+            
+        }
     }
-}
+
 
 #Preview {
     AllCatagoryItem()

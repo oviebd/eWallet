@@ -9,12 +9,15 @@ import SwiftUI
 
 struct SingleCircleItem: View {
     var body: some View {
-        ScrollView {
-            HStack {
-                Circle()
-                    .frame(width: 80)
-                    .foregroundColor(.red)
-            }
+        ZStack {
+            Circle()
+                .frame(width: 60)
+                .foregroundColor(.red)
+
+            Image(systemName: "stethoscope.circle")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.white)
         }
     }
 }

@@ -9,7 +9,27 @@ import SwiftUI
 
 struct RecentCatagoryItem: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section( header: Text("MOST FREQUENT")) {
+                ScrollView(.horizontal) {
+                    
+                    HStack(spacing: 30) {
+                        ForEach(0..<9) { index in
+                            VStack {
+                                SingleCircleItem()
+                                Text("Health")
+                                
+                            }
+                            
+                            
+                        }
+                        
+                    }.padding(.leading, 10)
+                }
+            }
+            
+        }.listStyle(GroupedListStyle())
+           
     }
 }
 
