@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectCatagoryView: View {
-   // var catagory1 = RecentCatagoryItem
+  
     
     var body: some View {
         ScrollView {
