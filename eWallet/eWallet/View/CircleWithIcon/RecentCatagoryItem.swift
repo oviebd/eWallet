@@ -9,26 +9,29 @@ import SwiftUI
 
 struct RecentCatagoryItem: View {
     var body: some View {
-        List {
-            Section( header: Text("MOST FREQUENT")) {
-                ScrollView(.horizontal) {
-                    
-                    HStack(spacing: 30) {
-                        ForEach(0..<9) { index in
-                            VStack {
-                                SingleCircleItem()
-                                Text("Health")
-                                
-                            }
-                            
-                            
-                        }
-                        
-                    }.padding(.leading, 10)
-                }
-            }
+        
+        ScrollView(.horizontal) {
             
-        }.listStyle(GroupedListStyle())
+            HStack(spacing: 30) {
+                ForEach(0..<9) { index in
+                    VStack {
+                        SingleCircleItem()
+                        Text("Health")
+                        
+                    }
+                    
+                    
+                }
+                
+            }.padding(.leading, 10)
+        }
+        
+//        List {
+//            Section( header: Text("MOST FREQUENT")) {
+//
+//            }
+            
+      //  }.listStyle(GroupedListStyle())
            
     }
 }

@@ -12,8 +12,13 @@ struct SelectCatagoryView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
+                
+                Text("Recent Items")
+                
                 RecentCatagoryItem()
+                Text("All Items")
+                AllCatagoryItem()
             }
         }
     }
