@@ -11,26 +11,39 @@ struct CreateRecordMainView: View {
     @State private var favoriteColor = "Red"
     @State private var amountInput = "0"
 
+    @State var isAccountTypePressed = false
+    
+    
     var body: some View {
-        VStack(spacing: 0) {
-            headerView
-                .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
+    
+        ZStack{
+            VStack(spacing: 0) {
+                headerView
+                    .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
 
-            RecordTypeSegmentedView()
-                .frame(height: 50)
+                RecordTypeSegmentedView()
+                    .frame(height: 50)
 
-            Rectangle()
+                Rectangle()
 
-                .fill(Color.theme.shadowColor.opacity(1))
-                .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
-                .frame(height: 1)
+                    .fill(Color.theme.shadowColor.opacity(1))
+                    .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
+                    .frame(height: 1)
 
-            middleView
-                .frame(height: 250)
-                .background(Color.theme.normalBlue)
+                middleView
+                    .frame(height: 250)
+                    .background(Color.theme.normalBlue)
 
-            Spacer()
+                Spacer()
+            }
+            
+            if isAccountTypePressed {
+                ChooseAccountView()
+                    .frame(height: isAccountTypePressed ? UIScreen.main.bounds.size.height : 0)
+            }
+          
         }
+      
     }
 }
 
@@ -109,6 +122,10 @@ extension CreateRecordMainView {
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
+        }.onTapGesture {
+            withAnimation {
+                isAccountTypePressed = true
+            }
         }
     }
 

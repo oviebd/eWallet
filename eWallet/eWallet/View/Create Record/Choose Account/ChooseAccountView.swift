@@ -21,7 +21,7 @@ struct ChooseAccountView: View {
                     
             }
             Spacer()
-        }
+        }.background(Color.white)
         
     }
 }
