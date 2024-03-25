@@ -13,6 +13,7 @@ struct SingleCircleItem: View {
             HStack {
                 Circle()
                     .frame(width: 80)
+                    .foregroundColor(.red)
             }
         }
     }

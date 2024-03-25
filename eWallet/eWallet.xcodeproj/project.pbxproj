@@ -32,8 +32,9 @@
 		F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */; };
 		F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */; };
 		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
+		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
+		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
-		F3E43EC52BAD3A6000021FAB /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E43EC42BAD3A6000021FAB /* ContentView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +65,9 @@
 		F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCatagoryItem.swift; sourceTree = "<group>"; };
 		F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCatagoryItem.swift; sourceTree = "<group>"; };
 		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
+		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
-		F3E43EC42BAD3A6000021FAB /* ContentView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +151,7 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3E43EC42BAD3A6000021FAB /* ContentView2.swift */,
+				F3A0A0D32BB0F43E00007ADB /* Calculator */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
 				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
 				F366D8092BAA5A6D00224835 /* Create Record */,
@@ -226,6 +228,15 @@
 			path = CircleWithIcon;
 			sourceTree = "<group>";
 		};
+		F3A0A0D32BB0F43E00007ADB /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */,
+				F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3E43EC52BAD3A6000021FAB /* ContentView2.swift in Sources */,
+				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
@@ -306,6 +317,7 @@
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
 				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
+				F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,

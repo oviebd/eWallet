@@ -7,12 +7,31 @@
 
 import SwiftUI
 
-struct SingleView: View {
+struct SingleButton: View {
+    var height : CGFloat
+    var width : CGFloat
+    var buttonEnum : CalculatorButtonEnum
+    var onButtonClicked : (CalculatorButtonEnum) -> Void
+        
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        Button {
+            onButtonClicked(buttonEnum)
+        } label: {
+            Text(buttonEnum.rawValue.capitalized)
+                .font(.system(size: 30))
+                .minimumScaleFactor(0.1)
+                .foregroundColor(.orange)
+                .frame(width: width , height: height)
+                .background(buttonEnum.backgroundColor)
+        }
+               
+            
+        }
     }
-}
 
 #Preview {
-    SingleView()
+    SingleButton(height: 100, width: 100,buttonEnum: .one) { _ in
+        
+    }
 }
