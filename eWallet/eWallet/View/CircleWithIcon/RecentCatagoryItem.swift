@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct RecentCatagoryItem: View {
+    let allCategories = CategoryUtility().allCatagories
+   
     var body: some View {
         
         ScrollView(.horizontal) {
             
             HStack(spacing: 30) {
-                ForEach(0..<9) { index in
+                ForEach(allCategories) { index in
                     VStack {
-                        SingleCircleItem()
-                        Text("Health")
+                        
+                        SingleCircleItem(imageName: index.iconImage, color: index.color)
+                            Text(index.title)
                         
                     }
                     
-                    
+                
                 }
                 
             }.padding(.leading, 10)

@@ -14,11 +14,18 @@ struct SelectCatagoryView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-                Text("Recent Items")
+                Text("MOST FREQUENT")
+                    .padding(.leading, 5)
+                    
+                
                 
                 RecentCatagoryItem()
-                Text("All Items")
+                
+                
+                Text("All CATAGORIES")
+                    .padding(.leading, 5)
                 AllCatagoryItem()
+                    .padding(.leading, 10)
             }
         }
     }

@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct SingleCircleItem: View {
+   
+    let allCategories = CategoryUtility().allCatagories
+    var imageName : String
+    var color : Color
+   
     var body: some View {
         ZStack {
             Circle()
                 .frame(width: 60)
-                .foregroundColor(.red)
+                .foregroundColor(color)
 
-            Image(systemName: "stethoscope.circle")
+            Image(systemName: imageName)
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.white)
@@ -23,5 +28,5 @@ struct SingleCircleItem: View {
 }
 
 #Preview {
-    SingleCircleItem()
+    SingleCircleItem(imageName: "stethoscope.circle", color: .green)
 }

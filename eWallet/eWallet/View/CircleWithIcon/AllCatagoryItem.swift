@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct AllCatagoryItem: View {
+    let allCategories = CategoryUtility().allCatagories
+
     var body: some View {
-        
         VStack {
-            ForEach(0 ..< 10) { item in
-                Section {
-                    HStack(spacing: 20) {
-                        SingleCircleItem()
-                        
-                        Text("Health")
-                        Spacer()
-                    }
+            ForEach(allCategories) { item in
+
+                HStack(spacing: 20) {
+                    SingleCircleItem(imageName: item.iconImage, color: item.color)
+
+                    Text(item.title)
+                    Spacer()
                 }
             }
         }
@@ -29,10 +29,8 @@ struct AllCatagoryItem: View {
 //                    }
 //                }
 //            }.listStyle(GroupedListStyle())
-            
-        }
     }
-
+}
 
 #Preview {
     AllCatagoryItem()
