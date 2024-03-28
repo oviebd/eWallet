@@ -96,6 +96,16 @@
 			path = "Choose Account";
 			sourceTree = "<group>";
 		};
+		F30060FD2BB52964009C7D64 /* Select category */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */,
+				F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */,
+				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
+			);
+			path = "Select category";
+			sourceTree = "<group>";
+		};
 		F317D9862BAAFDA9003BB60A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,13 +168,13 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F30060FD2BB52964009C7D64 /* Select category */,
 				F3A0A0D32BB0F43E00007ADB /* Calculator */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
 				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
 				F366D8092BAA5A6D00224835 /* Create Record */,
 				F34B45542B8CEDB900434B42 /* Components */,
 				F34B45512B8CED6800434B42 /* Home */,
-				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +190,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
 				F34B45552B8CEDDA00434B42 /* Accounts */,
 			);
 			path = Components;
@@ -246,9 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */,
-				F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */,
-				F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */,
-				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
 			);
 			path = CircleWithIcon;
 			sourceTree = "<group>";
