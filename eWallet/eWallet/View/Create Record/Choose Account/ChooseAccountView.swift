@@ -11,17 +11,18 @@ struct ChooseAccountView: View {
     private var data = Array(1 ... 3)
     var body: some View {
     
-        VStack (spacing:20){
+        VStack (spacing:15){
             ForEach(data, id: \.self) { _ in
                 ChooseAccountItemView()
                 Rectangle()
                     .fill(Color.theme.secondaryText.opacity(0.3))
-                    .frame(height: 0.8)
+                    .frame(height: 0.5)
                     
                     
             }
             Spacer()
-        }.background(Color.white)
+        }.padding(.top,20)
+        .background(Color.white)
         
     }
 }

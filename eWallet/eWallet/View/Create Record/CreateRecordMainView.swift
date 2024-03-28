@@ -12,11 +12,11 @@ struct CreateRecordMainView: View {
     @State private var amountInput = "0"
 
     @State var isAccountTypePressed = false
-    
-    
+
+    var navigations = ["selectAccount"]
+
     var body: some View {
-    
-        ZStack{
+        NavigationStack {
             VStack(spacing: 0) {
                 headerView
                     .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
@@ -36,14 +36,10 @@ struct CreateRecordMainView: View {
 
                 Spacer()
             }
-            
-            if isAccountTypePressed {
+            .navigationDestination(for: String.self) { _ in
                 ChooseAccountView()
-                    .frame(height: isAccountTypePressed ? UIScreen.main.bounds.size.height : 0)
             }
-          
         }
-      
     }
 }
 
@@ -81,7 +77,10 @@ extension CreateRecordMainView {
                 .padding(.leading, 15)
             Spacer()
             HStack {
-                accountTypeView
+                NavigationLink(value: navigations[0]) {
+                    accountTypeView
+                }
+
                 Spacer()
                 categoryTypeView
             }
@@ -122,11 +121,12 @@ extension CreateRecordMainView {
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
-        }.onTapGesture {
-            withAnimation {
-                isAccountTypePressed = true
-            }
         }
+//        .onTapGesture {
+//            withAnimation {
+//                isAccountTypePressed = true
+//            }
+//        }
     }
 
     var categoryTypeView: some View {

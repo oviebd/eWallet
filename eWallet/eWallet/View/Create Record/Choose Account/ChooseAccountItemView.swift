@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChooseAccountItemView: View {
     var body: some View {
-        HStack {
+        HStack(spacing: 15) {
             iconView
 
             rightView
@@ -30,8 +30,8 @@ extension ChooseAccountItemView {
             Image(systemName: "wallet.pass.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 22, height: 22)
-                .padding(20)
+                .frame(width: 20, height: 20)
+                .padding(15)
 
         }.foregroundStyle(Color.white)
             .background(
