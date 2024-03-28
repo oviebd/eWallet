@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
+		F3033C942BB5C8D000ECBA71 /* CommonToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */; };
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
 		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
+		F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToolBarView.swift; sourceTree = "<group>"; };
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
 		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
 			);
 			path = "Select category";
+			sourceTree = "<group>";
+		};
+		F3033C902BB5C88300ECBA71 /* CommonToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */,
+			);
+			path = CommonToolBar;
 			sourceTree = "<group>";
 		};
 		F317D9862BAAFDA9003BB60A /* Enums */ = {
@@ -190,6 +200,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3033C902BB5C88300ECBA71 /* CommonToolBar */,
 				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
 				F34B45552B8CEDDA00434B42 /* Accounts */,
 			);
@@ -341,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
+				F3033C942BB5C8D000ECBA71 /* CommonToolBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
