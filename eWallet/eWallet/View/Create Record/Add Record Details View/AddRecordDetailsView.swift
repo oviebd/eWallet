@@ -17,6 +17,7 @@ struct AddRecordDetailsView: View {
     @State var selectedPayment: String?
     @State var selectedWarranty: String?
     @State var selectedStatus: String?
+    @State var wakeUp = Date.now
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,6 +34,35 @@ struct AddRecordDetailsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
 
+        Divider()
+            .padding()
+        
+        
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Date")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                    .opacity(0.8)
+                
+                DatePicker("Enter a date", selection: $wakeUp, displayedComponents: .date)
+                    .labelsHidden()
+                
+            }
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                Text("Time")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                    .opacity(0.8)
+                
+                DatePicker("Enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                    .labelsHidden()
+                    
+            }
+        }
+        .padding(.horizontal)
         Divider()
             .padding()
         

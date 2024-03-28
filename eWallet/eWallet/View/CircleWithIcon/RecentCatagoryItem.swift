@@ -14,7 +14,7 @@ struct RecentCatagoryItem: View {
         
         ScrollView(.horizontal) {
             
-            HStack(spacing: 30) {
+            HStack(spacing: 40) {
                 ForEach(allCategories) { index in
                     VStack {
                         

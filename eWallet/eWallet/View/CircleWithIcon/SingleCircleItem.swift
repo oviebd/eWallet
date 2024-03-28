@@ -16,12 +16,12 @@ struct SingleCircleItem: View {
     var body: some View {
         ZStack {
             Circle()
-                .frame(width: 60)
+                .frame(width: 50)
                 .foregroundColor(color)
 
             Image(systemName: imageName)
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 25, height: 25)
                 .foregroundColor(.white)
         }
     }
