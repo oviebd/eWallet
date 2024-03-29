@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
-		F3033C942BB5C8D000ECBA71 /* CommonToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */; };
+		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
 		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
+		F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746432BB6B35100ECFDB7 /* CustomNavBarContainerView.swift */; };
+		F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746452BB6BF1700ECFDB7 /* AppNavBarView.swift */; };
+		F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */; };
+		F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746492BB6C34D00ECFDB7 /* CustomNavLink.swift */; };
+		F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */; };
 		F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B452E2B8CBD1100434B42 /* eWalletApp.swift */; };
 		F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45302B8CBD1100434B42 /* ContentView.swift */; };
 		F34B45332B8CBD1300434B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34B45322B8CBD1300434B42 /* Assets.xcassets */; };
@@ -44,10 +49,15 @@
 /* Begin PBXFileReference section */
 		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
-		F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToolBarView.swift; sourceTree = "<group>"; };
+		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
 		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
+		F32746432BB6B35100ECFDB7 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
+		F32746452BB6BF1700ECFDB7 /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
+		F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
+		F32746492BB6C34D00ECFDB7 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
+		F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
 		F34B452B2B8CBD1100434B42 /* eWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B452E2B8CBD1100434B42 /* eWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eWalletApp.swift; sourceTree = "<group>"; };
 		F34B45302B8CBD1100434B42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +121,12 @@
 		F3033C902BB5C88300ECBA71 /* CommonToolBar */ = {
 			isa = PBXGroup;
 			children = (
-				F3033C932BB5C8D000ECBA71 /* CommonToolBarView.swift */,
+				F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */,
+				F32746432BB6B35100ECFDB7 /* CustomNavBarContainerView.swift */,
+				F32746452BB6BF1700ECFDB7 /* AppNavBarView.swift */,
+				F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */,
+				F32746492BB6C34D00ECFDB7 /* CustomNavLink.swift */,
+				F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */,
 			);
 			path = CommonToolBar;
 			sourceTree = "<group>";
@@ -179,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				F30060FD2BB52964009C7D64 /* Select category */,
-				F3A0A0D32BB0F43E00007ADB /* Calculator */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
 				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
 				F366D8092BAA5A6D00224835 /* Create Record */,
@@ -200,6 +214,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3A0A0D32BB0F43E00007ADB /* Calculator */,
 				F3033C902BB5C88300ECBA71 /* CommonToolBar */,
 				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
 				F34B45552B8CEDDA00434B42 /* Accounts */,
@@ -352,9 +367,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
-				F3033C942BB5C8D000ECBA71 /* CommonToolBarView.swift in Sources */,
+				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
+				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
 				F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */,
@@ -366,13 +382,17 @@
 				F35A4AA82BB2BC3100345287 /* CategoryData.swift in Sources */,
 				F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
+				F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
 				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
+				F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */,
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
+				F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
+				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,

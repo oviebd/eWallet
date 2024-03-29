@@ -77,7 +77,7 @@ struct CalculatorView: View {
                         VStack(spacing: 0) {
                             ForEach(row, id: \.self) { button in
                                 SingleButton(height: height, width: width, buttonEnum: button, onButtonClicked: { buttonType in
-                                    print("Clicked\(buttonType.rawValue)")
+                                  //  print("Clicked\(buttonType.rawValue)")
                                     self.didTap(button: buttonType)
                                 })
                             }
@@ -88,7 +88,7 @@ struct CalculatorView: View {
                         ForEach(anotherButtton, id: \.self) { button in
                             let newHeight = geo.size.height / 5
                             SingleButton(height: newHeight, width: width, buttonEnum: button, onButtonClicked: { buttonType in
-                                print("Clicked\(buttonType.rawValue)")
+                               // print("Clicked\(buttonType.rawValue)")
                                 self.didTap(button: buttonType)
                             })
                         }
