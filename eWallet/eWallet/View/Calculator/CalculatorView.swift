@@ -41,7 +41,7 @@ enum Operation {
 }
 
 struct CalculatorView: View {
-    @State var value = "0"
+    @Binding var calculatedValue : String
     @State var currentOperation: Operation = .none
     @State var previousValue: Double = 0.0
     @State var isOperationBtnPressed = false
@@ -59,13 +59,13 @@ struct CalculatorView: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack {
-                Spacer()
-                Text(value)
-                    .font(.system(size: 100))
-                    .foregroundColor(.yellow)
-
-            }.padding()
+//            HStack {
+//                Spacer()
+//                Text(value)
+//                    .font(.system(size: 100))
+//                    .foregroundColor(.yellow)
+//
+//            }.padding()
             
             GeometryReader { geo in
 
@@ -95,7 +95,7 @@ struct CalculatorView: View {
                     }
                 }
             }
-            .frame(height: 300)
+          //  .frame(height: 300)
         }
     }
     
@@ -125,27 +125,27 @@ struct CalculatorView: View {
             
              if button == .equal {
                 
-                let result = performOperation(value1: previousValue, value2: Double(self.value) ?? 0, operation: currentOperation)
+                let result = performOperation(value1: previousValue, value2: Double(self.calculatedValue) ?? 0, operation: currentOperation)
                 
-                value = "\(result)"
+                calculatedValue = "\(result)"
             }
             
         case .clear:
-            value = "0"
+            calculatedValue = "0"
             previousValue = 0
         // value.removeLast()
         default:
             let number = button.rawValue
 
             if isOperationBtnPressed {
-                value = "0"
+                calculatedValue = "0"
                 isOperationBtnPressed = false
             }
 
-            if value == "0" {
-                value = number
+            if calculatedValue == "0" {
+                calculatedValue = number
             } else {
-                value = "\(value)\(number)"
+                calculatedValue = "\(calculatedValue)\(number)"
             }
         }
     }
@@ -176,7 +176,7 @@ struct CalculatorView: View {
     
     func onOperationBtnCliked(operationType: Operation) {
         currentOperation = operationType
-        previousValue = Double(value) ?? 0
+        previousValue = Double(calculatedValue) ?? 0
         isOperationBtnPressed = true
         
     }
@@ -184,5 +184,5 @@ struct CalculatorView: View {
 }
 
 #Preview {
-    CalculatorView()
+    CalculatorView(calculatedValue: .constant("0"))
 }

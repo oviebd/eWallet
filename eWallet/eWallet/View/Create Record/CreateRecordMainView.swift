@@ -33,6 +33,10 @@ struct CreateRecordMainView: View {
                 middleView
                     .frame(height: 250)
                     .background(Color.theme.normalBlue)
+                
+                CalculatorView(calculatedValue: $amountInput)
+                
+              
 
                 Spacer()
             }
