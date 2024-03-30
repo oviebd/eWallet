@@ -14,9 +14,14 @@ struct eWalletApp: App {
         WindowGroup {
             
            
-            
-            //DropDownView(title: "title", prompt: "Select", options: ["Item 01", "Item 02", "item 03"], selection: $select)
             CreateRecordMainView()
+            //DropDownView(title: "title", prompt: "Select", options: ["Item 01", "Item 02", "item 03"], selection: $select)
+            
+//            CustomNavView {
+//
+//            }
+            
+          
         }
     }
 }

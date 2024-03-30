@@ -18,6 +18,8 @@
 		F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */; };
 		F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746492BB6C34D00ECFDB7 /* CustomNavLink.swift */; };
 		F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */; };
+		F343EB082BB811D100D356E9 /* CommonTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343EB072BB811D100D356E9 /* CommonTopBar.swift */; };
+		F343EB0B2BB8145500D356E9 /* DataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343EB0A2BB8145500D356E9 /* DataUtility.swift */; };
 		F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B452E2B8CBD1100434B42 /* eWalletApp.swift */; };
 		F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45302B8CBD1100434B42 /* ContentView.swift */; };
 		F34B45332B8CBD1300434B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34B45322B8CBD1300434B42 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
 		F32746492BB6C34D00ECFDB7 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
 		F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		F343EB072BB811D100D356E9 /* CommonTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTopBar.swift; sourceTree = "<group>"; };
+		F343EB0A2BB8145500D356E9 /* DataUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtility.swift; sourceTree = "<group>"; };
 		F34B452B2B8CBD1100434B42 /* eWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B452E2B8CBD1100434B42 /* eWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eWalletApp.swift; sourceTree = "<group>"; };
 		F34B45302B8CBD1100434B42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,22 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		F343EB062BB8119300D356E9 /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				F343EB072BB811D100D356E9 /* CommonTopBar.swift */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		F343EB092BB8143E00D356E9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F343EB0A2BB8145500D356E9 /* DataUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		F34B45222B8CBD1100434B42 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,7 @@
 				F317D9862BAAFDA9003BB60A /* Enums */,
 				F34B45502B8CED5D00434B42 /* View */,
 				F34B45432B8CCDE300434B42 /* Extensions */,
+				F343EB092BB8143E00D356E9 /* Utility */,
 				F34B452E2B8CBD1100434B42 /* eWalletApp.swift */,
 				F34B45302B8CBD1100434B42 /* ContentView.swift */,
 				F34B45322B8CBD1300434B42 /* Assets.xcassets */,
@@ -214,6 +235,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F343EB062BB8119300D356E9 /* TopBar */,
 				F3A0A0D32BB0F43E00007ADB /* Calculator */,
 				F3033C902BB5C88300ECBA71 /* CommonToolBar */,
 				F3A0A0CA2BB0F1BF00007ADB /* CircleWithIcon */,
@@ -384,6 +406,7 @@
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
+				F343EB082BB811D100D356E9 /* CommonTopBar.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
 				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
@@ -392,6 +415,7 @@
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
 				F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
+				F343EB0B2BB8145500D356E9 /* DataUtility.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,

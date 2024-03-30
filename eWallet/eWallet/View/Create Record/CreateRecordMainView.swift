@@ -16,7 +16,8 @@ struct CreateRecordMainView: View {
     var navigations = ["selectAccount"]
 
     var body: some View {
-        NavigationStack {
+        
+        ZStack{
             VStack(spacing: 0) {
                 headerView
                     .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
@@ -33,17 +34,22 @@ struct CreateRecordMainView: View {
                 middleView
                     .frame(height: 250)
                     .background(Color.theme.normalBlue)
-                
+
                 CalculatorView(calculatedValue: $amountInput)
-                
-              
 
                 Spacer()
             }
-            .navigationDestination(for: String.self) { _ in
-                ChooseAccountView()
+            
+            if isAccountTypePressed {
+                ChooseAccountView(isViewShowing: $isAccountTypePressed)
+                    .transition(.move(edge: .bottom))
+                   
+                   // .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+                   
             }
+            
         }
+        .animation(.easeInOut(duration: 1),value: isAccountTypePressed)
     }
 }
 
@@ -81,10 +87,15 @@ extension CreateRecordMainView {
                 .padding(.leading, 15)
             Spacer()
             HStack {
-                NavigationLink(value: navigations[0]) {
-                    accountTypeView
-                }
+//                CustomNavLink(destination:
+//                    ChooseAccountView(), label: {
+//                        accountTypeView
+//                    })
 
+//                NavigationLink(value: navigations[0]) {
+//                    accountTypeView
+//                }
+                accountTypeView
                 Spacer()
                 categoryTypeView
             }
@@ -126,11 +137,12 @@ extension CreateRecordMainView {
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
         }
-//        .onTapGesture {
-//            withAnimation {
+        .onTapGesture {
+            isAccountTypePressed = true
+//            withAnimation(.easeInOut(duration: 1)) {
 //                isAccountTypePressed = true
 //            }
-//        }
+        }
     }
 
     var categoryTypeView: some View {

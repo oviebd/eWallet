@@ -16,14 +16,14 @@ struct CustomNavView<Content : View>: View {
     }
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             
             CustomNavBarContainerView {
                 content
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

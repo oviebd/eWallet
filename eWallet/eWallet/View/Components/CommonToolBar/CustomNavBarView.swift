@@ -28,12 +28,10 @@ struct CustomNavBarView: View {
             rightButton
                 .opacity(0)
 
-        }
-        .padding()
+        }.padding()
             .font(.title3)
             .foregroundStyle(Color.white)
             .background(Color.blue.ignoresSafeArea())
-        Spacer()
     }
 }
 
