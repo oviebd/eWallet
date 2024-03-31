@@ -19,7 +19,10 @@ struct ChooseAccountView: View {
             
             CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
                 print("Left Btn Pressed")
-                isViewShowing = false
+                withAnimation {
+                    isViewShowing = false
+                }
+                
             })
             
             VStack (spacing:15){
@@ -32,12 +35,11 @@ struct ChooseAccountView: View {
                         
                         
                 }
-                Spacer()
+               
             }
+            
+            Spacer()
         }
-      
-        
-      
         .background(Color.white)
         
     }

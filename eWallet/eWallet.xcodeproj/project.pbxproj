@@ -13,6 +13,7 @@
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
 		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */; };
+		F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324F4FF2BB98AF4002B5AAE /* TestAnimationView.swift */; };
 		F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746432BB6B35100ECFDB7 /* CustomNavBarContainerView.swift */; };
 		F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746452BB6BF1700ECFDB7 /* AppNavBarView.swift */; };
 		F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */; };
@@ -55,6 +56,7 @@
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
 		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFormView.swift; sourceTree = "<group>"; };
+		F324F4FF2BB98AF4002B5AAE /* TestAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimationView.swift; sourceTree = "<group>"; };
 		F32746432BB6B35100ECFDB7 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
 		F32746452BB6BF1700ECFDB7 /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
 		F32746472BB6C0EB00ECFDB7 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		F324F4FE2BB98AE8002B5AAE /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F324F4FF2BB98AF4002B5AAE /* TestAnimationView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		F343EB062BB8119300D356E9 /* TopBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F324F4FE2BB98AE8002B5AAE /* Test */,
 				F30060FD2BB52964009C7D64 /* Select category */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
 				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
@@ -415,6 +426,7 @@
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
 				F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
+				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
 				F343EB0B2BB8145500D356E9 /* DataUtility.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,

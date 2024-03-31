@@ -42,14 +42,14 @@ struct CreateRecordMainView: View {
             
             if isAccountTypePressed {
                 ChooseAccountView(isViewShowing: $isAccountTypePressed)
-                    .transition(.move(edge: .bottom))
-                   
-                   // .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+                   .transition(.move(edge: .bottom))
+               //    .frame(height: isAccountTypePressed ? 500 : 0)
+                  //  .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                    
             }
             
         }
-        .animation(.easeInOut(duration: 1),value: isAccountTypePressed)
+        .animation(.spring(duration: 5),value: isAccountTypePressed)
     }
 }
 
@@ -139,7 +139,7 @@ extension CreateRecordMainView {
         }
         .onTapGesture {
             isAccountTypePressed = true
-//            withAnimation(.easeInOut(duration: 1)) {
+//            withAnimation(.easeInOut) {
 //                isAccountTypePressed = true
 //            }
         }
