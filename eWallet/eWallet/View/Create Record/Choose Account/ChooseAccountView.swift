@@ -19,9 +19,7 @@ struct ChooseAccountView: View {
             
             CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
                 print("Left Btn Pressed")
-                withAnimation {
-                    isViewShowing = false
-                }
+                isViewShowing = false
                 
             })
             

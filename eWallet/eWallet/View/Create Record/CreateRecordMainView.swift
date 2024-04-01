@@ -12,6 +12,7 @@ struct CreateRecordMainView: View {
     @State private var amountInput = "0"
 
     @State var isAccountTypePressed = false
+    @State var shouldShowSelectAccountView = false
 
     var navigations = ["selectAccount"]
 
@@ -39,17 +40,19 @@ struct CreateRecordMainView: View {
 
                 Spacer()
             }
+            .zIndex(1.0)
             
-            if isAccountTypePressed {
+            if shouldShowSelectAccountView {
                 ChooseAccountView(isViewShowing: $isAccountTypePressed)
-                   .transition(.move(edge: .bottom))
-               //    .frame(height: isAccountTypePressed ? 500 : 0)
-                  //  .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
-                   
+                    .zIndex(2.0)
+                    .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
             }
             
-        }
-        .animation(.spring(duration: 5),value: isAccountTypePressed)
+        }.onChange(of: isAccountTypePressed, initial: false, {
+             shouldShowSelectAccountView = isAccountTypePressed
+        })
+        .animation(.easeInOut(duration: 0.3),value: shouldShowSelectAccountView)
+
     }
 }
 
@@ -139,9 +142,6 @@ extension CreateRecordMainView {
         }
         .onTapGesture {
             isAccountTypePressed = true
-//            withAnimation(.easeInOut) {
-//                isAccountTypePressed = true
-//            }
         }
     }
 

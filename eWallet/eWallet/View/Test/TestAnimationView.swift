@@ -8,28 +8,35 @@
 import SwiftUI
 
 struct TestAnimationView: View {
+   
     @State var shouldShow: Bool = false
 
+    @State var s : Bool = false
     var body: some View {
         ZStack(alignment: .top) {
             
             
-            Button {
-                withAnimation(.easeInOut(duration: 5)) {
+            VStack{
+                Button {
                     shouldShow.toggle()
+                } label: {
+                    Text("Show/Hide")
                 }
-            } label: {
-                Text("Show/Hide")
-            }
-            
-            
-          
-            if shouldShow {
+                
+                Spacer()
+            }.background(Color.red)
+
+            if s {
                // Rectangle()
                 ChooseAccountView(isViewShowing: $shouldShow)
-                    .frame(width: 100, height: 100)
-                    .offset(x: 100, y: 100)
+                   // .frame(width: 100, height: 100)
+                    .offset( y: 100)
                     .transition(.move(edge: .bottom))
+            }
+        }.onChange(of: shouldShow, initial: false) {
+            
+            withAnimation(.easeInOut(duration: 5)) {
+                s = shouldShow
             }
         }
 
