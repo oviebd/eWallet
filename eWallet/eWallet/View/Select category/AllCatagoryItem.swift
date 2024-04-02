@@ -22,13 +22,6 @@ struct AllCatagoryItem: View {
                 }
             }
         }
-//            List {
-//                Section( header: Text("ALL CATAGORIES")) {
-//                    ScrollView {
-//
-//                    }
-//                }
-//            }.listStyle(GroupedListStyle())
     }
 }
 

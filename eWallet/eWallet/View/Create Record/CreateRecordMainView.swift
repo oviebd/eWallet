@@ -14,11 +14,16 @@ struct CreateRecordMainView: View {
     @State var isAccountTypePressed = false
     @State var shouldShowSelectAccountView = false
 
+    @State var isSelectCategoryPressed = false
+    @State var shouldShowSelectCategoryView = false
+    
+    @State var isDetailsBtnPressed = false
+    @State var shouldShowDetailsView = false
+
     var navigations = ["selectAccount"]
 
     var body: some View {
-        
-        ZStack{
+        ZStack {
             VStack(spacing: 0) {
                 headerView
                     .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
@@ -27,7 +32,6 @@ struct CreateRecordMainView: View {
                     .frame(height: 50)
 
                 Rectangle()
-
                     .fill(Color.theme.shadowColor.opacity(1))
                     .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
                     .frame(height: 1)
@@ -41,18 +45,31 @@ struct CreateRecordMainView: View {
                 Spacer()
             }
             .zIndex(1.0)
-            
+
             if shouldShowSelectAccountView {
-                ChooseAccountView(isViewShowing: $isAccountTypePressed)
-                    .zIndex(2.0)
-                    .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+                chooseAccountView
+            }
+
+            if shouldShowSelectCategoryView {
+                chooseCategoryView
             }
             
-        }.onChange(of: isAccountTypePressed, initial: false, {
-             shouldShowSelectAccountView = isAccountTypePressed
-        })
-        .animation(.easeInOut(duration: 0.3),value: shouldShowSelectAccountView)
+            if shouldShowDetailsView {
+                detailsView
+            }
 
+        }.onChange(of: isAccountTypePressed, initial: false, {
+            shouldShowSelectAccountView = isAccountTypePressed
+        })
+        .onChange(of: isSelectCategoryPressed, initial: false, {
+            shouldShowSelectCategoryView = isSelectCategoryPressed
+        })
+        .onChange(of: isDetailsBtnPressed, initial: false, {
+            shouldShowDetailsView = isDetailsBtnPressed
+        })
+        .animation(.easeInOut(duration: 0.3), value: shouldShowSelectAccountView)
+        .animation(.easeInOut(duration: 0.3), value: shouldShowSelectCategoryView)
+        .animation(.easeInOut(duration: 0.3), value: shouldShowDetailsView)
     }
 }
 
@@ -90,17 +107,15 @@ extension CreateRecordMainView {
                 .padding(.leading, 15)
             Spacer()
             HStack {
-//                CustomNavLink(destination:
-//                    ChooseAccountView(), label: {
-//                        accountTypeView
-//                    })
-
-//                NavigationLink(value: navigations[0]) {
-//                    accountTypeView
-//                }
                 accountTypeView
+                    .onTapGesture {
+                        isAccountTypePressed = true
+                    }
                 Spacer()
                 categoryTypeView
+                    .onTapGesture {
+                        isSelectCategoryPressed = true
+                    }
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
@@ -126,6 +141,18 @@ extension CreateRecordMainView {
                 .offset(x: 0, y: -10)
                 .padding(.leading, 10)
                 .fontWeight(.medium)
+                .padding(.trailing,10)
+            
+            Button{
+                isDetailsBtnPressed = true
+            }label: {
+                Text(">")
+                    .padding(.vertical,15)
+                    .padding(.horizontal,10)
+                    .background(RoundedRectangle(cornerRadius: 10.0, style: .continuous).fill(Color.white))
+                    .foregroundStyle(Color.black)
+                    
+            }
 
         }.foregroundColor(Color.theme.primaryText)
     }
@@ -140,9 +167,6 @@ extension CreateRecordMainView {
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
         }
-        .onTapGesture {
-            isAccountTypePressed = true
-        }
     }
 
     var categoryTypeView: some View {
@@ -155,5 +179,25 @@ extension CreateRecordMainView {
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
         }
+    }
+}
+
+extension CreateRecordMainView {
+    var chooseAccountView: some View {
+        ChooseAccountView(isViewShowing: $isAccountTypePressed)
+            .zIndex(2.0)
+            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+    }
+
+    var chooseCategoryView: some View {
+        SelectCatagoryView(isViewShowing: $isSelectCategoryPressed)
+            .zIndex(2.0)
+            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+    }
+    
+    var detailsView: some View {
+        AddRecordDetailsView(isViewShowing: $isDetailsBtnPressed)//(isViewShowing: $isSelectCategoryPressed)
+            .zIndex(2.0)
+            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
     }
 }

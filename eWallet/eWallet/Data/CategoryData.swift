@@ -38,6 +38,18 @@ class CategoryUtility {
         allCatagories.append(catagory4)
         allCatagories.append(catagory5)
         
+        allCatagories.append(catagory1)
+        allCatagories.append(catagory2)
+        allCatagories.append(catagory3)
+        allCatagories.append(catagory4)
+        allCatagories.append(catagory5)
+        
+        allCatagories.append(catagory1)
+        allCatagories.append(catagory2)
+        allCatagories.append(catagory3)
+        allCatagories.append(catagory4)
+        allCatagories.append(catagory5)
+        
         recentCatagories.append(catagory1)
         recentCatagories.append(catagory2)
         recentCatagories.append(catagory3)
