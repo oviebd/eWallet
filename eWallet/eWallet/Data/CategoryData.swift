@@ -27,10 +27,10 @@ class CategoryUtility {
     func prepareCategories() {
            
         let catagory1 = Category(id: "1", title: "Health", iconImage: "stethoscope.circle", color: .red)
-        let catagory2 = Category(id: "2", title: "Shopping", iconImage: "folder.fill", color: .blue)
-        let catagory3 = Category(id: "3", title: "Housing", iconImage: "house.fill", color: .orange)
+        let catagory2 = Category(id: "2", title: "Shopping", iconImage: "folder.fill", color: Color.theme.lightBlue)
+        let catagory3 = Category(id: "3", title: "Housing", iconImage: "house.fill", color: .orange.opacity(0.7))
         let catagory4 = Category(id: "4", title: "Vehicle", iconImage: "car", color: .purple)
-        let catagory5 = Category(id: "5", title: "Communication, PC", iconImage: "desktopcomputer", color: .green)
+        let catagory5 = Category(id: "5", title: "Communication, PC", iconImage: "desktopcomputer", color: .green.opacity(0.8))
         
         allCatagories.append(catagory1)
         allCatagories.append(catagory2)

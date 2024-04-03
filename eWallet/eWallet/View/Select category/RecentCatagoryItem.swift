@@ -13,21 +13,25 @@ struct RecentCatagoryItem: View {
     var body: some View {
         
         ScrollView(.horizontal) {
-            
+         
             HStack(spacing: 40) {
+                
                 ForEach(allCategories) { index in
                     VStack {
                         
                         SingleCircleItem(imageName: index.iconImage, color: index.color)
-                            Text(index.title)
+                        Text(index.title)
+                            .font(.subheadline)
                         
-                    }
+                    }.padding(.horizontal, 4)
                     
-                
+                    
                 }
+                
                 
             }.padding(.leading, 10)
         }
+    
         
 //        List {
 //            Section( header: Text("MOST FREQUENT")) {

@@ -21,6 +21,7 @@ extension Color {
         let darkBlue = Color("DarkBlue")
         let mediumDarkBlue = Color("MediumDarkBlue")
         let shadowColor = Color("ShadowColor")
+        let lightBlue = Color("LightBlue")
         
     }
 }

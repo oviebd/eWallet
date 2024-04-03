@@ -13,13 +13,17 @@ struct AllCatagoryItem: View {
     var body: some View {
         VStack {
             ForEach(allCategories) { item in
-
-                HStack(spacing: 20) {
+                Divider()
+                    .background(Color.gray)
+                    
+                HStack(spacing: 15) {
                     SingleCircleItem(imageName: item.iconImage, color: item.color)
+                    
 
                     Text(item.title)
+                        .font(.subheadline)
                     Spacer()
-                }
+                }.padding(.horizontal, 10)
             }
         }
     }

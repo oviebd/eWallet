@@ -171,7 +171,7 @@ extension CreateRecordMainView {
 
     var categoryTypeView: some View {
         VStack {
-            Text("Categody")
+            Text("Category")
                 .foregroundStyle(Color.theme.white.opacity(0.5))
                 .font(.system(size: 15))
             Text("Charge, Fees")
