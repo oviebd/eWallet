@@ -16,6 +16,8 @@ extension Color {
         let green = Color("GreenColor")
         let red = Color("RedColor")
         let gray = Color("Gray")
+        let teal = Color("Teal")
+        let paste = Color("Paste")
         
         let normalBlue = Color("Blue")
         let darkBlue = Color("DarkBlue")

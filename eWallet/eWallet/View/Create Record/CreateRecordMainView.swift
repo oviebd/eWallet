@@ -198,6 +198,6 @@ extension CreateRecordMainView {
     var detailsView: some View {
         AddRecordDetailsView(isViewShowing: $isDetailsBtnPressed)//(isViewShowing: $isSelectCategoryPressed)
             .zIndex(2.0)
-            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .leading)))
     }
 }

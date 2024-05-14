@@ -37,6 +37,9 @@
 		F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D80E2BAA647900224835 /* CustomSegmentedPickerExample.swift */; };
 		F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */; };
 		F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */; };
+		F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */; };
+		F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D492BF210CA00D78E6B /* RecordListItem.swift */; };
+		F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D4B2BF21CD200D78E6B /* ListData.swift */; };
 		F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */; };
 		F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE932BB39ECC0001DA36 /* DropDownView.swift */; };
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
@@ -46,6 +49,7 @@
 		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
 		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
+		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +85,9 @@
 		F366D80E2BAA647900224835 /* CustomSegmentedPickerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPickerExample.swift; sourceTree = "<group>"; };
 		F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPicker.swift; sourceTree = "<group>"; };
 		F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPickerItem.swift; sourceTree = "<group>"; };
+		F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecordItem.swift; sourceTree = "<group>"; };
+		F3835D492BF210CA00D78E6B /* RecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListItem.swift; sourceTree = "<group>"; };
+		F3835D4B2BF21CD200D78E6B /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsView.swift; sourceTree = "<group>"; };
 		F38FFE932BB39ECC0001DA36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
 		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
+		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +232,7 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3835D462BF2108D00D78E6B /* ListView */,
 				F324F4FE2BB98AE8002B5AAE /* Test */,
 				F30060FD2BB52964009C7D64 /* Select category */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
@@ -269,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				F35A4AA72BB2BC3100345287 /* CategoryData.swift */,
+				F3835D4B2BF21CD200D78E6B /* ListData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -293,6 +303,16 @@
 				F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */,
 			);
 			path = "Custom Segmented Picker";
+			sourceTree = "<group>";
+		};
+		F3835D462BF2108D00D78E6B /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */,
+				F3835D492BF210CA00D78E6B /* RecordListItem.swift */,
+				F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 		F38FFE902BB39ACD0001DA36 /* Add Record Details View */ = {
@@ -408,6 +428,7 @@
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
 				F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
+				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
 				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
@@ -416,10 +437,12 @@
 				F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,
 				F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */,
+				F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F343EB082BB811D100D356E9 /* CommonTopBar.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
+				F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */,
 				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
 				F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */,
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
@@ -432,6 +455,7 @@
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
+				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
 				F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */,
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
