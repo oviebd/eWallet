@@ -50,7 +50,7 @@ struct SelectCatagoryView: View {
                         .frame(height: 50)
                         .background(Color.gray.opacity(0.2))
 
-                    AllCatagoryItem()
+                    CategoryListView()
                        
                 }
             }

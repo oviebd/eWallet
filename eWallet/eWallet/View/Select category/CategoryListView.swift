@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct AllCatagoryItem: View {
+struct CategoryListView: View {
+  
     let allCategories = CategoryUtility().allCatagories
-
+    let coreCateDataVm = CoreDataCategoryVM()
+    
     var body: some View {
         VStack {
             ForEach(allCategories) { item in
@@ -18,8 +20,6 @@ struct AllCatagoryItem: View {
                     
                 HStack(spacing: 15) {
                     SingleCircleItem(imageName: item.iconImage, color: item.color)
-                    
-
                     Text(item.title)
                         .font(.subheadline)
                     Spacer()
@@ -30,5 +30,5 @@ struct AllCatagoryItem: View {
 }
 
 #Preview {
-    AllCatagoryItem()
+    CategoryListView()
 }

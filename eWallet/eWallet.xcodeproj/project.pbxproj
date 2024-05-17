@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
+		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
+		7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0A2BF79E2200D3DC76 /* Constants.swift */; };
+		7B821F0F2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */; };
+		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
 		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
 		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
@@ -45,7 +50,7 @@
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
 		F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */; };
 		F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */; };
-		F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */; };
+		F3A0A0D02BB0F26800007ADB /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */; };
 		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
 		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
@@ -54,6 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
+		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7B821F0A2BF79E2200D3DC76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoryVM.swift; sourceTree = "<group>"; };
+		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
 		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
 		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
@@ -94,7 +104,7 @@
 		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCircleItem.swift; sourceTree = "<group>"; };
 		F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCatagoryItem.swift; sourceTree = "<group>"; };
-		F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCatagoryItem.swift; sourceTree = "<group>"; };
+		F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
 		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
@@ -113,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B821F032BF79AD300D3DC76 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */,
+				7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */,
+				7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		7B821F072BF79DCF00D3DC76 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		7BBBC79B2BB02FB400B417E0 /* Choose Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */,
-				F3A0A0CF2BB0F26800007ADB /* AllCatagoryItem.swift */,
+				F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */,
 				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
+				7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */,
 			);
 			path = "Select category";
 			sourceTree = "<group>";
@@ -173,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				F343EB0A2BB8145500D356E9 /* DataUtility.swift */,
+				7B821F0A2BF79E2200D3DC76 /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -196,9 +225,11 @@
 		F34B452D2B8CBD1100434B42 /* eWallet */ = {
 			isa = PBXGroup;
 			children = (
+				7B821F032BF79AD300D3DC76 /* Core Data */,
 				F35A4AA62BB2BC1300345287 /* Data */,
 				F39A6DA22BABFE2B0006E60E /* Info.plist */,
 				F317D9862BAAFDA9003BB60A /* Enums */,
+				7B821F072BF79DCF00D3DC76 /* Manager */,
 				F34B45502B8CED5D00434B42 /* View */,
 				F34B45432B8CCDE300434B42 /* Extensions */,
 				F343EB092BB8143E00D356E9 /* Utility */,
@@ -422,13 +453,15 @@
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
+				7B821F0F2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
-				F3A0A0D02BB0F26800007ADB /* AllCatagoryItem.swift in Sources */,
+				F3A0A0D02BB0F26800007ADB /* CategoryListView.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
+				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
 				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
@@ -446,14 +479,17 @@
 				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
 				F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */,
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
+				7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */,
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
 				F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
 				F343EB0B2BB8145500D356E9 /* DataUtility.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
+				7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
+				7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
 				F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */,
@@ -668,6 +704,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */,
+			);
+			currentVersion = 7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */;
+			path = CoreDataContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F34B45232B8CBD1100434B42 /* Project object */;
 }
