@@ -11,6 +11,9 @@ struct SelectCatagoryView: View {
     @Binding public var isViewShowing: Bool
     private let topBarConfig = CommonTopBarData(title: "Select Category", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "")
 
+    
+    @ObservedObject private var vm = CategoryListVm()
+    
     var body: some View {
         VStack(spacing: 0) {
             CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
@@ -50,7 +53,7 @@ struct SelectCatagoryView: View {
                         .frame(height: 50)
                         .background(Color.gray.opacity(0.2))
 
-                    CategoryListView()
+                    CategoryListView(categories: vm.categories)
                        
                 }
             }

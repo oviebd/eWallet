@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
 		7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0A2BF79E2200D3DC76 /* Constants.swift */; };
-		7B821F0F2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */; };
 		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
-		7BB934A42BFA5DA400322AED /* CategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934A22BFA5DA400322AED /* CategoryEntity+CoreDataProperties.swift */; };
 		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
 		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
@@ -61,13 +60,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7B821F0A2BF79E2200D3DC76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoryVM.swift; sourceTree = "<group>"; };
 		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
-		7BB934A22BFA5DA400322AED /* CategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
 		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */,
 				7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */,
-				7B821F0E2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -150,22 +147,6 @@
 				7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		7BB9349B2BFA5BB300322AED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7BB9349C2BFA5BB900322AED /* Core Data */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7BB9349C2BFA5BB900322AED /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				7BB934A22BFA5DA400322AED /* CategoryEntity+CoreDataProperties.swift */,
-			);
-			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		7BBBC79B2BB02FB400B417E0 /* Choose Account */ = {
@@ -253,7 +234,6 @@
 		F34B452D2B8CBD1100434B42 /* eWallet */ = {
 			isa = PBXGroup;
 			children = (
-				7BB9349B2BFA5BB300322AED /* Model */,
 				7BB934982BFA59CB00322AED /* Repository */,
 				7B821F032BF79AD300D3DC76 /* Core Data */,
 				F35A4AA62BB2BC1300345287 /* Data */,
@@ -293,7 +273,7 @@
 		F34B45502B8CED5D00434B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3835D462BF2108D00D78E6B /* ListView */,
+				F3835D462BF2108D00D78E6B /* Record List View */,
 				F324F4FE2BB98AE8002B5AAE /* Test */,
 				F30060FD2BB52964009C7D64 /* Select category */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
@@ -309,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				F34B45522B8CED7A00434B42 /* HomeView.swift */,
+				7B549A652C016AEB0054AD70 /* HomeVm.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -366,14 +347,14 @@
 			path = "Custom Segmented Picker";
 			sourceTree = "<group>";
 		};
-		F3835D462BF2108D00D78E6B /* ListView */ = {
+		F3835D462BF2108D00D78E6B /* Record List View */ = {
 			isa = PBXGroup;
 			children = (
 				F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */,
 				F3835D492BF210CA00D78E6B /* RecordListItem.swift */,
 				F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */,
 			);
-			path = ListView;
+			path = "Record List View";
 			sourceTree = "<group>";
 		};
 		F38FFE902BB39ACD0001DA36 /* Add Record Details View */ = {
@@ -483,7 +464,7 @@
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
-				7B821F0F2BF7A9DF00D3DC76 /* CoreDataCategoryVM.swift in Sources */,
+				7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountFormView.swift in Sources */,
@@ -527,7 +508,6 @@
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
 				F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */,
-				7BB934A42BFA5DA400322AED /* CategoryEntity+CoreDataProperties.swift in Sources */,
 				F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

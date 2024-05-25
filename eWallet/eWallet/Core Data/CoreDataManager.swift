@@ -22,14 +22,29 @@ class CoreDataManager {
             }
         }
         context = container.viewContext
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.whereIsMySQLite()
+        }
+        
     }
     
     func save(){
         do{
             try context.save()
-            print("Save SuccessFully")
+            debugPrint("Save SuccessFully")
         }catch{
-            print("Error Saving Corae Data - \(error.localizedDescription)")
+            debugPrint("Error Saving Corae Data - \(error.localizedDescription)")
         }
+    }
+    
+    private func whereIsMySQLite() {
+        let path = NSPersistentContainer
+            .defaultDirectoryURL()
+            .absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+
+        debugPrint("D>> \(path)")
     }
 }

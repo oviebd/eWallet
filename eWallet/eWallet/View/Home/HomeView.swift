@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @State var showMe = false
-
+    @ObservedObject var vm = HomeVm()
+    
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
@@ -19,7 +22,9 @@ struct HomeView: View {
                     Text("Click me")
                 }
 
-                AccountsListView()
+                AccountsListView { buttonType in
+                    vm.onAccountListButtonPressed(buttonType: buttonType)
+                }
                 Spacer()
             }.popover(isPresented: $showMe) {
                 AddAccountFormView()

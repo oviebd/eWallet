@@ -9,12 +9,13 @@ import SwiftUI
 
 struct CategoryListView: View {
   
-    let allCategories = CategoryUtility().allCatagories
-    let coreCateDataVm = CoreDataCategoryVM()
+   // @ObservedObject private var vm = CategoryListVm()
+    
+    @State var categories : [Category] = []
     
     var body: some View {
         VStack {
-            ForEach(allCategories) { item in
+            ForEach(categories) { item in
                 Divider()
                     .background(Color.gray)
                     

@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct AddAccountFormView: View {
+  
     @State private var name: String = ""
     @State private var currencyName: String = ""
     @State private var initialAmount: String = ""
 
     var body: some View {
         Form {
-            
-            Section {
-                Text("Account Name - ")
-            } header: {
-                Text("Account Name - ")
-            }
+//            
+//            Section {
+//                Text("Account Name - ")
+//            } header: {
+//                Text("Account Name - ")
+//            }
 
             
             Section {

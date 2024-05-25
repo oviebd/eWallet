@@ -7,12 +7,23 @@
 
 import SwiftUI
 
+public enum AccountsListViewButtonTypeEnum {
+    case AddAccount
+    case AccounDetails
+    case Records
+}
+
 struct AccountsListView: View {
-    private var data = Array(1 ... 3)
+  
+    var onButtonPressed : ((AccountsListViewButtonTypeEnum) -> Void)
+   
+    var data = Array(1 ... 3)
     private let fixedColumn = [
         GridItem(.flexible(), spacing: 5),
         GridItem(.flexible(), spacing: 5),
     ]
+    
+   
 
     var body: some View {
         VStack {
@@ -44,7 +55,7 @@ extension AccountsListView {
     var topTitleView: some View {
         HStack {
             Text("List of accounts")
-                .foregroundStyle(Color.theme.primaryText)
+                .foregroundStyle(Color.theme.secondaryText)
                 .font(.title2)
                 .fontWeight(.semibold)
 
@@ -67,9 +78,10 @@ extension AccountsListView {
 
     var accountDetailsBtn: some View {
         Button {
+            
         } label: {
             Text("ACCOUNT  DETAIL")
-                .foregroundStyle(Color.theme.primaryText)
+                .foregroundStyle(Color.theme.secondaryText)
                 .font(.footnote)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
@@ -89,7 +101,7 @@ extension AccountsListView {
                     .fontWeight(.bold)
 
                 Text("RECORDS")
-                    .foregroundStyle(Color.theme.primaryText)
+                    .foregroundStyle(Color.theme.secondaryText)
 
             }.font(.footnote)
                 .padding(.vertical, 10)
@@ -103,5 +115,7 @@ extension AccountsListView {
 }
 
 #Preview {
-    AccountsListView()
+   AccountsListView( onButtonPressed: {
+       type in
+   })
 }
