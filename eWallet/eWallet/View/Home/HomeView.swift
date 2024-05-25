@@ -8,36 +8,43 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State var showMe = false
+
     @ObservedObject var vm = HomeVm()
-    
+ 
+    let topBarConfig = CommonTopBarData(title: "Home")
     
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack {
-                Button {
-                    showMe.toggle()
-                } label: {
-                    Text("Click me")
-                }
-
-                AccountsListView { buttonType in
+        
+        NavigationStack {
+            ZStack(alignment: .top) {
+                VStack {
+                    
+                    CommonTopBar(data: topBarConfig)
+                    
+                    AccountsListView { buttonType in
                     vm.onAccountListButtonPressed(buttonType: buttonType)
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }.popover(isPresented: $showMe) {
-                AddAccountFormView()
-            }
 
-        }.background(RoundedRectangle(cornerRadius: 15)
-            .fill(.cyan)
-            .frame(width: 200, height: 50)
-        )
+            }.background(RoundedRectangle(cornerRadius: 15)
+                .fill(.cyan)
+                .frame(width: 200, height: 50)
+            )
+            .navigationDestination(isPresented: $vm.isCreateAccountButtonPressed, destination: {
+                AddAccountFormView()
+
+            })
+        }
+        
+        
+        
         //.background(Color.white)
 
         // Spacer()
     }
+    
+        
 }
 
 #Preview {

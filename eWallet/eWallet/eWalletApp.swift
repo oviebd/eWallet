@@ -12,9 +12,9 @@ struct eWalletApp: App {
     @State var select : String?
     var body: some Scene {
         WindowGroup {
-            
+            HomeView()
            //CategoryListView()
-           CreateRecordMainView()
+           //CreateRecordMainView()
             //DropDownView(title: "title", prompt: "Select", options: ["Item 01", "Item 02", "item 03"], selection: $select)
             
 //            CustomNavView {

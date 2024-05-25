@@ -60,7 +60,22 @@ extension AccountsListView {
                 .fontWeight(.semibold)
 
             Spacer()
+            
+//            CustomNavLink(destination: AddAccountFormView()) {
+//                Image(systemName: "plus")
+//                    .resizable()
+//                    .frame(width: 20, height: 20)
+//                    .padding(.all, 10)
+//                    .background(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .fill(Color.white)
+//                    )
+//                    .foregroundColor(.blue)
+//                    .shadow(color: .gray, radius: 1)
+//            }
+            
             Button {
+                onButtonPressed(.AddAccount)
             } label: {
                 Image(systemName: "plus")
                     .resizable()
@@ -78,7 +93,7 @@ extension AccountsListView {
 
     var accountDetailsBtn: some View {
         Button {
-            
+            onButtonPressed(.AccounDetails)
         } label: {
             Text("ACCOUNT  DETAIL")
                 .foregroundStyle(Color.theme.secondaryText)
@@ -94,6 +109,7 @@ extension AccountsListView {
 
     var recordsBtn: some View {
         Button {
+            onButtonPressed(.Records)
         } label: {
             HStack {
                 Image(systemName: "list.bullet")

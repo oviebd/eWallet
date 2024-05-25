@@ -8,35 +8,36 @@
 import SwiftUI
 
 struct AddAccountFormView: View {
-  
+    
+    let topBarConfig = CommonTopBarData(title: "Add Account", leftIconName: "chevron.left")
+    
     @State private var name: String = ""
     @State private var currencyName: String = ""
     @State private var initialAmount: String = ""
 
+    
+    
     var body: some View {
-        Form {
-//            
-//            Section {
-//                Text("Account Name - ")
-//            } header: {
-//                Text("Account Name - ")
-//            }
+        VStack {
+            CommonTopBar(data: topBarConfig)
+                .customNavigationTitle("Second Screen")
 
-            
-            Section {
-                HStack {
-                    Text("Account Name - ")
-                    TextField("Enter Account Name", text: $name)
-                }
-                
-                HStack {
-                    Text("Currency Name - ")
-                    TextField("BDT", text: $currencyName)
-                }
-                
-                HStack {
-                    Text("Initial Amount - ")
-                    TextField("Amount", text: $currencyName)
+            Form {
+                Section {
+                    HStack {
+                        Text("Account Name - ")
+                        TextField("Enter Account Name", text: $name)
+                    }
+
+                    HStack {
+                        Text("Currency Name - ")
+                        TextField("BDT", text: $currencyName)
+                    }
+
+                    HStack {
+                        Text("Initial Amount - ")
+                        TextField("Amount", text: $currencyName)
+                    }
                 }
             }
         }
@@ -44,9 +45,7 @@ struct AddAccountFormView: View {
 }
 
 #Preview {
-    Group{
+    Group {
         AddAccountFormView()
-        
     }
-   
 }

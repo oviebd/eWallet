@@ -14,5 +14,4 @@ class DataUtility {
                                                           bgColor: Color.theme.mediumDarkBlue ,
                                                           leftIconName: "chevron.left" ,
                                                           rightIconName: "chevron.left")
-    
 }

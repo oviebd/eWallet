@@ -29,6 +29,7 @@ struct CustomNavBarView: View {
                 .opacity(0)
 
         }.padding()
+            .frame(maxWidth: .infinity)
             .font(.title3)
             .foregroundStyle(Color.white)
             .background(Color.blue.ignoresSafeArea())
