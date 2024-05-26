@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddAccountFormView: View {
     
+    @StateObject var vm = CoreDataManagerModel()
+    
     let topBarConfig = CommonTopBarData(title: "Add Account", leftIconName: "chevron.left")
     
     @State private var name: String = ""
@@ -22,6 +24,17 @@ struct AddAccountFormView: View {
             CommonTopBar(data: topBarConfig)
                 .customNavigationTitle("Second Screen")
 
+            Button(action: {
+                vm.addAccounts()
+            }, label: {
+                Text("Save")
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue.cornerRadius(10))
+                    .padding()
+            })
+            
             Form {
                 Section {
                     HStack {
