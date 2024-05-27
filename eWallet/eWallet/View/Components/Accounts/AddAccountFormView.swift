@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddAccountFormView: View {
-    
-    @StateObject var vm = CoreDataManagerModel()
+    @State var vm = CDAccountRepository()
+  //  @StateObject var vm = CoreDataManagerModel()
     
     let topBarConfig = CommonTopBarData(title: "Add Account", leftIconName: "chevron.left")
     
@@ -25,7 +25,8 @@ struct AddAccountFormView: View {
                 .customNavigationTitle("Second Screen")
 
             Button(action: {
-                vm.addAccounts()
+                vm.addAccount(account: AccountData(title: "Finance", amount: 100.00))
+               // vm.addAccounts()
             }, label: {
                 Text("Save")
                     .foregroundStyle(.white)

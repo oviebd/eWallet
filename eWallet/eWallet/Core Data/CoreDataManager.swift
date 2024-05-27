@@ -47,51 +47,6 @@ class CoreDataManager {
 //    }
 }
 
-class CoreDataManagerModel: ObservableObject {
-    
-    let manager = CoreDataManager.instance
-    @Published var accounts: [AccountEntity] = []
-    
-    init() {
-        getAccounts()
-    }
-    
-    func getAccounts() {
-        let request = NSFetchRequest<AccountEntity>(entityName: "AccountEntity")
-        
-        let sort = NSSortDescriptor(keyPath: \AccountEntity.title, ascending: true)
-        request.sortDescriptors = [sort]
-        
-        do {
-           accounts = try manager.context.fetch(request)
-        } catch let error {
-            print("Error fetching. \(error.localizedDescription)")
-        }
-    }
-    
-    func addAccounts() {
-        let newAccount = AccountEntity(context: manager.context)
-        newAccount.title = "Finance"
-        newAccount.amount = 100.0
-        newAccount.id = ".com"
-        
-        
-        save()
-    }
-    
-    func save() {
-        accounts.removeAll()
-       
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.manager.save()
-            self.getAccounts()
-            
-        }
-        
-    }
-}
-
-
   
     
 
