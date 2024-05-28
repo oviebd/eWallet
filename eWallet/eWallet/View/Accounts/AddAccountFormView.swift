@@ -44,7 +44,7 @@ struct AddAccountFormView: View {
 
                     HStack {
                         Text("Initial Amount - ")
-                        TextField("Amount", text: $vm.currencyName)
+                        TextField("Amount", text: $vm.initialAmount)
                     }
                 }
             }

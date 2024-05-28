@@ -14,7 +14,7 @@ class AccountViewModel : ObservableObject {
     
     @Published var name: String = ""
     @Published var currencyName: String = ""
-    @Published var initialAmount: String = ""
+    @Published var initialAmount : String = ""
     
     init() {
         getAccount()
@@ -25,7 +25,8 @@ class AccountViewModel : ObservableObject {
     }
     
     func createAccount() {
-        let account = AccountData(title: "Finance", amount: 100.00)
+        let amountInDouble = Double(initialAmount) ?? 0.0
+        let account = AccountData(title: name, amount: amountInDouble)
         repository.addAccount(account: account)
         getAccount()
     }

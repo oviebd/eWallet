@@ -24,6 +24,7 @@ class CoreDataManager {
         }
         context = container.viewContext
   
+        whereIsMySQLite()
     }
     
     func save(){
@@ -35,16 +36,16 @@ class CoreDataManager {
         }
     }
     
-//    
-//    private func whereIsMySQLite() {
-//        let path = NSPersistentContainer
-//            .defaultDirectoryURL()
-//            .absoluteString
-//            .replacingOccurrences(of: "file://", with: "")
-//            .removingPercentEncoding
-//
-//        debugPrint("D>> \(path)")
-//    }
+    
+    private func whereIsMySQLite() {
+        let path = NSPersistentContainer
+            .defaultDirectoryURL()
+            .absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+
+        debugPrint("D>> \(path)")
+    }
 }
 
   
