@@ -10,6 +10,9 @@ import SwiftUI
 struct AddAccountFormView: View {
     
     @ObservedObject var vm = AccountViewModel()
+    @State var currencyName: String?
+    
+     
     
     let topBarConfig = CommonTopBarData(title: "Add Account", leftIconName: "chevron.left")
     
@@ -38,8 +41,11 @@ struct AddAccountFormView: View {
                     }
 
                     HStack {
-                        Text("Currency Name - ")
-                        TextField("BDT", text: $vm.currencyName)
+                      //  Text("Currency Name - ")
+
+                        DropDownView(title: "", prompt: "Currency Name", options: vm.currencyNamesList , selection: $currencyName)
+
+                        //TextField("BDT", text: $vm.currencyName)
                     }
 
                     HStack {

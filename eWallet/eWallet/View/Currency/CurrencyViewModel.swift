@@ -23,7 +23,7 @@ class CurrencyViewModel : ObservableObject {
     }
     
     func getCurrency () ->  [CurrencyData] {
-        return repository.takeCurrency()
+        return repository.getCurrency()
     }
     
     func createCurrency() {

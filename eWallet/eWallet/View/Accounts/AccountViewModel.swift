@@ -11,13 +11,18 @@ import Foundation
 class AccountViewModel : ObservableObject {
     
     var repository = CDAccountRepository()
+    var currencyRepo = CDCurrencyRepository()
     
     @Published var name: String = ""
-    @Published var currencyName: String = ""
+  //  @Published var currencyName: String = ""
     @Published var initialAmount : String = ""
+    
+    @Published var currencyNamesList = [String]()
+    var currencyList : [CurrencyData] = [CurrencyData]()
     
     init() {
         getAccount()
+        prepareCurrencyNameList()
     }
     
     func getAccount() -> [AccountData] {
@@ -29,5 +34,14 @@ class AccountViewModel : ObservableObject {
         let account = AccountData(title: name, amount: amountInDouble)
         repository.addAccount(account: account)
         getAccount()
+    }
+    
+    func prepareCurrencyNameList(){
+        currencyList.removeAll()
+        currencyList = currencyRepo.getCurrency()
+      
+        for currency in currencyList{
+            currencyNamesList.append(currency.title)
+        }
     }
 }
