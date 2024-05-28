@@ -34,7 +34,7 @@ struct CDAccountRepository {
             
             for account in accountsDatas {
                 let a = account.convertToAccountData()
-                // print(c.title)
+                 print(a.title)
                 accounts.append(a)
             }
             

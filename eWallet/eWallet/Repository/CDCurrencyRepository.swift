@@ -26,7 +26,7 @@ struct CDCurrencyRepository {
     
     let manager = CoreDataManager.instance
     
-    func getCurrency() -> [CurrencyData] {
+    func takeCurrency() -> [CurrencyData] {
         
         var currency = [CurrencyData]()
         
@@ -36,7 +36,7 @@ struct CDCurrencyRepository {
             
             for currencies in currencyDatas {
                 let a = currencies.convertToCurrencyData()
-                // print(c.title)
+                print( "U>> Currency \(a.title)")
                 currency.append(a)
             }
             
