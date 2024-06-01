@@ -32,7 +32,7 @@ struct HomeView: View {
                 .frame(width: 200, height: 50)
             )
             .navigationDestination(isPresented: $vm.isCreateAccountButtonPressed, destination: {
-                AddAccountFormView()
+                AddAccountView()
 
             })
         }

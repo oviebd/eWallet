@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct DropDownView: View {
+    var anchor: Anchor = .bottom
     let title: String
     let prompt: String
     let options: [String]
 
     @State var isExpanded = false
-
     @Binding var selection: String?
+    
 
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack() {
             Text(title)
                 .font(.footnote)
                 .foregroundStyle(.gray)
                 .opacity(0.8)
                 .padding(.horizontal)
+            
+            Spacer()
 
             VStack {
                 HStack {
@@ -35,6 +38,8 @@ struct DropDownView: View {
                         .foregroundStyle(.gray)
                         .rotationEffect(.degrees(isExpanded ? -180 : 0))
                 }
+
+                
                 .frame(height: 40)
                 .padding(.horizontal)
                 .onTapGesture {
@@ -70,6 +75,11 @@ struct DropDownView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }
+    }
+    
+  enum Anchor {
+        case top
+        case bottom
     }
 }
 

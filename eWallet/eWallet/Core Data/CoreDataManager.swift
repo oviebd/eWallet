@@ -27,12 +27,14 @@ class CoreDataManager {
         whereIsMySQLite()
     }
     
-    func save(){
+    func save() -> Bool{
         do{
             try context.save()
+            return true
             debugPrint("Save SuccessFully")
         }catch{
             debugPrint("Error Saving Corae Data - \(error.localizedDescription)")
+            return false
         }
     }
     

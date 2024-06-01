@@ -5,61 +5,51 @@
 //  Created by Habibur Rahman on 26/5/24.
 //
 
-import Foundation
 import CoreData
-
-struct AccountData : Hashable , Identifiable{
-    var id: String  = UUID().uuidString
-    var title: String
-    var amount: Double
-}
+import Foundation
 
 extension AccountEntity {
     func convertToAccountData() -> AccountData {
-        return AccountData(id: self.id ?? "", title: self.title ?? "", amount: self.amount )
+        return AccountData(id: id ?? "", title: title ?? "",
+                           currencyData: self.currency?.convertToCurrencyData(),
+                           amount: amount)
     }
 }
 
-struct CDAccountRepository {
-    
+struct CDAccountRepository: AccountDataRepoProtocol {
     let manager = CoreDataManager.instance
-    
+
     func getAccounts() -> [AccountData] {
-        
         var accounts = [AccountData]()
-        
+
         let request = NSFetchRequest<AccountEntity>(entityName: Constants.CORE_DATA.AccountEntity)
         do {
             let accountsDatas = try manager.context.fetch(request)
-            
+
             for account in accountsDatas {
                 let a = account.convertToAccountData()
-                 print(a.title)
+                print(a.title)
                 print(a.amount)
                 accounts.append(a)
             }
-            
+
         } catch {
             print("Error Fetching.. \(error.localizedDescription)")
         }
-        
+
         return accounts
     }
-    
-    
-    func addAccount(account: AccountData) {
-        let newAccount  = AccountEntity(context: manager.context)
+
+    func addAccount(account: AccountData) -> Bool {
+        let newAccount = AccountEntity(context: manager.context)
         newAccount.title = account.title
         newAccount.amount = account.amount
         newAccount.id = account.id
-       // newAccount.colorCode = account.color.toHex()
+        newAccount.currency = account.currencyData?.toCurrencyEntity()
+        // newAccount.colorCode = account.color.toHex()
 
         // print("U>> Color Code \(category.color.toHex())")
 
-        save()
-    }
-    
-    func save() {
-        self.manager.save()
+        return  manager.save()
     }
 }
