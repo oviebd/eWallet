@@ -37,7 +37,16 @@ struct AddAccountView: View {
                         HStack {
                             Text("Select Currency - ")
 
-                            CommonDropdownView(dropdownOptions: vm.currencyNamesList, selectedOptionIndex: $selectedIndex)
+                            if vm.currencyNamesList.count > 0{
+                                CommonDropdownView(dropdownOptions: vm.currencyNamesList, selectedOptionIndex: $selectedIndex)
+                            }else{
+                                Button{
+                                    
+                                }label: {
+                                    Text("Add Ctegory") 
+                                }
+                            }
+                           
                         }
 
                         HStack {
