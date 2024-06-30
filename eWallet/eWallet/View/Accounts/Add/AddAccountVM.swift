@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class AddAccountVM: ObservableObject {
+   
     private var accountRepo: AccountDataRepository
-    var currencyRepo = CDCurrencyRepository()
+    var currencyRepo : CurrencyDataRepository// CDCurrencyRepository()
 
     @Published var name: String = ""
     @Published var initialAmount: String = "0.0"
@@ -20,20 +22,25 @@ class AddAccountVM: ObservableObject {
     @Published var alertModel = AlertDataUtils.alertDmmyDataSingleButton
     @Published var showingAlert = false
     @Published var isAccountCreated = false
+    
+    @Published var isAddCurrencyPressed : Bool = false
 
+    private var cancellables = Set<AnyCancellable>()
     private var currencyList: [CurrencyData] = [CurrencyData]()
 
     init() {
         accountRepo = AccountDataRepository(accountRepo: CDAccountRepository())
+        currencyRepo = CurrencyDataRepository.shared
+        currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
         getAccount()
-        prepareCurrencyNameList()
+        addCurrencySubscription()
     }
 
     func getAccount() {
         _ = accountRepo.getAccounts()
     }
 
-
+    
     func createAccount() {
         let (isValid, message) = isValidForAdd()
 
@@ -70,13 +77,20 @@ class AddAccountVM: ObservableObject {
         return nil
     }
 
-    func prepareCurrencyNameList() {
+    func addCurrencySubscription() {
         currencyList = [CurrencyData]()
+        
+        currencyRepo.getCurrency()
+        currencyRepo.$currencyList.sink { [weak self] currencyList in
+            self?.onCurrencyReceived(currencyDataList: currencyList)
+        }.store(in: &cancellables)
+    }
+    
+    func onCurrencyReceived(currencyDataList : [CurrencyData]){
+        currencyList = currencyDataList
         currencyNamesList = [String]()
 
-        currencyList = currencyRepo.getCurrency()
-
-        for currency in currencyList {
+        for currency in currencyDataList {
             currencyNamesList.append(currency.title)
         }
     }

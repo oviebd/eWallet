@@ -15,6 +15,7 @@
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
 		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
+		7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */; };
 		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
 		F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B412C0A1351000DF53C /* AccountDataRepository.swift */; };
 		F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B452C0A14DD000DF53C /* AddAccountVM.swift */; };
@@ -48,7 +49,7 @@
 		F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */; };
 		F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */; };
 		F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */; };
-		F37A54FB2C04C82F0024CCE8 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A54FA2C04C82F0024CCE8 /* CurrencyViewModel.swift */; };
+		F37A54FB2C04C82F0024CCE8 /* AddCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */; };
 		F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */; };
 		F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D492BF210CA00D78E6B /* RecordListItem.swift */; };
 		F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D4B2BF21CD200D78E6B /* ListData.swift */; };
@@ -79,6 +80,7 @@
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
 		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
+		7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDataRepository.swift; sourceTree = "<group>"; };
 		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		F3153B412C0A1351000DF53C /* AccountDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataRepository.swift; sourceTree = "<group>"; };
 		F3153B452C0A14DD000DF53C /* AddAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVM.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		F366D8102BAA655C00224835 /* CustomSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPicker.swift; sourceTree = "<group>"; };
 		F366D81B2BAA6F6800224835 /* SegmentedPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPickerItem.swift; sourceTree = "<group>"; };
 		F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyView.swift; sourceTree = "<group>"; };
-		F37A54FA2C04C82F0024CCE8 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewModel.swift; sourceTree = "<group>"; };
 		F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecordItem.swift; sourceTree = "<group>"; };
 		F3835D492BF210CA00D78E6B /* RecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListItem.swift; sourceTree = "<group>"; };
 		F3835D4B2BF21CD200D78E6B /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				F3153B402C0A12FE000DF53C /* Core Data */,
 				F3153B412C0A1351000DF53C /* AccountDataRepository.swift */,
+				7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -415,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */,
-				F37A54FA2C04C82F0024CCE8 /* CurrencyViewModel.swift */,
+				F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
@@ -580,7 +584,7 @@
 				F32326CD2C0AC37F0014498A /* CustomAlertView.swift in Sources */,
 				7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */,
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
-				F37A54FB2C04C82F0024CCE8 /* CurrencyViewModel.swift in Sources */,
+				F37A54FB2C04C82F0024CCE8 /* AddCurrencyViewModel.swift in Sources */,
 				F32746442BB6B35100ECFDB7 /* CustomNavBarContainerView.swift in Sources */,
 				F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
@@ -731,10 +735,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eWallet/Preview Content\"";
-				DEVELOPMENT_TEAM = N7V5S5PJV4;
+				DEVELOPMENT_TEAM = G6F8ZTAKUJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eWallet/Info.plist;
@@ -750,6 +755,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = HabiburRahman.eWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -761,10 +767,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eWallet/Preview Content\"";
-				DEVELOPMENT_TEAM = N7V5S5PJV4;
+				DEVELOPMENT_TEAM = G6F8ZTAKUJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eWallet/Info.plist;
@@ -780,6 +787,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = HabiburRahman.eWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

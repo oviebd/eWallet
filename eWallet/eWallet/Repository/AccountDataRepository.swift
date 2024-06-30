@@ -22,13 +22,15 @@ protocol AccountDataRepoProtocol{
 struct AccountDataRepository {
    
     var accountRepo : AccountDataRepoProtocol
+    var accounts = [AccountData]()
     
     init(accountRepo: AccountDataRepoProtocol) {
         self.accountRepo = accountRepo
     }
     
-    func getAccounts() -> [AccountData] {
-       return accountRepo.getAccounts()
+    mutating func getAccounts() -> [AccountData] {
+        accounts = accountRepo.getAccounts()
+       return accounts//accountRepo.getAccounts()
     }
     
     func addAccount(account: AccountData) -> Bool {

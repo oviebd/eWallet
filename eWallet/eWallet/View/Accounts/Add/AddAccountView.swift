@@ -41,9 +41,9 @@ struct AddAccountView: View {
                                 CommonDropdownView(dropdownOptions: vm.currencyNamesList, selectedOptionIndex: $selectedIndex)
                             }else{
                                 Button{
-                                    
+                                    vm.isAddCurrencyPressed = true
                                 }label: {
-                                    Text("Add Ctegory") 
+                                    Text("Add Currency")
                                 }
                             }
                            
@@ -72,6 +72,11 @@ struct AddAccountView: View {
                 })
             }
         }
+        
+        .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
+            AddCurrencyView()
+
+        })
         
        
         .navigationBarHidden(true)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddCurrencyView: View {
     
-    @ObservedObject var vm = CurrencyViewModel()
+    @ObservedObject var vm = AddCurrencyViewModel()
     
     let topBarConfig = CommonTopBarData(title: "Add Currency", leftIconName: "chevron.left")
     
