@@ -35,6 +35,8 @@ class AddAccountVM: ObservableObject {
         getAccount()
         addCurrencySubscription()
     }
+    
+    
 
     func getAccount() {
         _ = accountRepo.getAccounts()
@@ -87,10 +89,16 @@ class AddAccountVM: ObservableObject {
     }
     
     func onCurrencyReceived(currencyDataList : [CurrencyData]){
+        
+//        if currencyDataList.count > 0 {
+//            currencyList.append(CurrencyData(title: "Add", symbol: "", icon: "", short_code: ""))
+//        }
+        
         currencyList = currencyDataList
         currencyNamesList = [String]()
 
-        for currency in currencyDataList {
+        
+        for currency in currencyList {
             currencyNamesList.append(currency.title)
         }
     }

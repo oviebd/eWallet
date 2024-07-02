@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267C9F2C33756200A1E84B /* CurrencyListView.swift */; };
+		7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */; };
+		7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA52C33799600A1E84B /* CurrencyListVM.swift */; };
 		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
@@ -72,6 +75,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B267C9F2C33756200A1E84B /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
+		7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCurrencyListItem.swift; sourceTree = "<group>"; };
+		7B267CA52C33799600A1E84B /* CurrencyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListVM.swift; sourceTree = "<group>"; };
 		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -149,6 +155,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B267C9B2C33750000A1E84B /* Add  Currency */ = {
+			isa = PBXGroup;
+			children = (
+				F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */,
+				F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */,
+			);
+			path = "Add  Currency";
+			sourceTree = "<group>";
+		};
+		7B267C9C2C33751000A1E84B /* CurrencyList */ = {
+			isa = PBXGroup;
+			children = (
+				7B267C9F2C33756200A1E84B /* CurrencyListView.swift */,
+				7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */,
+				7B267CA52C33799600A1E84B /* CurrencyListVM.swift */,
+			);
+			path = CurrencyList;
+			sourceTree = "<group>";
+		};
 		7B821F032BF79AD300D3DC76 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,8 +442,8 @@
 		F37A54F72C04BDAE0024CCE8 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */,
-				F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */,
+				7B267C9C2C33751000A1E84B /* CurrencyList */,
+				7B267C9B2C33750000A1E84B /* Add  Currency */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -546,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */,
+				7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
@@ -562,9 +588,11 @@
 				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
+				7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */,
 				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
 				F32326D02C0ACA060014498A /* DummyDataUtils.swift in Sources */,
 				F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */,
+				7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */,
 				F35A4AA82BB2BC3100345287 /* CategoryData.swift in Sources */,
 				F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */,
 				F34B45312B8CBD1100434B42 /* ContentView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @ObservedObject var vm = HomeVm()
+    @StateObject var vm = HomeVm()
  
     let topBarConfig = CommonTopBarData(title: "Home")
     
@@ -31,10 +31,14 @@ struct HomeView: View {
                 .fill(.cyan)
                 .frame(width: 200, height: 50)
             )
-            .navigationDestination(isPresented: $vm.isCreateAccountButtonPressed, destination: {
+            
+            .popover(isPresented:  $vm.isCreateAccountButtonPressed) {
                 AddAccountView()
-
-            })
+                 }
+//            .navigationDestination(isPresented: $vm.isCreateAccountButtonPressed, destination: {
+//                AddAccountView()
+//
+//            })
         }
         
         

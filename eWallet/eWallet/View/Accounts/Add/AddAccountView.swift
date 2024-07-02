@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddAccountView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var vm = AddAccountVM()
+    @StateObject var vm = AddAccountVM()
     @State var currencyName: String?
     @State var selectedIndex: Int = 0
 
@@ -17,71 +17,73 @@ struct AddAccountView: View {
 
     var body: some View {
         
-        ZStack{
-            VStack {
-                CommonTopBar(data: topBarConfig,
-                             onLeftButtonClicked: {
-                                 self.presentationMode.wrappedValue.dismiss()
-                             },
-                             onRightButtonClicked: {
-                                 vm.createAccount()
-                             })
+        NavigationStack{
+            ZStack{
+                VStack {
+                    CommonTopBar(data: topBarConfig,
+                                 onLeftButtonClicked: {
+                                     self.presentationMode.wrappedValue.dismiss()
+                                 },
+                                 onRightButtonClicked: {
+                                     vm.createAccount()
+                                 })
 
-                Form {
-                    Section {
-                        HStack {
-                            Text("Account Name - ")
-                            TextField("Enter Account Name", text: $vm.name)
-                        }
+                    Form {
+                        Section {
+                            HStack {
+                                Text("Account Name - ")
+                                    .font(.title3)
+                                TextField("Enter Account Name", text: $vm.name)
+                            }
 
-                        HStack {
-                            Text("Select Currency - ")
-
-                            if vm.currencyNamesList.count > 0{
-                                CommonDropdownView(dropdownOptions: vm.currencyNamesList, selectedOptionIndex: $selectedIndex)
-                            }else{
+                            HStack {
+                                Text("Currency ")
+                                    .font(.title3)
+                                Spacer()
+                                
                                 Button{
                                     vm.isAddCurrencyPressed = true
                                 }label: {
-                                    Text("Add Currency")
+                                    HStack{
+                                        Text("Required")
+                                        Image(systemName: "chevron.compact.right")
+                                            .resizable()
+                                            .frame(width: 8, height: 10)
+                                    }.font(.subheadline)
                                 }
+                               
                             }
-                           
-                        }
 
-                        HStack {
-                            Text("Initial Amount - ")
-                            TextField("Amount", text: $vm.initialAmount)
+                            HStack {
+                                Text("Initial Amount - ")
+                                TextField("Amount", text: $vm.initialAmount)
+                            }
                         }
                     }
                 }
+                
+                
+                if vm.showingAlert {
+                    CustomAlertView(presentAlert: $vm.showingAlert, alertData: vm.alertModel,positiveButtonAction: {
+                       
+                        if vm.isAccountCreated {
+                            vm.resetValues()
+                        }
+                        
+                    }, negativeButtonAction: {
+                        if vm.isAccountCreated {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+                }
             }
             
-            
-            if vm.showingAlert {
-                CustomAlertView(presentAlert: $vm.showingAlert, alertData: vm.alertModel,positiveButtonAction: {
-                   
-                    if vm.isAccountCreated {
-                        vm.resetValues()
-                    }
-                    
-                }, negativeButtonAction: {
-                    if vm.isAccountCreated {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                })
-            }
-        }
-        
-        .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
-            AddCurrencyView()
+            .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
+                CurrencyListView()
 
-        })
-        
-       
-        .navigationBarHidden(true)
-        
-        
+            })
+            .navigationBarHidden(true)
+        }
     }
 }
 
