@@ -10,8 +10,8 @@ import SwiftUI
 struct AddAccountView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var vm = AddAccountVM()
-    @State var currencyName: String?
-    @State var selectedIndex: Int = 0
+   
+  
 
     let topBarConfig = CommonTopBarData(title: "Add Account", leftIconName: "xmark", rightIconName: "checkmark")
 
@@ -37,7 +37,7 @@ struct AddAccountView: View {
                             }
 
                             HStack {
-                                Text("Currency ")
+                                Text("Currency - ")
                                     .font(.title3)
                                 Spacer()
                                 
@@ -45,7 +45,7 @@ struct AddAccountView: View {
                                     vm.isAddCurrencyPressed = true
                                 }label: {
                                     HStack{
-                                        Text("Required")
+                                        Text(vm.selectedCurrency?.title ?? "Required")
                                         Image(systemName: "chevron.compact.right")
                                             .resizable()
                                             .frame(width: 8, height: 10)
@@ -79,7 +79,7 @@ struct AddAccountView: View {
             }
             
             .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
-                CurrencyListView()
+                CurrencyListView(selectedCurrency: $vm.selectedCurrency)
 
             })
             .navigationBarHidden(true)

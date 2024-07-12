@@ -12,6 +12,7 @@ struct CurrencyListView: View {
     let topBarConfig = CommonTopBarData(title: "Currency List", leftIconName: "chevron.left", rightIconName: "plus.circle.fill")
 
     @StateObject var vm = CurrencyListVM()
+    @Binding var selectedCurrency : CurrencyData?
 
     var body: some View {
         VStack {
@@ -26,6 +27,10 @@ struct CurrencyListView: View {
             ScrollView{
                 ForEach(vm.currencyDatas) { item in
                     SingleCurrencyListItem(currencyData: item)
+                        .onTapGesture {
+                            selectedCurrency = item
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
                 }
             }
            
@@ -43,5 +48,5 @@ struct CurrencyListView: View {
 }
 
 #Preview {
-    CurrencyListView()
+    CurrencyListView(selectedCurrency: .constant(nil))
 }

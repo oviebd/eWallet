@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct AccountGridItemView: View {
+    
+    var accountData : AccountData
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("City Bank")
+            Text(accountData.title)
                 .foregroundStyle(Color.theme.white)
                 .font(.subheadline)
                 .fontWeight(.semibold)
 
-            Text("BDT 80,000")
+            Text(getAmountText())
                 .foregroundStyle(Color.theme.white)
                 .font(.footnote)
                 .fontWeight(.semibold)
@@ -33,8 +36,19 @@ struct AccountGridItemView: View {
         .foregroundColor(.blue)
         .shadow(color: .gray, radius: 1)
     }
+    
+    
+    func getAmountText() -> String {
+        guard let currency = accountData.currencyData else {
+            return ""
+        }
+        
+        let shortCode = currency.short_code
+        let res = "\(shortCode) \(accountData.amount)"
+        return res
+    }
 }
 
 #Preview {
-    AccountGridItemView()
+    AccountGridItemView(accountData: DummyDataUtils.dummyAccountData)
 }

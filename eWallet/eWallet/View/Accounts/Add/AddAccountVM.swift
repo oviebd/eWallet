@@ -5,44 +5,39 @@
 //  Created by Habibur Rahman on 31/5/24.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class AddAccountVM: ObservableObject {
-   
     private var accountRepo: AccountDataRepository
-    var currencyRepo : CurrencyDataRepository// CDCurrencyRepository()
+    // var currencyRepo : CurrencyDataRepository// CDCurrencyRepository()
 
     @Published var name: String = ""
     @Published var initialAmount: String = "0.0"
 
-    @Published var currencyNamesList = [String]()
-    @Published var selectedCurrencyIndex = 0
-
     @Published var alertModel = AlertDataUtils.alertDmmyDataSingleButton
     @Published var showingAlert = false
     @Published var isAccountCreated = false
-    
-    @Published var isAddCurrencyPressed : Bool = false
+
+    @Published var isAddCurrencyPressed: Bool = false
+    @Published var selectedCurrency: CurrencyData?
 
     private var cancellables = Set<AnyCancellable>()
     private var currencyList: [CurrencyData] = [CurrencyData]()
 
     init() {
         accountRepo = AccountDataRepository(accountRepo: CDAccountRepository())
-        currencyRepo = CurrencyDataRepository.shared
-        currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
-        getAccount()
-        addCurrencySubscription()
-    }
-    
-    
-
-    func getAccount() {
-        _ = accountRepo.getAccounts()
+        //  currencyRepo = CurrencyDataRepository.shared
+        // currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
+        //   getAccount()
+        //    addCurrencySubscription()
     }
 
-    
+//    func getAccount() {
+//        _ = accountRepo.getAccounts()
+//    }
+//
+//
     func createAccount() {
         let (isValid, message) = isValidForAdd()
 
@@ -52,7 +47,7 @@ class AddAccountVM: ObservableObject {
             return
         }
 
-        guard let currencyData = getSelectedCurrency() else {
+        guard let currencyData = selectedCurrency else {
             return
         }
         let amountInDouble = Double(initialAmount) ?? 0.0
@@ -72,42 +67,23 @@ class AddAccountVM: ObservableObject {
         }
     }
 
-    func getSelectedCurrency() -> CurrencyData? {
-        if selectedCurrencyIndex < currencyNamesList.count {
-            return currencyList[selectedCurrencyIndex]
-        }
-        return nil
-    }
-
     func addCurrencySubscription() {
         currencyList = [CurrencyData]()
-        
-        currencyRepo.getCurrency()
-        currencyRepo.$currencyList.sink { [weak self] currencyList in
-            self?.onCurrencyReceived(currencyDataList: currencyList)
-        }.store(in: &cancellables)
-    }
-    
-    func onCurrencyReceived(currencyDataList : [CurrencyData]){
-        
-//        if currencyDataList.count > 0 {
-//            currencyList.append(CurrencyData(title: "Add", symbol: "", icon: "", short_code: ""))
-//        }
-        
-        currencyList = currencyDataList
-        currencyNamesList = [String]()
 
-        
-        for currency in currencyList {
-            currencyNamesList.append(currency.title)
-        }
+        //    currencyRepo.getCurrency()
+//        currencyRepo.$currencyList.sink { [weak self] currencyList in
+//            self?.onCurrencyReceived(currencyDataList: currencyList)
+//        }.store(in: &cancellables)
+    }
+
+    func onCurrencyReceived(currencyDataList: [CurrencyData]) {
     }
 
     func isValidForAdd() -> (Bool, String) {
         if name.isEmpty {
             return (false, "Please input title.")
         }
-        if getSelectedCurrency() == nil {
+        if selectedCurrency == nil {
             return (false, "Please choose currency.")
         }
 
@@ -117,6 +93,5 @@ class AddAccountVM: ObservableObject {
     func resetValues() {
         name = ""
         initialAmount = "0.0"
-        selectedCurrencyIndex = 0
     }
 }
