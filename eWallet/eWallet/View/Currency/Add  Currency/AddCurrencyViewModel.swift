@@ -21,9 +21,7 @@ class AddCurrencyViewModel : ObservableObject {
     @Published var isCreated = false
     
     init() {
-        
-        currencyRepo = CurrencyDataRepository.shared
-        currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
+        currencyRepo = CurrencyDataRepository.shared(currencyRepo: CDCurrencyRepository())
     }
 
     

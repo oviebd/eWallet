@@ -7,65 +7,66 @@
 
 import Foundation
 
-
-struct CurrencyData : Hashable , Identifiable {
-    var id: String  = UUID().uuidString
+struct CurrencyData: Hashable, Identifiable {
+    var id: String = UUID().uuidString
     var title: String
     var symbol: String
     var icon: String
     var short_code: String
-    
+
     func toCurrencyEntity() -> CurrencyEntity {
         let manager = CoreDataManager.instance
-        let entity  = CurrencyEntity(context: manager.context)
-        entity.title = self.title
-        entity.symbol = self.symbol
-        entity.id = self.id
-        entity.icon = self.icon
-        entity.short_code = self.short_code
-        
+        let entity = CurrencyEntity(context: manager.context)
+        entity.title = title
+        entity.symbol = symbol
+        entity.id = id
+        entity.icon = icon
+        entity.short_code = short_code
+
         return entity
     }
 }
 
-protocol CurrencyDataRepoProtocol{
+protocol CurrencyDataRepoProtocol {
     func getCurrency() -> [CurrencyData]
     func addCurrency(currencyData: CurrencyData) -> Bool
-    func getCurrencyEntityFromID(id : String) -> CurrencyEntity?
+    func getCurrencyEntityFromID(id: String) -> CurrencyEntity?
 }
 
 class CurrencyDataRepository {
-   
-    var currencyRepo : CurrencyDataRepoProtocol?
+    private static var sharedInstance: CurrencyDataRepository!
+
+    var currencyRepo: CurrencyDataRepoProtocol
     @Published var currencyList = [CurrencyData]()
-   
-    static let shared = CurrencyDataRepository()
-    
-    private init() {
-        //self.currencyRepo = currencyRepo
-    }
-    
-    func setProtocol(currencyRepo: CurrencyDataRepoProtocol){
+
+    private init(currencyRepo: CurrencyDataRepoProtocol) {
         self.currencyRepo = currencyRepo
     }
-    
-    
-    func getCurrency() -> [CurrencyData] {
-        currencyList = currencyRepo?.getCurrency() ?? [CurrencyData]()
-       return currencyList//accountRepo.getAccounts()
+
+    static func shared(currencyRepo: CurrencyDataRepoProtocol) -> CurrencyDataRepository {
+        if sharedInstance == nil {
+            sharedInstance = CurrencyDataRepository(currencyRepo: currencyRepo)
+        } else {
+            sharedInstance.currencyRepo = currencyRepo
+        }
+
+        return sharedInstance
     }
-    
-    func addCurrency(currencyData : CurrencyData) -> Bool {
-        let isSuccess = currencyRepo?.addCurrency(currencyData: currencyData) ?? false
-        if isSuccess{
-            getCurrency()
+
+    func getCurrency() -> [CurrencyData] {
+        currencyList = currencyRepo.getCurrency()
+        return currencyList
+    }
+
+    func addCurrency(currencyData: CurrencyData) -> Bool {
+        let isSuccess = currencyRepo.addCurrency(currencyData: currencyData)
+        if isSuccess {
+            let _ = getCurrency()
         }
         return isSuccess
     }
-    
-    func getCurrencyEntityFromId(id : String) -> CurrencyEntity? {
-        return currencyRepo?.getCurrencyEntityFromID(id: id)
-    }
-    
-}
 
+    func getCurrencyEntityFromId(id: String) -> CurrencyEntity? {
+        return currencyRepo.getCurrencyEntityFromID(id: id)
+    }
+}

@@ -11,7 +11,7 @@ import Combine
 class CurrencyListVM : ObservableObject {
     
 
-    let currencyRepo = CurrencyDataRepository.shared
+    let currencyRepo : CurrencyDataRepository
     @Published var currencyDatas = [CurrencyData]()
     @Published var isAddCurrencyPressed : Bool = false
     
@@ -19,13 +19,13 @@ class CurrencyListVM : ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
+        currencyRepo = CurrencyDataRepository.shared(currencyRepo: CDCurrencyRepository())
         initCurrencySubscription()
     }
     
-    deinit {
-        cancellables.removeAll()
-    }
+//    deinit {
+//        cancellables.removeAll()
+//    }
     
     func initCurrencySubscription(){
         let _ = currencyRepo.getCurrency()
