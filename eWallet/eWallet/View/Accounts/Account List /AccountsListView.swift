@@ -18,7 +18,7 @@ struct AccountsListView: View {
     var onButtonPressed : ((AccountsListViewButtonTypeEnum) -> Void)
    
     @StateObject private var vm = AccountListVM()
-    var data = Array(1 ... 3)
+  //  var data = Array(1 ... 3)
   
     private let fixedColumn = [
         GridItem(.flexible(), spacing: 5),

@@ -31,6 +31,7 @@ struct CurrencyData : Hashable , Identifiable {
 protocol CurrencyDataRepoProtocol{
     func getCurrency() -> [CurrencyData]
     func addCurrency(currencyData: CurrencyData) -> Bool
+    func getCurrencyEntityFromID(id : String) -> CurrencyEntity?
 }
 
 class CurrencyDataRepository {
@@ -60,6 +61,10 @@ class CurrencyDataRepository {
             getCurrency()
         }
         return isSuccess
+    }
+    
+    func getCurrencyEntityFromId(id : String) -> CurrencyEntity? {
+        return currencyRepo?.getCurrencyEntityFromID(id: id)
     }
     
 }

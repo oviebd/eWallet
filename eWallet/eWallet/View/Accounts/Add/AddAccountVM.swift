@@ -66,6 +66,8 @@ class AddAccountVM: ObservableObject {
             showingAlert = true
         }
     }
+    
+    
 
     func addCurrencySubscription() {
         currencyList = [CurrencyData]()

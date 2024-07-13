@@ -35,28 +35,31 @@ extension CurrencyEntity {
 }
 
 struct CDCurrencyRepository : CurrencyDataRepoProtocol {
-    
-    
+
     let manager = CoreDataManager.instance
+    
+    private func getCurrencyEntityList() -> [CurrencyEntity] {
+        let request = NSFetchRequest<CurrencyEntity>(entityName: Constants.CORE_DATA.CurrencyEntity)
+        do {
+            let currencyDatas = try manager.context.fetch(request)
+            
+           return currencyDatas
+            
+        } catch {
+            print("Error Fetching.. \(error.localizedDescription)")
+        }
+        return  [CurrencyEntity]()
+    }
     
     func getCurrency() -> [CurrencyData] {
         
         var currency = [CurrencyData]()
         
-        let request = NSFetchRequest<CurrencyEntity>(entityName: Constants.CORE_DATA.CurrencyEntity)
-        do {
-            let currencyDatas = try manager.context.fetch(request)
-            
-            for currencies in currencyDatas {
-                let a = currencies.convertToCurrencyData()
-                print( "U>> Currency \(a.title)")
-                currency.append(a)
-            }
-            
-        } catch {
-            print("Error Fetching.. \(error.localizedDescription)")
+        for currencies in getCurrencyEntityList() {
+            let a = currencies.convertToCurrencyData()
+            print( "U>> Currency \(a.title)")
+            currency.append(a)
         }
-        
         return currency
     }
     
@@ -69,24 +72,22 @@ struct CDCurrencyRepository : CurrencyDataRepoProtocol {
         newCurrency.short_code = currencyData.short_code
         // print("U>> Color Code \(category.color.toHex())")
 
-      
         return save()
     }
     
+    func getCurrencyEntityFromID(id: String) -> CurrencyEntity? {
+        
+        let currencyList = getCurrencyEntityList()
+        
+        for currency in currencyList {
+            if currency.id == id{
+                return currency
+            }
+        }
+        return nil
+    }
     
-//    func addCurrency(currency: CurrencyData) {
-//        let newCurrency  = CurrencyEntity(context: manager.context)
-//        newCurrency.title = currency.title
-//        newCurrency.symbol = currency.symbol
-//        newCurrency.id = currency.id
-//        newCurrency.icon = currency.icon
-//        newCurrency.short_code = currency.short_code
-//        
-//       
-//        // print("U>> Color Code \(category.color.toHex())")
-//
-//        save()
-//    }
+    
     
     func save() -> Bool {
         return self.manager.save()

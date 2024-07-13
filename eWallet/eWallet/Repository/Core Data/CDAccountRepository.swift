@@ -19,6 +19,8 @@ extension AccountEntity {
 struct CDAccountRepository: AccountDataRepoProtocol {
     let manager = CoreDataManager.instance
 
+    let currencyRepo = CurrencyDataRepository.shared
+
     func getAccounts() -> [AccountData] {
         var accounts = [AccountData]()
 
@@ -28,8 +30,8 @@ struct CDAccountRepository: AccountDataRepoProtocol {
 
             for account in accountsDatas {
                 let a = account.convertToAccountData()
-                print(a.title)
-                print(a.amount)
+//                print(a.title)
+//                print(a.amount)
                 accounts.append(a)
             }
 
@@ -45,10 +47,10 @@ struct CDAccountRepository: AccountDataRepoProtocol {
         newAccount.title = account.title
         newAccount.amount = account.amount
         newAccount.id = account.id
-        newAccount.currency = account.currencyData?.toCurrencyEntity()
-        // newAccount.colorCode = account.color.toHex()
-
-        // print("U>> Color Code \(category.color.toHex())")
+       
+        currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
+        newAccount.currency =  currencyRepo.getCurrencyEntityFromId(id: account.currencyData?.id ?? "")//account.currencyData?.toCurrencyEntity()
+        
 
         return  manager.save()
     }

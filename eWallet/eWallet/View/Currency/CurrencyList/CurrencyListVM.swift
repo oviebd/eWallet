@@ -20,18 +20,18 @@ class CurrencyListVM : ObservableObject {
     
     init() {
         currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
-        getCurrenctData()
-        //initCurrencySubscription()
+        initCurrencySubscription()
     }
     
-//    func initCurrencySubscription(){
-//        currencyRepo.$currencyList.sink { [weak self] currencyList in
-//           self?.currencyDatas = currencyList
-//        }.store(in: &cancellables)
-//    }
+    deinit {
+        cancellables.removeAll()
+    }
     
-    func getCurrenctData(){
-        currencyDatas = currencyRepo.getCurrency()
+    func initCurrencySubscription(){
+        let _ = currencyRepo.getCurrency()
+        currencyRepo.$currencyList.sink { [weak self] currencyList in
+           self?.currencyDatas = currencyList
+        }.store(in: &cancellables)
     }
     
 }
