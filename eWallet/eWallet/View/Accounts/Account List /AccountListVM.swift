@@ -6,19 +6,29 @@
 //
 
 import Foundation
+import Combine
 
 class AccountListVM : ObservableObject {
     
     private var accountRepo: AccountDataRepository
     @Published var accountList : [AccountData] = [AccountData]()
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        accountRepo = AccountDataRepository(accountRepo: CDAccountRepository())
-        getAccounts()
+        accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
+       
+        initAccountSubscription()
     }
-    
-    func getAccounts(){
-        accountList = accountRepo.getAccounts()
+
+
+
+    func initAccountSubscription(){
+        let _ = accountRepo.getAccounts()
+        accountRepo.$accountList.sink { [weak self] accountList in
+           self?.accountList = accountList
+        }.store(in: &cancellables)
     }
-    
+    deinit {
+        cancellables.removeAll()
+    }
 }

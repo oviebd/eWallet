@@ -18,7 +18,7 @@ struct AccountsListView: View {
     var onButtonPressed : ((AccountsListViewButtonTypeEnum) -> Void)
    
     @StateObject private var vm = AccountListVM()
-  //  var data = Array(1 ... 3)
+ 
   
     private let fixedColumn = [
         GridItem(.flexible(), spacing: 5),
@@ -31,17 +31,12 @@ struct AccountsListView: View {
         VStack {
             topTitleView
 
-            
-            
             LazyVGrid(columns: fixedColumn, spacing: 10) {
                 
                 ForEach(vm.accountList) { item in
                     AccountGridItemView(accountData: item)
                 }
                 
-//                ForEach(data, id: \.self) { _ in
-//                    AccountGridItemView()
-//                }
             }
             
             HStack {

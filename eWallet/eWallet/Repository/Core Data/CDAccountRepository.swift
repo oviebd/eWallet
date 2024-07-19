@@ -30,8 +30,6 @@ struct CDAccountRepository: AccountDataRepoProtocol {
 
             for account in accountsDatas {
                 let a = account.convertToAccountData()
-//                print(a.title)
-//                print(a.amount)
                 accounts.append(a)
             }
 

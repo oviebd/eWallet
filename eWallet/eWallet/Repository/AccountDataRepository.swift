@@ -7,34 +7,69 @@
 
 import Foundation
 
-struct AccountData : Hashable , Identifiable{
-    var id: String  = UUID().uuidString
+
+//struct CurrencyData: Hashable, Identifiable {
+//    var id: String = UUID().uuidString
+//    var title: String
+//    var symbol: String
+//    var icon: String
+//    var short_code: String
+//
+//    func toCurrencyEntity() -> CurrencyEntity {
+//        let manager = CoreDataManager.instance
+//        let entity = CurrencyEntity(context: manager.context)
+//        entity.title = title
+//        entity.symbol = symbol
+//        entity.id = id
+//        entity.icon = icon
+//        entity.short_code = short_code
+//
+//        return entity
+//    }
+//}
+
+struct AccountData: Hashable, Identifiable {
+    var id: String = UUID().uuidString
     var title: String
-    var currencyData : CurrencyData?
+    var currencyData: CurrencyData?
     var amount: Double
 }
 
-protocol AccountDataRepoProtocol{
-    func getAccounts() -> [AccountData] 
+protocol AccountDataRepoProtocol {
+    func getAccounts() -> [AccountData]
     func addAccount(account: AccountData) -> Bool
 }
 
-struct AccountDataRepository {
-   
-    var accountRepo : AccountDataRepoProtocol
-    var accounts = [AccountData]()
-    
-    init(accountRepo: AccountDataRepoProtocol) {
+class AccountDataRepository {
+    private static var sharedInstance: AccountDataRepository!
+
+    var accountRepo: AccountDataRepoProtocol
+    @Published var accountList = [AccountData]()
+
+    private init(accountRepo: AccountDataRepoProtocol) {
         self.accountRepo = accountRepo
     }
-    
-    mutating func getAccounts() -> [AccountData] {
-        accounts = accountRepo.getAccounts()
-       return accounts//accountRepo.getAccounts()
+
+    static func shared(accountRepo: AccountDataRepoProtocol) -> AccountDataRepository {
+        if sharedInstance == nil {
+            sharedInstance = AccountDataRepository(accountRepo: accountRepo)
+        } else {
+            sharedInstance.accountRepo = accountRepo
+        }
+
+        return sharedInstance
     }
-    
+
+    func getAccounts() -> [AccountData] {
+        accountList = accountRepo.getAccounts()
+        return accountList // accountRepo.getAccounts()
+    }
+
     func addAccount(account: AccountData) -> Bool {
-        return accountRepo.addAccount(account: account)
+        let isSuccess = accountRepo.addAccount(account: account)
+        if isSuccess {
+            let _ = getAccounts()
+        }
+        return isSuccess
     }
-    
 }

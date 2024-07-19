@@ -10,7 +10,6 @@ import Foundation
 
 class AddAccountVM: ObservableObject {
     private var accountRepo: AccountDataRepository
-    // var currencyRepo : CurrencyDataRepository// CDCurrencyRepository()
 
     @Published var name: String = ""
     @Published var initialAmount: String = "0.0"
@@ -26,7 +25,7 @@ class AddAccountVM: ObservableObject {
     private var currencyList: [CurrencyData] = [CurrencyData]()
 
     init() {
-        accountRepo = AccountDataRepository(accountRepo: CDAccountRepository())
+        accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
         //  currencyRepo = CurrencyDataRepository.shared
         // currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
         //   getAccount()
@@ -67,19 +66,6 @@ class AddAccountVM: ObservableObject {
         }
     }
     
-    
-
-    func addCurrencySubscription() {
-        currencyList = [CurrencyData]()
-
-        //    currencyRepo.getCurrency()
-//        currencyRepo.$currencyList.sink { [weak self] currencyList in
-//            self?.onCurrencyReceived(currencyDataList: currencyList)
-//        }.store(in: &cancellables)
-    }
-
-    func onCurrencyReceived(currencyDataList: [CurrencyData]) {
-    }
 
     func isValidForAdd() -> (Bool, String) {
         if name.isEmpty {
