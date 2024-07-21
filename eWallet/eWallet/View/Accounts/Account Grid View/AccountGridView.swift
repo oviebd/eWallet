@@ -13,49 +13,42 @@ public enum AccountsListViewButtonTypeEnum {
     case Records
 }
 
-struct AccountsListView: View {
-  
-    var onButtonPressed : ((AccountsListViewButtonTypeEnum) -> Void)
-   
-    @StateObject private var vm = AccountListVM()
- 
-  
+struct AccountGridView: View {
+    var onButtonPressed: (AccountsListViewButtonTypeEnum) -> Void
+
+    @StateObject private var vm = AccountGridVM()
+
     private let fixedColumn = [
         GridItem(.flexible(), spacing: 5),
         GridItem(.flexible(), spacing: 5),
     ]
-    
-   
 
     var body: some View {
         VStack {
             topTitleView
-
-            LazyVGrid(columns: fixedColumn, spacing: 10) {
-                
-                ForEach(vm.accountList) { item in
-                    AccountGridItemView(accountData: item)
+            ScrollView {
+                LazyVGrid(columns: fixedColumn, spacing: 10) {
+                    ForEach(vm.accountList) { item in
+                        AccountGridItemView(accountData: item)
+                    }
                 }
-                
+
             }
-            
+
             HStack {
                 accountDetailsBtn
 
                 Spacer()
 
                 recordsBtn
-            }.padding(.top,20)
-            
+            }.padding(.top, 20)
+
         }.padding(10)
 
-       
-        
-        Spacer()
     }
 }
 
-extension AccountsListView {
+extension AccountGridView {
     var topTitleView: some View {
         HStack {
             Text("List of accounts")
@@ -64,20 +57,7 @@ extension AccountsListView {
                 .fontWeight(.semibold)
 
             Spacer()
-            
-//            CustomNavLink(destination: AddAccountFormView()) {
-//                Image(systemName: "plus")
-//                    .resizable()
-//                    .frame(width: 20, height: 20)
-//                    .padding(.all, 10)
-//                    .background(
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .fill(Color.white)
-//                    )
-//                    .foregroundColor(.blue)
-//                    .shadow(color: .gray, radius: 1)
-//            }
-            
+
             Button {
                 onButtonPressed(.AddAccount)
             } label: {
@@ -135,7 +115,7 @@ extension AccountsListView {
 }
 
 #Preview {
-   AccountsListView( onButtonPressed: {
-       type in
-   })
+    AccountGridView(onButtonPressed: {
+        _ in
+    })
 }

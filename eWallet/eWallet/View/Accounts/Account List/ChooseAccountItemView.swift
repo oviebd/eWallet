@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ChooseAccountItemView: View {
+    
+    var accountData : AccountData
+    
     var body: some View {
         HStack(spacing: 15) {
             iconView
@@ -21,7 +24,7 @@ struct ChooseAccountItemView: View {
 }
 
 #Preview {
-    ChooseAccountItemView()
+    ChooseAccountItemView(accountData: DummyDataUtils.dummyAccountData)
 }
 
 extension ChooseAccountItemView {
@@ -30,7 +33,7 @@ extension ChooseAccountItemView {
             Image(systemName: "wallet.pass.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 20, height: 20)
+                .frame(width: 15, height: 15)
                 .padding(15)
 
         }.foregroundStyle(Color.white)
@@ -42,16 +45,12 @@ extension ChooseAccountItemView {
 
     var rightView: some View {
         VStack(alignment: .leading) {
-            Text("City Bank")
-                .font(.system(size: 20))
+            Text(accountData.title)
+                .font(.system(size: 16))
                 .foregroundStyle(Color.theme.secondaryText.opacity(0.8))
                 .fontWeight(.semibold)
                 .lineLimit(1)
-            Text("Cash")
-                .font(.system(size: 15))
-                .foregroundStyle(Color.theme.secondaryText.opacity(0.5))
-                .fontWeight(.semibold)
-                .lineLimit(1)
+        
         }
     }
 }

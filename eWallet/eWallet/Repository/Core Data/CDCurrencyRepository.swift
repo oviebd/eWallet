@@ -8,25 +8,6 @@
 import Foundation
 import CoreData
 
-//struct CurrencyData : Hashable , Identifiable {
-//    var id: String  = UUID().uuidString
-//    var title: String
-//    var symbol: String
-//    var icon: String
-//    var short_code: String
-//    
-//    func toCurrencyEntity() -> CurrencyEntity {
-//        let manager = CoreDataManager.instance
-//        let entity  = CurrencyEntity(context: manager.context)
-//        entity.title = self.title
-//        entity.symbol = self.symbol
-//        entity.id = self.id
-//        entity.icon = self.icon
-//        entity.short_code = self.short_code
-//        
-//        return entity
-//    }
-//}
 
 extension CurrencyEntity {
     func convertToCurrencyData() -> CurrencyData {

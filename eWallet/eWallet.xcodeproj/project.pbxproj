@@ -10,16 +10,20 @@
 		7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267C9F2C33756200A1E84B /* CurrencyListView.swift */; };
 		7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */; };
 		7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA52C33799600A1E84B /* CurrencyListVM.swift */; };
-		7B28D0562C41993D00A84142 /* AccountListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B28D0552C41993D00A84142 /* AccountListVM.swift */; };
+		7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B28D0552C41993D00A84142 /* AccountGridVM.swift */; };
 		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
 		7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0A2BF79E2200D3DC76 /* Constants.swift */; };
 		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
+		7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */; };
+		7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA09A302C49FADA0047575C /* CreateRecordVM.swift */; };
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
-		7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */; };
+		7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
 		7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */; };
+		7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0D26F2C4C883E00A34A5A /* AccountListVM.swift */; };
+		7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0D2712C4C8CA900A34A5A /* CategoryDataRepository.swift */; };
 		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
 		F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B412C0A1351000DF53C /* AccountDataRepository.swift */; };
 		F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B452C0A14DD000DF53C /* AddAccountVM.swift */; };
@@ -45,7 +49,7 @@
 		F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45482B8CCDE300434B42 /* UIApplication.swift */; };
 		F34B454F2B8CCDE300434B42 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45492B8CCDE300434B42 /* Color.swift */; };
 		F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45522B8CED7A00434B42 /* HomeView.swift */; };
-		F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45562B8CEDE800434B42 /* AccountsListView.swift */; };
+		F34B45572B8CEDE800434B42 /* AccountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45562B8CEDE800434B42 /* AccountGridView.swift */; };
 		F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */; };
 		F35A4AA82BB2BC3100345287 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A4AA72BB2BC3100345287 /* CategoryData.swift */; };
 		F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */; };
@@ -62,8 +66,6 @@
 		F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3963E5A2C0AD45C009DA266 /* AlertData.swift */; };
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
 		F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */; };
-		F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */; };
-		F3A0A0D02BB0F26800007ADB /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */; };
 		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
 		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
@@ -79,16 +81,20 @@
 		7B267C9F2C33756200A1E84B /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCurrencyListItem.swift; sourceTree = "<group>"; };
 		7B267CA52C33799600A1E84B /* CurrencyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListVM.swift; sourceTree = "<group>"; };
-		7B28D0552C41993D00A84142 /* AccountListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVM.swift; sourceTree = "<group>"; };
+		7B28D0552C41993D00A84142 /* AccountGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridVM.swift; sourceTree = "<group>"; };
 		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7B821F0A2BF79E2200D3DC76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
+		7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsVM.swift; sourceTree = "<group>"; };
+		7BA09A302C49FADA0047575C /* CreateRecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordVM.swift; sourceTree = "<group>"; };
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
-		7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountView.swift; sourceTree = "<group>"; };
+		7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
 		7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDataRepository.swift; sourceTree = "<group>"; };
+		7BF0D26F2C4C883E00A34A5A /* AccountListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVM.swift; sourceTree = "<group>"; };
+		7BF0D2712C4C8CA900A34A5A /* CategoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataRepository.swift; sourceTree = "<group>"; };
 		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		F3153B412C0A1351000DF53C /* AccountDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataRepository.swift; sourceTree = "<group>"; };
 		F3153B452C0A14DD000DF53C /* AddAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVM.swift; sourceTree = "<group>"; };
@@ -115,7 +121,7 @@
 		F34B45482B8CCDE300434B42 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F34B45492B8CCDE300434B42 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F34B45522B8CED7A00434B42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F34B45562B8CEDE800434B42 /* AccountsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListView.swift; sourceTree = "<group>"; };
+		F34B45562B8CEDE800434B42 /* AccountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridView.swift; sourceTree = "<group>"; };
 		F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridItemView.swift; sourceTree = "<group>"; };
 		F35A4AA72BB2BC3100345287 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordMainView.swift; sourceTree = "<group>"; };
@@ -133,8 +139,6 @@
 		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
 		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F3A0A0CB2BB0F20D00007ADB /* SingleCircleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCircleItem.swift; sourceTree = "<group>"; };
-		F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCatagoryItem.swift; sourceTree = "<group>"; };
-		F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
 		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
@@ -176,13 +180,13 @@
 			path = CurrencyList;
 			sourceTree = "<group>";
 		};
-		7B28D0542C41992200A84142 /* Account List  */ = {
+		7B28D0542C41992200A84142 /* Account Grid View */ = {
 			isa = PBXGroup;
 			children = (
-				F34B45562B8CEDE800434B42 /* AccountsListView.swift */,
-				7B28D0552C41993D00A84142 /* AccountListVM.swift */,
+				F34B45562B8CEDE800434B42 /* AccountGridView.swift */,
+				7B28D0552C41993D00A84142 /* AccountGridVM.swift */,
 			);
-			path = "Account List ";
+			path = "Account Grid View";
 			sourceTree = "<group>";
 		};
 		7B821F032BF79AD300D3DC76 /* Core Data */ = {
@@ -207,28 +211,36 @@
 				F3153B402C0A12FE000DF53C /* Core Data */,
 				F3153B412C0A1351000DF53C /* AccountDataRepository.swift */,
 				7BC3C67D2C31195100E5B6E0 /* CurrencyDataRepository.swift */,
+				7BF0D2712C4C8CA900A34A5A /* CategoryDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		7BBBC79B2BB02FB400B417E0 /* Choose Account */ = {
+		7BBBC79B2BB02FB400B417E0 /* Account List */ = {
 			isa = PBXGroup;
 			children = (
-				7BBBC79C2BB02FED00B417E0 /* ChooseAccountView.swift */,
+				7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */,
 				7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */,
+				7BF0D26F2C4C883E00A34A5A /* AccountListVM.swift */,
 			);
-			path = "Choose Account";
+			path = "Account List";
 			sourceTree = "<group>";
 		};
-		F30060FD2BB52964009C7D64 /* Select category */ = {
+		7BF0D2732C4C930100A34A5A /* Select category  */ = {
 			isa = PBXGroup;
 			children = (
-				F3A0A0CD2BB0F25300007ADB /* RecentCatagoryItem.swift */,
-				F3A0A0CF2BB0F26800007ADB /* CategoryListView.swift */,
 				F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */,
+			);
+			path = "Select category ";
+			sourceTree = "<group>";
+		};
+		F30060FD2BB52964009C7D64 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7BF0D2732C4C930100A34A5A /* Select category  */,
 				7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */,
 			);
-			path = "Select category";
+			path = Category;
 			sourceTree = "<group>";
 		};
 		F3033C902BB5C88300ECBA71 /* CommonToolBar */ = {
@@ -376,7 +388,7 @@
 				F34B45512B8CED6800434B42 /* Home */,
 				F3835D462BF2108D00D78E6B /* Record List View */,
 				F324F4FE2BB98AE8002B5AAE /* Test */,
-				F30060FD2BB52964009C7D64 /* Select category */,
+				F30060FD2BB52964009C7D64 /* Category */,
 				F39A6D9F2BABF4410006E60E /* WebView */,
 				F366D80D2BAA645F00224835 /* Custom Segmented Picker */,
 				F366D8092BAA5A6D00224835 /* Create Record */,
@@ -410,7 +422,8 @@
 		F34B45552B8CEDDA00434B42 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				7B28D0542C41992200A84142 /* Account List  */,
+				7BBBC79B2BB02FB400B417E0 /* Account List */,
+				7B28D0542C41992200A84142 /* Account Grid View */,
 				F32326C92C0ABBAB0014498A /* Add */,
 				F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */,
 				F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */,
@@ -432,9 +445,9 @@
 			isa = PBXGroup;
 			children = (
 				F38FFE902BB39ACD0001DA36 /* Add Record Details View */,
-				7BBBC79B2BB02FB400B417E0 /* Choose Account */,
 				F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */,
 				F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */,
+				7BA09A302C49FADA0047575C /* CreateRecordVM.swift */,
 			);
 			path = "Create Record";
 			sourceTree = "<group>";
@@ -474,6 +487,7 @@
 			children = (
 				F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */,
 				F38FFE932BB39ECC0001DA36 /* DropDownView.swift */,
+				7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */,
 			);
 			path = "Add Record Details View";
 			sourceTree = "<group>";
@@ -593,14 +607,15 @@
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
-				F3A0A0D02BB0F26800007ADB /* CategoryListView.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
+				7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */,
+				7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */,
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
 				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
-				F34B45572B8CEDE800434B42 /* AccountsListView.swift in Sources */,
+				F34B45572B8CEDE800434B42 /* AccountGridView.swift in Sources */,
 				7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */,
-				7BBBC79D2BB02FED00B417E0 /* ChooseAccountView.swift in Sources */,
+				7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */,
 				F32326D02C0ACA060014498A /* DummyDataUtils.swift in Sources */,
 				F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */,
 				7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */,
@@ -615,7 +630,6 @@
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
 				F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */,
 				F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */,
-				F3A0A0CE2BB0F25300007ADB /* RecentCatagoryItem.swift in Sources */,
 				F3FCBA312C09BF9800576B7C /* CommonDropdownView.swift in Sources */,
 				F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */,
 				F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */,
@@ -629,6 +643,7 @@
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
 				F343EB0B2BB8145500D356E9 /* DataUtility.swift in Sources */,
+				7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
@@ -637,9 +652,10 @@
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
 				7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */,
+				7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */,
 				F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */,
 				F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */,
-				7B28D0562C41993D00A84142 /* AccountListVM.swift in Sources */,
+				7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */,
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,

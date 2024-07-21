@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct CreateRecordMainView: View {
-    @State private var favoriteColor = "Red"
-    @State private var amountInput = "0"
-
-    @State var isAccountTypePressed = false
-    @State var shouldShowSelectAccountView = false
-
-    @State var isSelectCategoryPressed = false
-    @State var shouldShowSelectCategoryView = false
     
-    @State var isDetailsBtnPressed = false
-    @State var shouldShowDetailsView = false
+    @Environment(\.presentationMode) var presentationMode
 
-    var navigations = ["selectAccount"]
-
+    @StateObject var vm  = CreateRecordVM()
+    
     var body: some View {
+        
         ZStack {
             VStack(spacing: 0) {
                 headerView
@@ -40,36 +32,22 @@ struct CreateRecordMainView: View {
                     .frame(height: 250)
                     .background(Color.theme.normalBlue)
 
-                CalculatorView(calculatedValue: $amountInput)
+                CalculatorView(calculatedValue: $vm.amountInput)
 
                 Spacer()
             }
-            .zIndex(1.0)
+        }
+        .navigationBarHidden(true)
 
-            if shouldShowSelectAccountView {
-                chooseAccountView
-            }
-
-            if shouldShowSelectCategoryView {
-                chooseCategoryView
-            }
-            
-            if shouldShowDetailsView {
-                detailsView
-            }
-
-        }.onChange(of: isAccountTypePressed, initial: false, {
-            shouldShowSelectAccountView = isAccountTypePressed
-        })
-        .onChange(of: isSelectCategoryPressed, initial: false, {
-            shouldShowSelectCategoryView = isSelectCategoryPressed
-        })
-        .onChange(of: isDetailsBtnPressed, initial: false, {
-            shouldShowDetailsView = isDetailsBtnPressed
-        })
-        .animation(.easeInOut(duration: 0.3), value: shouldShowSelectAccountView)
-        .animation(.easeInOut(duration: 0.3), value: shouldShowSelectCategoryView)
-        .animation(.easeInOut(duration: 0.3), value: shouldShowDetailsView)
+        .popover(isPresented: $vm.isSelectCategoryPressed) {
+            SelectCatagoryView(selectedCategory: $vm.selectedCategoryData)
+        }
+        .popover(isPresented: $vm.isAccountTypePressed) {
+            AccountListView(selectedAccountData: $vm.selectedAccountData, isPopupView: true)
+        }
+        .popover(isPresented: $vm.isDetailsBtnPressed) {
+            AddRecordDetailsView()
+        }
     }
 }
 
@@ -81,6 +59,7 @@ extension CreateRecordMainView {
     var headerView: some View {
         HStack {
             Button {
+                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "xmark")
             }.padding(.leading, 20)
@@ -109,12 +88,12 @@ extension CreateRecordMainView {
             HStack {
                 accountTypeView
                     .onTapGesture {
-                        isAccountTypePressed = true
+                        vm.isAccountTypePressed = true
                     }
                 Spacer()
                 categoryTypeView
                     .onTapGesture {
-                        isSelectCategoryPressed = true
+                        vm.isSelectCategoryPressed = true
                     }
             }
             .padding(.horizontal, 20)
@@ -130,7 +109,7 @@ extension CreateRecordMainView {
 
             Spacer()
 
-            TextField("0", text: $amountInput)
+            TextField("0", text: $vm.amountInput)
                 .multilineTextAlignment(.trailing)
                 .font(.system(size: 70))
                 .minimumScaleFactor(0.01)
@@ -141,18 +120,17 @@ extension CreateRecordMainView {
                 .offset(x: 0, y: -10)
                 .padding(.leading, 10)
                 .fontWeight(.medium)
-                .padding(.trailing,10)
-            
-            Button{
-                isDetailsBtnPressed = true
-            }label: {
+                .padding(.trailing, 10)
+
+            Button {
+                vm.isDetailsBtnPressed = true
+            } label: {
                 Text(">")
-                    .padding(.vertical,15)
-                    .padding(.horizontal,10)
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 10)
                     .background(RoundedRectangle(cornerRadius: 10.0, style: .continuous).fill(Color.white))
                     .foregroundStyle(Color.black)
-                    
-            }
+            }.padding(.trailing,10)
 
         }.foregroundColor(Color.theme.primaryText)
     }
@@ -161,43 +139,23 @@ extension CreateRecordMainView {
         VStack {
             Text("Account")
                 .foregroundStyle(Color.theme.white.opacity(0.5))
-                .font(.system(size: 15))
-            Text("Pocket Money")
+                .font(.system(size: 12))
+            Text(vm.selectedAccountData?.title ?? "Select")
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
-        }
+        }.frame(alignment: .center)
     }
 
     var categoryTypeView: some View {
         VStack {
             Text("Category")
                 .foregroundStyle(Color.theme.white.opacity(0.5))
-                .font(.system(size: 15))
-            Text("Charge, Fees")
+                .font(.system(size: 12))
+            Text(vm.selectedCategoryData?.title ?? "Select")
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
-        }
-    }
-}
-
-extension CreateRecordMainView {
-    var chooseAccountView: some View {
-        ChooseAccountView(isViewShowing: $isAccountTypePressed)
-            .zIndex(2.0)
-            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
-    }
-
-    var chooseCategoryView: some View {
-        SelectCatagoryView(isViewShowing: $isSelectCategoryPressed)
-            .zIndex(2.0)
-            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
-    }
-    
-    var detailsView: some View {
-        AddRecordDetailsView(isViewShowing: $isDetailsBtnPressed)//(isViewShowing: $isSelectCategoryPressed)
-            .zIndex(2.0)
-            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .leading)))
+        }.frame(alignment: .center)
     }
 }

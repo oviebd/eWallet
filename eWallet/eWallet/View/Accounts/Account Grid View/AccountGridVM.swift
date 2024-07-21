@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class AccountListVM : ObservableObject {
+class AccountGridVM : ObservableObject {
     
     private var accountRepo: AccountDataRepository
     @Published var accountList : [AccountData] = [AccountData]()
@@ -25,7 +25,10 @@ class AccountListVM : ObservableObject {
     func initAccountSubscription(){
         let _ = accountRepo.getAccounts()
         accountRepo.$accountList.sink { [weak self] accountList in
-           self?.accountList = accountList
+            DispatchQueue.main.async {
+                self?.accountList = accountList
+            }
+          
         }.store(in: &cancellables)
     }
     deinit {

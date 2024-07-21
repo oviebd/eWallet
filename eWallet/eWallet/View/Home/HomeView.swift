@@ -8,49 +8,61 @@
 import SwiftUI
 
 struct HomeView: View {
-
     @StateObject var vm = HomeVm()
- 
+
     let topBarConfig = CommonTopBarData(title: "Home")
-    
+
     var body: some View {
-        
         NavigationStack {
-            ZStack(alignment: .top) {
+            ZStack(alignment: .bottom) {
                 VStack {
-                    
                     CommonTopBar(data: topBarConfig)
+                       
+
+                    AccountGridView { buttonType in
+                        vm.onAccountListButtonPressed(buttonType: buttonType)
+                    }.frame(height: 300)
+                        .padding(.top,20)
                     
-                    AccountsListView { buttonType in
-                    vm.onAccountListButtonPressed(buttonType: buttonType)
-                    }
+                    
                     Spacer()
                 }
+                floatingAddRecordButton
+            }
 
-            }.background(RoundedRectangle(cornerRadius: 15)
-                .fill(.cyan)
-                .frame(width: 200, height: 50)
-            )
-            
-            .popover(isPresented:  $vm.isCreateAccountButtonPressed) {
-                AddAccountView()
-                 }
-//            .navigationDestination(isPresented: $vm.isCreateAccountButtonPressed, destination: {
-//                AddAccountView()
-//
-//            })
+            .popover(isPresented: $vm.isCreateAccountButtonPressed) {
+                AddAccountView(includeNavigationStack: true)
+            }
+            .navigationDestination(isPresented: $vm.isCreateRecordButtonPressed, destination: {
+                CreateRecordMainView()
+
+            })
         }
-        
-        
-        
-        //.background(Color.white)
-
-        // Spacer()
     }
-    
-        
 }
 
 #Preview {
     HomeView()
+}
+
+extension HomeView {
+    var floatingAddRecordButton : some View {
+        HStack {
+            Spacer()
+            Button {
+                vm.isCreateRecordButtonPressed = true
+            } label: {
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding(.all, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 30)
+                            .fill(Color.blue)
+                    )
+                    .foregroundColor(.white)
+                    .shadow(color: .gray, radius: 1)
+            }
+        }.padding(.trailing,30)
+    }
 }

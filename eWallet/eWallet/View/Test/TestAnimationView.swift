@@ -26,13 +26,13 @@ struct TestAnimationView: View {
                 Spacer()
             }.background(Color.red)
 
-            if s {
-               // Rectangle()
-                ChooseAccountView(isViewShowing: $shouldShow)
-                   // .frame(width: 100, height: 100)
-                    .offset( y: 100)
-                    .transition(.move(edge: .bottom))
-            }
+//            if s {
+//               // Rectangle()
+//              //  ChooseAccountView()
+//                   // .frame(width: 100, height: 100)
+//                    .offset( y: 100)
+//                    .transition(.move(edge: .bottom))
+//            }
         }.onChange(of: shouldShow, initial: false) {
             
             withAnimation(.easeInOut(duration: 5)) {

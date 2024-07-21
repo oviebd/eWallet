@@ -12,18 +12,18 @@ import Foundation
 import SwiftUI
 
 extension CategoryEntity {
-    func convertToCategory() -> Category {
+    func convertToCategory() -> CategoryData {
         let color = Color(hex: colorCode ?? "")
-        return Category(title: title ?? "", iconImage: icon ?? "", color: color)
+        return CategoryData(title: title ?? "", iconImage: icon ?? "", color: color)
     }
 }
 
-struct CDCategoryRepository {
-   
+struct CDCategoryRepository : CategoryDataRepoProtocol {
+    
     let manager = CoreDataManager.instance
 
-    func getCategories() -> [Category] {
-        var categoryList = [Category]()
+    func getCategories() -> [CategoryData] {
+        var categoryList = [CategoryData]()
 
         let request = NSFetchRequest<CategoryEntity>(entityName: Constants.CORE_DATA.CategoryEntity)
         do {
@@ -41,50 +41,42 @@ struct CDCategoryRepository {
 
         return categoryList
     }
+    
+    func getCategoryEntityFromID(id: String) -> CategoryEntity? {
+        return nil
+    }
 
-    func addCategory(category: Category) {
+    func addCategory(categoryData : CategoryData) -> Bool {
         let newCat = CategoryEntity(context: manager.context)
-        newCat.title = category.title
-        newCat.icon = category.iconImage
-        newCat.id = category.id
-        newCat.colorCode = category.color.toHex()
+        newCat.title = categoryData.title
+        newCat.icon = categoryData.iconImage
+        newCat.id = categoryData.id
+        newCat.colorCode = categoryData.color.toHex()
 
-        // print("U>> Color Code \(category.color.toHex())")
-
-        save()
+        return save()
     }
 
-    func addCategoryList(categories: [Category]) {
-        addCategoryListByBatch(categories: categories)
-//        manager.container.performBackgroundTask { context in
-//
-//            categories.forEach { category in
-//                let catEntity = CategoryEntity(context: context)
-//                catEntity.title = category.title
-//                catEntity.icon = category.iconImage
-//                catEntity.id = category.id
-//                catEntity.colorCode = category.color.toHex()
-//            }
-//
-//            if context.hasChanges {
-//                try? context.save()
-//            }
-//        }
+    func addCategoryList(categories: [CategoryData], completation : @escaping (Bool) -> Void) {
+        addCategoryListByBatch(categories: categories) { isSuccess in
+            completation(isSuccess)
+        }
     }
 
-    func addCategoryListByBatch(categories: [Category]) {
+    private func addCategoryListByBatch(categories: [CategoryData], completation :  @escaping (Bool) -> Void ) {
         manager.container.performBackgroundTask { context in
 
             let request = self.createBatchRequest(categories: categories)
             do {
                 try context.execute(request)
+                completation(true)
             } catch {
+                completation(false)
                 debugPrint("Batch Insert Error - \(error.localizedDescription)")
             }
         }
     }
 
-    private func createBatchRequest(categories: [Category]) -> NSBatchInsertRequest {
+    private func createBatchRequest(categories: [CategoryData]) -> NSBatchInsertRequest {
         let totalCount = categories.count
         var index = 0
 
@@ -108,7 +100,7 @@ struct CDCategoryRepository {
         return batchInsert
     }
 
-    func save() {
-        self.manager.save()
+    func save() -> Bool {
+        return self.manager.save()
     }
 }

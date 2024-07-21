@@ -7,27 +7,6 @@
 
 import Foundation
 
-
-//struct CurrencyData: Hashable, Identifiable {
-//    var id: String = UUID().uuidString
-//    var title: String
-//    var symbol: String
-//    var icon: String
-//    var short_code: String
-//
-//    func toCurrencyEntity() -> CurrencyEntity {
-//        let manager = CoreDataManager.instance
-//        let entity = CurrencyEntity(context: manager.context)
-//        entity.title = title
-//        entity.symbol = symbol
-//        entity.id = id
-//        entity.icon = icon
-//        entity.short_code = short_code
-//
-//        return entity
-//    }
-//}
-
 struct AccountData: Hashable, Identifiable {
     var id: String = UUID().uuidString
     var title: String
@@ -62,7 +41,7 @@ class AccountDataRepository {
 
     func getAccounts() -> [AccountData] {
         accountList = accountRepo.getAccounts()
-        return accountList // accountRepo.getAccounts()
+        return accountList
     }
 
     func addAccount(account: AccountData) -> Bool {

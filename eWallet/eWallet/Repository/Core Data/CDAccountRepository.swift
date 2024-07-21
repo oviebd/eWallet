@@ -11,15 +11,13 @@ import Foundation
 extension AccountEntity {
     func convertToAccountData() -> AccountData {
         return AccountData(id: id ?? "", title: title ?? "",
-                           currencyData: self.currency?.convertToCurrencyData(),
+                           currencyData: currency?.convertToCurrencyData(),
                            amount: amount)
     }
 }
 
 struct CDAccountRepository: AccountDataRepoProtocol {
     let manager = CoreDataManager.instance
-
-    //let currencyRepo = CurrencyDataRepository.shared
 
     func getAccounts() -> [AccountData] {
         var accounts = [AccountData]()
@@ -45,11 +43,10 @@ struct CDAccountRepository: AccountDataRepoProtocol {
         newAccount.title = account.title
         newAccount.amount = account.amount
         newAccount.id = account.id
-       
-        let currencyRepo = CurrencyDataRepository.shared(currencyRepo: CDCurrencyRepository())
-        newAccount.currency =  currencyRepo.getCurrencyEntityFromId(id: account.currencyData?.id ?? "")//account.currencyData?.toCurrencyEntity()
-        
 
-        return  manager.save()
+        let currencyRepo = CurrencyDataRepository.shared(currencyRepo: CDCurrencyRepository())
+        newAccount.currency = currencyRepo.getCurrencyEntityFromId(id: account.currencyData?.id ?? "") // account.currencyData?.toCurrencyEntity()
+
+        return manager.save()
     }
 }

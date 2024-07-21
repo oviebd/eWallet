@@ -22,21 +22,12 @@ class AddAccountVM: ObservableObject {
     @Published var selectedCurrency: CurrencyData?
 
     private var cancellables = Set<AnyCancellable>()
-    private var currencyList: [CurrencyData] = [CurrencyData]()
+
 
     init() {
         accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
-        //  currencyRepo = CurrencyDataRepository.shared
-        // currencyRepo.setProtocol(currencyRepo: CDCurrencyRepository())
-        //   getAccount()
-        //    addCurrencySubscription()
     }
 
-//    func getAccount() {
-//        _ = accountRepo.getAccounts()
-//    }
-//
-//
     func createAccount() {
         let (isValid, message) = isValidForAdd()
 
