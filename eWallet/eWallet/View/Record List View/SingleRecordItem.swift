@@ -13,26 +13,26 @@ struct SingleRecordItem: View {
    
     var body: some View {
         HStack {
-            ZStack {
-                Circle()
-                    .frame(width: 50)
-                    .foregroundStyle(recordData.color)
-                
-                Image(systemName: recordData.image)
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.white)
-            }.padding()
+//            ZStack {
+//                Circle()
+//                    .frame(width: 50)
+//                    .foregroundStyle(Color.white)
+//                
+//                Image(systemName: recordData.image)
+//                    .resizable()
+//                    .frame(width: 20, height: 20)
+//                    .foregroundStyle(.white)
+//            }.padding()
             
             VStack(alignment: .leading, spacing: 0) {
-                Text(recordData.catagory)
+                Text(recordData.catagory?.title ?? "")
                     .foregroundStyle(.black.opacity(0.9))
                 
-                Text(recordData.accountName)
+                Text(recordData.account?.title ?? "")
                     .font(.caption)
                     .foregroundStyle(.black.opacity(0.5))
                 
-                Text(recordData.shortDescription)
+                Text(recordData.note)
                     .font(.caption)
                     .italic()
                     .foregroundStyle(.black.opacity(0.6))
@@ -42,7 +42,7 @@ struct SingleRecordItem: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(recordData.amount)
+                Text("\(recordData.amount )")
                     .font(.subheadline)
                    .fontWeight(.semibold)
                    .foregroundStyle(.darkRed)
@@ -51,7 +51,7 @@ struct SingleRecordItem: View {
 //                    .font(.caption2)
 //                    .foregroundStyle(.green)
 //                
-                Text(recordData.date)
+                Text("Date")
                     .font(.caption)
                     .foregroundStyle(.gray)
                 

@@ -10,9 +10,8 @@ import SwiftUI
 struct CreateRecordMainView: View {
     
     @Environment(\.presentationMode) var presentationMode
-
     @StateObject var vm  = CreateRecordVM()
-    
+ 
     var body: some View {
         
         ZStack {
@@ -46,7 +45,7 @@ struct CreateRecordMainView: View {
             AccountListView(selectedAccountData: $vm.selectedAccountData, isPopupView: true)
         }
         .popover(isPresented: $vm.isDetailsBtnPressed) {
-            AddRecordDetailsView()
+            AddRecordDetailsView(additionalRecordData: $vm.additionalRecordData)
         }
     }
 }
@@ -66,6 +65,8 @@ extension CreateRecordMainView {
 
             Spacer()
             Button {
+               
+                vm.onSaveBtnPressed()
             } label: {
                 Image(systemName: "checkmark")
             }.padding(.trailing, 20)

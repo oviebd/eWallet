@@ -17,6 +17,7 @@ struct AccountData: Hashable, Identifiable {
 protocol AccountDataRepoProtocol {
     func getAccounts() -> [AccountData]
     func addAccount(account: AccountData) -> Bool
+    func getAccountEntityFromID(id: String) -> AccountEntity?
 }
 
 class AccountDataRepository {
@@ -50,5 +51,9 @@ class AccountDataRepository {
             let _ = getAccounts()
         }
         return isSuccess
+    }
+    
+    func getAccountEntityFromId(id : String) -> AccountEntity? {
+       return accountRepo.getAccountEntityFromID(id: id)
     }
 }

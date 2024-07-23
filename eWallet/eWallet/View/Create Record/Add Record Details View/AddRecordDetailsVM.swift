@@ -8,10 +8,14 @@
 import Foundation
 
 
-struct RecordDetailsData {
+struct AdditionalRecordData {
     var note : String
     var date : Date
     var time : Date
+    
+    func printData (){
+        print("Note \(note) date \(date) time \(time)")
+    }
 }
 
 class AddRecordDetailsVM : ObservableObject {
@@ -20,7 +24,27 @@ class AddRecordDetailsVM : ObservableObject {
     @Published var selectedDate = Date.now
     @Published var selectedTime = Date.now
     
-    func prepareRecordDetailsData (){
+   // @Published var additionalRecordData : AdditionalRecordData
+    
+    
+    init() {
+     //   self.additionalRecordData = additionalRecordData
+        setInitData()
         
     }
+    
+    func setInitData(){
+   //     noteText = additionalRecordData.note
+//        selectedDate = additionalRecordData?.date
+//        selectedTime = additionalRecordData?.time
+    }
+    
+    func prepareRecordDetailsData (){
+        
+  //      additionalRecordData.note = noteText
+//        additionalRecordData.time = selectedTime
+//        additionalRecordData.date = selectedDate
+    }
+    
+    
 }

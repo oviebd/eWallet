@@ -18,35 +18,45 @@ extension CategoryEntity {
     }
 }
 
-struct CDCategoryRepository : CategoryDataRepoProtocol {
-    
+struct CDCategoryRepository: CategoryDataRepoProtocol {
     let manager = CoreDataManager.instance
 
-    func getCategories() -> [CategoryData] {
-        var categoryList = [CategoryData]()
+    private func getCategoryEntityList() -> [CategoryEntity] {
+        var categoryList = [CategoryEntity]()
 
         let request = NSFetchRequest<CategoryEntity>(entityName: Constants.CORE_DATA.CategoryEntity)
         do {
             let categories = try manager.context.fetch(request)
 
-            for category in categories {
-                let c = category.convertToCategory()
-                // print(c.title)
-                categoryList.append(c)
-            }
+            return categories
 
         } catch {
             print("Error Fetching.. \(error.localizedDescription)")
         }
 
+        return [CategoryEntity]()
+    }
+
+    func getCategories() -> [CategoryData] {
+        var categoryList = [CategoryData]()
+        for category in getCategoryEntityList() {
+            let data = category.convertToCategory()
+            // print(c.title)
+            categoryList.append(data)
+        }
         return categoryList
     }
-    
+
     func getCategoryEntityFromID(id: String) -> CategoryEntity? {
+        for category in getCategoryEntityList() {
+            if category.id == id {
+                return category
+            }
+        }
         return nil
     }
 
-    func addCategory(categoryData : CategoryData) -> Bool {
+    func addCategory(categoryData: CategoryData) -> Bool {
         let newCat = CategoryEntity(context: manager.context)
         newCat.title = categoryData.title
         newCat.icon = categoryData.iconImage
@@ -56,13 +66,13 @@ struct CDCategoryRepository : CategoryDataRepoProtocol {
         return save()
     }
 
-    func addCategoryList(categories: [CategoryData], completation : @escaping (Bool) -> Void) {
+    func addCategoryList(categories: [CategoryData], completation: @escaping (Bool) -> Void) {
         addCategoryListByBatch(categories: categories) { isSuccess in
             completation(isSuccess)
         }
     }
 
-    private func addCategoryListByBatch(categories: [CategoryData], completation :  @escaping (Bool) -> Void ) {
+    private func addCategoryListByBatch(categories: [CategoryData], completation: @escaping (Bool) -> Void) {
         manager.container.performBackgroundTask { context in
 
             let request = self.createBatchRequest(categories: categories)
@@ -101,6 +111,6 @@ struct CDCategoryRepository : CategoryDataRepoProtocol {
     }
 
     func save() -> Bool {
-        return self.manager.save()
+        return manager.save()
     }
 }

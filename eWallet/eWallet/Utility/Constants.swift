@@ -15,6 +15,7 @@ class Constants {
         static let AccountEntity = "AccountEntity"
         static let CurrencyEntity = "CurrencyEntity"
         static let CategoryEntity = "CategoryEntity"
+        static let RecordEntity = "RecordEntity"
         
     }
         

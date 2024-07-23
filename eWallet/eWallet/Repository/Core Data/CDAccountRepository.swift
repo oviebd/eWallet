@@ -17,24 +17,41 @@ extension AccountEntity {
 }
 
 struct CDAccountRepository: AccountDataRepoProtocol {
+    
+    
     let manager = CoreDataManager.instance
 
-    func getAccounts() -> [AccountData] {
-        var accounts = [AccountData]()
-
+    
+    private func getAccountEntityList() -> [AccountEntity] {
+       
         let request = NSFetchRequest<AccountEntity>(entityName: Constants.CORE_DATA.AccountEntity)
         do {
             let accountsDatas = try manager.context.fetch(request)
-
-            for account in accountsDatas {
-                let a = account.convertToAccountData()
-                accounts.append(a)
-            }
-
+            return accountsDatas
         } catch {
             print("Error Fetching.. \(error.localizedDescription)")
         }
 
+        return  [AccountEntity]()
+    }
+    
+    func getAccountEntityFromID(id: String) -> AccountEntity? {
+        for account in getAccountEntityList() {
+            if account.id == id {
+                return account
+            }
+        }
+        return nil
+    }
+    
+    func getAccounts() -> [AccountData] {
+        var accounts = [AccountData]()
+
+        for account in getAccountEntityList() {
+            let data = account.convertToAccountData()
+          //  print( "U>> Currency \(a.title)")
+            accounts.append(data)
+        }
         return accounts
     }
 

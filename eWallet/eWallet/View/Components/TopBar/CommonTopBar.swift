@@ -77,7 +77,7 @@ struct CommonTopBar: View {
 }
 
 #Preview {
-    CommonTopBar(data: DataUtility.dummyCommonTopBar)
+    CommonTopBar(data: DummyDataUtils.dummyCommonTopBar)
 }
 
 extension CommonTopBar {

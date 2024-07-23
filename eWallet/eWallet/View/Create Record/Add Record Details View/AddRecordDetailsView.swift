@@ -10,14 +10,21 @@ import SwiftUI
 struct AddRecordDetailsView: View {
   
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Select Category", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "")
+    private let topBarConfig = CommonTopBarData(title: "Add Record", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "")
 
 
-    @StateObject var vm = AddRecordDetailsVM()
-
+   // @StateObject var vm : AddRecordDetailsVM = AddRecordDetailsVM()
+    @Binding var additionalRecordData : AdditionalRecordData
+    
+//    init(additionalRecordData : AdditionalRecordData?){
+//        _vm = StateObject(wrappedValue: AddRecordDetailsVM(additionalRecordData: additionalRecordData))
+//       // additionalRecordData = additionalRecordData
+//    }
+    
     var body: some View {
         VStack(spacing: 0) {
             CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
+              //  vm.prepareRecordDetailsData()
                 self.presentationMode.wrappedValue.dismiss()
             })
             
@@ -27,7 +34,7 @@ struct AddRecordDetailsView: View {
                     .foregroundColor(.gray)
                     .opacity(1.0)
 
-                TextField("write Note",text: $vm.noteText)
+                TextField("write Note",text: $additionalRecordData.note)
                     .font(.title2)
                     .foregroundStyle(.black)
                     .opacity(0.6)
@@ -46,7 +53,7 @@ struct AddRecordDetailsView: View {
                         .foregroundStyle(.gray)
                         .opacity(0.8)
 
-                    DatePicker("Enter a date", selection: $vm.selectedDate, displayedComponents: .date)
+                    DatePicker("Enter a date", selection: $additionalRecordData.date, displayedComponents: .date)
                         .labelsHidden()
                 }
                 Spacer()
@@ -57,7 +64,7 @@ struct AddRecordDetailsView: View {
                         .foregroundStyle(.gray)
                         .opacity(0.8)
 
-                    DatePicker("Enter a time", selection: $vm.selectedTime, displayedComponents: .hourAndMinute)
+                    DatePicker("Enter a time", selection: $additionalRecordData.time, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
             }
@@ -83,5 +90,5 @@ struct AddRecordDetailsView: View {
 }
 
 #Preview {
-    AddRecordDetailsView()
+    AddRecordDetailsView(additionalRecordData: .constant(DummyDataUtils.dummyRecordDetailsData))
 }

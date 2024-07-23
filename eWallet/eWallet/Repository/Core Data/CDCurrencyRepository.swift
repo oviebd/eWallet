@@ -38,7 +38,7 @@ struct CDCurrencyRepository : CurrencyDataRepoProtocol {
         
         for currencies in getCurrencyEntityList() {
             let a = currencies.convertToCurrencyData()
-            print( "U>> Currency \(a.title)")
+          //  print( "U>> Currency \(a.title)")
             currency.append(a)
         }
         return currency
