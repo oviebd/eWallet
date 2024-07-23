@@ -37,7 +37,7 @@ class CreateRecordVM : ObservableObject {
     func getRecords(){
         let records = recordRepo.getRecords()
         for record in records {
-            print("record is \(record.note)")
+            print("record is \(record.note) account is \(record.account?.title)  cat is \(record.catagory?.title)")
         }
     }
 

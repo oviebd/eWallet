@@ -14,7 +14,7 @@ import SwiftUI
 extension CategoryEntity {
     func convertToCategory() -> CategoryData {
         let color = Color(hex: colorCode ?? "")
-        return CategoryData(title: title ?? "", iconImage: icon ?? "", color: color)
+        return CategoryData(id : self.id ?? "", title: title ?? "", iconImage: icon ?? "", color: color)
     }
 }
 

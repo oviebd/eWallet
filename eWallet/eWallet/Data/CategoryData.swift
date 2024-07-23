@@ -35,17 +35,6 @@ class CategoryUtility {
         categories.append(catagory4)
         categories.append(catagory5)
         
-        categories.append(catagory1)
-        categories.append(catagory2)
-        categories.append(catagory3)
-        categories.append(catagory4)
-        categories.append(catagory5)
-        
-        categories.append(catagory1)
-        categories.append(catagory2)
-        categories.append(catagory3)
-        categories.append(catagory4)
-        categories.append(catagory5)
         
 //        recentCatagories.append(catagory1)
 //        recentCatagories.append(catagory2)

@@ -29,9 +29,10 @@ class CategoryListVm: ObservableObject {
             DispatchQueue.main.async {
                 self?.categories = categoryList
                 self?.recentCategories = categoryList
+                self?.checkAndCreateCategoryList()
             }
             
-            self?.checkAndCreateCategoryList()
+            
         }.store(in: &cancellables)
     }
 

@@ -49,7 +49,7 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         [RecordData]()
     }
 
-    func addRecord(recordData: RecordData) -> Bool {
+    func   addRecord(recordData: RecordData) -> Bool {
         let newRecord = RecordEntity(context: manager.context)
         newRecord.note = recordData.note
         newRecord.amount = recordData.amount
@@ -58,8 +58,8 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.date = recordData.date
         newRecord.time = recordData.time
 
-        let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: newRecord.category?.id ?? "")
-        let accountEntity = AccountDataRepository.shared(accountRepo: CDAccountRepository()).getAccountEntityFromId(id: newRecord.account?.id ?? "")
+        let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
+        let accountEntity = AccountDataRepository.shared(accountRepo: CDAccountRepository()).getAccountEntityFromId(id: recordData.account?.id ?? "")
 
         newRecord.category = categoryEntity
         newRecord.account = accountEntity
