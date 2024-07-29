@@ -60,7 +60,7 @@
 		F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */; };
 		F37A54FB2C04C82F0024CCE8 /* AddCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */; };
 		F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */; };
-		F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D492BF210CA00D78E6B /* RecordListItem.swift */; };
+		F3835D4A2BF210CA00D78E6B /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D492BF210CA00D78E6B /* RecordListView.swift */; };
 		F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D4B2BF21CD200D78E6B /* ListData.swift */; };
 		F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */; };
 		F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE932BB39ECC0001DA36 /* DropDownView.swift */; };
@@ -75,6 +75,9 @@
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 		F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */; };
 		F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */; };
+		F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */; };
+		F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */; };
+		F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */; };
 		F3FCBA312C09BF9800576B7C /* CommonDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCBA302C09BF9800576B7C /* CommonDropdownView.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +136,7 @@
 		F37A54F82C04BDD30024CCE8 /* AddCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyView.swift; sourceTree = "<group>"; };
 		F37A54FA2C04C82F0024CCE8 /* AddCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewModel.swift; sourceTree = "<group>"; };
 		F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecordItem.swift; sourceTree = "<group>"; };
-		F3835D492BF210CA00D78E6B /* RecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListItem.swift; sourceTree = "<group>"; };
+		F3835D492BF210CA00D78E6B /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		F3835D4B2BF21CD200D78E6B /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsView.swift; sourceTree = "<group>"; };
 		F38FFE932BB39ECC0001DA36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
@@ -149,6 +152,9 @@
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 		F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDAccountRepository.swift; sourceTree = "<group>"; };
 		F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCurrencyRepository.swift; sourceTree = "<group>"; };
+		F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListVM.swift; sourceTree = "<group>"; };
+		F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiltyHelper.swift; sourceTree = "<group>"; };
+		F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		F3FCBA302C09BF9800576B7C /* CommonDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDropdownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,6 +331,7 @@
 			children = (
 				F317D9862BAAFDA9003BB60A /* Enums */,
 				7B821F0A2BF79E2200D3DC76 /* Constants.swift */,
+				F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -379,6 +386,7 @@
 				F34B45462B8CCDE300434B42 /* String.swift */,
 				F34B45482B8CCDE300434B42 /* UIApplication.swift */,
 				F34B45492B8CCDE300434B42 /* Color.swift */,
+				F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,8 +487,9 @@
 			isa = PBXGroup;
 			children = (
 				F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */,
-				F3835D492BF210CA00D78E6B /* RecordListItem.swift */,
+				F3835D492BF210CA00D78E6B /* RecordListView.swift */,
 				F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */,
+				F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */,
 			);
 			path = "Record List View";
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 				7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
+				F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
 				7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
@@ -609,6 +619,7 @@
 				F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountView.swift in Sources */,
+				F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */,
@@ -631,7 +642,7 @@
 				F343EB082BB811D100D356E9 /* CommonTopBar.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
-				F3835D4A2BF210CA00D78E6B /* RecordListItem.swift in Sources */,
+				F3835D4A2BF210CA00D78E6B /* RecordListView.swift in Sources */,
 				F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */,
 				F3FCBA312C09BF9800576B7C /* CommonDropdownView.swift in Sources */,
 				F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */,
@@ -663,6 +674,7 @@
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
+				F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */,
 				F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */,
 				F366D8112BAA655C00224835 /* CustomSegmentedPicker.swift in Sources */,
 			);
@@ -799,7 +811,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eWallet/Preview Content\"";
-				DEVELOPMENT_TEAM = G6F8ZTAKUJ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eWallet/Info.plist;
@@ -831,7 +843,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eWallet/Preview Content\"";
-				DEVELOPMENT_TEAM = G6F8ZTAKUJ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eWallet/Info.plist;

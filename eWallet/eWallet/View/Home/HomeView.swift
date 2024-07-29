@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @StateObject var vm = HomeVm()
 
     let topBarConfig = CommonTopBarData(title: "Home")
@@ -23,6 +24,8 @@ struct HomeView: View {
                         vm.onAccountListButtonPressed(buttonType: buttonType)
                     }.frame(height: 300)
                         .padding(.top,20)
+                    
+                  RecordListView()
                     
                     
                     Spacer()

@@ -21,7 +21,7 @@ class AccountViewModel : ObservableObject {
     var currencyList : [CurrencyData] = [CurrencyData]()
     
     init() {
-        getAccount()
+        let _ = getAccount()
         prepareCurrencyNameList()
     }
     
@@ -32,8 +32,8 @@ class AccountViewModel : ObservableObject {
     func createAccount() {
         let amountInDouble = Double(initialAmount) ?? 0.0
         let account = AccountData(title: name, amount: amountInDouble)
-        repository.addAccount(account: account)
-        getAccount()
+        let _ =  repository.addAccount(account: account)
+        let _ = getAccount()
     }
     
     func prepareCurrencyNameList(){

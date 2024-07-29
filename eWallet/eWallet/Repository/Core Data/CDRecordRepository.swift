@@ -58,16 +58,25 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.date = recordData.date
         newRecord.time = recordData.time
 
+        let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
+       
         let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
-        let accountEntity = AccountDataRepository.shared(accountRepo: CDAccountRepository()).getAccountEntityFromId(id: recordData.account?.id ?? "")
+        let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
 
         newRecord.category = categoryEntity
         newRecord.account = accountEntity
 
-//        let currencyRepo = CurrencyDataRepository.shared(currencyRepo: CDCurrencyRepository())
-//        newAccount.currency = currencyRepo.getCurrencyEntityFromId(id: account.currencyData?.id ?? "") // account.currencyData?.toCurrencyEntity()
 
-        return manager.save()
+
+        let isRecordCreated = manager.save()
+        
+        if isRecordCreated {
+            var updatedRecord = recordData.account
+            updatedRecord?.amount -= recordData.amount
+            return accountRepo.updateAccount(account: updatedRecord)
+        }
+        
+        return isRecordCreated
     }
 
     func editRecord(recordData: RecordData) -> Bool {

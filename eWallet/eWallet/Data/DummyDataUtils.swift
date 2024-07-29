@@ -20,5 +20,7 @@ class DummyDataUtils {
                                                            rightIconName: "chevron.left")
      
      public static let dummyRecordDetailsData = AdditionalRecordData(note: "sample Note ", date: Date.now, time: Date.now)
+    
+    public static let dummyRecordData = RecordData(note: "Sample Note", recordType: "Cost", amount: 10.0, date: .now, time: .now,catagory: CategoryUtility().catagory1, account: dummyAccountData)
 }
 

@@ -17,6 +17,7 @@ struct AccountData: Hashable, Identifiable {
 protocol AccountDataRepoProtocol {
     func getAccounts() -> [AccountData]
     func addAccount(account: AccountData) -> Bool
+    func updatedAccount(account: AccountData?) -> Bool
     func getAccountEntityFromID(id: String) -> AccountEntity?
 }
 
@@ -53,7 +54,17 @@ class AccountDataRepository {
         return isSuccess
     }
     
+    func updateAccount(account: AccountData?) -> Bool {
+        let isSuccess = accountRepo.updatedAccount(account: account)
+        if isSuccess {
+            let _ = getAccounts()
+        }
+        return isSuccess
+    }
+    
     func getAccountEntityFromId(id : String) -> AccountEntity? {
        return accountRepo.getAccountEntityFromID(id: id)
     }
+    
+    
 }
