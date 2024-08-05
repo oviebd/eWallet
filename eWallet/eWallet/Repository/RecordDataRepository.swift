@@ -17,6 +17,7 @@ struct RecordData: Hashable, Identifiable {
     var time: Date
     var catagory: CategoryData?
     var account: AccountData?
+    var fromAccount: AccountData?
 }
 
 protocol RecordDataRepoProtocol {

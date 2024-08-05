@@ -8,27 +8,23 @@
 import SwiftUI
 
 struct RecordTypeSegmentedView: View {
-    
-    @State private var selectedItem = RecordTypeEnum.INCOME
-    @State var selectedIndex : Int = 0
-   
-    
+    @Binding var selectedItem: RecordTypeEnum
+    @State var selectedIndex: Int = 0
+
     var body: some View {
         CustomSegmentedPicker(
             RecordTypeEnum.allCases,
             selection: selectedItem,
             indicatorBuilder: {
-                
                 GeometryReader { geo in
                     SegmentedPickerIndicatorView(width: geo.size.width / CGFloat(RecordTypeEnum.allCases.count), selectedItemIndex: $selectedIndex)
                         .backgroundColor(Color.mediumDarkBlue)
                 }
                 .cornerRadius(0)
                 .shadow(color: Color.theme.darkBlue.opacity(0.5), radius: 2, x: 2, y: 0)
-                
-                  
+
             },
-            itemBuilder: { item  in
+            itemBuilder: { item in
                 SegmentedPickerItem(
                     item: item,
                     isSelected: selectedItem == item
@@ -38,16 +34,21 @@ struct RecordTypeSegmentedView: View {
                     selectedItem = item
                     withAnimation(.easeInOut(duration: 0.150)) {
                         selectedItem = item
-                        if let index = RecordTypeEnum.allCases.firstIndex(of: selectedItem){
+                        if let index = RecordTypeEnum.allCases.firstIndex(of: selectedItem) {
                             selectedIndex = index
                         }
                     }
                 }
             }
         ).pickerBackgroundColor(Color.theme.normalBlue)
+            .onAppear {
+                if let index = RecordTypeEnum.allCases.firstIndex(of: selectedItem) {
+                    selectedIndex = index
+                }
+            }
     }
 }
 
 #Preview {
-    RecordTypeSegmentedView()
+    RecordTypeSegmentedView(selectedItem: .constant(RecordTypeEnum.EXPENSE))
 }

@@ -13,7 +13,8 @@ extension RecordEntity {
         return RecordData(note: note ?? "", recordType: type ?? "", amount: amount,
                           date: date ?? .now, time: time ?? .now,
                           catagory: category?.convertToCategory(),
-                          account: account?.convertToAccountData())
+                          account: account?.convertToAccountData(),
+                          fromAccount: fromAccount?.convertToAccountData())
     }
 }
 
@@ -58,22 +59,43 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.date = recordData.date
         newRecord.time = recordData.time
 
+        let recordType = RecordTypeEnum(rawValue: recordData.recordType)
+        
         let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
        
         let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
         let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
+        let fromAccountEntity = accountRepo.getAccountEntityFromId(id: recordData.fromAccount?.id ?? "")
 
         newRecord.category = categoryEntity
         newRecord.account = accountEntity
+        
+        if recordType == .TRANSFER {
+            newRecord.fromAccount = fromAccountEntity
+        }
 
 
 
         let isRecordCreated = manager.save()
         
+        
         if isRecordCreated {
-            var updatedRecord = recordData.account
-            updatedRecord?.amount -= recordData.amount
-            return accountRepo.updateAccount(account: updatedRecord)
+            var account = recordData.account
+            if recordType == .INCOME {
+                account?.amount += recordData.amount
+            }
+            if recordType == .EXPENSE{
+                account?.amount -= recordData.amount
+            }else{
+               
+                var fromAccount = recordData.fromAccount
+                fromAccount?.amount += recordData.amount
+                account?.amount -= recordData.amount
+               _ = accountRepo.updateAccount(account: fromAccount)
+                
+            }
+            account?.amount -= recordData.amount
+            return accountRepo.updateAccount(account: account)
         }
         
         return isRecordCreated

@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct CreateRecordMainView: View {
-    
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var vm  = CreateRecordVM()
- 
+    @StateObject var vm = CreateRecordVM()
+
     var body: some View {
-        
         ZStack {
             VStack(spacing: 0) {
                 headerView
                     .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
 
-                RecordTypeSegmentedView()
+                RecordTypeSegmentedView(selectedItem: $vm.selectedRecordType)
                     .frame(height: 50)
 
                 Rectangle()
@@ -42,7 +40,10 @@ struct CreateRecordMainView: View {
             SelectCatagoryView(selectedCategory: $vm.selectedCategoryData)
         }
         .popover(isPresented: $vm.isAccountTypePressed) {
-            AccountListView(selectedAccountData: $vm.selectedAccountData, isPopupView: true)
+            AccountListView(selectedAccountData: $vm.account, isPopupView: true)
+        }
+        .popover(isPresented: $vm.isFromAccountTypePressed) {
+            AccountListView(selectedAccountData: $vm.fromAccount, isPopupView: true)
         }
         .popover(isPresented: $vm.isDetailsBtnPressed) {
             AddRecordDetailsView(additionalRecordData: $vm.additionalRecordData)
@@ -65,7 +66,6 @@ extension CreateRecordMainView {
 
             Spacer()
             Button {
-               
                 vm.onSaveBtnPressed()
             } label: {
                 Image(systemName: "checkmark")
@@ -87,15 +87,16 @@ extension CreateRecordMainView {
                 .padding(.leading, 15)
             Spacer()
             HStack {
-                accountTypeView
-                    .onTapGesture {
-                        vm.isAccountTypePressed = true
-                    }
-                Spacer()
-                categoryTypeView
-                    .onTapGesture {
-                        vm.isSelectCategoryPressed = true
-                    }
+                if vm.selectedRecordType == .TRANSFER {
+                    fromAccountView
+                    Spacer()
+                    accountView
+
+                } else {
+                    accountView
+                    Spacer()
+                    categoryTypeView
+                }
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
@@ -104,7 +105,7 @@ extension CreateRecordMainView {
 
     var addNumberView: some View {
         HStack {
-            Text("-")
+            Text(vm.selectedRecordType.symbol)
                 .font(.title)
                 .fontWeight(.bold)
 
@@ -115,6 +116,7 @@ extension CreateRecordMainView {
                 .font(.system(size: 70))
                 .minimumScaleFactor(0.01)
                 .fontWeight(.semibold)
+                .disabled(true)
 
             Text("BDT")
                 .font(.system(size: 20))
@@ -131,21 +133,39 @@ extension CreateRecordMainView {
                     .padding(.horizontal, 10)
                     .background(RoundedRectangle(cornerRadius: 10.0, style: .continuous).fill(Color.white))
                     .foregroundStyle(Color.black)
-            }.padding(.trailing,10)
+            }.padding(.trailing, 10)
 
         }.foregroundColor(Color.theme.primaryText)
     }
 
-    var accountTypeView: some View {
+    var accountView: some View {
         VStack {
-            Text("Account")
+            Text(vm.selectedRecordType == .TRANSFER ? "To Account" : "Account")
                 .foregroundStyle(Color.theme.white.opacity(0.5))
                 .font(.system(size: 12))
-            Text(vm.selectedAccountData?.title ?? "Select")
+            Text(vm.account?.title ?? "Select")
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
         }.frame(alignment: .center)
+            .onTapGesture {
+                vm.isAccountTypePressed = true
+            }
+    }
+
+    var fromAccountView: some View {
+        VStack {
+            Text("From Account")
+                .foregroundStyle(Color.theme.white.opacity(0.5))
+                .font(.system(size: 12))
+            Text(vm.fromAccount?.title ?? "Select")
+                .foregroundStyle(Color.theme.primaryText)
+                .font(.system(size: 15))
+                .fontWeight(.semibold)
+        }.frame(alignment: .center)
+            .onTapGesture {
+                vm.isFromAccountTypePressed = true
+            }
     }
 
     var categoryTypeView: some View {
@@ -158,5 +178,8 @@ extension CreateRecordMainView {
                 .font(.system(size: 15))
                 .fontWeight(.semibold)
         }.frame(alignment: .center)
+            .onTapGesture {
+                vm.isSelectCategoryPressed = true
+            }
     }
 }
