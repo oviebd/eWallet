@@ -7,9 +7,10 @@
 
 import Foundation
 enum RecordTypeEnum: String, CaseIterable, Identifiable {
-    case INCOME 
+    case INCOME
     case EXPENSE
     case TRANSFER
+    
     
     var id: Self { self }
     
