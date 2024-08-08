@@ -11,7 +11,8 @@ struct RecordListView: View {
     //let recordLists = RecordDataUtility().recordList
 
     @StateObject var vm = RecordListVM()
-    
+   
+    var onItemPresesd: (RecordData) -> Void
     var body: some View {
         
         ScrollView {
@@ -20,6 +21,9 @@ struct RecordListView: View {
                 
                 ForEach(vm.recordsList) { item in
                     SingleRecordItem(recordData: item)
+                        .onTapGesture {
+                            onItemPresesd(item)
+                        }
                 }
                 
             }
@@ -28,5 +32,6 @@ struct RecordListView: View {
 }
 
 #Preview {
-    RecordListView()
+    RecordListView(){ _ in
+    }
 }

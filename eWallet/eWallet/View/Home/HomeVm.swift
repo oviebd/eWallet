@@ -11,6 +11,8 @@ class HomeVm: ObservableObject {
   
     @Published var isCreateAccountButtonPressed: Bool = false
     @Published var isCreateRecordButtonPressed: Bool = false
+    
+    @Published var selectedRecordData : RecordData?
 
     func onAccountListButtonPressed(buttonType: AccountsListViewButtonTypeEnum) {
         switch buttonType {

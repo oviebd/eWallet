@@ -25,7 +25,10 @@ struct HomeView: View {
                     }.frame(height: 300)
                         .padding(.top,20)
                     
-                  RecordListView()
+                    RecordListView(){ recordItem in
+                        vm.selectedRecordData = recordItem
+                        vm.isCreateRecordButtonPressed = true
+                    }
                     
                     
                     Spacer()
@@ -37,7 +40,7 @@ struct HomeView: View {
                 AddAccountView(includeNavigationStack: true)
             }
             .navigationDestination(isPresented: $vm.isCreateRecordButtonPressed, destination: {
-                CreateRecordMainView()
+                CreateRecordMainView(recordData: vm.selectedRecordData)
 
             })
         }

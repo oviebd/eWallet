@@ -10,7 +10,7 @@ import Foundation
 
 extension RecordEntity {
     func toRecorData() -> RecordData {
-        return RecordData(note: note ?? "", recordType: type ?? "", amount: amount,
+        return RecordData(id : self.id ?? "", note: note ?? "", recordType: type ?? "", amount: amount,
                           date: date ?? .now, time: time ?? .now,
                           catagory: category?.convertToCategory(),
                           account: account?.convertToAccountData(),
@@ -32,6 +32,23 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         } catch {
             print("Error Fetching.. \(error.localizedDescription)")
         }
+        return [RecordEntity]()
+    }
+    
+    func getRecordEntityById(id : String) -> [RecordEntity]{
+        let request = RecordEntity.fetchRequest()//(entityName: Constants.CORE_DATA.RecordEntity)
+        let idPredicate = NSPredicate(
+            format: "id = %@", id
+        )
+        request.predicate = idPredicate
+        do {
+            let datas = try manager.context.fetch(request)
+            return datas
+ 
+        } catch {
+            print("Error Fetching.. \(error.localizedDescription)")
+        }
+        
         return [RecordEntity]()
     }
 
@@ -77,18 +94,25 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         let isRecordCreated = manager.save()
 
         if isRecordCreated {
-            let isAccountUpdateSuccess = updateAccountsByRecordData(recordData: recordData)
+            _ = updateAccountsByRecordData(recordData: recordData)
         }
 
         return isRecordCreated
     }
 
     func editRecord(recordData: RecordData) -> Bool {
+       _ =  getRecordEntityById(id: recordData.id)
         return true
     }
 
     func deleteRecord(recordData: RecordData) -> Bool {
-        return true
+        let deletedEntity =  getRecordEntityById(id: recordData.id).first
+        if let deletedEntity = deletedEntity {
+            manager.context.delete(deletedEntity)
+            return true
+        }
+        
+        return false
     }
 }
 
@@ -97,12 +121,14 @@ extension CDRecordRepository {
     func updateAccountsByRecordData(recordData : RecordData) -> Bool{
      
         let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
-        let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
+       //  let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
         var account = recordData.account
         let recordType = RecordTypeEnum(rawValue: recordData.recordType)
         
         let (accountAmount,fromAccountAmount) = getUpdatedAmountBasedOnRecordType(recordType: recordType,
-                                                                                  transactionAmount: account?.amount, accountAmount: recordData.fromAccount?.amount)
+                                                                                  transactionAmount: recordData.amount,
+                                                                                  accountAmount: recordData.account?.amount,
+                                                                                  fromAccountAmount: recordData.fromAccount?.amount)
         
         if recordType == .TRANSFER {
             var fromAccount = recordData.fromAccount
@@ -110,23 +136,8 @@ extension CDRecordRepository {
             _ = accountRepo.updateAccount(account: fromAccount)
         }
         
-        account?.amount += accountAmount
-        
-//        switch recordType {
-//        case .INCOME:
-//            account?.amount += recordData.amount
-//            break
-//        case .EXPENSE:
-//            account?.amount -= recordData.amount
-//            break
-//        case .TRANSFER:
-//            var fromAccount = recordData.fromAccount
-//            fromAccount?.amount += recordData.amount
-//            account?.amount -= recordData.amount
-//            _ = accountRepo.updateAccount(account: fromAccount)
-//        case .NONE:
-//            break
-//        }
+        account?.amount = accountAmount
+
         return accountRepo.updateAccount(account: account)
     }
     
@@ -152,8 +163,8 @@ extension CDRecordRepository {
             break
         case .TRANSFER:
            
-            fromAccountAmount += transactionAmount
-            accountAmount -= transactionAmount
+            fromAccountAmount -= transactionAmount
+            accountAmount += transactionAmount
     
         }
         

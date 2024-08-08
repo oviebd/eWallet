@@ -60,4 +60,20 @@ class RecordDataRepository {
         }
         return isSuccess
     }
+    
+    func editRecord(recordData: RecordData) -> Bool {
+        let isSuccess = recordRepo.editRecord(recordData: recordData)
+        if isSuccess {
+            let _ = getRecords()
+        }
+        return isSuccess
+    }
+    
+    func deleteRecord(recordData: RecordData) -> Bool{
+        let isSuccess = recordRepo.deleteRecord(recordData: recordData)
+        if isSuccess {
+            let _ = getRecords()
+        }
+        return isSuccess
+    }
 }

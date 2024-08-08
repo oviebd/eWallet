@@ -29,4 +29,7 @@ extension Double {
         return valueWith2Decimal
     }
     
+    func toString() -> String{
+        return "\(self)"
+    }
 }

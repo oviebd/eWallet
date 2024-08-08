@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CreateRecordMainView: View {
+   
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var vm = CreateRecordVM()
+    @StateObject var vm : CreateRecordVM
+   
+    init(recordData: RecordData?) {
+        _vm = StateObject(wrappedValue: CreateRecordVM(recordData: recordData))
+    }
 
     var body: some View {
         ZStack {
@@ -52,7 +57,7 @@ struct CreateRecordMainView: View {
 }
 
 #Preview {
-    CreateRecordMainView()
+    CreateRecordMainView(recordData: nil)
 }
 
 extension CreateRecordMainView {
@@ -65,6 +70,23 @@ extension CreateRecordMainView {
             }.padding(.leading, 20)
 
             Spacer()
+            
+            
+            if vm.isEdit {
+                
+                Button {
+                    vm.onDeletePressed()
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundStyle(Color.red)
+                }
+                
+                Spacer()
+            }
+            
+
+            
+            
             Button {
                 vm.onSaveBtnPressed()
             } label: {

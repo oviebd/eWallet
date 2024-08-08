@@ -37,7 +37,7 @@ final class CDRecordRepository_Test : XCTestCase {
         
     }
     
-    func test_getUpdatedAmountBasedOnRecordType_DuringTransfer_AddInFromAccountAmountAndReduceInAccountAmount(){
+    func test_getUpdatedAmountBasedOnRecordType_DuringTransfer_AddInAccountAmountAndReduceInFromAccountAmount(){
         let recordType : RecordTypeEnum? = .TRANSFER
         let accountAmount : Double = 2000
         let fromAccountAmount : Double = 15000
@@ -46,8 +46,8 @@ final class CDRecordRepository_Test : XCTestCase {
         
         let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
         
-        XCTAssertEqual(accAmount, accountAmount - transferAmount)
-        XCTAssertEqual(fromAccAmount, fromAccountAmount + transferAmount)
+        XCTAssertEqual(accAmount, accountAmount + transferAmount)
+        XCTAssertEqual(fromAccAmount, fromAccountAmount - transferAmount)
         
     }
     
