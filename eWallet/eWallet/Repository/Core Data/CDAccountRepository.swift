@@ -17,9 +17,6 @@ extension AccountEntity {
 }
 
 struct CDAccountRepository: AccountDataRepoProtocol {
-   
-    
-    
     
     let manager = CoreDataManager.instance
 
@@ -81,4 +78,23 @@ struct CDAccountRepository: AccountDataRepoProtocol {
         
         return manager.save()
     }
+    
+    func AddAmount(amount: Double, id: String) -> Bool {
+        guard var accountEntity = getAccountEntityFromID(id: id) else {
+            return false
+        }
+        accountEntity.amount += amount
+        return manager.save()
+    }
+    
+    func RemoveAmount(amount: Double, id: String) -> Bool {
+        guard var accountEntity = getAccountEntityFromID(id: id) else {
+            return false
+        }
+        accountEntity.amount -= amount
+        return manager.save()
+    }
+    
+    
+    
 }

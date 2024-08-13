@@ -19,6 +19,9 @@ protocol AccountDataRepoProtocol {
     func addAccount(account: AccountData) -> Bool
     func updatedAccount(account: AccountData?) -> Bool
     func getAccountEntityFromID(id: String) -> AccountEntity?
+    
+    func AddAmount(amount : Double, id : String) -> Bool
+    func RemoveAmount(amount : Double, id : String) -> Bool
 }
 
 class AccountDataRepository {
@@ -64,6 +67,14 @@ class AccountDataRepository {
     
     func getAccountEntityFromId(id : String) -> AccountEntity? {
        return accountRepo.getAccountEntityFromID(id: id)
+    }
+    
+    func AddAmount(amount : Double, id : String) -> Bool {
+        return accountRepo.AddAmount(amount: amount, id: id)
+    }
+    
+    func RemoveAmount(amount : Double, id : String) -> Bool {
+        return accountRepo.AddAmount(amount: amount, id: id)
     }
     
     

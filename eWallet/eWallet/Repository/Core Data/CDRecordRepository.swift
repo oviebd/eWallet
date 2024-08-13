@@ -108,8 +108,9 @@ struct CDRecordRepository: RecordDataRepoProtocol {
     func deleteRecord(recordData: RecordData) -> Bool {
         let deletedEntity =  getRecordEntityById(id: recordData.id).first
         if let deletedEntity = deletedEntity {
+            deletedEntity.amount
             manager.context.delete(deletedEntity)
-            return true
+            return manager.save()
         }
         
         return false
@@ -169,5 +170,14 @@ extension CDRecordRepository {
         }
         
         return (accountAmount, fromAccountAmount)
+    }
+}
+
+extension CDRecordRepository {
+    func onDeleteAction(deletedEntity : RecordEntity){
+        let type = RecordTypeEnum(rawValue: deletedEntity.type ?? "")
+        if type == .INCOME{
+            
+        }
     }
 }
