@@ -13,8 +13,8 @@ import XCTest
 final class CDRecordRepository_Test : XCTestCase {
     
     let manager = CoreDataManager.instance
-    let recordRepo : RecordDataRepoProtocol = CDRecordRepository()
-    let accountRepo : AccountDataRepoProtocol = CDAccountRepository()
+    let recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository()) 
+    let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
     
     override func setUpWithError() throws {
         manager.deleteFullDB()

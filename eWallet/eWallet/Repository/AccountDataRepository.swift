@@ -48,6 +48,10 @@ class AccountDataRepository {
         accountList = accountRepo.getAccounts()
         return accountList
     }
+    
+    func getAccountEntityFromID(id: String) -> AccountEntity? {
+        return accountRepo.getAccountEntityFromID(id: id)
+    }
 
     func addAccount(account: AccountData) -> Bool {
         let isSuccess = accountRepo.addAccount(account: account)
@@ -74,8 +78,10 @@ class AccountDataRepository {
     }
     
     func RemoveAmount(amount : Double, id : String) -> Bool {
-        return accountRepo.AddAmount(amount: amount, id: id)
+        return accountRepo.RemoveAmount(amount: amount, id: id)
     }
+    
+    
     
     
 }

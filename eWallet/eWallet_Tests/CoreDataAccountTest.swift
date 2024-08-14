@@ -13,7 +13,7 @@ import XCTest
 final class CoreDataAccountTest : XCTestCase {
     
     let manager = CoreDataManager.instance
-    var accountRepo : AccountDataRepoProtocol = CDAccountRepository()
+    var accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
     
     override func setUpWithError() throws {
         manager.deleteFullDB()
@@ -48,7 +48,8 @@ final class CoreDataAccountTest : XCTestCase {
         let newAmount =  accountData.amount - 100
         _ = accountRepo.RemoveAmount(amount: 100, id: accountData.id)
       
-        XCTAssertEqual(getAccountFromID(id: accountData.id)?.amount, newAmount)
+        let fetchedAccount = getAccountFromID(id: accountData.id)
+        XCTAssertEqual(fetchedAccount?.amount, newAmount)
     }
     
     

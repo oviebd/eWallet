@@ -83,9 +83,9 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.date = recordData.date
         newRecord.time = recordData.time
 
-        let recordType = RecordTypeEnum(rawValue: recordData.recordType)
+      
 
-        let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
+        //let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
 
         let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
         let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
@@ -93,12 +93,15 @@ struct CDRecordRepository: RecordDataRepoProtocol {
 
         newRecord.category = categoryEntity
         newRecord.account = accountEntity
+        newRecord.fromAccount = fromAccountEntity
 
-        if recordType == .TRANSFER {
-            newRecord.fromAccount = fromAccountEntity
-        }
-
+       
         let isRecordCreated = manager.save()
+      
+        if isRecordCreated == false{
+            return false
+        }
+    
 
         if isRecordCreated {
             _ = updateAccountsByRecordData(recordData: recordData)
@@ -129,25 +132,24 @@ struct CDRecordRepository: RecordDataRepoProtocol {
 
 extension CDRecordRepository {
     func updateAccountsByRecordData(recordData: RecordData) -> Bool {
-        let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
-        //  let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
-        var account = recordData.account
+        
         let recordType = RecordTypeEnum(rawValue: recordData.recordType)
-
-        let (accountAmount, fromAccountAmount) = getUpdatedAmountBasedOnRecordType(recordType: recordType,
-                                                                                   transactionAmount: recordData.amount,
-                                                                                   accountAmount: recordData.account?.amount,
-                                                                                   fromAccountAmount: recordData.fromAccount?.amount)
-
-        if recordType == .TRANSFER {
-            var fromAccount = recordData.fromAccount
-            fromAccount?.amount = fromAccountAmount
-            _ = accountRepo.updateAccount(account: fromAccount)
+        let accountId : String = recordData.account?.id ?? ""
+        let fromAccountId : String = recordData.fromAccount?.id ?? ""
+        let amount = recordData.amount
+        
+        switch recordType {
+        case .INCOME:
+             return accountRepo.AddAmount(amount: recordData.amount, id: accountId)
+        case .EXPENSE:
+            return accountRepo.RemoveAmount(amount: recordData.amount, id: accountId)
+        case .TRANSFER:
+            let isAddAmountSuccess = accountRepo.AddAmount(amount: recordData.amount, id: accountId)
+            let isRemoveAmountSuccess = accountRepo.RemoveAmount(amount: recordData.amount, id: fromAccountId)
+            return isAddAmountSuccess && isRemoveAmountSuccess
+        case .none:
+            return false
         }
-
-        account?.amount = accountAmount
-
-        return accountRepo.updateAccount(account: account)
     }
 
     func getUpdatedAmountBasedOnRecordType(recordType: RecordTypeEnum?,
