@@ -12,43 +12,139 @@ import XCTest
 
 final class CDRecordRepository_Test : XCTestCase {
     
-    var  recordRepo : CDRecordRepository?
+    let manager = CoreDataManager.instance
+    let recordRepo : RecordDataRepoProtocol = CDRecordRepository()
+    let accountRepo : AccountDataRepoProtocol = CDAccountRepository()
     
     override func setUpWithError() throws {
-        recordRepo = CDRecordRepository()
+        manager.deleteFullDB()
+        _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData)
+        _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData2)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        recordRepo = nil
     }
     
-    func test_getUpdatedAmountBasedOnRecordType_BothAccountAndFromAccountAmount_ShouldBeSame(){
-        let recordType : RecordTypeEnum? = nil
-        let accountAmount : Double = 2000
-        let fromAccountAmount : Double = 15000
-        let transferAmount : Double = 1000
-        
-        
-        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
-        
-        XCTAssertEqual(accAmount, accountAmount)
-        XCTAssertEqual(fromAccAmount, fromAccountAmount)
-        
+    func test_addOneExpenseTypeRecord_RecordListShouldBeOne(){
+        _ = addRecordtInDB(recordData: getDummyRecordData(recordType: .EXPENSE))
+        XCTAssertEqual(getRecordList().count, 1)
     }
     
-    func test_getUpdatedAmountBasedOnRecordType_DuringTransfer_AddInAccountAmountAndReduceInFromAccountAmount(){
-        let recordType : RecordTypeEnum? = .TRANSFER
-        let accountAmount : Double = 2000
-        let fromAccountAmount : Double = 15000
-        let transferAmount : Double = 1000
-        
-        
-        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
-        
-        XCTAssertEqual(accAmount, accountAmount + transferAmount)
-        XCTAssertEqual(fromAccAmount, fromAccountAmount - transferAmount)
-        
+    func test_addOneIncomeTypeRecord_RecordListShouldBeOne(){
+        _ = addRecordtInDB(recordData: getDummyRecordData(recordType: .INCOME))
+        XCTAssertEqual(getRecordList().count, 1)
     }
+    
+    func test_addOneTransferTypeRecord_RecordListShouldBeOne(){
+        _ = addRecordtInDB(recordData: getDummyRecordData(recordType: .TRANSFER))
+        XCTAssertEqual(getRecordList().count, 1)
+    }
+    
+    func test_getRecordDataFromId_WillFetchPeoperData(){
+        let recordData = getDummyRecordData(recordType: .EXPENSE)
+        _ = addRecordtInDB(recordData: recordData)
+        let fetchedData = getRecordFromID(id: recordData.id)
+        
+        XCTAssertEqual(recordData.id , fetchedData?.id)
+        XCTAssertEqual(recordData.note , fetchedData?.note)
+        XCTAssertEqual(recordData.amount , fetchedData?.amount)
+    }
+    
+    func test_addExpenseTypeRecord_WillDecreaseTheAmountOfItsAccount(){
+        let recordData = getDummyRecordData(recordType: .EXPENSE)
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        _ = addRecordtInDB(recordData: recordData)
+        let fetchedData = getRecordFromID(id: recordData.id)
+        let updatedAcountAmount = getAccountFromID(id: fetchedData?.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount - (fetchedData?.amount ?? 0.0) )
+    }
+    
+    func test_addIncomeTypeRecord_WillIncreaseTheAmountOfItsAccount(){
+        let recordData = getDummyRecordData(recordType: .INCOME)
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        _ = addRecordtInDB(recordData: recordData)
+        let fetchedData = getRecordFromID(id: recordData.id)
+        let updatedAcountAmount = getAccountFromID(id: fetchedData?.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount + (fetchedData?.amount ?? 0.0) )
+    }
+    
+    func test_addTransferTypeRecord_WillIncreaseTheAmountOfItsAccountAndDecreaseItsFromAccountAmount(){
+        let recordData = getDummyRecordData(recordType: .TRANSFER)
+     
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        let prevFromAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.fromAccount?.id ?? "")?.amount ?? 0
+        
+        _ = addRecordtInDB(recordData: recordData)
+        let fetchedData = getRecordFromID(id: recordData.id)
+        
+        let updatedAcountAmount = getAccountFromID(id: fetchedData?.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount + (fetchedData?.amount ?? 0.0))
+        
+        let updatedFromAcountAmount = getAccountFromID(id: fetchedData?.fromAccount?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedFromAcountAmount , prevFromAcountAmount - (fetchedData?.amount ?? 0.0) )
+    }
+    
+    //MARK - Healpers
+    func getDummyRecordData(recordType : RecordTypeEnum) -> RecordData{
+        switch recordType {
+        case .INCOME:
+            return DummyDataUtils.dummyRecordData_Income
+        case .EXPENSE:
+            return DummyDataUtils.dummyRecordData_Expense
+        case .TRANSFER:
+            return DummyDataUtils.dummyRecordData_Transfer
+        }
+       
+    }
+    func addRecordtInDB(recordData : RecordData) -> Bool{
+        return recordRepo.addRecord(recordData: recordData)
+    }
+    
+    func getRecordFromID(id : String) -> RecordData? {
+        return recordRepo.getRecordFromId(id: id)
+    }
+    
+    func getRecordList() -> [RecordData] {
+        return recordRepo.getRecords()
+    }
+    
+
+    
+    func getAccountFromID(id : String) -> AccountData? {
+        return accountRepo.getAccountEntityFromID(id: id)?.convertToAccountData()
+    }
+    
+    func getAccountList() -> [AccountData] {
+        return accountRepo.getAccounts()
+    }
+    
+//    func test_getUpdatedAmountBasedOnRecordType_BothAccountAndFromAccountAmount_ShouldBeSame(){
+//        let recordType : RecordTypeEnum? = nil
+//        let accountAmount : Double = 2000
+//        let fromAccountAmount : Double = 15000
+//        let transferAmount : Double = 1000
+//        
+//        
+//        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
+//        
+//        XCTAssertEqual(accAmount, accountAmount)
+//        XCTAssertEqual(fromAccAmount, fromAccountAmount)
+//        
+//    }
+//    
+//    func test_getUpdatedAmountBasedOnRecordType_DuringTransfer_AddInAccountAmountAndReduceInFromAccountAmount(){
+//        let recordType : RecordTypeEnum? = .TRANSFER
+//        let accountAmount : Double = 2000
+//        let fromAccountAmount : Double = 15000
+//        let transferAmount : Double = 1000
+//        
+//        
+//        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
+//        
+//        XCTAssertEqual(accAmount, accountAmount + transferAmount)
+//        XCTAssertEqual(fromAccAmount, fromAccountAmount - transferAmount)
+//        
+//    }
     
 }

@@ -80,7 +80,7 @@ struct CDAccountRepository: AccountDataRepoProtocol {
     }
     
     func AddAmount(amount: Double, id: String) -> Bool {
-        guard var accountEntity = getAccountEntityFromID(id: id) else {
+        guard let accountEntity = getAccountEntityFromID(id: id) else {
             return false
         }
         accountEntity.amount += amount
@@ -88,7 +88,7 @@ struct CDAccountRepository: AccountDataRepoProtocol {
     }
     
     func RemoveAmount(amount: Double, id: String) -> Bool {
-        guard var accountEntity = getAccountEntityFromID(id: id) else {
+        guard let accountEntity = getAccountEntityFromID(id: id) else {
             return false
         }
         accountEntity.amount -= amount

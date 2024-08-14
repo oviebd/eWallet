@@ -21,6 +21,7 @@
 		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
 		7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */; };
 		7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA09A302C49FADA0047575C /* CreateRecordVM.swift */; };
+		7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */; };
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
 		7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
@@ -110,6 +111,7 @@
 		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
 		7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsVM.swift; sourceTree = "<group>"; };
 		7BA09A302C49FADA0047575C /* CreateRecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordVM.swift; sourceTree = "<group>"; };
+		7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccountTest.swift; sourceTree = "<group>"; };
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
 		7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				7B07BDC42C61D1B70096540D /* eWallet_Tests.swift */,
 				7B07BDCB2C61D26D0096540D /* CDRecordRepository_Test.swift */,
+				7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */,
 			);
 			path = eWallet_Tests;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */,
 				7B07BDC52C61D1B70096540D /* eWallet_Tests.swift in Sources */,
 				7B07BDCC2C61D26D0096540D /* CDRecordRepository_Test.swift in Sources */,
 			);

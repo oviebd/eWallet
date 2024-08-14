@@ -15,7 +15,7 @@ class CoreDataManager {
     let container : NSPersistentContainer
     let context : NSManagedObjectContext
     
-    init() {
+    private init() {
         container = NSPersistentContainer(name: Constants.CORE_DATA.dataContainer)
         container.loadPersistentStores { (description, error) in
             if let error = error {
@@ -25,6 +25,8 @@ class CoreDataManager {
         context = container.viewContext
   
         whereIsMySQLite()
+        
+      //  deleteFullDB()
     }
     
     func save() -> Bool{
@@ -49,6 +51,25 @@ class CoreDataManager {
             .removingPercentEncoding
 
         debugPrint("D>> \(path)")
+    }
+    
+    
+    func deleteFullDB(){
+      //  deleteAllRecordsBatch(for: Constants.CORE_DATA.CategoryEntity)
+        deleteAllRecordsBatch(for: Constants.CORE_DATA.AccountEntity)
+        deleteAllRecordsBatch(for: Constants.CORE_DATA.RecordEntity)
+    }
+    
+    private func deleteAllRecordsBatch(for entityName: String) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save() // Save the context to persist changes
+        } catch let error {
+            print("Failed to batch delete all records for \(entityName): \(error.localizedDescription)")
+        }
     }
 }
 

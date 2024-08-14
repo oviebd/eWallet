@@ -22,6 +22,7 @@ struct RecordData: Hashable, Identifiable {
 
 protocol RecordDataRepoProtocol {
     func getRecords() -> [RecordData]
+    func getRecordFromId(id : String) -> RecordData?
     func getRecodrdsFrom(account: AccountData) -> [RecordData]
     func addRecord(recordData: RecordData) -> Bool
     func editRecord(recordData: RecordData) -> Bool
@@ -46,6 +47,10 @@ class RecordDataRepository {
         }
 
         return sharedInstance
+    }
+    
+    func getRecordFromId(id: String) -> RecordData? {
+        return recordRepo.getRecordFromId(id: id)
     }
 
     func getRecords() -> [RecordData] {

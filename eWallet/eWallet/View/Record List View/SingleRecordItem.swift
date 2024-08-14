@@ -65,5 +65,5 @@ struct SingleRecordItem: View {
 }
 
 #Preview {
-    SingleRecordItem(recordData: DummyDataUtils.dummyRecordData)
+    SingleRecordItem(recordData: DummyDataUtils.dummyRecordData_Expense)
 }
