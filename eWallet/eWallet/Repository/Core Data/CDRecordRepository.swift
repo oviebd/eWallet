@@ -83,9 +83,6 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.date = recordData.date
         newRecord.time = recordData.time
 
-      
-
-        //let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
 
         let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
         let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
@@ -101,7 +98,6 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         if isRecordCreated == false{
             return false
         }
-    
 
         if isRecordCreated {
             _ = updateAccountsByRecordData(recordData: recordData)
@@ -150,34 +146,6 @@ extension CDRecordRepository {
         case .none:
             return false
         }
-    }
-
-    func getUpdatedAmountBasedOnRecordType(recordType: RecordTypeEnum?,
-                                           transactionAmount: Double?,
-                                           accountAmount: Double?,
-                                           fromAccountAmount: Double? = 0) -> (Double, Double) {
-        var accountAmount = accountAmount ?? 0
-        var fromAccountAmount = fromAccountAmount ?? 0
-        let transactionAmount = transactionAmount ?? 0
-
-        guard let recordType = recordType else {
-            return (accountAmount, fromAccountAmount)
-        }
-
-        switch recordType {
-        case .INCOME:
-            accountAmount += transactionAmount
-            break
-        case .EXPENSE:
-            accountAmount -= transactionAmount
-            break
-        case .TRANSFER:
-
-            fromAccountAmount -= transactionAmount
-            accountAmount += transactionAmount
-        }
-
-        return (accountAmount, fromAccountAmount)
     }
 }
 

@@ -85,6 +85,41 @@ final class CDRecordRepository_Test : XCTestCase {
         XCTAssertEqual(updatedFromAcountAmount , prevFromAcountAmount - (fetchedData?.amount ?? 0.0) )
     }
     
+    func test_DeleteExpenseTypeRecord_WillRestoreItsAccountsAmount(){
+        let recordData = getDummyRecordData(recordType: .EXPENSE)
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        _ = addRecordtInDB(recordData: recordData)
+        _ = deleteRecordtInDB(recordData: recordData)
+        let updatedAcountAmount = getAccountFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount)
+    }
+    
+    func test_DeleteIncomeTypeRecord_WillRestoreItsAccountsAmount(){
+        let recordData = getDummyRecordData(recordType: .INCOME)
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        _ = addRecordtInDB(recordData: recordData)
+        _ = deleteRecordtInDB(recordData: recordData)
+        let updatedAcountAmount = getAccountFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount)
+    }
+    
+    func test_DeleteTransferTypeRecord_WillRestoreItsAccount_And_FromAccount_Amount(){
+        let recordData = getDummyRecordData(recordType: .TRANSFER)
+      
+        let prevAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        let prevFromAcountAmount = accountRepo.getAccountEntityFromID(id: recordData.fromAccount?.id ?? "")?.amount ?? 0
+        
+        _ = addRecordtInDB(recordData: recordData)
+        _ = deleteRecordtInDB(recordData: recordData)
+        
+        let updatedAcountAmount = getAccountFromID(id: recordData.account?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedAcountAmount , prevAcountAmount )
+        
+        let updatedFromAcountAmount = getAccountFromID(id: recordData.fromAccount?.id ?? "")?.amount ?? 0
+        XCTAssertEqual(updatedFromAcountAmount , prevFromAcountAmount)
+        
+    }
+    
     //MARK - Healpers
     func getDummyRecordData(recordType : RecordTypeEnum) -> RecordData{
         switch recordType {
@@ -97,6 +132,8 @@ final class CDRecordRepository_Test : XCTestCase {
         }
        
     }
+    
+    
     func addRecordtInDB(recordData : RecordData) -> Bool{
         return recordRepo.addRecord(recordData: recordData)
     }
@@ -109,6 +146,9 @@ final class CDRecordRepository_Test : XCTestCase {
         return recordRepo.getRecords()
     }
     
+    func deleteRecordtInDB(recordData : RecordData) -> Bool{
+        return recordRepo.deleteRecord(recordData: recordData)
+    }
 
     
     func getAccountFromID(id : String) -> AccountData? {
@@ -119,32 +159,6 @@ final class CDRecordRepository_Test : XCTestCase {
         return accountRepo.getAccounts()
     }
     
-//    func test_getUpdatedAmountBasedOnRecordType_BothAccountAndFromAccountAmount_ShouldBeSame(){
-//        let recordType : RecordTypeEnum? = nil
-//        let accountAmount : Double = 2000
-//        let fromAccountAmount : Double = 15000
-//        let transferAmount : Double = 1000
-//        
-//        
-//        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
-//        
-//        XCTAssertEqual(accAmount, accountAmount)
-//        XCTAssertEqual(fromAccAmount, fromAccountAmount)
-//        
-//    }
-//    
-//    func test_getUpdatedAmountBasedOnRecordType_DuringTransfer_AddInAccountAmountAndReduceInFromAccountAmount(){
-//        let recordType : RecordTypeEnum? = .TRANSFER
-//        let accountAmount : Double = 2000
-//        let fromAccountAmount : Double = 15000
-//        let transferAmount : Double = 1000
-//        
-//        
-//        let (accAmount, fromAccAmount) = recordRepo?.getUpdatedAmountBasedOnRecordType(recordType: recordType, transactionAmount: transferAmount, accountAmount: accountAmount, fromAccountAmount: fromAccountAmount) ?? (0,0)
-//        
-//        XCTAssertEqual(accAmount, accountAmount + transferAmount)
-//        XCTAssertEqual(fromAccAmount, fromAccountAmount - transferAmount)
-//        
-//    }
+
     
 }
