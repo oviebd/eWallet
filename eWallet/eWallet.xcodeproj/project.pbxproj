@@ -32,6 +32,10 @@
 		7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0D26F2C4C883E00A34A5A /* AccountListVM.swift */; };
 		7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0D2712C4C8CA900A34A5A /* CategoryDataRepository.swift */; };
 		F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */; };
+		F30448902C6D9A5B00A6485B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304488F2C6D9A5B00A6485B /* ContentView.swift */; };
+		F30448922C6D9D2700A6485B /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30448912C6D9D2700A6485B /* TopBarView.swift */; };
+		F30448942C6D9F0C00A6485B /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30448932C6D9F0C00A6485B /* CustomCorner.swift */; };
+		F30448972C6DA29800A6485B /* OffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30448962C6DA29800A6485B /* OffsetModifier.swift */; };
 		F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B412C0A1351000DF53C /* AccountDataRepository.swift */; };
 		F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3153B452C0A14DD000DF53C /* AddAccountVM.swift */; };
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
@@ -122,6 +126,10 @@
 		7BF0D26F2C4C883E00A34A5A /* AccountListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVM.swift; sourceTree = "<group>"; };
 		7BF0D2712C4C8CA900A34A5A /* CategoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataRepository.swift; sourceTree = "<group>"; };
 		F3033C932BB5C8D000ECBA71 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		F304488F2C6D9A5B00A6485B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F30448912C6D9D2700A6485B /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		F30448932C6D9F0C00A6485B /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
+		F30448962C6DA29800A6485B /* OffsetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetModifier.swift; sourceTree = "<group>"; };
 		F3153B412C0A1351000DF53C /* AccountDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataRepository.swift; sourceTree = "<group>"; };
 		F3153B452C0A14DD000DF53C /* AddAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVM.swift; sourceTree = "<group>"; };
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
@@ -244,8 +252,12 @@
 		7B2C1C0B2C6707C8005C2D4B /* Pinned Scrollable Header */ = {
 			isa = PBXGroup;
 			children = (
+				F30448952C6DA28300A6485B /* Modifiers */,
 				7B2C1C0E2C670C11005C2D4B /* Model */,
 				7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */,
+				F304488F2C6D9A5B00A6485B /* ContentView.swift */,
+				F30448912C6D9D2700A6485B /* TopBarView.swift */,
+				F30448932C6D9F0C00A6485B /* CustomCorner.swift */,
 			);
 			path = "Pinned Scrollable Header";
 			sourceTree = "<group>";
@@ -323,6 +335,14 @@
 				F327464B2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift */,
 			);
 			path = CommonToolBar;
+			sourceTree = "<group>";
+		};
+		F30448952C6DA28300A6485B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F30448962C6DA29800A6485B /* OffsetModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		F3153B402C0A12FE000DF53C /* Core Data */ = {
@@ -727,6 +747,7 @@
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */,
 				7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */,
+				F30448972C6DA29800A6485B /* OffsetModifier.swift in Sources */,
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
 				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
@@ -760,6 +781,7 @@
 				F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
+				F30448902C6D9A5B00A6485B /* ContentView.swift in Sources */,
 				7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */,
 				7BC3FAD82C4F72E50015A72C /* RecordDataRepository.swift in Sources */,
 				7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */,
@@ -770,11 +792,13 @@
 				7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
+				F30448942C6D9F0C00A6485B /* CustomCorner.swift in Sources */,
 				7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */,
 				7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */,
 				F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */,
 				F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */,
 				7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */,
+				F30448922C6D9D2700A6485B /* TopBarView.swift in Sources */,
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
