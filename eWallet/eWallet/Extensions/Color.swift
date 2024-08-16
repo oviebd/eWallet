@@ -11,6 +11,8 @@ extension Color {
         let background = Color("BackgroundColor")
         let primaryText = Color("PrimartTextColor")
         let secondaryText = Color("SecondaryTextColor")
+        
+        let primaryBG = Color("PrimaryBG")
      
         let white = Color("White")
         let green = Color("GreenColor")
@@ -24,6 +26,8 @@ extension Color {
         let mediumDarkBlue = Color("MediumDarkBlue")
         let shadowColor = Color("ShadowColor")
         let lightBlue = Color("LightBlue")
+        
+        let accountGridCardBG = Color("AccountGridCardBG")
         
     }
 }

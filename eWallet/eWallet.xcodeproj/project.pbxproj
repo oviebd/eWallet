@@ -41,6 +41,7 @@
 		F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */; };
 		F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */; };
 		F31B48212B8F327A00CE6575 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B48202B8F327A00CE6575 /* AddAccountView.swift */; };
+		F31B58332C6EEDE700C0772C /* AddAccountGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B58322C6EEDE700C0772C /* AddAccountGridItemView.swift */; };
 		F32326CD2C0AC37F0014498A /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32326CC2C0AC37F0014498A /* CustomAlertView.swift */; };
 		F32326D02C0ACA060014498A /* DummyDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32326CF2C0ACA060014498A /* DummyDataUtils.swift */; };
 		F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324F4FF2BB98AF4002B5AAE /* TestAnimationView.swift */; };
@@ -135,6 +136,7 @@
 		F317D9842BAAFDA1003BB60A /* RecordTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeEnum.swift; sourceTree = "<group>"; };
 		F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeSegmentedView.swift; sourceTree = "<group>"; };
 		F31B48202B8F327A00CE6575 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		F31B58322C6EEDE700C0772C /* AddAccountGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountGridItemView.swift; sourceTree = "<group>"; };
 		F32326CC2C0AC37F0014498A /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		F32326CF2C0ACA060014498A /* DummyDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataUtils.swift; sourceTree = "<group>"; };
 		F324F4FF2BB98AF4002B5AAE /* TestAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimationView.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				F32326C92C0ABBAB0014498A /* Add */,
 				F34B45582B8CF2CD00434B42 /* AccountGridItemView.swift */,
 				F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */,
+				F31B58322C6EEDE700C0772C /* AddAccountGridItemView.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* SingleCircleItem.swift in Sources */,
 				F3835D4A2BF210CA00D78E6B /* RecordListView.swift in Sources */,
+				F31B58332C6EEDE700C0772C /* AddAccountGridItemView.swift in Sources */,
 				F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */,
 				F3FCBA312C09BF9800576B7C /* CommonDropdownView.swift in Sources */,
 				F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */,

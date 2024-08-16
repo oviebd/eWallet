@@ -72,6 +72,7 @@ struct CommonTopBar: View {
             .padding(.vertical, 10)
             .font(.title3)
             .foregroundStyle(Color.white)
+          //  .frame(height: 50)
             .background(data.bgColor.ignoresSafeArea())
     }
 }
