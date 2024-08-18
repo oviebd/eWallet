@@ -17,6 +17,8 @@ struct PinnedScrolledView: View {
     let maxHeight = UIScreen.main.bounds.height / 2.3
     var topEdge : CGFloat
     var messages : [Message] = [Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two")]
+    
+    
     //Offset
     @State var offset : CGFloat = 0
     

@@ -9,40 +9,48 @@ import SwiftUI
 
 public enum AccountsListViewButtonTypeEnum {
     case AddAccount
-    case AccounDetails
-    case Records
 }
 
 struct AccountGridView: View {
-    var onButtonPressed: (AccountsListViewButtonTypeEnum) -> Void
+    var onAddButtonPressed: () -> Void
+    var onAccountItemPressed : (AccountData) -> Void
 
     @StateObject private var vm = AccountGridVM()
 
     private let fixedColumn = [
-        GridItem(.flexible(), spacing: 5),
-        GridItem(.flexible(), spacing: 5),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
     ]
 
     var body: some View {
-        VStack {
-           // topTitleView
-            ScrollView {
-                LazyVGrid(columns: fixedColumn, spacing: 5) {
-                    ForEach(vm.accountList) { item in
-                        AccountGridItemView(accountData: item)
+        LazyVGrid(columns: fixedColumn, spacing: 10) {
+            ForEach(vm.accountList) { item in
+                AccountGridItemView(accountData: item)
+                    .onTapGesture {
+                        onAccountItemPressed(item)
                     }
-                    
-                    AddAccountGridItemView()
-                }
-
             }
-
-
-        }.padding(10)
+            
+            AddAccountGridItemView()
+                .onTapGesture {
+                onAddButtonPressed()
+            }
+        }.padding(.horizontal,20)
+            .padding(.top,10)
+            .padding(.bottom,70)
         .background(Color.theme.accountGridCardBG)
+
         .ignoresSafeArea()
 
     }
+    
+//    func getHeight(){
+//        let finalCount = vm.accountList.count + 1
+//        let count = ( finalCount / 2 ) + (finalCount % 2)
+//        
+//        return count *
+//        
+//    }
 }
 
 extension AccountGridView {
@@ -112,7 +120,6 @@ extension AccountGridView {
 }
 
 #Preview {
-    AccountGridView(onButtonPressed: {
-        _ in
-    })
+    AccountGridView(onAddButtonPressed: { },
+                    onAccountItemPressed: {_ in})
 }

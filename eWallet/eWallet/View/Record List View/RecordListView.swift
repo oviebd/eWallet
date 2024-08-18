@@ -8,30 +8,25 @@
 import SwiftUI
 
 struct RecordListView: View {
-    //let recordLists = RecordDataUtility().recordList
+    // let recordLists = RecordDataUtility().recordList
 
     @StateObject var vm = RecordListVM()
-   
+
     var onItemPresesd: (RecordData) -> Void
     var body: some View {
-        
-        ScrollView {
-            
-            VStack {
-                
-                ForEach(vm.recordsList) { item in
-                    SingleRecordItem(recordData: item)
-                        .onTapGesture {
-                            onItemPresesd(item)
-                        }
-                }
-                
+        VStack {
+            ForEach(vm.recordsList) { item in
+                SingleRecordItem(recordData: item)
+                    .onTapGesture {
+                        onItemPresesd(item)
+                    }
             }
-        }
+
+        }.background(Color.yellow)
     }
 }
 
 #Preview {
-    RecordListView(){ _ in
+    RecordListView { _ in
     }
 }

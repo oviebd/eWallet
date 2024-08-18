@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @StateObject var vm = HomeVm()
 
-    let topBarConfig = CommonTopBarData(title: "", bgColor: Color.theme.accountGridCardBG)
+    let topBarConfig = CommonTopBarData(title: "dasf", bgColor: Color.theme.accountGridCardBG)
 
     var body: some View {
         NavigationStack {
@@ -21,22 +21,26 @@ struct HomeView: View {
                 CommonTopBar(data: topBarConfig)
                    // .frame(height: 50)
                     
-                   
 
-                AccountGridView { buttonType in
-                    vm.onAccountListButtonPressed(buttonType: buttonType)
-                }.frame(height: 300)
-                
+                AccountGridView(onAddButtonPressed: { 
+                    vm.isCreateAccountButtonPressed = true
+                },
+                onAccountItemPressed: {_ in})
+                //.frame(maxHeight: .infinity)
+
+
                 RecordListView(){ recordItem in
                     vm.selectedRecordData = recordItem
                     vm.isCreateRecordButtonPressed = true
-                }.frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                }//.frame(height: 100)
                     .background(Color.red)
                     
                 
                 
                 Spacer()
             }
+            
+           // .ignoresSafeArea()
 
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)

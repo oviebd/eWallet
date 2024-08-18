@@ -14,16 +14,5 @@ class HomeVm: ObservableObject {
     
     @Published var selectedRecordData : RecordData?
 
-    func onAccountListButtonPressed(buttonType: AccountsListViewButtonTypeEnum) {
-        switch buttonType {
-        case .AccounDetails:
-            break
-
-        case .AddAccount:
-            isCreateAccountButtonPressed = true
-            break
-        case .Records:
-            break
-        }
-    }
+    
 }
