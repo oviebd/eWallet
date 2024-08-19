@@ -28,13 +28,14 @@ class CreateRecordVM: ObservableObject {
     @Published var isAccountCreated = false
 
     @Published var additionalRecordData: AdditionalRecordData
-
+    
+    let recordTypes : [RecordTypeEnum]
     var recordRepo: RecordDataRepository
 
     init(recordData : RecordData?) {
         
         self.recordData = recordData
-        
+        recordTypes = [.INCOME,.EXPENSE,.TRANSFER]
         additionalRecordData = AdditionalRecordData(note: "", date: Date.now, time: Date.now)
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
         getRecords()
@@ -103,4 +104,5 @@ class CreateRecordVM: ObservableObject {
         recordRepo.deleteRecord(recordData: recordData)
         
     }
+    
 }

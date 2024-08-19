@@ -11,6 +11,7 @@ extension Color {
         let background = Color("BackgroundColor")
         let primaryText = Color("PrimartTextColor")
         let secondaryText = Color("SecondaryTextColor")
+        let primaryDivider = Color("primaryDivider")
         
         let primaryBG = Color("PrimaryBG")
      

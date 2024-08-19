@@ -16,7 +16,7 @@ struct SingleCircleItem: View {
     var body: some View {
         ZStack {
             Circle()
-                .frame(width: 50)
+                .frame(width: 50, height: 50)
                 .foregroundColor(color)
 
             Image(systemName: imageName)

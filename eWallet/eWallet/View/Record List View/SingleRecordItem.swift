@@ -12,13 +12,19 @@ struct SingleRecordItem: View {
     var recordData : RecordData
    
     var body: some View {
-        HStack (alignment: .center) {
+    
+        
+        Rectangle()
+            .fill(Color.theme.primaryDivider)
+            .frame(height: 1)
+            .padding(.bottom,3)
+            
+        
+        HStack (alignment: .top) {
             
             SingleCircleItem(imageName: recordData.catagory?.iconImage ?? "folder.fill", color:  recordData.catagory?.color ?? Color.gray)
-                .padding(.leading,10)
-                .padding(.trailing,5)
+               
     
-            
             VStack(alignment: .leading, spacing: 0) {
                 Text(recordData.catagory?.title ?? "")
                     .foregroundStyle(.black.opacity(0.9))
@@ -34,7 +40,7 @@ struct SingleRecordItem: View {
                     .italic()
                     .foregroundStyle(.black.opacity(0.6))
                     .lineLimit(1)
-            }
+            } .padding(.leading,5)
            
             
             Spacer()
@@ -55,9 +61,7 @@ struct SingleRecordItem: View {
                     .font(.caption)
                     .foregroundStyle(.gray)
                     .lineLimit(1)
-                
-                
-            }.padding(.trailing, 10)
+            }
                
         }
        

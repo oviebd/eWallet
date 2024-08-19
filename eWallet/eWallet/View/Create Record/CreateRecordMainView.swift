@@ -11,28 +11,50 @@ struct CreateRecordMainView: View {
    
     @Environment(\.presentationMode) var presentationMode
     @StateObject var vm : CreateRecordVM
-   
+    @State private var favoriteColor = 0
+ 
     init(recordData: RecordData?) {
         _vm = StateObject(wrappedValue: CreateRecordVM(recordData: recordData))
+       
+       // UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
 
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 headerView
-                    .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
+//                    .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
 
-                RecordTypeSegmentedView(selectedItem: $vm.selectedRecordType)
-                    .frame(height: 50)
+                
+                
+                VStack {
+                    Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
+                        Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
+                        Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
+                        Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
+                                  
+                           }
+                           .pickerStyle(.segmented)
 
-                Rectangle()
-                    .fill(Color.theme.shadowColor.opacity(1))
-                    .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
-                    .frame(height: 1)
+                }.padding(.horizontal,20)
+                    .background(Color.theme.accountGridCardBG)
+                   
+                
+                
+//                
+//                RecordTypeSegmentedView(selectedItem: $vm.selectedRecordType)
+//                    .frame(height: 50)
+
+//                Rectangle()
+//                    .fill(Color.theme.shadowColor.opacity(1))
+//                    .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
+//                    .frame(height: 1)
 
                 middleView
-                    .frame(height: 250)
-                    .background(Color.theme.normalBlue)
+                    .frame(height: 200)
+                    .background(Color.theme.accountGridCardBG)
 
                 CalculatorView(calculatedValue: $vm.amountInput)
 
@@ -96,7 +118,7 @@ extension CreateRecordMainView {
         }.frame(height: 50)
             .foregroundColor(Color.white)
             .fontWeight(.bold)
-            .background(Color.theme.mediumDarkBlue)
+            .background(Color.theme.accountGridCardBG)
     }
 }
 

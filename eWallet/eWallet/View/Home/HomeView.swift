@@ -26,21 +26,20 @@ struct HomeView: View {
                     vm.isCreateAccountButtonPressed = true
                 },
                 onAccountItemPressed: {_ in})
-                //.frame(maxHeight: .infinity)
 
 
                 RecordListView(){ recordItem in
                     vm.selectedRecordData = recordItem
                     vm.isCreateRecordButtonPressed = true
-                }//.frame(height: 100)
-                    .background(Color.red)
+                }
+                .padding(.horizontal,20)
+                .offset(y: -40)
                     
-                
-                
                 Spacer()
+                
+                floatingAddRecordButton
             }
             
-           // .ignoresSafeArea()
 
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
