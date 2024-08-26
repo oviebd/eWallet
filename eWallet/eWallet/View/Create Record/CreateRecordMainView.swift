@@ -12,6 +12,7 @@ struct CreateRecordMainView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var vm : CreateRecordVM
     @State private var favoriteColor = 0
+
  
     init(recordData: RecordData?) {
         _vm = StateObject(wrappedValue: CreateRecordVM(recordData: recordData))
@@ -22,44 +23,37 @@ struct CreateRecordMainView: View {
     }
 
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                headerView
-//                    .shadow(color: Color.theme.shadowColor.opacity(1), radius: 4, x: 0, y: 5)
+        VStack(spacing: 0) {
+            headerView
+            
+            VStack {
+                Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
+                    Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
+                    Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
+                    Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
+                              
+                       }
+                       .pickerStyle(.segmented)
 
-                
-                
-                VStack {
-                    Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
-                        Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
-                        Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
-                        Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
-                                  
-                           }
-                           .pickerStyle(.segmented)
+            }.padding(.horizontal,20)
+                .background(Color.theme.accountGridCardBG)
 
-                }.padding(.horizontal,20)
-                    .background(Color.theme.accountGridCardBG)
-                   
-                
-                
-//                
-//                RecordTypeSegmentedView(selectedItem: $vm.selectedRecordType)
-//                    .frame(height: 50)
-
-//                Rectangle()
-//                    .fill(Color.theme.shadowColor.opacity(1))
-//                    .shadow(color: Color.theme.darkBlue.opacity(1), radius: 4, x: 0, y: 0)
-//                    .frame(height: 1)
-
-                middleView
-                    .frame(height: 200)
-                    .background(Color.theme.accountGridCardBG)
-
-                CalculatorView(calculatedValue: $vm.amountInput)
-
-                Spacer()
+            middleView
+                .frame(height: 200)
+                .background(Color.theme.accountGridCardBG)
+            
+            
+            VStack(spacing: 0.5){
+                chooseAccountFormView
+                chooseAccountFormView
             }
+           
+            .padding(.top)
+            .background(Color.gray)
+
+          //  CalculatorView(calculatedValue: $vm.amountInput)
+
+            Spacer()
         }
         .navigationBarHidden(true)
 
@@ -226,4 +220,49 @@ extension CreateRecordMainView {
                 vm.isSelectCategoryPressed = true
             }
     }
+}
+
+
+extension CreateRecordMainView {
+    
+    var chooseAccountFormView : some View {
+        HStack{
+            Image(systemName: "bag")
+                .resizable()
+                .frame(width: 18, height: 18)
+                .padding(10)
+                
+                .background(
+                    RoundedRectangle(cornerRadius: 9)
+                        .fill(Color.green)
+                ).foregroundStyle(Color.white)
+            
+            Text("Account")
+                .foregroundStyle(Color.theme.primaryText)
+                .font(.system(size: 18))
+                .padding(.horizontal,10)
+            
+            Spacer()
+            
+            Text("Eastern Bank")
+                .foregroundStyle(Color.theme.secondaryText)
+                .font(.system(size: 16))
+            
+            Image(systemName: "chevron.compact.right")
+                .resizable()
+                .frame(width: 7, height: 10)
+                .foregroundStyle(Color.theme.secondaryText)
+                .offset(y:1.5)
+                .padding(.leading,5)
+        }
+       
+        .padding(.horizontal,20)
+        .padding(.vertical,15)
+        .background(Color.theme.white)
+        
+        .onTapGesture {
+            vm.isAccountTypePressed = true
+        }
+    }
+    
 }
