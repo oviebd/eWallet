@@ -13,20 +13,29 @@ struct DefaultFormPicker: View {
     let iconName : String
     let mainTitle : String
     let rightTitle : String
-    let isRequired : Bool
     
-  //  func onPressed : (void)
+    var isRequired : Bool = false
+    var iconBgShape : BgShapeType = .roundedRectangle
+    var iconBgColor : Color = .green
+    var iconForgroundColor : Color = .white
+   
+    
+    var onItemPresesd : () -> Void
     
     var body: some View {
+        
         HStack{
             
             Image(systemName: iconName)
                 .resizable()
-                .frame(width: 30, height: 30)
-                .padding(10)
-                .WithDefaultRectangularBgModifier(bgColor: .green, cornerRadius: 9)
-                .foregroundStyle(Color.white)
-            
+                .scaledToFit()
+                .frame(width: getIconSize(), height: getIconSize())
+                .padding( iconBgShape == .none ? 0 : 10)
+                .modifier(DefaultBgModifier(bgColor: iconBgColor, cornerRadius: 9, shapeType: iconBgShape))
+                .foregroundStyle(iconForgroundColor)
+                .padding(.leading, iconBgShape == .none ? 10 : 0)
+                .padding(.vertical,iconBgShape == .none ? 10 : 0)
+           
             Text(mainTitle)
                 .foregroundStyle(Color.theme.primaryText)
                 .font(.system(size: 18))
@@ -45,14 +54,13 @@ struct DefaultFormPicker: View {
                 .offset(y:1.5)
                 .padding(.leading,5)
         }
-       
-        .padding(.horizontal,20)
-        .padding(.vertical,15)
-        .background(Color.theme.white)
-        
         .onTapGesture {
-            //vm.isAccountTypePressed = true
+            onItemPresesd()
         }
+    }
+    
+    func getIconSize() -> CGFloat{
+        return iconBgShape == .none ? 25 : 20
     }
     
     func getRightTitleBgColor() -> Color {
@@ -72,5 +80,7 @@ struct DefaultFormPicker: View {
 }
 
 #Preview {
-    DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "Eastern Bank", isRequired: true)
+    DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "Eastern Bank", isRequired: true, iconBgShape: .circle, iconBgColor: .green){
+        
+    }
 }

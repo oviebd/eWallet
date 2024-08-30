@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct CreateRecordMainView: View {
-   
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var vm : CreateRecordVM
+    @StateObject var vm: CreateRecordVM
     @State private var favoriteColor = 0
 
- 
+    @State private var isDatePickerPressed = false
+    @State private var selectedDate : Date = Date.now
+    let formItemVerticalPadding = 5.0
+
     init(recordData: RecordData?) {
         _vm = StateObject(wrappedValue: CreateRecordVM(recordData: recordData))
-       
-       // UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+
+        // UISegmentedControl.appearance().selectedSegmentTintColor = .blue
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
@@ -25,33 +27,25 @@ struct CreateRecordMainView: View {
     var body: some View {
         VStack(spacing: 0) {
             headerView
-            
+
             VStack {
                 Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
                     Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
                     Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
                     Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
-                              
-                       }
-                       .pickerStyle(.segmented)
+                }
+                .pickerStyle(.segmented)
 
-            }.padding(.horizontal,20)
+            }.padding(.horizontal, 20)
                 .background(Color.theme.accountGridCardBG)
 
             middleView
                 .frame(height: 200)
                 .background(Color.theme.accountGridCardBG)
-            
-            
-            VStack(spacing: 0.5){
-                chooseAccountFormView
-                chooseAccountFormView
-            }
-           
-            .padding(.top)
-            .background(Color.gray)
 
-          //  CalculatorView(calculatedValue: $vm.amountInput)
+            pickerFormView
+            // .padding(.top)
+            // .background(Color.gray)
 
             Spacer()
         }
@@ -86,23 +80,18 @@ extension CreateRecordMainView {
             }.padding(.leading, 20)
 
             Spacer()
-            
-            
+
             if vm.isEdit {
-                
                 Button {
                     vm.onDeletePressed()
                 } label: {
                     Image(systemName: "trash")
                         .foregroundStyle(Color.red)
                 }
-                
+
                 Spacer()
             }
-            
 
-            
-            
             Button {
                 vm.onSaveBtnPressed()
             } label: {
@@ -124,20 +113,20 @@ extension CreateRecordMainView {
             addNumberView
                 .padding(.leading, 15)
             Spacer()
-            HStack {
-                if vm.selectedRecordType == .TRANSFER {
-                    fromAccountView
-                    Spacer()
-                    accountView
-
-                } else {
-                    accountView
-                    Spacer()
-                    categoryTypeView
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 20)
+//            HStack {
+//                if vm.selectedRecordType == .TRANSFER {
+//                    fromAccountView
+//                    Spacer()
+//                    accountView
+//
+//                } else {
+//                    accountView
+//                    Spacer()
+//                    categoryTypeView
+//                }
+//            }
+//            .padding(.horizontal, 20)
+//            .padding(.bottom, 20)
         }
     }
 
@@ -176,96 +165,131 @@ extension CreateRecordMainView {
         }.foregroundColor(Color.theme.primaryText)
     }
 
-    var accountView: some View {
-        VStack {
-            Text(vm.selectedRecordType == .TRANSFER ? "To Account" : "Account")
-                .foregroundStyle(Color.theme.white.opacity(0.5))
-                .font(.system(size: 12))
-            Text(vm.account?.title ?? "Select")
-                .foregroundStyle(Color.theme.primaryText)
-                .font(.system(size: 15))
-                .fontWeight(.semibold)
-        }.frame(alignment: .center)
-            .onTapGesture {
-                vm.isAccountTypePressed = true
-            }
-    }
-
-    var fromAccountView: some View {
-        VStack {
-            Text("From Account")
-                .foregroundStyle(Color.theme.white.opacity(0.5))
-                .font(.system(size: 12))
-            Text(vm.fromAccount?.title ?? "Select")
-                .foregroundStyle(Color.theme.primaryText)
-                .font(.system(size: 15))
-                .fontWeight(.semibold)
-        }.frame(alignment: .center)
-            .onTapGesture {
-                vm.isFromAccountTypePressed = true
-            }
-    }
-
-    var categoryTypeView: some View {
-        VStack {
-            Text("Category")
-                .foregroundStyle(Color.theme.white.opacity(0.5))
-                .font(.system(size: 12))
-            Text(vm.selectedCategoryData?.title ?? "Select")
-                .foregroundStyle(Color.theme.primaryText)
-                .font(.system(size: 15))
-                .fontWeight(.semibold)
-        }.frame(alignment: .center)
-            .onTapGesture {
-                vm.isSelectCategoryPressed = true
-            }
-    }
+//    var accountView: some View {
+//        VStack {
+//            Text(vm.selectedRecordType == .TRANSFER ? "To Account" : "Account")
+//                .foregroundStyle(Color.theme.white.opacity(0.5))
+//                .font(.system(size: 12))
+//            Text(vm.account?.title ?? "Select")
+//                .foregroundStyle(Color.theme.primaryText)
+//                .font(.system(size: 15))
+//                .fontWeight(.semibold)
+//        }.frame(alignment: .center)
+//            .onTapGesture {
+//                vm.isAccountTypePressed = true
+//            }
+//    }
+//
+//    var fromAccountView: some View {
+//        VStack {
+//            Text("From Account")
+//                .foregroundStyle(Color.theme.white.opacity(0.5))
+//                .font(.system(size: 12))
+//            Text(vm.fromAccount?.title ?? "Select")
+//                .foregroundStyle(Color.theme.primaryText)
+//                .font(.system(size: 15))
+//                .fontWeight(.semibold)
+//        }.frame(alignment: .center)
+//            .onTapGesture {
+//                vm.isFromAccountTypePressed = true
+//            }
+//    }
+//
+//    var categoryTypeView: some View {
+//        VStack {
+//            Text("Category")
+//                .foregroundStyle(Color.theme.white.opacity(0.5))
+//                .font(.system(size: 12))
+//            Text(vm.selectedCategoryData?.title ?? "Select")
+//                .foregroundStyle(Color.theme.primaryText)
+//                .font(.system(size: 15))
+//                .fontWeight(.semibold)
+//        }.frame(alignment: .center)
+//            .onTapGesture {
+//                vm.isSelectCategoryPressed = true
+//            }
+//    }
 }
 
-
 extension CreateRecordMainView {
-    
-    var chooseAccountFormView : some View {
-        
-        DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "", isRequired: true)
-        
-//        HStack{
-//            Image(systemName: "bag")
-//                .resizable()
-//                .frame(width: 18, height: 18)
-//                .padding(10)
-//                
-//                .background(
-//                    RoundedRectangle(cornerRadius: 9)
-//                        .fill(Color.green)
-//                ).foregroundStyle(Color.white)
-//            
-//            Text("Account")
-//                .foregroundStyle(Color.theme.primaryText)
-//                .font(.system(size: 18))
-//                .padding(.horizontal,10)
-//            
-//            Spacer()
-//            
-//            Text("Eastern Bank")
-//                .foregroundStyle(Color.theme.secondaryText)
-//                .font(.system(size: 16))
-//            
-//            Image(systemName: "chevron.compact.right")
-//                .resizable()
-//                .frame(width: 7, height: 10)
-//                .foregroundStyle(Color.theme.secondaryText)
-//                .offset(y:1.5)
-//                .padding(.leading,5)
-//        }
-//       
-//        .padding(.horizontal,20)
-//        .padding(.vertical,15)
-//        .background(Color.theme.white)
-//        
-//        .onTapGesture {
-//            vm.isAccountTypePressed = true
-//        }
+    var pickerFormView: some View {
+        VStack {
+            DefaultFormPicker(iconName: "bag",
+                              mainTitle: vm.selectedRecordType == .TRANSFER ? "To Account" : "Account",
+                              rightTitle: vm.account?.title ?? "",
+                              isRequired: true) {
+                vm.isAccountTypePressed = true
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, formItemVerticalPadding)
+            .padding(.top, formItemVerticalPadding)
+
+            DefaultDividerView()
+
+            if vm.selectedRecordType == .TRANSFER {
+                DefaultFormPicker(iconName: "questionmark",
+                                  mainTitle: "From Account",
+                                  rightTitle: vm.fromAccount?.title ?? "",
+                                  isRequired: true, 
+                                  iconBgShape: .roundedRectangle) {
+                    vm.isFromAccountTypePressed = true
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, formItemVerticalPadding)
+
+            }else{
+                
+                DefaultFormPicker(iconName: "questionmark",
+                                  mainTitle: "Category",
+                                  rightTitle: vm.selectedCategoryData?.title ?? "",
+                                  isRequired: true,
+                                  iconBgShape: .circle,
+                                  iconBgColor: .gray){
+                    vm.isSelectCategoryPressed = true
+                }
+                .padding(.horizontal, 20)
+                    .padding(.vertical, formItemVerticalPadding)
+
+            }
+
+            // Category
+          
+            DefaultDividerView()
+
+            // Date Time
+            DefaultFormPicker(iconName: "calendar.badge.clock",
+                              mainTitle: "Date & Time",
+                              rightTitle: "today , 10.20",
+                              iconBgShape: .none,
+                              iconBgColor: .green,
+                              iconForgroundColor: .gray) {
+                isDatePickerPressed.toggle() 
+            }.padding(.horizontal, 20)
+                .padding(.vertical, formItemVerticalPadding)
+           
+            DefaultDividerView()
+            
+            if isDatePickerPressed {
+                DatePicker("Date and Time Picker",
+                           selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                .datePickerStyle(GraphicalDatePickerStyle())
+            }
+            
+            
+            
+            // Note
+            DefaultFormPicker(iconName: "note.text.badge.plus",
+                              mainTitle: "Note",
+                              rightTitle: "today , 10.20",
+                              iconBgShape: .none,
+                              iconBgColor: .green,
+                              iconForgroundColor: .gray) {
+                vm.isAccountTypePressed = true
+            }.padding(.horizontal, 20)
+                .padding(.vertical, formItemVerticalPadding)
+           
+            DefaultDividerView()
+        }
+        .background(Color.white)
     }
-    
 }

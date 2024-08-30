@@ -84,6 +84,7 @@
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
+		F3CBE4EE2C821973007DE23A /* DefaultDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4ED2C821973007DE23A /* DefaultDividerView.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 		F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */; };
 		F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */; };
@@ -184,6 +185,7 @@
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
+		F3CBE4ED2C821973007DE23A /* DefaultDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDividerView.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 		F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDAccountRepository.swift; sourceTree = "<group>"; };
 		F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCurrencyRepository.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3CBE4EC2C82195F007DE23A /* Divider */,
 				F3CBE4E92C81FBEB007DE23A /* Form  */,
 				F31BC85D2C814FB400A2DB94 /* View Modifiers */,
 				F32326CB2C0AC3660014498A /* Alert */,
@@ -638,6 +641,14 @@
 				F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */,
 			);
 			path = "Form ";
+			sourceTree = "<group>";
+		};
+		F3CBE4EC2C82195F007DE23A /* Divider */ = {
+			isa = PBXGroup;
+			children = (
+				F3CBE4ED2C821973007DE23A /* DefaultDividerView.swift */,
+			);
+			path = Divider;
 			sourceTree = "<group>";
 		};
 		F3FCBA2F2C09BD8600576B7C /* DropDown */ = {
@@ -833,6 +844,7 @@
 				F30448922C6D9D2700A6485B /* TopBarView.swift in Sources */,
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
+				F3CBE4EE2C821973007DE23A /* DefaultDividerView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,
 				F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */,
 				F34B452F2B8CBD1100434B42 /* eWalletApp.swift in Sources */,

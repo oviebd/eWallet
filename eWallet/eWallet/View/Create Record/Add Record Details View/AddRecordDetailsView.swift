@@ -53,8 +53,12 @@ struct AddRecordDetailsView: View {
                         .foregroundStyle(.gray)
                         .opacity(0.8)
 
-                    DatePicker("Enter a date", selection: $additionalRecordData.date, displayedComponents: .date)
-                        .labelsHidden()
+                    
+                    DatePicker("Date and Time Picker",
+                               selection: $additionalRecordData.date, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                   // DatePicker("Enter a date", selection: $additionalRecordData.date, displayedComponents: .date)
+                     //   .labelsHidden()
                 }
                 Spacer()
 

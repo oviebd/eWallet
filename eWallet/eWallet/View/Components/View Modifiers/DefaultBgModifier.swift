@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum BgShapeType {
+    case none
     case circle
     case roundedRectangle
 }
@@ -27,12 +28,16 @@ struct DefaultBgModifier: ViewModifier {
                 case .roundedRectangle:
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .foregroundStyle(bgColor)
+                case .none:
+                    Rectangle()
+                        .foregroundStyle(.clear)
                 }
             }
     }
 }
 
 extension View {
+    
     func WithDefaultRectangularBgModifier(bgColor: Color, cornerRadius: CGFloat) -> some View {
         modifier(DefaultBgModifier(bgColor: bgColor, cornerRadius: cornerRadius, shapeType: .roundedRectangle))
     }
@@ -40,4 +45,10 @@ extension View {
     func WithDefaultCircularBgModifier(bgColor: Color) -> some View {
         modifier(DefaultBgModifier(bgColor: bgColor, cornerRadius: 1, shapeType: .circle))
     }
+    
+    func WithDefaultNoBgModifier(bgColor: Color) -> some View {
+        modifier(DefaultBgModifier(bgColor: bgColor, cornerRadius: 1, shapeType: .none))
+    }
 }
+
+
