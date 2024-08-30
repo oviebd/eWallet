@@ -12,16 +12,14 @@ enum BgShapeType {
     case roundedRectangle
 }
 
-struct DefaultBgModifier:  ViewModifier {
-    
- 
-    let bgColor : Color
-    let cornerRadius : CGFloat
-    let shapeType : BgShapeType
-    
-    func body (content : Content) -> some View {
+struct DefaultBgModifier: ViewModifier {
+    let bgColor: Color
+    let cornerRadius: CGFloat
+    let shapeType: BgShapeType
+
+    func body(content: Content) -> some View {
         content
-            .background{
+            .background {
                 switch shapeType {
                 case .circle:
                     Circle()
@@ -30,17 +28,16 @@ struct DefaultBgModifier:  ViewModifier {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .foregroundStyle(bgColor)
                 }
-               
             }
-           
     }
 }
 
-extension View{
-    func WithDefaultBgModifier(bgColor: Color, cornerRadius: CGFloat, shapeType : BgShapeType) -> some View {
-      
-        
-        modifier(DefaultBgModifier( bgColor: bgColor, cornerRadius: cornerRadius, shapeType: shapeType))
+extension View {
+    func WithDefaultRectangularBgModifier(bgColor: Color, cornerRadius: CGFloat) -> some View {
+        modifier(DefaultBgModifier(bgColor: bgColor, cornerRadius: cornerRadius, shapeType: .roundedRectangle))
+    }
+
+    func WithDefaultCircularBgModifier(bgColor: Color) -> some View {
+        modifier(DefaultBgModifier(bgColor: bgColor, cornerRadius: 1, shapeType: .circle))
     }
 }
-

@@ -83,6 +83,7 @@
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
+		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 		F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */; };
 		F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */; };
@@ -182,6 +183,7 @@
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
+		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 		F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDAccountRepository.swift; sourceTree = "<group>"; };
 		F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCurrencyRepository.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3CBE4E92C81FBEB007DE23A /* Form  */,
 				F31BC85D2C814FB400A2DB94 /* View Modifiers */,
 				F32326CB2C0AC3660014498A /* Alert */,
 				F3FCBA2F2C09BD8600576B7C /* DropDown */,
@@ -627,6 +630,14 @@
 				F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		F3CBE4E92C81FBEB007DE23A /* Form  */ = {
+			isa = PBXGroup;
+			children = (
+				F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */,
+			);
+			path = "Form ";
 			sourceTree = "<group>";
 		};
 		F3FCBA2F2C09BD8600576B7C /* DropDown */ = {
@@ -811,6 +822,7 @@
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
+				F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
 				F30448942C6D9F0C00A6485B /* CustomCorner.swift in Sources */,
 				7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */,

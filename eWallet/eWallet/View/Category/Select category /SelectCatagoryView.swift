@@ -71,7 +71,14 @@ extension SelectCatagoryView {
                     .background(Color.gray)
 
                 HStack(spacing: 15) {
-                    ImageInBg(imageName: item.iconImage, bgColor: item.color)
+                    
+                    Image(systemName: item.iconImage)
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .padding(10)
+                        .WithDefaultCircularBgModifier(bgColor: item.color)
+                        .foregroundStyle(Color.white)
+                    
                     Text(item.title)
                         .font(.subheadline)
                     Spacer()
@@ -87,15 +94,22 @@ extension SelectCatagoryView {
     var recentCategoryView: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 40) {
-                ForEach(vm.recentCategories) { index in
+                ForEach(vm.recentCategories) { item in
                     VStack {
-                        ImageInBg(imageName: index.iconImage, bgColor: index.color)
-                        Text(index.title)
+                        
+                        Image(systemName: item.iconImage)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding(10)
+                            .WithDefaultCircularBgModifier(bgColor: item.color)
+                            .foregroundStyle(Color.white)
+                        
+                        Text(item.title)
                             .font(.subheadline)
 
                     }.padding(.horizontal, 4)
                         .onTapGesture {
-                            selectedCategory = index
+                            selectedCategory = item
                             self.presentationMode.wrappedValue.dismiss()
                         }
                 }

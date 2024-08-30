@@ -13,13 +13,14 @@ struct TestModifierView: View {
             .foregroundStyle(Color.white)
 
             .padding(10)
-            .WithDefaultBgModifier(bgColor: .blue, cornerRadius: 10, shapeType: .roundedRectangle)
+            .WithDefaultRectangularBgModifier(bgColor: .green, cornerRadius: 10)
         
         Image(systemName: "chevron.compact.right")
             .resizable()
-            .frame(width: 20,height: 20)
-            .padding(10)
-            .WithDefaultBgModifier(bgColor: .red, cornerRadius: 15, shapeType: .circle)
+            .frame(width: 10,height: 10)
+            .padding(5)
+           
+            .WithDefaultCircularBgModifier(bgColor: .red)
             
             .foregroundStyle(Color.white)
         

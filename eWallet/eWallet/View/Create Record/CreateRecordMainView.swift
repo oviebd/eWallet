@@ -226,43 +226,46 @@ extension CreateRecordMainView {
 extension CreateRecordMainView {
     
     var chooseAccountFormView : some View {
-        HStack{
-            Image(systemName: "bag")
-                .resizable()
-                .frame(width: 18, height: 18)
-                .padding(10)
-                
-                .background(
-                    RoundedRectangle(cornerRadius: 9)
-                        .fill(Color.green)
-                ).foregroundStyle(Color.white)
-            
-            Text("Account")
-                .foregroundStyle(Color.theme.primaryText)
-                .font(.system(size: 18))
-                .padding(.horizontal,10)
-            
-            Spacer()
-            
-            Text("Eastern Bank")
-                .foregroundStyle(Color.theme.secondaryText)
-                .font(.system(size: 16))
-            
-            Image(systemName: "chevron.compact.right")
-                .resizable()
-                .frame(width: 7, height: 10)
-                .foregroundStyle(Color.theme.secondaryText)
-                .offset(y:1.5)
-                .padding(.leading,5)
-        }
-       
-        .padding(.horizontal,20)
-        .padding(.vertical,15)
-        .background(Color.theme.white)
         
-        .onTapGesture {
-            vm.isAccountTypePressed = true
-        }
+        DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "", isRequired: true)
+        
+//        HStack{
+//            Image(systemName: "bag")
+//                .resizable()
+//                .frame(width: 18, height: 18)
+//                .padding(10)
+//                
+//                .background(
+//                    RoundedRectangle(cornerRadius: 9)
+//                        .fill(Color.green)
+//                ).foregroundStyle(Color.white)
+//            
+//            Text("Account")
+//                .foregroundStyle(Color.theme.primaryText)
+//                .font(.system(size: 18))
+//                .padding(.horizontal,10)
+//            
+//            Spacer()
+//            
+//            Text("Eastern Bank")
+//                .foregroundStyle(Color.theme.secondaryText)
+//                .font(.system(size: 16))
+//            
+//            Image(systemName: "chevron.compact.right")
+//                .resizable()
+//                .frame(width: 7, height: 10)
+//                .foregroundStyle(Color.theme.secondaryText)
+//                .offset(y:1.5)
+//                .padding(.leading,5)
+//        }
+//       
+//        .padding(.horizontal,20)
+//        .padding(.vertical,15)
+//        .background(Color.theme.white)
+//        
+//        .onTapGesture {
+//            vm.isAccountTypePressed = true
+//        }
     }
     
 }

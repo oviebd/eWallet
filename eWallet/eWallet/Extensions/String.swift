@@ -15,6 +15,9 @@ extension String {
         return date
     }
     
+    func isEmptyString() -> Bool{
+        return self.isEmpty || self == ""
+    }
     
     
 }

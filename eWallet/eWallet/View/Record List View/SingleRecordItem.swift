@@ -22,8 +22,14 @@ struct SingleRecordItem: View {
         
         HStack (alignment: .top) {
             
-            ImageInBg(imageName: recordData.catagory?.iconImage ?? "folder.fill", bgColor:  recordData.catagory?.color ?? Color.gray)
+            Image(systemName: recordData.catagory?.iconImage ?? "folder.fill")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .padding(10)
+                .WithDefaultCircularBgModifier(bgColor: recordData.catagory?.color ?? Color.gray)
+                .foregroundStyle(Color.white)
                
+
     
             VStack(alignment: .leading, spacing: 0) {
                 Text(recordData.catagory?.title ?? "")
