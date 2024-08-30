@@ -1,0 +1,46 @@
+//
+//  DefaultBgModifier.swift
+//  eWallet
+//
+//  Created by Habibur Rahman on 30/8/24.
+//
+
+import SwiftUI
+
+enum BgShapeType {
+    case circle
+    case roundedRectangle
+}
+
+struct DefaultBgModifier:  ViewModifier {
+    
+ 
+    let bgColor : Color
+    let cornerRadius : CGFloat
+    let shapeType : BgShapeType
+    
+    func body (content : Content) -> some View {
+        content
+            .background{
+                switch shapeType {
+                case .circle:
+                    Circle()
+                        .fill(bgColor)
+                case .roundedRectangle:
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .foregroundStyle(bgColor)
+                }
+               
+            }
+           
+    }
+}
+
+extension View{
+    func WithDefaultBgModifier(bgColor: Color, cornerRadius: CGFloat, shapeType : BgShapeType) -> some View {
+      
+        
+        modifier(DefaultBgModifier( bgColor: bgColor, cornerRadius: cornerRadius, shapeType: shapeType))
+    }
+}
+

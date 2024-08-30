@@ -71,7 +71,7 @@ extension SelectCatagoryView {
                     .background(Color.gray)
 
                 HStack(spacing: 15) {
-                    SingleCircleItem(imageName: item.iconImage, color: item.color)
+                    ImageInBg(imageName: item.iconImage, bgColor: item.color)
                     Text(item.title)
                         .font(.subheadline)
                     Spacer()
@@ -89,7 +89,7 @@ extension SelectCatagoryView {
             HStack(spacing: 40) {
                 ForEach(vm.recentCategories) { index in
                     VStack {
-                        SingleCircleItem(imageName: index.iconImage, color: index.color)
+                        ImageInBg(imageName: index.iconImage, bgColor: index.color)
                         Text(index.title)
                             .font(.subheadline)
 

@@ -22,7 +22,7 @@ struct SingleRecordItem: View {
         
         HStack (alignment: .top) {
             
-            SingleCircleItem(imageName: recordData.catagory?.iconImage ?? "folder.fill", color:  recordData.catagory?.color ?? Color.gray)
+            ImageInBg(imageName: recordData.catagory?.iconImage ?? "folder.fill", bgColor:  recordData.catagory?.color ?? Color.gray)
                
     
             VStack(alignment: .leading, spacing: 0) {
