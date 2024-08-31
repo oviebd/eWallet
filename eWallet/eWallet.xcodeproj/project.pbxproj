@@ -86,6 +86,7 @@
 		F3A8199E2C83399100F8ED4C /* RecordListByDateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */; };
 		F3A819A02C83675900F8ED4C /* DateExt_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */; };
 		F3A819A22C836DB600F8ED4C /* RecordListByDateData_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */; };
+		F3A819A42C83809500F8ED4C /* DateWiseRecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
@@ -192,6 +193,7 @@
 		F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByDateData.swift; sourceTree = "<group>"; };
 		F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt_Test.swift; sourceTree = "<group>"; };
 		F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByDateData_Test.swift; sourceTree = "<group>"; };
+		F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateWiseRecordListItem.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A8199B2C83366F00F8ED4C /* AllRecordsView.swift */,
+				F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */,
 			);
 			path = "All Records View";
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */,
 				7BC3FAD42C4F38F50015A72C /* PreviewProvider.swift in Sources */,
 				7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */,
+				F3A819A42C83809500F8ED4C /* DateWiseRecordListItem.swift in Sources */,
 				F32326D02C0ACA060014498A /* DummyDataUtils.swift in Sources */,
 				F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */,
 				7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */,
