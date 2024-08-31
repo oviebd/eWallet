@@ -11,7 +11,7 @@ import Foundation
 extension RecordEntity {
     func toRecorData() -> RecordData {
         return RecordData(id: id ?? "", note: note ?? "", recordType: type ?? "", amount: amount,
-                          date: date ?? .now, time: time ?? .now,
+                          date: date ?? .now,
                           catagory: category?.convertToCategory(),
                           account: account?.convertToAccountData(),
                           fromAccount: fromAccount?.convertToAccountData())
@@ -81,7 +81,6 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         newRecord.id = recordData.id
         newRecord.type = recordData.recordType
         newRecord.date = recordData.date
-        newRecord.time = recordData.time
 
 
         let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")

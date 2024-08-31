@@ -12,14 +12,8 @@ struct AddRecordDetailsView: View {
     @Environment(\.presentationMode) var presentationMode
     private let topBarConfig = CommonTopBarData(title: "Add Record", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "")
 
-
-   // @StateObject var vm : AddRecordDetailsVM = AddRecordDetailsVM()
     @Binding var additionalRecordData : AdditionalRecordData
-    
-//    init(additionalRecordData : AdditionalRecordData?){
-//        _vm = StateObject(wrappedValue: AddRecordDetailsVM(additionalRecordData: additionalRecordData))
-//       // additionalRecordData = additionalRecordData
-//    }
+
     
     var body: some View {
         VStack(spacing: 0) {
@@ -57,8 +51,6 @@ struct AddRecordDetailsView: View {
                     DatePicker("Date and Time Picker",
                                selection: $additionalRecordData.date, displayedComponents: [.date, .hourAndMinute])
                     .datePickerStyle(GraphicalDatePickerStyle())
-                   // DatePicker("Enter a date", selection: $additionalRecordData.date, displayedComponents: .date)
-                     //   .labelsHidden()
                 }
                 Spacer()
 
@@ -73,20 +65,6 @@ struct AddRecordDetailsView: View {
                 }
             }
             .padding(.horizontal)
-//            Divider()
-//                .padding()
-
-//            VStack(spacing: 15) {
-//                DropDownView(title: "Payment Type", prompt: "Cash", options: payment, selection: $selectedPayment)
-//
-//                Divider()
-//                    .padding()
-//
-//                DropDownView(title: "Status", prompt: "Cleared", options: status, selection: $selectedStatus)
-//
-//                Divider()
-//                    .padding()
-//            }
             Spacer()
         }
         .background(Color.white)

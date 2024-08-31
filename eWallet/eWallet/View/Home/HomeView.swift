@@ -11,43 +11,51 @@ struct HomeView: View {
     
     @StateObject var vm = HomeVm()
 
-    let topBarConfig = CommonTopBarData(title: "dasf", bgColor: Color.theme.accountGridCardBG)
+    let topBarConfig = CommonTopBarData(title: "", bgColor: Color.theme.accountGridCardBG, leftIconName: "")
 
     var body: some View {
         NavigationStack {
             
             VStack(spacing:0) {
                
-                CommonTopBar(data: topBarConfig)
-                   // .frame(height: 50)
-                    
-
-                AccountGridView(onAddButtonPressed: { 
-                    vm.isCreateAccountButtonPressed = true
-                },
-                onAccountItemPressed: {_ in})
-
-
-                RecordListView(){ recordItem in
-                    vm.selectedRecordData = recordItem
-                    vm.isCreateRecordButtonPressed = true
-                }
-                .padding(.horizontal,20)
-                .offset(y: -40)
-                    
-                Spacer()
                 
-                floatingAddRecordButton
+                CommonTopBar(data: topBarConfig)
+                ScrollView {
+                    VStack (spacing : 0) {
+                        AccountGridView(onAddButtonPressed: {
+                            vm.isCreateAccountButtonPressed = true
+                        },
+                        onAccountItemPressed: {_ in})
+
+
+                        RecordListView(){ recordItem in
+                            vm.selectedRecordData = recordItem
+                            vm.isCreateRecordButtonPressed = true
+                        }
+                        .padding(.horizontal,20)
+                        .offset(y: -40)
+                            
+                        Spacer()
+                        
+                        floatingAddRecordButton
+                    }
+                }
+                
+                
+               
             }
             
 
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
             }
-            .navigationDestination(isPresented: $vm.isCreateRecordButtonPressed, destination: {
+            .popover(isPresented: $vm.isCreateRecordButtonPressed) {
                 CreateRecordMainView(recordData: vm.selectedRecordData)
-
-            })
+            }
+//            .navigationDestination(isPresented: $vm.isCreateRecordButtonPressed, destination: {
+//                CreateRecordMainView(recordData: vm.selectedRecordData)
+//
+//            })
         }
     }
 }

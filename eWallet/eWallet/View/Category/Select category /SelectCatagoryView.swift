@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectCatagoryView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Select Category", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "")
+    private let topBarConfig = CommonTopBarData(title: "Select Category", leftIconName: leftIconName)
 
     @StateObject private var vm = CategoryListVm()
     @Binding var selectedCategory: CategoryData?

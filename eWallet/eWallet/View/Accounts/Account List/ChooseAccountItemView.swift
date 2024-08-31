@@ -29,24 +29,19 @@ struct ChooseAccountItemView: View {
 
 extension ChooseAccountItemView {
     var iconView: some View {
-        VStack {
-            Image(systemName: "wallet.pass.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 15, height: 15)
-                .padding(15)
-
-        }.foregroundStyle(Color.white)
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.theme.normalBlue)
-            )
+        Image(systemName: "wallet.pass.fill")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 30, height:30)
+        .padding(10)
+        .WithDefaultRectangularBgModifier(bgColor: Color.theme.accountGridCardBG, cornerRadius: 8)
+        .foregroundStyle(.white)
     }
 
     var rightView: some View {
         VStack(alignment: .leading) {
             Text(accountData.title)
-                .font(.system(size: 16))
+                .font(.system(size: 20))
                 .foregroundStyle(Color.theme.secondaryText.opacity(0.8))
                 .fontWeight(.semibold)
                 .lineLimit(1)

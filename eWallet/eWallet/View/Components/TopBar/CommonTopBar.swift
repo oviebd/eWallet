@@ -7,17 +7,25 @@
 
 import SwiftUI
 
+let leftIconName : String = "chevron.left"
+
 struct CommonTopBarData {
     var title: String
     var bgColor: Color
+    var forgroundColor : Color
     var leftIconName: String
     var rightIconName: String
 
-    init(title: String = "" , bgColor: Color =  Color.theme.mediumDarkBlue, leftIconName: String = "", rightIconName: String = "") {
+    init(title: String = "" , 
+         bgColor: Color =  Color.theme.white,
+         forgroundColor : Color = Color.theme.primaryText,
+         leftIconName: String,
+         rightIconName: String = "") {
         self.title = title
         self.bgColor = bgColor
         self.leftIconName = leftIconName
         self.rightIconName = rightIconName
+        self.forgroundColor = forgroundColor
     }
 
     var hasLeftIcon: Bool {
@@ -31,13 +39,6 @@ struct CommonTopBarData {
 
 struct CommonTopBar: View {
     @Environment(\.presentationMode) var presentationMode
-
-//    @State private var title : String = "Title"
-//    @State private var leftIconName : String = ""
-//    let title: String
-//    let bgColor : UIColor
-//    let leftIconName : String
-//    let rightIconName : String
 //
     private var onLeftButtonClicked: (() -> Void)?
     private var onRightButtonClicked: (() -> Void)?
@@ -54,13 +55,14 @@ struct CommonTopBar: View {
     }
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(alignment: .center, spacing: 0) {
             if data.hasLeftIcon {
                 leftButton
             }
 
+            Spacer()
             titleSection
-                .padding(.leading, 15)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment: .center)
 
             Spacer()
 
@@ -69,11 +71,12 @@ struct CommonTopBar: View {
             }
 
         }.padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            .padding(.vertical, 20)
             .font(.title3)
-            .foregroundStyle(Color.white)
-          //  .frame(height: 50)
-            .background(data.bgColor.ignoresSafeArea())
+            .foregroundStyle(data.forgroundColor)
+            .background(data.bgColor.ignoresSafeArea()
+                .shadow(radius: 1))
+           
     }
 }
 
@@ -95,7 +98,7 @@ extension CommonTopBar {
 
     private var titleSection: some View {
         Text(data.title)
-            .font(.title3)
+            .font(.system(size: 18))
     }
 
     private var rightButton: some View {

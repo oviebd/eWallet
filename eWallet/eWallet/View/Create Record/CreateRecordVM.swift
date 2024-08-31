@@ -17,7 +17,7 @@ class CreateRecordVM: ObservableObject {
     @Published var isAccountTypePressed = false
     @Published var isFromAccountTypePressed = false
     @Published var isSelectCategoryPressed = false
-    @Published var isDetailsBtnPressed = false
+//    @Published var isDetailsBtnPressed = false
 
     @Published var fromAccount: AccountData? // Only use for transfer
     @Published var account: AccountData?
@@ -27,7 +27,13 @@ class CreateRecordVM: ObservableObject {
     @Published var showingAlert = false
     @Published var isAccountCreated = false
 
-    @Published var additionalRecordData: AdditionalRecordData
+    @Published var showDatePicker = false
+    @Published var selectedDate : Date = Date.now
+    
+    @Published var isAddNotePressed = false
+    @Published var noteText : String = ""
+    
+   // @Published var additionalRecordData: AdditionalRecordData
     
     let recordTypes : [RecordTypeEnum]
     var recordRepo: RecordDataRepository
@@ -36,7 +42,7 @@ class CreateRecordVM: ObservableObject {
         
         self.recordData = recordData
         recordTypes = [.INCOME,.EXPENSE,.TRANSFER]
-        additionalRecordData = AdditionalRecordData(note: "", date: Date.now, time: Date.now)
+      //  additionalRecordData = AdditionalRecordData(note: "", date: Date.now, time: Date.now)
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
         getRecords()
         
@@ -52,7 +58,9 @@ class CreateRecordVM: ObservableObject {
         account = record.account
         fromAccount = record.fromAccount
         selectedCategoryData = record.catagory
-        additionalRecordData = AdditionalRecordData(note: record.note, date: record.date, time: record.time)
+        noteText = record.note
+        selectedDate = record.date
+     //   additionalRecordData = AdditionalRecordData(note: record.note, date: record.date, time: record.time)
         selectedRecordType = RecordTypeEnum(rawValue: record.recordType) ?? .EXPENSE
         
     }
@@ -63,7 +71,7 @@ class CreateRecordVM: ObservableObject {
 
     func onSaveBtnPressed() {
         let amount = Double(amountInput) ?? 0.0
-        additionalRecordData.printData()
+       // additionalRecordData.printData()
 
         guard let accountData = account else {
             return
@@ -72,11 +80,10 @@ class CreateRecordVM: ObservableObject {
 //            return
 //        }
 
-        var newRecordData = RecordData(note: additionalRecordData.note,
+        var newRecordData = RecordData(note: noteText,
                                     recordType: selectedRecordType.rawValue,
                                     amount: amount,
-                                    date: additionalRecordData.date,
-                                    time: additionalRecordData.time,
+                                    date: selectedDate,
                                     catagory: selectedCategoryData,
                                     account: accountData,
                                     fromAccount: fromAccount)

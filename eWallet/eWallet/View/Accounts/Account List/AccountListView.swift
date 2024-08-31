@@ -11,7 +11,7 @@ struct AccountListView : View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    private let topBarConfig = CommonTopBarData(title: "Choose Account", bgColor: Color.theme.darkBlue, leftIconName: "chevron.left", rightIconName: "plus.circle.fill")
+    private let topBarConfig = CommonTopBarData(title: "Choose Account", leftIconName: "chevron.left", rightIconName: "plus.circle.fill")
    
     @Binding var selectedAccountData : AccountData?
     @StateObject private var vm = AccountListVM()

@@ -14,7 +14,6 @@ struct RecordData: Hashable, Identifiable {
     var recordType: String
     var amount: Double
     var date: Date
-    var time: Date
     var catagory: CategoryData?
     var account: AccountData?
     var fromAccount: AccountData?

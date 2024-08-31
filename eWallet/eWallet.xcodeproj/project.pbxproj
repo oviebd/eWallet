@@ -81,6 +81,7 @@
 		F3A0A0D22BB0F2A500007ADB /* SelectCatagoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */; };
 		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
+		F3A819992C82CCDF00F8ED4C /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819982C82CCDF00F8ED4C /* AddNoteView.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
@@ -182,6 +183,7 @@
 		F3A0A0D12BB0F2A500007ADB /* SelectCatagoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCatagoryView.swift; sourceTree = "<group>"; };
 		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
+		F3A819982C82CCDF00F8ED4C /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */,
 				F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */,
 				7BA09A302C49FADA0047575C /* CreateRecordVM.swift */,
+				F3A819982C82CCDF00F8ED4C /* AddNoteView.swift */,
 			);
 			path = "Create Record";
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
+				F3A819992C82CCDF00F8ED4C /* AddNoteView.swift in Sources */,
 				7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
 				F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */,
