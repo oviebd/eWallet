@@ -8,43 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @StateObject var vm = HomeVm()
 
     let topBarConfig = CommonTopBarData(title: "", bgColor: Color.theme.accountGridCardBG, leftIconName: "")
 
     var body: some View {
         NavigationStack {
-            
-            VStack(spacing:0) {
-               
-                
+            VStack(spacing: 0) {
                 CommonTopBar(data: topBarConfig)
                 ScrollView {
-                    VStack (spacing : 0) {
+                    VStack(spacing: 0) {
                         AccountGridView(onAddButtonPressed: {
-                            vm.isCreateAccountButtonPressed = true
-                        },
-                        onAccountItemPressed: {_ in})
+                                            vm.isCreateAccountButtonPressed = true
+                                        },
+                                        onAccountItemPressed: { _ in })
 
-
-                        RecordListView(){ recordItem in
+                        RecordListView(onShowMorePressed: {
+                            vm.onPressedShowMoreFromList = true
+                        }) { recordItem in
                             vm.selectedRecordData = recordItem
                             vm.isCreateRecordButtonPressed = true
                         }
-                        .padding(.horizontal,20)
+                        .padding(.horizontal, 20)
                         .offset(y: -40)
-                            
+
                         Spacer()
-                        
+
                         floatingAddRecordButton
                     }
                 }
-                
-                
-               
             }
-            
 
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
@@ -52,10 +45,10 @@ struct HomeView: View {
             .popover(isPresented: $vm.isCreateRecordButtonPressed) {
                 CreateRecordMainView(recordData: vm.selectedRecordData)
             }
-//            .navigationDestination(isPresented: $vm.isCreateRecordButtonPressed, destination: {
-//                CreateRecordMainView(recordData: vm.selectedRecordData)
-//
-//            })
+            .navigationDestination(isPresented: $vm.onPressedShowMoreFromList, destination: {
+                AllRecordsView()
+
+            })
         }
     }
 }
@@ -65,7 +58,7 @@ struct HomeView: View {
 }
 
 extension HomeView {
-    var floatingAddRecordButton : some View {
+    var floatingAddRecordButton: some View {
         HStack {
             Spacer()
             Button {
@@ -82,6 +75,6 @@ extension HomeView {
                     .foregroundColor(.white)
                     .shadow(color: .gray, radius: 1)
             }
-        }.padding(.trailing,30)
+        }.padding(.trailing, 30)
     }
 }

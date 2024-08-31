@@ -19,13 +19,13 @@ extension Date {
 //        let date = formatter.date(from: format) ?? Date()
 //        self.init(timeInterval: 0, since: date)
 //    }
-    
+
     init(coinGeckoString: String) {
-           let formatter = DateFormatter()
-           formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-           let date = formatter.date(from: coinGeckoString) ?? Date()
-           self.init(timeInterval: 0, since: date)
-       }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = formatter.date(from: coinGeckoString) ?? Date()
+        self.init(timeInterval: 0, since: date)
+    }
 
     private var shortFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -36,5 +36,59 @@ extension Date {
 
     func asShortDateString() -> String {
         return shortFormatter.string(from: self)
+    }
+
+    func removeTime() -> Date {
+        let components = get(.day, .month, .year)
+        let date = Calendar.current.date(from: components) ?? .now
+        // print(date)
+        return date
+    }
+    
+   
+}
+
+extension Date {
+  
+    func dayAfter(dayNumber: Int) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: dayNumber, to: self)!
+    }
+
+    func dayBefore(dayNumber: Int) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: -dayNumber, to: self)!
+    }
+}
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+//    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+//        return calendar.component(component, from: self)
+//    }
+
+    func getDayNumberOfMonth() -> Int? {
+        return get(.day).day
+    }
+
+    func getMonth() -> Int? {
+        return get(.month).month
+    }
+
+    func getYear() -> Int? {
+        return get(.year).year
+    }
+
+    func getHour() -> Int? {
+        return get(.hour).hour
+    }
+
+    func getMinutes() -> Int? {
+        return get(.minute).minute
+    }
+
+    func getSeconds() -> Int? {
+        return get(.second).second
     }
 }

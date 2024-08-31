@@ -82,6 +82,10 @@
 		F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */; };
 		F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */; };
 		F3A819992C82CCDF00F8ED4C /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819982C82CCDF00F8ED4C /* AddNoteView.swift */; };
+		F3A8199C2C83366F00F8ED4C /* AllRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199B2C83366F00F8ED4C /* AllRecordsView.swift */; };
+		F3A8199E2C83399100F8ED4C /* RecordListByDateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */; };
+		F3A819A02C83675900F8ED4C /* DateExt_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */; };
+		F3A819A22C836DB600F8ED4C /* RecordListByDateData_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
@@ -184,6 +188,10 @@
 		F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F3A0A0D62BB0F49B00007ADB /* SingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButton.swift; sourceTree = "<group>"; };
 		F3A819982C82CCDF00F8ED4C /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		F3A8199B2C83366F00F8ED4C /* AllRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecordsView.swift; sourceTree = "<group>"; };
+		F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByDateData.swift; sourceTree = "<group>"; };
+		F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt_Test.swift; sourceTree = "<group>"; };
+		F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByDateData_Test.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
@@ -221,6 +229,8 @@
 				7B07BDC42C61D1B70096540D /* eWallet_Tests.swift */,
 				7B07BDCB2C61D26D0096540D /* CDRecordRepository_Test.swift */,
 				7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */,
+				F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */,
+				F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */,
 			);
 			path = eWallet_Tests;
 			sourceTree = "<group>";
@@ -265,20 +275,12 @@
 			isa = PBXGroup;
 			children = (
 				F30448952C6DA28300A6485B /* Modifiers */,
-				7B2C1C0E2C670C11005C2D4B /* Model */,
 				7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */,
 				F304488F2C6D9A5B00A6485B /* ContentView.swift */,
 				F30448912C6D9D2700A6485B /* TopBarView.swift */,
 				F30448932C6D9F0C00A6485B /* CustomCorner.swift */,
 			);
 			path = "Pinned Scrollable Header";
-			sourceTree = "<group>";
-		};
-		7B2C1C0E2C670C11005C2D4B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		7B821F032BF79AD300D3DC76 /* Core Data */ = {
@@ -288,13 +290,6 @@
 				7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		7B821F072BF79DCF00D3DC76 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		7BB934982BFA59CB00322AED /* Repository */ = {
@@ -465,7 +460,6 @@
 				F34B45432B8CCDE300434B42 /* Extensions */,
 				F343EB092BB8143E00D356E9 /* Utility */,
 				7BB934982BFA59CB00322AED /* Repository */,
-				7B821F072BF79DCF00D3DC76 /* Manager */,
 				F34B45502B8CED5D00434B42 /* View */,
 				F39A6DA22BABFE2B0006E60E /* Info.plist */,
 				F34B45322B8CBD1300434B42 /* Assets.xcassets */,
@@ -556,6 +550,7 @@
 				F35A4AA72BB2BC3100345287 /* CategoryData.swift */,
 				F3835D4B2BF21CD200D78E6B /* ListData.swift */,
 				F32326CF2C0ACA060014498A /* DummyDataUtils.swift */,
+				F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -595,6 +590,7 @@
 		F3835D462BF2108D00D78E6B /* Record List View */ = {
 			isa = PBXGroup;
 			children = (
+				F3A8199A2C83365700F8ED4C /* All Records View */,
 				F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */,
 				F3835D492BF210CA00D78E6B /* RecordListView.swift */,
 				F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */,
@@ -636,6 +632,14 @@
 				F3A0A0D42BB0F47600007ADB /* CalculatorView.swift */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		F3A8199A2C83365700F8ED4C /* All Records View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A8199B2C83366F00F8ED4C /* AllRecordsView.swift */,
+			);
+			path = "All Records View";
 			sourceTree = "<group>";
 		};
 		F3CBE4E92C81FBEB007DE23A /* Form  */ = {
@@ -764,7 +768,9 @@
 			files = (
 				7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */,
 				7B07BDC52C61D1B70096540D /* eWallet_Tests.swift in Sources */,
+				F3A819A22C836DB600F8ED4C /* RecordListByDateData_Test.swift in Sources */,
 				7B07BDCC2C61D26D0096540D /* CDRecordRepository_Test.swift in Sources */,
+				F3A819A02C83675900F8ED4C /* DateExt_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +823,7 @@
 				F3153B462C0A14DD000DF53C /* AddAccountVM.swift in Sources */,
 				F32746482BB6C0EB00ECFDB7 /* CustomNavView.swift in Sources */,
 				F31BC85F2C814FE100A2DB94 /* DefaultBgModifier.swift in Sources */,
+				F3A8199C2C83366F00F8ED4C /* AllRecordsView.swift in Sources */,
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
 				F32326CD2C0AC37F0014498A /* CustomAlertView.swift in Sources */,
 				7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */,
@@ -836,6 +843,7 @@
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,
 				7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */,
+				F3A8199E2C83399100F8ED4C /* RecordListByDateData.swift in Sources */,
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,

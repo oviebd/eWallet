@@ -13,6 +13,7 @@ class HomeVm: ObservableObject {
     @Published var isCreateRecordButtonPressed: Bool = false
     
     @Published var selectedRecordData : RecordData?
+    @Published var onPressedShowMoreFromList : Bool = false
 
     
 }

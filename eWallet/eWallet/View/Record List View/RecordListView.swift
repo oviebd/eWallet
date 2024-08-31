@@ -11,7 +11,10 @@ struct RecordListView: View {
 
     @StateObject var vm = RecordListVM()
 
+    var onShowMorePressed: () -> Void
     var onItemPresesd: (RecordData) -> Void
+   
+    
     var body: some View {
         VStack (alignment:.trailing) {
             HStack {
@@ -35,11 +38,17 @@ struct RecordListView: View {
             }.padding(.horizontal, 20)
                 .padding(.bottom,2)
             
-            Text("Show More")
-                .font(.system(size: 16))
-                .fontWeight(.bold)
-                .foregroundStyle(Color.theme.normalBlue)
-                .padding(20)
+            Button {
+                onShowMorePressed()
+            }label: {
+                Text("Show More")
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.theme.normalBlue)
+                    .padding(20)
+            }
+           
+               
                
             
         }
@@ -54,6 +63,5 @@ struct RecordListView: View {
 }
 
 #Preview {
-    RecordListView { _ in
-    }
+    RecordListView(onShowMorePressed: {}, onItemPresesd: {_ in}) 
 }
