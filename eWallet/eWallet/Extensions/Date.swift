@@ -7,6 +7,8 @@
 
 import Foundation
 
+//REf - https://medium.com/@jpmtech/swiftui-format-dates-and-times-the-easy-way-fc896b25003b
+
 enum DateFormat: String {
     case coinGeco = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 }
@@ -29,7 +31,7 @@ extension Date {
 
     private var shortFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .medium
         formatter.timeStyle = .short
         return formatter
     }
@@ -45,7 +47,22 @@ extension Date {
         return date
     }
     
+//    func toReadableDateStringWithoutYear() -> String {
+//        return self.format: .dateTime.day().month().year())
+//    }
    
+    func toReadableDateString() -> String {
+        return self.formatted(date: .abbreviated, time: .omitted)
+    }
+    
+    func toReadableDateTimeString() -> String {
+        return self.formatted(date: .abbreviated, time: .shortened)
+    }
+    
+    func toReadableTimeString() -> String {
+        return self.formatted(date: .omitted, time: .shortened)
+    }
+    
 }
 
 extension Date {

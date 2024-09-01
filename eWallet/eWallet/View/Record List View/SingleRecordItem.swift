@@ -7,19 +7,17 @@
 
 import SwiftUI
 
+enum SingleRecordItemType{
+    case Normal
+    case GroupedByDate
+}
+
 struct SingleRecordItem: View {
  
     var recordData : RecordData
+    var itemType : SingleRecordItemType = .Normal
    
     var body: some View {
-    
-        
-        Rectangle()
-            .fill(Color.theme.primaryDivider)
-            .frame(height: 1)
-            .padding(.bottom,3)
-            
-        
         HStack (alignment: .top) {
             
             Image(systemName: recordData.catagory?.iconImage ?? "folder.fill")
@@ -63,7 +61,8 @@ struct SingleRecordItem: View {
 //                    .font(.caption2)
 //                    .foregroundStyle(.green)
 //                
-                Text(recordData.date.asShortDateString())
+                //Text(Date.now, format: .dateTime.day().month().year())
+                Text(getDateTitle())
                     .font(.caption)
                     .foregroundStyle(.gray)
                     .lineLimit(1)
@@ -71,6 +70,13 @@ struct SingleRecordItem: View {
                
         }
        
+    }
+    
+    func getDateTitle() -> String{
+        if itemType == .Normal {
+            return recordData.date.toReadableDateString()
+        }
+        return recordData.date.toReadableTimeString()
     }
 }
 
