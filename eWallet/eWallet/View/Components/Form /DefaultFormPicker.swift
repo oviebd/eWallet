@@ -26,15 +26,18 @@ struct DefaultFormPicker: View {
         
         HStack{
             
-            Image(systemName: iconName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: getIconSize(), height: getIconSize())
-                .padding( iconBgShape == .none ? 0 : 10)
-                .modifier(DefaultBgModifier(bgColor: iconBgColor, cornerRadius: 9, shapeType: iconBgShape))
-                .foregroundStyle(iconForgroundColor)
-                .padding(.leading, iconBgShape == .none ? 10 : 0)
-                .padding(.vertical,iconBgShape == .none ? 10 : 0)
+            if !iconName.isEmptyString() {
+                Image(systemName: iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: getIconSize(), height: getIconSize())
+                    .padding( iconBgShape == .none ? 0 : 10)
+                    .modifier(DefaultBgModifier(bgColor: iconBgColor, cornerRadius: 9, shapeType: iconBgShape))
+                    .foregroundStyle(iconForgroundColor)
+                    .padding(.leading, iconBgShape == .none ? 10 : 0)
+                    .padding(.vertical,iconBgShape == .none ? 10 : 0)
+            }
+            
            
             Text(mainTitle)
                 .foregroundStyle(Color.theme.primaryText)
