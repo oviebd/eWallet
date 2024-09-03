@@ -16,62 +16,84 @@ enum DortingDayEnums : String {
 
 struct AllRecordsView: View {
     @Environment(\.presentationMode) var presentationMode
- //   private let topBarConfig = CommonTopBarData(title: "Records",leftIconName: "xmark")
+    private let topBarConfig = CommonTopBarData(title: "Records",leftIconName: "xmark", hasShadow: false)
     @State private var currentPage = 0
     
     @StateObject var vm  = AllRecordsVM()
     @State var selectedSortedDay : DortingDayEnums = .day_30
     
+    let maxHeight: CGFloat = 50 // UIScreen.main.bounds.height / 2.3
+    var topEdge: CGFloat
+    @State var offset: CGFloat = 0
+    @State var searchText: String = ""
 
     var body: some View {
 
-        VStack{
+        VStack (spacing : 0){
             
-            ScrollView{
-                VStack (spacing : 15){
-                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
-                        
-                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                        DateWiseRecordListItem(date: item, dataList: records)
-                    }
+            CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
+                self.presentationMode.wrappedValue.dismiss()
+            })
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 0) {
+                   
+                    GeometryReader { _ in
+                     
+                        CustomSearchView(searchText: $searchText, offset: $offset)
+
+                    }.frame(height: maxHeight)
+                       .offset(y: -offset)
+                        .zIndex(1)
+
                     
-                }.padding(.top,30)
-                
-                VStack (spacing : 15){
-                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                    VStack (spacing : 0){
                         
-                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                        DateWiseRecordListItem(date: item, dataList: records)
-                    }
+                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                            
+                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                            DateWiseRecordListItem(date: item, dataList: records)
+                        }
+                        
+                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                            
+                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                            DateWiseRecordListItem(date: item, dataList: records)
+                        }
+
+                        
+                        
+                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                            
+                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                            DateWiseRecordListItem(date: item, dataList: records)
+                        }
+
+                        
+                    }.padding(.top,30)
                     
+                    .zIndex(0)
                 }
-                
-                VStack (spacing : 15){
-                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
-                        
-                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                        DateWiseRecordListItem(date: item, dataList: records)
-                    }
-                    
-                }
+                .modifier(OffsetModifier(offset: $offset))
             }
-            
+            .coordinateSpace(.named("SCROLL"))
+
            
             Spacer()
             SwipeToResizeView()
         }
         .edgesIgnoringSafeArea(.bottom)
         
-        .navigationBarHidden(false)
-            .navigationTitle("Records")
-            .navigationBarTitleDisplayMode(.large)
+        .navigationBarHidden(true)
+          //  .navigationTitle("Records")
+            //.navigationBarTitleDisplayMode(.large)
         
     }
 }
 
 #Preview {
     NavigationStack{
-        AllRecordsView()
+        AllRecordsView(topEdge: 0)
     }
     
 }

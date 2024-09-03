@@ -16,7 +16,6 @@
 		7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA52C33799600A1E84B /* CurrencyListVM.swift */; };
 		7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B28D0552C41993D00A84142 /* AccountGridVM.swift */; };
 		7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */; };
-		7B360E672C86AC3C00728330 /* CollapsibleSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */; };
 		7B360E692C86C17F00728330 /* CollapsableSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E682C86C17F00728330 /* CollapsableSearchView.swift */; };
 		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
@@ -94,6 +93,7 @@
 		F3A819A42C83809500F8ED4C /* DateWiseRecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
+		F3C6E2982C87548000DD14DD /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6E2972C87548000DD14DD /* CustomSearchView.swift */; };
 		F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */; };
 		F3CBE4EE2C821973007DE23A /* DefaultDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBE4ED2C821973007DE23A /* DefaultDividerView.swift */; };
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
@@ -126,7 +126,6 @@
 		7B267CA52C33799600A1E84B /* CurrencyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListVM.swift; sourceTree = "<group>"; };
 		7B28D0552C41993D00A84142 /* AccountGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridVM.swift; sourceTree = "<group>"; };
 		7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedScrolledView.swift; sourceTree = "<group>"; };
-		7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleSearchBar.swift; sourceTree = "<group>"; };
 		7B360E682C86C17F00728330 /* CollapsableSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSearchView.swift; sourceTree = "<group>"; };
 		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
@@ -206,6 +205,7 @@
 		F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateWiseRecordListItem.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
+		F3C6E2972C87548000DD14DD /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
 		F3CBE4EA2C81FC3C007DE23A /* DefaultFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPicker.swift; sourceTree = "<group>"; };
 		F3CBE4ED2C821973007DE23A /* DefaultDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDividerView.swift; sourceTree = "<group>"; };
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
@@ -278,9 +278,9 @@
 		7B2C1C0A2C6707BB005C2D4B /* Test UI */ = {
 			isa = PBXGroup;
 			children = (
+				7B360E682C86C17F00728330 /* CollapsableSearchView.swift */,
 				7B2C1C0B2C6707C8005C2D4B /* Pinned Scrollable Header */,
 				7B20582A2C84833A00F53D99 /* SwipeToResizeView.swift */,
-				7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */,
 			);
 			path = "Test UI";
 			sourceTree = "<group>";
@@ -293,7 +293,6 @@
 				F304488F2C6D9A5B00A6485B /* ContentView.swift */,
 				F30448912C6D9D2700A6485B /* TopBarView.swift */,
 				F30448932C6D9F0C00A6485B /* CustomCorner.swift */,
-				7B360E682C86C17F00728330 /* CollapsableSearchView.swift */,
 			);
 			path = "Pinned Scrollable Header";
 			sourceTree = "<group>";
@@ -533,6 +532,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3C6E2962C8753C900DD14DD /* Search Component */,
 				F3CBE4EC2C82195F007DE23A /* Divider */,
 				F3CBE4E92C81FBEB007DE23A /* Form  */,
 				F31BC85D2C814FB400A2DB94 /* View Modifiers */,
@@ -658,6 +658,14 @@
 				7B2058282C847C6500F53D99 /* RecordFilterView.swift */,
 			);
 			path = "All Records View";
+			sourceTree = "<group>";
+		};
+		F3C6E2962C8753C900DD14DD /* Search Component */ = {
+			isa = PBXGroup;
+			children = (
+				F3C6E2972C87548000DD14DD /* CustomSearchView.swift */,
+			);
+			path = "Search Component";
 			sourceTree = "<group>";
 		};
 		F3CBE4E92C81FBEB007DE23A /* Form  */ = {
@@ -797,8 +805,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */,
+				F3C6E2982C87548000DD14DD /* CustomSearchView.swift in Sources */,
 				7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */,
-				7B360E672C86AC3C00728330 /* CollapsibleSearchBar.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */,

@@ -46,7 +46,7 @@ struct HomeView: View {
                 CreateRecordMainView(recordData: vm.selectedRecordData)
             }
             .navigationDestination(isPresented: $vm.onPressedShowMoreFromList, destination: {
-                AllRecordsView()
+                AllRecordsView(topEdge: 0)
 
             })
         }

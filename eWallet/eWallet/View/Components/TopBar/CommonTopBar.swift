@@ -15,17 +15,21 @@ struct CommonTopBarData {
     var forgroundColor : Color
     var leftIconName: String
     var rightIconName: String
+    var hasShadow : Bool
 
     init(title: String = "" , 
          bgColor: Color =  Color.theme.white,
          forgroundColor : Color = Color.theme.primaryText,
          leftIconName: String,
-         rightIconName: String = "") {
+         rightIconName: String = "",
+         hasShadow : Bool = true
+    ) {
         self.title = title
         self.bgColor = bgColor
         self.leftIconName = leftIconName
         self.rightIconName = rightIconName
         self.forgroundColor = forgroundColor
+        self.hasShadow = hasShadow
     }
 
     var hasLeftIcon: Bool {
@@ -75,7 +79,7 @@ struct CommonTopBar: View {
             .font(.title3)
             .foregroundStyle(data.forgroundColor)
             .background(data.bgColor.ignoresSafeArea()
-                .shadow(radius: 1))
+                .shadow(radius: data.hasShadow ? 1 : 0))
            
     }
 }
