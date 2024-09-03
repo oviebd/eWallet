@@ -14,8 +14,8 @@ struct eWalletApp: App {
         WindowGroup {
            
            // ContentView()
-           HomeView()
-            
+          // HomeView()
+            PinnedScrolledView(topEdge: 0)
             //AddAccountView()
             //DropDownView(title: "title", prompt: "Select", options: ["Item 01", "Item 02", "item 03"], selection: $select)
             

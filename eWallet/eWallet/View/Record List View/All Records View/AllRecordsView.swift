@@ -16,46 +16,64 @@ enum DortingDayEnums : String {
 
 struct AllRecordsView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Records",leftIconName: "xmark")
+ //   private let topBarConfig = CommonTopBarData(title: "Records",leftIconName: "xmark")
     @State private var currentPage = 0
     
     @StateObject var vm  = AllRecordsVM()
     @State var selectedSortedDay : DortingDayEnums = .day_30
     
-   
-    
-    
+
     var body: some View {
-//        CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
-//            //  vm.prepareRecordDetailsData()
-//            self.presentationMode.wrappedValue.dismiss()
-//        })
-        
+
         VStack{
-            VStack (spacing : 15){
-                ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+            
+            ScrollView{
+                VStack (spacing : 15){
+                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                        
+                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                        DateWiseRecordListItem(date: item, dataList: records)
+                    }
                     
-                    let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                    DateWiseRecordListItem(date: item, dataList: records)
+                }.padding(.top,30)
+                
+                VStack (spacing : 15){
+                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                        
+                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                        DateWiseRecordListItem(date: item, dataList: records)
+                    }
+                    
                 }
                 
-            }.padding(.top,30)
+                VStack (spacing : 15){
+                    ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
+                        
+                        let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                        DateWiseRecordListItem(date: item, dataList: records)
+                    }
+                    
+                }
+            }
+            
+           
             Spacer()
             SwipeToResizeView()
-        }.ignoresSafeArea()
+        }
+        .edgesIgnoringSafeArea(.bottom)
         
-        
-        
-        
-       
-
-   
         .navigationBarHidden(false)
+            .navigationTitle("Records")
+            .navigationBarTitleDisplayMode(.large)
+        
     }
 }
 
 #Preview {
-    AllRecordsView()
+    NavigationStack{
+        AllRecordsView()
+    }
+    
 }
 
 extension AllRecordsView {

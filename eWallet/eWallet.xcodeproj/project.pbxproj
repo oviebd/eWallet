@@ -16,6 +16,8 @@
 		7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA52C33799600A1E84B /* CurrencyListVM.swift */; };
 		7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B28D0552C41993D00A84142 /* AccountGridVM.swift */; };
 		7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */; };
+		7B360E672C86AC3C00728330 /* CollapsibleSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */; };
+		7B360E692C86C17F00728330 /* CollapsableSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E682C86C17F00728330 /* CollapsableSearchView.swift */; };
 		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
@@ -124,6 +126,8 @@
 		7B267CA52C33799600A1E84B /* CurrencyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListVM.swift; sourceTree = "<group>"; };
 		7B28D0552C41993D00A84142 /* AccountGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridVM.swift; sourceTree = "<group>"; };
 		7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedScrolledView.swift; sourceTree = "<group>"; };
+		7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleSearchBar.swift; sourceTree = "<group>"; };
+		7B360E682C86C17F00728330 /* CollapsableSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSearchView.swift; sourceTree = "<group>"; };
 		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				7B2C1C0B2C6707C8005C2D4B /* Pinned Scrollable Header */,
 				7B20582A2C84833A00F53D99 /* SwipeToResizeView.swift */,
+				7B360E662C86AC3C00728330 /* CollapsibleSearchBar.swift */,
 			);
 			path = "Test UI";
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				F304488F2C6D9A5B00A6485B /* ContentView.swift */,
 				F30448912C6D9D2700A6485B /* TopBarView.swift */,
 				F30448932C6D9F0C00A6485B /* CustomCorner.swift */,
+				7B360E682C86C17F00728330 /* CollapsableSearchView.swift */,
 			);
 			path = "Pinned Scrollable Header";
 			sourceTree = "<group>";
@@ -792,6 +798,7 @@
 			files = (
 				7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */,
 				7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */,
+				7B360E672C86AC3C00728330 /* CollapsibleSearchBar.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */,
@@ -855,6 +862,7 @@
 				7BC3FAD82C4F72E50015A72C /* RecordDataRepository.swift in Sources */,
 				7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
+				7B360E692C86C17F00728330 /* CollapsableSearchView.swift in Sources */,
 				7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */,
 				F34B454C2B8CCDE300434B42 /* String.swift in Sources */,
 				F34B454A2B8CCDE300434B42 /* Date.swift in Sources */,

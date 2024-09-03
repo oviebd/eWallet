@@ -19,12 +19,12 @@ struct OffsetModifier: ViewModifier {
                 
                 //getting value for coordinate space called scroll
                 let minY = proxy.frame(in: .named("SCROLL")).minY
-                
+                print(minY)
                 DispatchQueue.main.async {
                     self.offset = minY
                 }
         
-                return Color.clear
+                return Color.green.opacity(0.1)
                 
             }, alignment: .top)
         }

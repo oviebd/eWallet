@@ -14,7 +14,7 @@ struct Message  : Identifiable {
 
 struct PinnedScrolledView: View {
     
-    let maxHeight = UIScreen.main.bounds.height / 2.3
+    let maxHeight : CGFloat = UIScreen.main.bounds.height / 2.3
     var topEdge : CGFloat
     var messages : [Message] = [Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two"), Message(message: "One") , Message(message: "Two")]
     
