@@ -7,11 +7,30 @@
 
 import SwiftUI
 
-enum DortingDayEnums : String {
+enum SortingDayEnums : String {
     case day_7 = "7 Days"
     case day_30 = "30 Days"
     case day_6_months = "6 Months"
     case day_1_year = "1 Year"
+    
+    func getStartDate() -> Date?{
+        let today : Date = Date.now
+        switch self {
+            
+        case .day_7:
+            return today.dayBefore(dayNumber: 7)
+        case .day_30:
+            return today.dayBefore(dayNumber: 30)
+        case .day_6_months:
+            return today.dayBefore(dayNumber: 180)
+        case .day_1_year:
+            return today.dayBefore(dayNumber: 365)
+        }
+    }
+    
+    func getEndDate() -> Date {
+        return Date.now
+    }
 }
 
 struct AllRecordsView: View {
@@ -20,7 +39,7 @@ struct AllRecordsView: View {
     @State private var currentPage = 0
     
     @StateObject var vm  = AllRecordsVM()
-    @State var selectedSortedDay : DortingDayEnums = .day_30
+    @State var selectedSortedDay : SortingDayEnums = .day_30
     
     let maxHeight: CGFloat = 50 // UIScreen.main.bounds.height / 2.3
     var topEdge: CGFloat
@@ -40,7 +59,9 @@ struct AllRecordsView: View {
                    
                     GeometryReader { _ in
                      
-                        CustomSearchView(searchText: $searchText, offset: $offset)
+                        CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed : { searchText in
+                            
+                        })
 
                     }.frame(height: maxHeight)
                        .offset(y: -offset)
@@ -55,22 +76,8 @@ struct AllRecordsView: View {
                             DateWiseRecordListItem(date: item, dataList: records)
                         }
                         
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
-                            
-                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records)
-                        }
-
-                        
-                        
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
-                            
-                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records)
-                        }
-
-                        
-                    }.padding(.top,30)
+                    }
+                    .padding(.top,20)
                     
                     .zIndex(0)
                 }
@@ -80,13 +87,17 @@ struct AllRecordsView: View {
 
            
             Spacer()
-            SwipeToResizeView()
+            RecordFilterView(){ filterData in
+                print("start \(filterData.startDate?.description)")
+                print("start \(filterData.endDate?.description)")
+                
+            }
+           // SwipeToResizeView()
         }
         .edgesIgnoringSafeArea(.bottom)
         
         .navigationBarHidden(true)
-          //  .navigationTitle("Records")
-            //.navigationBarTitleDisplayMode(.large)
+        
         
     }
 }
@@ -101,10 +112,10 @@ struct AllRecordsView: View {
 extension AllRecordsView {
     var sotByDateSegmentedView : some View{
         Picker("What is your favorite color?", selection: $selectedSortedDay) {
-            Text(DortingDayEnums.day_7.rawValue).tag(DortingDayEnums.day_7)
-            Text(DortingDayEnums.day_30.rawValue).tag(DortingDayEnums.day_30)
-            Text(DortingDayEnums.day_6_months.rawValue).tag(DortingDayEnums.day_6_months)
-            Text(DortingDayEnums.day_1_year.rawValue).tag(DortingDayEnums.day_1_year)
+            Text(SortingDayEnums.day_7.rawValue).tag(SortingDayEnums.day_7)
+            Text(SortingDayEnums.day_30.rawValue).tag(SortingDayEnums.day_30)
+            Text(SortingDayEnums.day_6_months.rawValue).tag(SortingDayEnums.day_6_months)
+            Text(SortingDayEnums.day_1_year.rawValue).tag(SortingDayEnums.day_1_year)
         }
         .pickerStyle(.segmented)
     }

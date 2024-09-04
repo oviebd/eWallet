@@ -20,7 +20,9 @@ struct CollapsableSearchView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 15) {
                 GeometryReader { _ in
-                    CustomSearchView(searchText: $searchText, offset: $offset)
+                    CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed: {
+                        _ in 
+                    })
 
                 }.frame(height: maxHeight)
                    .offset(y: -offset)

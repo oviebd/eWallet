@@ -19,7 +19,6 @@ extension RecordEntity {
 }
 
 struct CDRecordRepository: RecordDataRepoProtocol {
-   
     
     let manager = CoreDataManager.instance
     let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
@@ -40,9 +39,7 @@ struct CDRecordRepository: RecordDataRepoProtocol {
 
     private func getRecordEntityFromId(id: String) -> RecordEntity? {
         let request = RecordEntity.fetchRequest() // (entityName: Constants.CORE_DATA.RecordEntity)
-        let idPredicate = NSPredicate(
-            format: "id = %@", id
-        )
+        let idPredicate = NSPredicate( format: "id = %@", id)
         request.predicate = idPredicate
         do {
             let datas = try manager.context.fetch(request)
@@ -53,6 +50,39 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         }
 
         return nil
+    }
+    
+    
+    func getFilteredDatas(recordFilterData : RecordFilterData) -> [RecordData]{
+        
+        var dataList = [RecordData]()
+        
+        let startdate : NSDate = recordFilterData.startDate! as NSDate
+        let endDate : NSDate = recordFilterData.endDate! as NSDate
+        
+        let request = RecordEntity.fetchRequest() // (entityName: Constants.CORE_DATA.RecordEntity)
+        let datePredicate =  NSPredicate(format: "(date >= %@) AND (date <= %@)", startdate, endDate)
+        
+//        let converstationKeyPredicate = NSPredicate(format: "conversationKey = %@", conversationKey)
+//        let messageKeyPredicate = NSPredicate(format: "messageKey = %@", messageKey)
+//        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [converstationKeyPredicate, messageKeyPredicate])
+      //  request.predicate = andPredicate
+        
+       request.predicate = datePredicate
+        do {
+            let datas = try manager.context.fetch(request)
+            
+            for record in datas {
+                let recordData = record.toRecorData()
+                print("U>> record note is  \(recordData.note)")
+                dataList.append(recordData)
+            }
+        } catch {
+            print("Error Fetching.. \(error.localizedDescription)")
+        }
+
+        return dataList
+        
     }
     
     func getRecordFromId(id: String) -> RecordData? {

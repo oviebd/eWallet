@@ -55,7 +55,7 @@ class CoreDataManager {
     
     
     func deleteFullDB(){
-      //  deleteAllRecordsBatch(for: Constants.CORE_DATA.CategoryEntity)
+        deleteAllRecordsBatch(for: Constants.CORE_DATA.CategoryEntity)
         deleteAllRecordsBatch(for: Constants.CORE_DATA.AccountEntity)
         deleteAllRecordsBatch(for: Constants.CORE_DATA.RecordEntity)
     }

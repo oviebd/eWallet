@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B07BDC52C61D1B70096540D /* eWallet_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07BDC42C61D1B70096540D /* eWallet_Tests.swift */; };
 		7B07BDCC2C61D26D0096540D /* CDRecordRepository_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07BDCB2C61D26D0096540D /* CDRecordRepository_Test.swift */; };
-		7B2058292C847C6500F53D99 /* RecordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2058282C847C6500F53D99 /* RecordFilterView.swift */; };
 		7B20582B2C84833A00F53D99 /* SwipeToResizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20582A2C84833A00F53D99 /* SwipeToResizeView.swift */; };
 		7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267C9F2C33756200A1E84B /* CurrencyListView.swift */; };
 		7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */; };
@@ -91,6 +90,10 @@
 		F3A819A02C83675900F8ED4C /* DateExt_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */; };
 		F3A819A22C836DB600F8ED4C /* RecordListByDateData_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */; };
 		F3A819A42C83809500F8ED4C /* DateWiseRecordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */; };
+		F3AD988A2C8860DB0065719F /* RecordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD98892C8860DB0065719F /* RecordFilterView.swift */; };
+		F3AD988C2C8861410065719F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988B2C8861410065719F /* View.swift */; };
+		F3AD988E2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988D2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift */; };
+		F3AD98902C88C1DE0065719F /* CategoryDataRepository_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988F2C88C1DE0065719F /* CategoryDataRepository_Test.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3C6E2982C87548000DD14DD /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6E2972C87548000DD14DD /* CustomSearchView.swift */; };
@@ -119,7 +122,6 @@
 		7B07BDC22C61D1B70096540D /* eWallet_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eWallet_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B07BDC42C61D1B70096540D /* eWallet_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eWallet_Tests.swift; sourceTree = "<group>"; };
 		7B07BDCB2C61D26D0096540D /* CDRecordRepository_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRecordRepository_Test.swift; sourceTree = "<group>"; };
-		7B2058282C847C6500F53D99 /* RecordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordFilterView.swift; sourceTree = "<group>"; };
 		7B20582A2C84833A00F53D99 /* SwipeToResizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToResizeView.swift; sourceTree = "<group>"; };
 		7B267C9F2C33756200A1E84B /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		7B267CA12C33770C00A1E84B /* SingleCurrencyListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCurrencyListItem.swift; sourceTree = "<group>"; };
@@ -203,6 +205,10 @@
 		F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt_Test.swift; sourceTree = "<group>"; };
 		F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByDateData_Test.swift; sourceTree = "<group>"; };
 		F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateWiseRecordListItem.swift; sourceTree = "<group>"; };
+		F3AD98892C8860DB0065719F /* RecordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordFilterView.swift; sourceTree = "<group>"; };
+		F3AD988B2C8861410065719F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F3AD988D2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRecordRepository_FilteredRecordData_Test.swift; sourceTree = "<group>"; };
+		F3AD988F2C88C1DE0065719F /* CategoryDataRepository_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataRepository_Test.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3C6E2972C87548000DD14DD /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
@@ -243,6 +249,8 @@
 				7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */,
 				F3A8199F2C83675900F8ED4C /* DateExt_Test.swift */,
 				F3A819A12C836DB600F8ED4C /* RecordListByDateData_Test.swift */,
+				F3AD988D2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift */,
+				F3AD988F2C88C1DE0065719F /* CategoryDataRepository_Test.swift */,
 			);
 			path = eWallet_Tests;
 			sourceTree = "<group>";
@@ -499,6 +507,7 @@
 				F34B45482B8CCDE300434B42 /* UIApplication.swift */,
 				F34B45492B8CCDE300434B42 /* Color.swift */,
 				F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */,
+				F3AD988B2C8861410065719F /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -655,7 +664,7 @@
 				F3A8199B2C83366F00F8ED4C /* AllRecordsView.swift */,
 				F3A819A32C83809500F8ED4C /* DateWiseRecordListItem.swift */,
 				F39B068C2C83EE9800BB0407 /* AllRecordsVM.swift */,
-				7B2058282C847C6500F53D99 /* RecordFilterView.swift */,
+				F3AD98892C8860DB0065719F /* RecordFilterView.swift */,
 			);
 			path = "All Records View";
 			sourceTree = "<group>";
@@ -795,6 +804,8 @@
 				7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */,
 				7B07BDC52C61D1B70096540D /* eWallet_Tests.swift in Sources */,
 				F3A819A22C836DB600F8ED4C /* RecordListByDateData_Test.swift in Sources */,
+				F3AD98902C88C1DE0065719F /* CategoryDataRepository_Test.swift in Sources */,
+				F3AD988E2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift in Sources */,
 				7B07BDCC2C61D26D0096540D /* CDRecordRepository_Test.swift in Sources */,
 				F3A819A02C83675900F8ED4C /* DateExt_Test.swift in Sources */,
 			);
@@ -818,7 +829,7 @@
 				F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountView.swift in Sources */,
-				7B2058292C847C6500F53D99 /* RecordFilterView.swift in Sources */,
+				F3AD988A2C8860DB0065719F /* RecordFilterView.swift in Sources */,
 				F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */,
 				F31BC8612C8150BE00A2DB94 /* TestModifierView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
@@ -829,6 +840,7 @@
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
 				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
+				F3AD988C2C8861410065719F /* View.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountGridView.swift in Sources */,
 				7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */,
 				7BC3FAD42C4F38F50015A72C /* PreviewProvider.swift in Sources */,

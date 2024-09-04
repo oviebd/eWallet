@@ -9,11 +9,14 @@ import SwiftUI
 
 struct CustomSearchView: View {
     
-    let maxHeight: CGFloat = 50 // UIScreen.main.bounds.height / 2.3
+    let maxHeight: CGFloat = 50 
     var topEdge: CGFloat = 0
+    
+    
     
     @Binding var searchText: String
     @Binding var offset: CGFloat
+    var onSearchPressed: ((String) -> Void)
     
     var body: some View {
         HStack {
@@ -23,10 +26,13 @@ struct CustomSearchView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
+                        .onTapGesture {
+                            onSearchPressed(searchText)
+                        }
 
                     TextField("Search", text: $searchText)
                         .padding(.horizontal, 10)
-                        .foregroundStyle(Color.red.opacity(getProgress()))
+                        .foregroundStyle(Color.theme.primaryText.opacity(getProgress()))
                     
                     Spacer()
                     
@@ -34,6 +40,9 @@ struct CustomSearchView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
+                        .onTapGesture {
+                            searchText = ""
+                        }
                 }
             }
 
@@ -62,5 +71,7 @@ struct CustomSearchView: View {
 }
 
 #Preview {
-    CustomSearchView(searchText: .constant(""), offset: .constant(0.0))
+    CustomSearchView(searchText: .constant(""), offset: .constant(0.0), onSearchPressed: { _ in
+        
+    })
 }

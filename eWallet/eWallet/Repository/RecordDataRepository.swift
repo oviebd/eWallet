@@ -26,6 +26,8 @@ protocol RecordDataRepoProtocol {
     func addRecord(recordData: RecordData) -> Bool
     func editRecord(recordData: RecordData) -> Bool
     func deleteRecord(recordData: RecordData) -> Bool
+    
+    func getFilteredDatas(recordFilterData : RecordFilterData) -> [RecordData]
 }
 
 class RecordDataRepository {
@@ -55,6 +57,10 @@ class RecordDataRepository {
     func getRecords() -> [RecordData] {
         recordList = recordRepo.getRecords()
         return recordList
+    }
+    
+    func getFilteredDatas(recordFilterData : RecordFilterData) -> [RecordData] {
+        return recordRepo.getFilteredDatas(recordFilterData: recordFilterData)
     }
 
     func addRecord(recordData: RecordData) -> Bool {

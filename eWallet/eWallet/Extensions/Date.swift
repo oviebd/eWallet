@@ -10,7 +10,8 @@ import Foundation
 //REf - https://medium.com/@jpmtech/swiftui-format-dates-and-times-the-easy-way-fc896b25003b
 
 enum DateFormat: String {
-    case coinGeco = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    case full = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    case y_m_d_h_m =  "yyyy-MM-dd HH:mm"
 }
 
 extension Date {
@@ -28,6 +29,15 @@ extension Date {
         let date = formatter.date(from: coinGeckoString) ?? Date()
         self.init(timeInterval: 0, since: date)
     }
+//    
+//    private func getDateFormatter(format : String) -> DateFormatter{
+//        dateFormatter.dateFormat = format
+//       // dateFormatter.timeZone = NSTimeZone(name: "GMT") // this line resolved me the
+//    }
+//    
+//    func asQuoreDataFetchFormat() -> Date? {
+//        return getDateFormatter(format: DateFormat.y_m_d_h_m.rawValue).
+//    }
 
     private var shortFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -109,3 +119,10 @@ extension Date {
         return get(.second).second
     }
 }
+
+//let dateFormatter = DateFormatter()
+//   dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//   dateFormatter.timeZone = NSTimeZone(name: "GMT") // this line resolved me the issue of getting one day less than the selected date
+//   let startDate:NSDate = dateFormatter.dateFromString(fromdate)!
+//   let endDate:NSDate = dateFormatter.dateFromString(todate)!
+//   request.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startDate, endDate)

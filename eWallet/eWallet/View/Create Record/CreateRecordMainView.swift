@@ -93,7 +93,7 @@ extension CreateRecordMainView {
                 .font(.system(size: 70))
                 .minimumScaleFactor(0.01)
                 .fontWeight(.semibold)
-                .disabled(true)
+              //  .disabled(true)
 
             Text("BDT")
                 .font(.system(size: 20))
