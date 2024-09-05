@@ -15,11 +15,17 @@ final class CDRecordRepository_Test : XCTestCase {
     let manager = CoreDataManager.instance
     let recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository()) 
     let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
+    let categoryRepo = CategoryDataRepository.shared(categoryRepo:  CDCategoryRepository())
+    let categoryUtils = CategoryUtility()
+    
     
     override func setUpWithError() throws {
         manager.deleteFullDB()
         _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData)
         _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData2)
+        
+        _ = addCategoryInDB(categoryData: categoryUtils.catagory1)
+        _ = addCategoryInDB(categoryData: categoryUtils.catagory2)
     }
 
     override func tearDownWithError() throws {
@@ -42,13 +48,15 @@ final class CDRecordRepository_Test : XCTestCase {
     }
     
     func test_getRecordDataFromId_WillFetchPeoperData(){
-        let recordData = getDummyRecordData(recordType: .EXPENSE)
+        var recordData = getDummyRecordData(recordType: .EXPENSE)
+        recordData.catagory = getCategory(id: recordData.catagory?.id ?? "")
         _ = addRecordtInDB(recordData: recordData)
         let fetchedData = getRecordFromID(id: recordData.id)
         
         XCTAssertEqual(recordData.id , fetchedData?.id)
         XCTAssertEqual(recordData.note , fetchedData?.note)
         XCTAssertEqual(recordData.amount , fetchedData?.amount)
+        XCTAssertEqual(recordData.catagory?.id , fetchedData?.catagory?.id)
     }
     
     func test_addExpenseTypeRecord_WillDecreaseTheAmountOfItsAccount(){
@@ -135,6 +143,8 @@ final class CDRecordRepository_Test : XCTestCase {
     
     
     func addRecordtInDB(recordData : RecordData) -> Bool{
+        var recordData = recordData
+        recordData.catagory = getRecordFromID(id: recordData.id ?? "")
         return recordRepo.addRecord(recordData: recordData)
     }
     
@@ -159,6 +169,16 @@ final class CDRecordRepository_Test : XCTestCase {
         return accountRepo.getAccounts()
     }
     
-
+    func addCategoryInDB(categoryData : CategoryData) -> Bool{
+        return categoryRepo.addCategory(categoryData: categoryData)
+    }
+    
+    func getFirstCategory() -> CategoryData?{
+        return categoryRepo.getCategories().first
+    }
+    
+    func getCategory(id : String) -> CategoryData? {
+        return categoryRepo.getCategoryEntityFromId(id: id)?.convertToCategory()
+    }
     
 }

@@ -32,8 +32,9 @@ class CoreDataManager {
     func save() -> Bool{
         do{
             try context.save()
-            return true
             debugPrint("Save SuccessFully")
+            return true
+           
         }catch{
             debugPrint("Error Saving Corae Data - \(error.localizedDescription)")
             return false
@@ -55,6 +56,7 @@ class CoreDataManager {
     
     
     func deleteFullDB(){
+        deleteAllRecordsBatch(for: Constants.CORE_DATA.CurrencyEntity)
         deleteAllRecordsBatch(for: Constants.CORE_DATA.CategoryEntity)
         deleteAllRecordsBatch(for: Constants.CORE_DATA.AccountEntity)
         deleteAllRecordsBatch(for: Constants.CORE_DATA.RecordEntity)
