@@ -144,7 +144,7 @@ final class CDRecordRepository_Test : XCTestCase {
     
     func addRecordtInDB(recordData : RecordData) -> Bool{
         var recordData = recordData
-        recordData.catagory = getRecordFromID(id: recordData.id ?? "")
+        recordData.catagory = getCategory(id: recordData.id)
         return recordRepo.addRecord(recordData: recordData)
     }
     

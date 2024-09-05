@@ -35,5 +35,6 @@ class DummyDataUtils {
     
     static let todayRecordList = [dummyRecordData_Expense,dummyRecordData_Income,dummyRecordData_Transfer]
     static let yesterdayRecordList = [dummyRecordData_Expense_yesterDay, dummyRecordData_Income_yesterDay, dummyRecordData_Transfer_yesterDay]
+    
 }
 
