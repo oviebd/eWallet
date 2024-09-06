@@ -10,6 +10,7 @@ import SwiftUI
 struct RecordFilterData{
     var startDate : Date?
     var endDate : Date?
+    var searchText : String?
     var type : SortingDayEnums?
 }
 

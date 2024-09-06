@@ -118,5 +118,4 @@ final class CDRecordRepository_Test: XCTestCase {
         XCTAssertEqual(updatedFromAcountAmount, prevFromAcountAmount)
     }
 
-    // MARK: - Healpers
 }

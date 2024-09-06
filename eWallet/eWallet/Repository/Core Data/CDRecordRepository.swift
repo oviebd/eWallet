@@ -56,29 +56,39 @@ struct CDRecordRepository: RecordDataRepoProtocol {
     func getFilteredDatas(recordFilterData : RecordFilterData) -> [RecordData]{
         
         var dataList = [RecordData]()
+        var predicates = [NSPredicate]()
         
-        let startdate : NSDate = recordFilterData.startDate! as NSDate
-        let endDate : NSDate = recordFilterData.endDate! as NSDate
+        let startdate : NSDate? = recordFilterData.startDate as? NSDate
+        let endDate : NSDate? = recordFilterData.endDate as? NSDate
         
+//        var datePredicate : NSPredicate?
+//        var searchPredicate : NSPredicate?
+//        
         let request = RecordEntity.fetchRequest() // (entityName: Constants.CORE_DATA.RecordEntity)
-        let datePredicate =  NSPredicate(format: "(date >= %@) AND (date <= %@)", startdate, endDate)
+       
+        if let startdate = startdate ,let endDate = endDate {
+            predicates.append(NSPredicate(format: "(date >= %@) AND (date <= %@)", startdate, endDate))
+        }
         
-//        let converstationKeyPredicate = NSPredicate(format: "conversationKey = %@", conversationKey)
-//        let messageKeyPredicate = NSPredicate(format: "messageKey = %@", messageKey)
-//        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [converstationKeyPredicate, messageKeyPredicate])
-      //  request.predicate = andPredicate
+        if let searchText = recordFilterData.searchText {
+            predicates.append(NSPredicate(format: "note BEGINSWITH %@", searchText))
+        }
         
-       request.predicate = datePredicate
+
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: predicates)
+     
+        
+       request.predicate = andPredicate
         do {
             let datas = try manager.context.fetch(request)
             
             for record in datas {
                 let recordData = record.toRecorData()
-                print("U>> record note is  \(recordData.note)")
+                //print("U>> record note is  \(recordData.note)")
                 dataList.append(recordData)
             }
         } catch {
-            print("Error Fetching.. \(error.localizedDescription)")
+           // print("Error Fetching.. \(error.localizedDescription)")
         }
 
         return dataList

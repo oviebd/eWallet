@@ -33,7 +33,7 @@ final class CDRecordRepository_FilteredRecordData_Test: XCTestCase {
        
     }
 
-    func test_filter_7Days_getdataBetween7Days() {
+    func test_filter_by_datesOnly_getCorrectDataBetweenTwoDays() {
         
         let rec_before_3_days = addRecordtInDB(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: -3)
         let rec_today = addRecordtInDB(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: 0)
