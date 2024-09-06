@@ -73,6 +73,25 @@ extension Date {
         return self.formatted(date: .omitted, time: .shortened)
     }
     
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
+    
+    func updateWith(hour : Int, minutes : Int) -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = self.getYear()
+        dateComponents.month = self.getMonth()
+        dateComponents.day = self.getDayNumberOfMonth()
+        dateComponents.timeZone = TimeZone(abbreviation: "UTC") // Japan Standard Time
+        dateComponents.hour = hour
+        dateComponents.minute = minutes
+
+        // Create date from components
+        let userCalendar = Calendar.current // user calendar
+        let someDateTime : Date = userCalendar.date(from: dateComponents)! //?? self
+        return someDateTime
+    }
+    
 }
 
 extension Date {

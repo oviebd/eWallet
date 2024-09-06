@@ -58,12 +58,10 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         var dataList = [RecordData]()
         var predicates = [NSPredicate]()
         
-        let startdate : NSDate? = recordFilterData.startDate?.removeTime() as? NSDate
-        let endDate : NSDate? = recordFilterData.endDate?.removeTime() as? NSDate
+        let startdate : NSDate? = recordFilterData.startDate as? NSDate
+        let endDate : NSDate? = recordFilterData.endDate as? NSDate
         
-//        var datePredicate : NSPredicate?
-//        var searchPredicate : NSPredicate?
-//        
+
         let request = RecordEntity.fetchRequest() // (entityName: Constants.CORE_DATA.RecordEntity)
        
         if let startdate = startdate ,let endDate = endDate {

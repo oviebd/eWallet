@@ -15,21 +15,24 @@ enum SortingDayEnums : String {
     
     func getStartDate() -> Date?{
         let today : Date = Date.now
+        var date : Date? = today
         switch self {
             
         case .day_7:
-            return today.dayBefore(dayNumber: 7)
+            date = today.dayBefore(dayNumber: 7)
         case .day_30:
-            return today.dayBefore(dayNumber: 30)
+            date = today.dayBefore(dayNumber: 30)
         case .day_6_months:
-            return today.dayBefore(dayNumber: 180)
+            date = today.dayBefore(dayNumber: 180)
         case .day_1_year:
-            return today.dayBefore(dayNumber: 365)
+            date = today.dayBefore(dayNumber: 365)
         }
+        
+        return date?.updateWith(hour: 0, minutes: 0)
     }
     
     func getEndDate() -> Date {
-        return Date.now
+        return Date.now.updateWith(hour: 23, minutes: 59)
     }
 }
 
