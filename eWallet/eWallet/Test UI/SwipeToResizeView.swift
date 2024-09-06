@@ -14,7 +14,7 @@ struct SwipeToResizeView: View {
 
     let minHeight: CGFloat = 100
     let maxHeight: CGFloat = 195
-    @State var selectedSortedDay: SortingDayEnums = .day_30
+    @State var selectedSortedDay: FilterByDatesEnums = .day_30
     @State var isDragUp = false
     @State var isDragStarted = true
 
@@ -81,10 +81,10 @@ struct SwipeToResizeView: View {
 extension SwipeToResizeView {
     var sotByDateSegmentedView: some View {
         Picker("What is your favorite color?", selection: $selectedSortedDay) {
-            Text(SortingDayEnums.day_7.rawValue).tag(SortingDayEnums.day_7)
-            Text(SortingDayEnums.day_30.rawValue).tag(SortingDayEnums.day_30)
-            Text(SortingDayEnums.day_6_months.rawValue).tag(SortingDayEnums.day_6_months)
-            Text(SortingDayEnums.day_1_year.rawValue).tag(SortingDayEnums.day_1_year)
+            Text(FilterByDatesEnums.day_7.rawValue).tag(FilterByDatesEnums.day_7)
+            Text(FilterByDatesEnums.day_30.rawValue).tag(FilterByDatesEnums.day_30)
+            Text(FilterByDatesEnums.day_6_months.rawValue).tag(FilterByDatesEnums.day_6_months)
+            Text(FilterByDatesEnums.day_1_year.rawValue).tag(FilterByDatesEnums.day_1_year)
         }
         .pickerStyle(.segmented)
     }

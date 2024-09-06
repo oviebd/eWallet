@@ -7,27 +7,63 @@
 
 import SwiftUI
 
-struct RecordFilterData{
-    var startDate : Date?
-    var endDate : Date?
-    var searchText : String?
-    var accountId : String?
-    var categoryId : String?
-    var type : SortingDayEnums?
+enum FilterByDatesEnums: String {
+    case day_7 = "7 Days"
+    case day_30 = "30 Days"
+    case day_6_months = "6 Months"
+    case day_1_year = "1 Year"
+
+    func getStartDate() -> Date? {
+        let today: Date = Date.now
+        var date: Date? = today
+        switch self {
+        case .day_7:
+            date = today.dayBefore(dayNumber: 7)
+        case .day_30:
+            date = today.dayBefore(dayNumber: 30)
+        case .day_6_months:
+            date = today.dayBefore(dayNumber: 180)
+        case .day_1_year:
+            date = today.dayBefore(dayNumber: 365)
+        }
+
+        return date?.updateWith(hour: 0, minutes: 0)
+    }
+
+    func getEndDate() -> Date {
+        return Date.now.updateWith(hour: 23, minutes: 59)
+    }
+}
+
+struct RecordFilterData {
+    var startDate: Date?
+    var endDate: Date?
+    var searchText: String?
+    var accountId: String?
+    var categoryId: String?
+    var type: FilterByDatesEnums?
 }
 
 struct RecordFilterView: View {
-  
-    @State private var viewHeight: CGFloat = 60 
-    
+    @State private var viewHeight: CGFloat = 60
 
     let minHeight: CGFloat = 100
     let maxHeight: CGFloat = 195
-    @State var selectedSortedDay: SortingDayEnums = .day_30
+
+    @State var selectedSortedDay: FilterByDatesEnums = .day_30
+
     @State var isDragUp = false
     @State var isDragStarted = true
-    
-    var onFilterChanged: ((RecordFilterData) -> Void)
+
+    @State var isSelectAccountPressed: Bool = false
+    @State var isSelectCategoryPressed: Bool = false
+
+    @Binding var filterData: RecordFilterData
+
+    @State var selectedAccount: AccountData?
+    @State var selectedCategory: CategoryData?
+
+   // var onFilterChanged: (RecordFilterData?) -> Void
 
     var body: some View {
         Spacer()
@@ -70,30 +106,45 @@ struct RecordFilterView: View {
             .padding()
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white)
                 .shadow(radius: 2))
-        
+
             .onChange(of: selectedSortedDay) { oldValue, newValue in
-               
+
                 if oldValue != newValue {
-                    let recordFilterData = RecordFilterData(startDate: selectedSortedDay.getStartDate(), endDate: selectedSortedDay.getEndDate(), type: newValue)
-                    
-                    onFilterChanged(recordFilterData)
+                    filterData.startDate = selectedSortedDay.getStartDate()
+                    filterData.endDate = selectedSortedDay.getEndDate()
+
+                   // onFilterChanged(filterData)
                 }
-                
+            }
+
+            .onChange(of: selectedAccount, { _, _ in
+                filterData.accountId = selectedAccount?.id
+            })
+            .onChange(of: selectedCategory, { _, _ in
+                filterData.categoryId = selectedCategory?.id
+            })
+
+            .popover(isPresented: $isSelectCategoryPressed) {
+                SelectCatagoryView(selectedCategory: $selectedCategory)
+            }
+
+            .popover(isPresented: $isSelectAccountPressed) {
+                AccountListView(selectedAccountData: $selectedAccount, isPopupView: true)
             }
     }
 }
 
 #Preview {
-    RecordFilterView(){ _ in}
+    RecordFilterView (filterData: .constant(RecordFilterData()))
 }
 
 extension RecordFilterView {
     var sotByDateSegmentedView: some View {
         Picker("What is your favorite color?", selection: $selectedSortedDay) {
-            Text(SortingDayEnums.day_7.rawValue).tag(SortingDayEnums.day_7)
-            Text(SortingDayEnums.day_30.rawValue).tag(SortingDayEnums.day_30)
-            Text(SortingDayEnums.day_6_months.rawValue).tag(SortingDayEnums.day_6_months)
-            Text(SortingDayEnums.day_1_year.rawValue).tag(SortingDayEnums.day_1_year)
+            Text(FilterByDatesEnums.day_7.rawValue).tag(FilterByDatesEnums.day_7)
+            Text(FilterByDatesEnums.day_30.rawValue).tag(FilterByDatesEnums.day_30)
+            Text(FilterByDatesEnums.day_6_months.rawValue).tag(FilterByDatesEnums.day_6_months)
+            Text(FilterByDatesEnums.day_1_year.rawValue).tag(FilterByDatesEnums.day_1_year)
         }
         .pickerStyle(.segmented)
     }
@@ -102,14 +153,22 @@ extension RecordFilterView {
 extension RecordFilterView {
     var formPickerView: some View {
         VStack(spacing: 0) {
-            DefaultFormPicker(iconName: "", mainTitle: "Select Account", rightTitle: "Select", iconBgShape: .none) {
+            DefaultFormPicker(iconName: "",
+                              mainTitle: "Select Account",
+                              rightTitle: selectedAccount?.title ?? "Select",
+                              iconBgShape: .none) {
+                isSelectAccountPressed = true
             }.frame(height: isDragUp ? 60 : 0)
                 .hidden(!isDragUp)
 
             DefaultDividerView()
                 .hidden(!isDragUp)
 
-            DefaultFormPicker(iconName: "", mainTitle: "Select Category", rightTitle: "Select", iconBgShape: .none) {
+            DefaultFormPicker(iconName: "",
+                              mainTitle: "Select Category",
+                              rightTitle: selectedCategory?.title ?? "Select",
+                              iconBgShape: .none) {
+                isSelectCategoryPressed = true
             }.frame(height: isDragUp ? 60 : 0)
                 .hidden(!isDragUp)
         }

@@ -7,34 +7,7 @@
 
 import SwiftUI
 
-enum SortingDayEnums : String {
-    case day_7 = "7 Days"
-    case day_30 = "30 Days"
-    case day_6_months = "6 Months"
-    case day_1_year = "1 Year"
-    
-    func getStartDate() -> Date?{
-        let today : Date = Date.now
-        var date : Date? = today
-        switch self {
-            
-        case .day_7:
-            date = today.dayBefore(dayNumber: 7)
-        case .day_30:
-            date = today.dayBefore(dayNumber: 30)
-        case .day_6_months:
-            date = today.dayBefore(dayNumber: 180)
-        case .day_1_year:
-            date = today.dayBefore(dayNumber: 365)
-        }
-        
-        return date?.updateWith(hour: 0, minutes: 0)
-    }
-    
-    func getEndDate() -> Date {
-        return Date.now.updateWith(hour: 23, minutes: 59)
-    }
-}
+
 
 struct AllRecordsView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -42,12 +15,14 @@ struct AllRecordsView: View {
     @State private var currentPage = 0
     
     @StateObject var vm  = AllRecordsVM()
-    @State var selectedSortedDay : SortingDayEnums = .day_30
+    @State var selectedSortedDay : FilterByDatesEnums = .day_30
     
     let maxHeight: CGFloat = 50 // UIScreen.main.bounds.height / 2.3
     var topEdge: CGFloat
     @State var offset: CGFloat = 0
     @State var searchText: String = ""
+    
+   // @State var filteredData : RecordFilterData?
 
     var body: some View {
 
@@ -90,11 +65,7 @@ struct AllRecordsView: View {
 
            
             Spacer()
-            RecordFilterView(){ filterData in
-                print("start \(filterData.startDate?.description)")
-                print("start \(filterData.endDate?.description)")
-                
-            }
+            RecordFilterView(filterData: $vm.filteredData)
            // SwipeToResizeView()
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -115,10 +86,10 @@ struct AllRecordsView: View {
 extension AllRecordsView {
     var sotByDateSegmentedView : some View{
         Picker("What is your favorite color?", selection: $selectedSortedDay) {
-            Text(SortingDayEnums.day_7.rawValue).tag(SortingDayEnums.day_7)
-            Text(SortingDayEnums.day_30.rawValue).tag(SortingDayEnums.day_30)
-            Text(SortingDayEnums.day_6_months.rawValue).tag(SortingDayEnums.day_6_months)
-            Text(SortingDayEnums.day_1_year.rawValue).tag(SortingDayEnums.day_1_year)
+            Text(FilterByDatesEnums.day_7.rawValue).tag(FilterByDatesEnums.day_7)
+            Text(FilterByDatesEnums.day_30.rawValue).tag(FilterByDatesEnums.day_30)
+            Text(FilterByDatesEnums.day_6_months.rawValue).tag(FilterByDatesEnums.day_6_months)
+            Text(FilterByDatesEnums.day_1_year.rawValue).tag(FilterByDatesEnums.day_1_year)
         }
         .pickerStyle(.segmented)
     }

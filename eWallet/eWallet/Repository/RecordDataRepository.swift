@@ -60,7 +60,9 @@ class RecordDataRepository {
     }
     
     func getFilteredDatas(recordFilterData : RecordFilterData) -> [RecordData] {
-        return recordRepo.getFilteredDatas(recordFilterData: recordFilterData)
+        let datas =  recordRepo.getFilteredDatas(recordFilterData: recordFilterData)
+       // recordList = datas
+        return datas
     }
 
     func addRecord(recordData: RecordData) -> Bool {

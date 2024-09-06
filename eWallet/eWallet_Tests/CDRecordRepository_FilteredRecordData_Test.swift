@@ -33,16 +33,16 @@ final class CDRecordRepository_FilteredRecordData_Test: XCTestCase {
         _ = addRecordtInDB(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: 3)
         _ = addRecordtInDB(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: 6)
 
-        let filter_1_year = RecordFilterData(startDate: SortingDayEnums.day_1_year.getStartDate(), endDate: SortingDayEnums.day_1_year.getEndDate())
+        let filter_1_year = RecordFilterData(startDate: FilterByDatesEnums.day_1_year.getStartDate(), endDate: FilterByDatesEnums.day_1_year.getEndDate())
         XCTAssertEqual(helper.getFilteredRecordDatas(filter: filter_1_year).count, 7)
 
-        let filter_6_months = RecordFilterData(startDate: SortingDayEnums.day_6_months.getStartDate(), endDate: SortingDayEnums.day_6_months.getEndDate())
+        let filter_6_months = RecordFilterData(startDate: FilterByDatesEnums.day_6_months.getStartDate(), endDate: FilterByDatesEnums.day_6_months.getEndDate())
         XCTAssertEqual(helper.getFilteredRecordDatas(filter: filter_6_months).count, 6)
 
-        let filter_30_day = RecordFilterData(startDate: SortingDayEnums.day_30.getStartDate(), endDate: SortingDayEnums.day_30.getEndDate())
+        let filter_30_day = RecordFilterData(startDate: FilterByDatesEnums.day_30.getStartDate(), endDate: FilterByDatesEnums.day_30.getEndDate())
         XCTAssertEqual(helper.getFilteredRecordDatas(filter: filter_30_day).count, 5)
 
-        let filter_7_day = RecordFilterData(startDate: SortingDayEnums.day_7.getStartDate(), endDate: SortingDayEnums.day_7.getEndDate())
+        let filter_7_day = RecordFilterData(startDate: FilterByDatesEnums.day_7.getStartDate(), endDate: FilterByDatesEnums.day_7.getEndDate())
         XCTAssertEqual(helper.getFilteredRecordDatas(filter: filter_7_day).count, 3)
     }
 

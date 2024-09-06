@@ -15,6 +15,8 @@ class AllRecordsVM : ObservableObject {
     
     @Published var recordListByDateData : RecordListByDateData = RecordListByDateData()
     
+    @Published var filteredData : RecordFilterData = RecordFilterData()
+    
     private var cancellables = Set<AnyCancellable>()
     
     
@@ -23,12 +25,19 @@ class AllRecordsVM : ObservableObject {
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
        
         initAccountSubscription()
+        
+        $filteredData.sink { [weak self] value in
+            self?.recordListByDateData = RecordListByDateData()
+            self?.recordsList = self?.recordRepo.getFilteredDatas(recordFilterData: value) ?? []
+            self?.recordListByDateData.prepareDatas(datas: self?.recordsList ?? [])
+        }.store(in: &cancellables)
     }
 
     func initAccountSubscription(){
-        let _ = recordRepo.getRecords()
+        let _ = recordRepo.getFilteredDatas(recordFilterData: filteredData)//getRecords()
         recordRepo.$recordList.sink { [weak self] recordList in
             DispatchQueue.main.async {
+                self?.recordListByDateData = RecordListByDateData()
                 self?.recordsList = recordList
                 self?.recordListByDateData.prepareDatas(datas: recordList)
             }
