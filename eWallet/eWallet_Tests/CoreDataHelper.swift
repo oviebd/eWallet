@@ -47,10 +47,10 @@ class CoreDataHelper {
 
     func addRecordInDB(recordType: RecordTypeEnum) -> Bool {
         var recordData = getDummyRecordData(recordType: recordType)
-        return addRecordInDB(recordData: &recordData)
+        return addRecordInDB(recordData: recordData)
     }
 
-    func addRecordInDB(recordData: inout RecordData) -> Bool {
+    func addRecordInDB(recordData: RecordData) -> Bool {
         let recordData = recordData
         return recordRepo.addRecord(recordData: recordData)
     }
@@ -61,6 +61,10 @@ class CoreDataHelper {
 
     func getRecordList() -> [RecordData] {
         return recordRepo.getRecords()
+    }
+    
+    func getFilteredRecordDatas(filter : RecordFilterData) -> [RecordData] {
+        return recordRepo.getFilteredDatas(recordFilterData: filter)
     }
 
     func deleteRecordtInDB(recordData: RecordData) -> Bool {

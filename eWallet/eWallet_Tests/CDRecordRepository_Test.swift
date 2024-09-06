@@ -39,7 +39,7 @@ final class CDRecordRepository_Test: XCTestCase {
 
     func test_getRecordDataFromId_WillFetchPeoperData() {
         var recordData = helper.getDummyRecordData(recordType: .EXPENSE)
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         let fetchedData = helper.getRecordFromID(id: recordData.id)
 
         XCTAssertEqual(recordData.id, fetchedData?.id)
@@ -52,7 +52,7 @@ final class CDRecordRepository_Test: XCTestCase {
     func test_addExpenseTypeRecord_WillDecreaseTheAmountOfItsAccount() {
         var recordData = helper.getDummyRecordData(recordType: .EXPENSE)
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         let fetchedData = helper.getRecordFromID(id: recordData.id)
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: fetchedData?.account?.id ?? "")
         XCTAssertEqual(updatedAcountAmount, prevAcountAmount - (fetchedData?.amount ?? 0.0))
@@ -61,7 +61,7 @@ final class CDRecordRepository_Test: XCTestCase {
     func test_addIncomeTypeRecord_WillIncreaseTheAmountOfItsAccount() {
         var recordData = helper.getDummyRecordData(recordType: .INCOME)
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         let fetchedData = helper.getRecordFromID(id: recordData.id)
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: fetchedData?.account?.id ?? "")
         XCTAssertEqual(updatedAcountAmount, prevAcountAmount + (fetchedData?.amount ?? 0.0))
@@ -73,7 +73,7 @@ final class CDRecordRepository_Test: XCTestCase {
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
         let prevFromAcountAmount = helper.getAccountAmountFrom(accountId: recordData.fromAccount?.id ?? "")
 
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         let fetchedData = helper.getRecordFromID(id: recordData.id)
 
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: fetchedData?.account?.id ?? "")
@@ -86,7 +86,7 @@ final class CDRecordRepository_Test: XCTestCase {
     func test_DeleteExpenseTypeRecord_WillRestoreItsAccountsAmount() {
         var recordData = helper.getDummyRecordData(recordType: .EXPENSE)
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         _ = helper.deleteRecordtInDB(recordData: recordData)
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
 
@@ -96,7 +96,7 @@ final class CDRecordRepository_Test: XCTestCase {
     func test_DeleteIncomeTypeRecord_WillRestoreItsAccountsAmount() {
         var recordData = helper.getDummyRecordData(recordType: .INCOME)
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         _ = helper.deleteRecordtInDB(recordData: recordData)
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
         XCTAssertEqual(updatedAcountAmount, prevAcountAmount)
@@ -108,7 +108,7 @@ final class CDRecordRepository_Test: XCTestCase {
         let prevAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
         let prevFromAcountAmount = helper.getAccountAmountFrom(accountId: recordData.fromAccount?.id ?? "")
 
-        _ = helper.addRecordInDB(recordData: &recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
         _ = helper.deleteRecordtInDB(recordData: recordData)
 
         let updatedAcountAmount = helper.getAccountAmountFrom(accountId: recordData.account?.id ?? "")
