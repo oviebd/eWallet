@@ -67,14 +67,64 @@ final class CDRecordRepository_FilteredRecordData_Test: XCTestCase {
         XCTAssertEqual(helper.getFilteredRecordDatas(filter: RecordFilterData(searchText: "Tho")).count, 0)
     }
 
-    func test_filter_by_dateAndNote_getCorrectDataCount() {
-        let filter_7_day = RecordFilterData(startDate: SortingDayEnums.day_7.getStartDate(), endDate: SortingDayEnums.day_7.getEndDate())
-        XCTAssertEqual(helper.getFilteredRecordDatas(filter: filter_7_day).count, 2)
+    func test_filter_by_Account_getCorrectDataCount() {
+        //account1
+        var recordData = DummyDataUtils.dummyRecordData_Income
+        recordData.account = DummyDataUtils.dummyAccountData
+        _ = helper.addRecordInDB(recordData: recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
+        
+        recordData.account = DummyDataUtils.dummyAccountData2
+        _ = helper.addRecordInDB(recordData: recordData)
+        _ = helper.addRecordInDB(recordData: recordData)
+        
+
+        let account1_filter = RecordFilterData(accountId: DummyDataUtils.dummyAccountData.id)
+        let account2_filter = RecordFilterData(accountId: DummyDataUtils.dummyAccountData2.id)
+        
+        XCTAssertEqual(helper.getFilteredRecordDatas(filter: account1_filter).count, 3)
+        XCTAssertEqual(helper.getFilteredRecordDatas(filter: account2_filter).count, 2)
     }
+    
+    
+    func test_filter_by_Category_getCorrectDataCount() {
+        //cat 1
+        var rec1 = DummyDataUtils.dummyRecordData_Income
+        rec1.catagory = CategoryUtility.catagory1
+        var rec2 = prepareRecordFrom(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: -2)
+        rec2.catagory = CategoryUtility.catagory1
+        var rec3 = prepareRecordFrom(recordData: DummyDataUtils.dummyRecordData_Income, dayNumber: -10)
+        rec3.catagory = CategoryUtility.catagory1
+        
+        //cat 2
+        var rec4 = prepareRecordFrom(recordData: DummyDataUtils.dummyRecordData_Transfer, dayNumber: -7)
+        rec4.catagory = CategoryUtility.catagory2
+        var rec5 = prepareRecordFrom(recordData: DummyDataUtils.dummyRecordData_Transfer, dayNumber: -2)
+        rec5.catagory = CategoryUtility.catagory2
+         
+        
+        _ = helper.addRecordInDB(recordData: rec1)
+        _ = helper.addRecordInDB(recordData: rec2)
+        _ = helper.addRecordInDB(recordData: rec3)
+        
+        _ = helper.addRecordInDB(recordData: rec4)
+        _ = helper.addRecordInDB(recordData: rec5)
+        
+        
+        let cat1_filter = RecordFilterData(categoryId: CategoryUtility.catagory1.id)
+        let cat2_filter = RecordFilterData(categoryId: CategoryUtility.catagory2.id)
+        
+        XCTAssertEqual(helper.getFilteredRecordDatas(filter: cat1_filter).count, 3)
+        XCTAssertEqual(helper.getFilteredRecordDatas(filter: cat2_filter).count, 2)
+    }
+    
+    
+    
 
     // Helper
 
-    func addRecordtInDB(recordData: RecordData, dayNumber: Int) -> Bool {
+    func prepareRecordFrom(recordData: RecordData, dayNumber: Int) -> RecordData{
         var date: Date?
         if dayNumber >= 0 {
             date = .now.dayAfter(dayNumber: dayNumber)
@@ -84,11 +134,14 @@ final class CDRecordRepository_FilteredRecordData_Test: XCTestCase {
             date = .now.dayBefore(dayNumber: -1 * dayNumber)
         }
         guard let date = date else {
-            return false
+            return recordData
         }
-        var recordData = recordData
-        // recordData.catagory = getCategory(id: recordData.id)
-        recordData.date = date
-        return helper.addRecordInDB(recordData: recordData) // recordRepo.addRecord(recordData: recordData)
+        var newData = recordData
+        newData.date = date
+        return newData
+    }
+    
+    func addRecordtInDB(recordData: RecordData, dayNumber: Int) -> Bool {
+        return helper.addRecordInDB(recordData: prepareRecordFrom(recordData: recordData, dayNumber: dayNumber))
     }
 }

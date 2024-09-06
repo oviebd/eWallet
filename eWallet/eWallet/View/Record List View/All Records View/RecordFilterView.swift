@@ -11,6 +11,8 @@ struct RecordFilterData{
     var startDate : Date?
     var endDate : Date?
     var searchText : String?
+    var accountId : String?
+    var categoryId : String?
     var type : SortingDayEnums?
 }
 

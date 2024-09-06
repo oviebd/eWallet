@@ -72,6 +72,14 @@ struct CDRecordRepository: RecordDataRepoProtocol {
             predicates.append(NSPredicate(format: "note BEGINSWITH %@", searchText))
         }
         
+        if let accountId = recordFilterData.accountId {
+            predicates.append( NSPredicate(format: "account.id = %@", accountId))
+        }
+        
+        if let catId = recordFilterData.categoryId {
+            predicates.append( NSPredicate(format: "category.id = %@", catId))
+        }
+        
 
         let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: predicates)
      
@@ -81,8 +89,9 @@ struct CDRecordRepository: RecordDataRepoProtocol {
             let datas = try manager.context.fetch(request)
             
             for record in datas {
+              //  print("U>> record account \(record.account?.id)" )
                 let recordData = record.toRecorData()
-                //print("U>> record note is  \(recordData.note)")
+               // print("U>> record note is  \(recordData.note)")
                 dataList.append(recordData)
             }
         } catch {
