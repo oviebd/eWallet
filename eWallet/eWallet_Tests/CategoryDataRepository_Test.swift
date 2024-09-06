@@ -13,7 +13,7 @@ final class CategoryDataRepository_Test: XCTestCase {
 
     let manager = CoreDataManager.instance
     let categoryRepo = CategoryDataRepository.shared(categoryRepo:  CDCategoryRepository())
-    let categoryUtils = CategoryUtility()
+  //  let categoryUtils = CategoryUtility()
     
     override func setUpWithError() throws {
         manager.deleteFullDB()
@@ -21,19 +21,19 @@ final class CategoryDataRepository_Test: XCTestCase {
     
     
     func test_addCategory_WillReturnCorrectNumberOfCategoryList(){
-        _ = addCategoryInDB(categoryData: categoryUtils.catagory1)
+        _ = addCategoryInDB(categoryData: CategoryUtility.catagory1)
         XCTAssertEqual(getCategoryList().count, 1)
         
-        _ = addCategoryInDB(categoryData: categoryUtils.catagory2)
+        _ = addCategoryInDB(categoryData: CategoryUtility.catagory2)
         XCTAssertEqual(getCategoryList().count, 2)
         
-        _ = addCategoryInDB(categoryData: categoryUtils.catagory3)
+        _ = addCategoryInDB(categoryData: CategoryUtility.catagory3)
         XCTAssertEqual(getCategoryList().count, 3)
     }
     
     
     func test_getCategoryEntityById_WillReturnCorrectCategoryId(){
-        let category = categoryUtils.catagory1
+        let category = CategoryUtility.catagory1
         _ = addCategoryInDB(categoryData: category)
         let fetchedCategory = getCategory(id: category.id)
         XCTAssertEqual(fetchedCategory?.id, category.id)

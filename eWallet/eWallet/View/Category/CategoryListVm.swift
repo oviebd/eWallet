@@ -38,7 +38,7 @@ class CategoryListVm: ObservableObject {
 
     func checkAndCreateCategoryList() {
         if categories.count <= 0 {
-            addCategoryList(categories: CategoryUtility().prepareCategories())
+            addCategoryList(categories: CategoryUtility.getAllCategories())
         }
     }
 

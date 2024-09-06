@@ -17,16 +17,15 @@ final class CDRecordRepository_FilteredRecordData_Test: XCTestCase {
     let recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
     let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
     let categoryRepo = CategoryDataRepository.shared(categoryRepo:  CDCategoryRepository())
-    
-    let categoryUtils = CategoryUtility()
+
     
     override func setUpWithError() throws {
         manager.deleteFullDB()
         _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData)
         _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData2)
         
-        _ = categoryRepo.addCategory(categoryData: categoryUtils.catagory1)
-        _ = categoryRepo.addCategory(categoryData: categoryUtils.catagory2)
+        _ = categoryRepo.addCategory(categoryData: CategoryUtility.catagory1)
+        _ = categoryRepo.addCategory(categoryData: CategoryUtility.catagory2)
     }
 
 

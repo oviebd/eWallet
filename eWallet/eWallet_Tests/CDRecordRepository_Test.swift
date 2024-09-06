@@ -11,20 +11,11 @@ import XCTest
 
 final class CDRecordRepository_Test: XCTestCase {
     let manager = CoreDataManager.instance
-//    let recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
-//    let accountRepo = AccountDataRepository.shared(accountRepo: CDAccountRepository())
-//    let categoryRepo = CategoryDataRepository.shared(categoryRepo:  CDCategoryRepository())
-//    let categoryUtils = CategoryUtility()
-
-    let helper = CoreDataHelper()
+    var helper = CoreDataHelper()
 
     override func setUpWithError() throws {
-           manager.deleteFullDB()
-//        _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData)
-//        _ = accountRepo.addAccount(account: DummyDataUtils.dummyAccountData2)
-//
-//        _ = addCategoryInDB(categoryData: categoryUtils.catagory1)
-//        _ = addCategoryInDB(categoryData: categoryUtils.catagory2)
+        manager.deleteFullDB()
+        helper = CoreDataHelper()
     }
 
     override func tearDownWithError() throws {
@@ -48,9 +39,6 @@ final class CDRecordRepository_Test: XCTestCase {
 
     func test_getRecordDataFromId_WillFetchPeoperData() {
         var recordData = helper.getDummyRecordData(recordType: .EXPENSE)
-        recordData.catagory = helper.getCategory(id: recordData.catagory?.id ?? "")
-        recordData.account = helper.getAccountFromID(id: recordData.account?.id ?? "")
-       
         _ = helper.addRecordInDB(recordData: &recordData)
         let fetchedData = helper.getRecordFromID(id: recordData.id)
 

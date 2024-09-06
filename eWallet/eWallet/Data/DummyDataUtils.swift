@@ -23,14 +23,14 @@ class DummyDataUtils {
      
      public static let dummyRecordDetailsData = AdditionalRecordData(note: "sample Note ", date: Date.now, time: Date.now)
     
-    public static let dummyRecordData_Expense = RecordData( note: "Sample Note", recordType: RecordTypeEnum.EXPENSE.rawValue, amount: 10.0, date: .now,catagory: CategoryUtility().catagory1, account: dummyAccountData)
-    public static let dummyRecordData_Income = RecordData(note: "Sample Note", recordType: RecordTypeEnum.INCOME.rawValue, amount: 10.0, date: .now,catagory: CategoryUtility().catagory1, account: dummyAccountData)
-    public static let dummyRecordData_Transfer = RecordData(note: "Sample Note", recordType: RecordTypeEnum.TRANSFER.rawValue, amount: 10.0, date: .now, catagory: CategoryUtility().catagory1, account: dummyAccountData, fromAccount: dummyAccountData2)
+    public static let dummyRecordData_Expense = RecordData( note: "Sample Note", recordType: RecordTypeEnum.EXPENSE.rawValue, amount: 10.0, date: .now,catagory: CategoryUtility.catagory1, account: dummyAccountData)
+    public static let dummyRecordData_Income = RecordData(note: "Sample Note", recordType: RecordTypeEnum.INCOME.rawValue, amount: 10.0, date: .now,catagory: CategoryUtility.catagory1, account: dummyAccountData)
+    public static let dummyRecordData_Transfer = RecordData(note: "Sample Note", recordType: RecordTypeEnum.TRANSFER.rawValue, amount: 10.0, date: .now, catagory: CategoryUtility.catagory1, account: dummyAccountData, fromAccount: dummyAccountData2)
     
     
-    public static let dummyRecordData_Expense_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.EXPENSE.rawValue, amount: 10.0, date: .now.dayBefore(dayNumber: 1) ?? .now,catagory: CategoryUtility().catagory1, account: dummyAccountData)
-    public static let dummyRecordData_Income_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.INCOME.rawValue, amount: 10.0, date:  .now.dayBefore(dayNumber: 1) ?? .now,catagory: CategoryUtility().catagory1, account: dummyAccountData)
-    public static let dummyRecordData_Transfer_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.TRANSFER.rawValue, amount: 10.0, date: .now.dayBefore(dayNumber: 1) ?? .now, catagory: CategoryUtility().catagory1, account: dummyAccountData, fromAccount: dummyAccountData2)
+    public static let dummyRecordData_Expense_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.EXPENSE.rawValue, amount: 10.0, date: .now.dayBefore(dayNumber: 1) ?? .now,catagory: CategoryUtility.catagory1, account: dummyAccountData)
+    public static let dummyRecordData_Income_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.INCOME.rawValue, amount: 10.0, date:  .now.dayBefore(dayNumber: 1) ?? .now,catagory: CategoryUtility.catagory1, account: dummyAccountData)
+    public static let dummyRecordData_Transfer_yesterDay = RecordData(note: "Sample Note", recordType: RecordTypeEnum.TRANSFER.rawValue, amount: 10.0, date: .now.dayBefore(dayNumber: 1) ?? .now, catagory: CategoryUtility.catagory1, account: dummyAccountData, fromAccount: dummyAccountData2)
     
     
     static let todayRecordList = [dummyRecordData_Expense,dummyRecordData_Income,dummyRecordData_Transfer]
