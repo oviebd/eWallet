@@ -103,6 +103,11 @@
 		F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */; };
 		F3D6ED5A2C02FDC0003ED696 /* CDAccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */; };
 		F3D6ED5C2C030B23003ED696 /* CDCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */; };
+		F3E9C0552C8C5D1900D314B5 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0542C8C5D1900D314B5 /* ChartView.swift */; };
+		F3E9C0572C8C5D2600D314B5 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0562C8C5D2600D314B5 /* ChartData.swift */; };
+		F3E9C0592C8C643700D314B5 /* ChartHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */; };
+		F3E9C05B2C8C651E00D314B5 /* BarRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */; };
+		F3E9C05D2C8C682300D314B5 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05C2C8C682300D314B5 /* PieChartView.swift */; };
 		F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */; };
 		F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */; };
 		F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */; };
@@ -219,6 +224,11 @@
 		F3D6A5A82BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerIndicatorView.swift; sourceTree = "<group>"; };
 		F3D6ED592C02FDC0003ED696 /* CDAccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDAccountRepository.swift; sourceTree = "<group>"; };
 		F3D6ED5B2C030B23003ED696 /* CDCurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCurrencyRepository.swift; sourceTree = "<group>"; };
+		F3E9C0542C8C5D1900D314B5 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		F3E9C0562C8C5D2600D314B5 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolderView.swift; sourceTree = "<group>"; };
+		F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRoundedRectangle.swift; sourceTree = "<group>"; };
+		F3E9C05C2C8C682300D314B5 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListVM.swift; sourceTree = "<group>"; };
 		F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiltyHelper.swift; sourceTree = "<group>"; };
 		F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
@@ -289,6 +299,7 @@
 		7B2C1C0A2C6707BB005C2D4B /* Test UI */ = {
 			isa = PBXGroup;
 			children = (
+				F3E9C0532C8C5D0B00D314B5 /* Chart */,
 				7B360E682C86C17F00728330 /* CollapsableSearchView.swift */,
 				7B2C1C0B2C6707C8005C2D4B /* Pinned Scrollable Header */,
 				7B20582A2C84833A00F53D99 /* SwipeToResizeView.swift */,
@@ -696,6 +707,18 @@
 			path = Divider;
 			sourceTree = "<group>";
 		};
+		F3E9C0532C8C5D0B00D314B5 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				F3E9C0542C8C5D1900D314B5 /* ChartView.swift */,
+				F3E9C0562C8C5D2600D314B5 /* ChartData.swift */,
+				F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */,
+				F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */,
+				F3E9C05C2C8C682300D314B5 /* PieChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		F3FCBA2F2C09BD8600576B7C /* DropDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,14 +849,17 @@
 				F3033C942BB5C8D000ECBA71 /* CustomNavBarView.swift in Sources */,
 				F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */,
 				F366D81C2BAA6F6800224835 /* SegmentedPickerItem.swift in Sources */,
+				F3E9C05B2C8C651E00D314B5 /* BarRoundedRectangle.swift in Sources */,
 				F3A819992C82CCDF00F8ED4C /* AddNoteView.swift in Sources */,
 				7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
+				F3E9C05D2C8C682300D314B5 /* PieChartView.swift in Sources */,
 				F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */,
 				F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
 				F31B48212B8F327A00CE6575 /* AddAccountView.swift in Sources */,
 				F3AD988A2C8860DB0065719F /* RecordFilterView.swift in Sources */,
+				F3E9C0592C8C643700D314B5 /* ChartHolderView.swift in Sources */,
 				F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */,
 				F31BC8612C8150BE00A2DB94 /* TestModifierView.swift in Sources */,
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
@@ -881,10 +907,12 @@
 				F39B068D2C83EE9800BB0407 /* AllRecordsVM.swift in Sources */,
 				F366D80B2BAA5AA000224835 /* CreateRecordMainView.swift in Sources */,
 				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
+				F3E9C0572C8C5D2600D314B5 /* ChartData.swift in Sources */,
 				F30448902C6D9A5B00A6485B /* ContentView.swift in Sources */,
 				7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */,
 				7BC3FAD82C4F72E50015A72C /* RecordDataRepository.swift in Sources */,
 				7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */,
+				F3E9C0552C8C5D1900D314B5 /* ChartView.swift in Sources */,
 				F327464C2BB6C6C700ECFDB7 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				7B360E692C86C17F00728330 /* CollapsableSearchView.swift in Sources */,
 				7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */,
