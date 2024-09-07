@@ -51,9 +51,32 @@ struct AreaChartViewTest: View {
                     }
                     .foregroundStyle(Color.pink)
                 }
+                
+                // Rule mark for the goal weight
+                RuleMark(y: .value("Goal Weight", 63))
+                    .foregroundStyle(Color.secondary)
+                    .lineStyle(StrokeStyle(lineWidth: 0.8, dash: [10]))
+                    .annotation(alignment: .topTrailing) {
+                        Text("Your Goal:  63 kg")
+                            .font(.subheadline).bold()
+                            .padding(.trailing, 32)
+                            .foregroundStyle(Color.secondary)
+                    }
+                
+                // Area Chart
+                ForEach(weight) { data in
+                    AreaMark(
+                        x: .value("Day", data.date, unit: .day),
+                        yStart: .value("WeightLow", 63),
+                        yEnd: .value("WeightLow",  data.weight)
+                    )
+                  .foregroundStyle(gradientColor)
+                }
+                
             }
             .frame(height: 150)
             .chartYScale(domain: 62...70)
+            
             .chartXAxis {
                 AxisMarks(values: .stride(by: .day)) { _ in
                     AxisTick()
@@ -61,13 +84,28 @@ struct AreaChartViewTest: View {
                     AxisValueLabel(format: .dateTime.weekday(.abbreviated), centered: true)
                 }
             }
-        }.padding()
-        
-       
+            
+            
+        }
+
+        .padding()
         
     }
 }
 
 #Preview {
     AreaChartViewTest()
+}
+
+var gradientColor: LinearGradient {
+    LinearGradient(
+        gradient: Gradient(
+            colors: [
+                Color.pink.opacity(0.8),
+                Color.pink.opacity(0.01),
+            ]
+        ),
+        startPoint: .top,
+        endPoint: .bottom
+    )
 }

@@ -26,6 +26,7 @@ struct ChartView: View {
             }
             
         }
+        .chartYScale(domain: 0...50)
         //Set x border to all white color
         .chartXAxis {
             AxisMarks(position:.bottom){ _ in

@@ -20,6 +20,8 @@ struct ChartHolderView: View {
                // .frame(width: .infinity)
                 .frame(height:200 )
             
+            AreaChartViewTest()
+            
         }
         
         
