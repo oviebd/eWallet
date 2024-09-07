@@ -108,6 +108,7 @@
 		F3E9C0592C8C643700D314B5 /* ChartHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */; };
 		F3E9C05B2C8C651E00D314B5 /* BarRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */; };
 		F3E9C05D2C8C682300D314B5 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05C2C8C682300D314B5 /* PieChartView.swift */; };
+		F3E9C0602C8C841B00D314B5 /* AreaChartViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05F2C8C841B00D314B5 /* AreaChartViewTest.swift */; };
 		F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */; };
 		F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */; };
 		F3F80D802C5721D5007A7298 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */; };
@@ -229,6 +230,7 @@
 		F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolderView.swift; sourceTree = "<group>"; };
 		F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRoundedRectangle.swift; sourceTree = "<group>"; };
 		F3E9C05C2C8C682300D314B5 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		F3E9C05F2C8C841B00D314B5 /* AreaChartViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartViewTest.swift; sourceTree = "<group>"; };
 		F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListVM.swift; sourceTree = "<group>"; };
 		F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiltyHelper.swift; sourceTree = "<group>"; };
 		F3F80D7F2C5721D5007A7298 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 		F3E9C0532C8C5D0B00D314B5 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				F3E9C05E2C8C840900D314B5 /* Area Chart */,
 				F3E9C0542C8C5D1900D314B5 /* ChartView.swift */,
 				F3E9C0562C8C5D2600D314B5 /* ChartData.swift */,
 				F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */,
@@ -717,6 +720,14 @@
 				F3E9C05C2C8C682300D314B5 /* PieChartView.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		F3E9C05E2C8C840900D314B5 /* Area Chart */ = {
+			isa = PBXGroup;
+			children = (
+				F3E9C05F2C8C841B00D314B5 /* AreaChartViewTest.swift */,
+			);
+			path = "Area Chart";
 			sourceTree = "<group>";
 		};
 		F3FCBA2F2C09BD8600576B7C /* DropDown */ = {
@@ -930,6 +941,7 @@
 				F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */,
 				7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */,
 				F30448922C6D9D2700A6485B /* TopBarView.swift in Sources */,
+				F3E9C0602C8C841B00D314B5 /* AreaChartViewTest.swift in Sources */,
 				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
 				F3CBE4EE2C821973007DE23A /* DefaultDividerView.swift in Sources */,
