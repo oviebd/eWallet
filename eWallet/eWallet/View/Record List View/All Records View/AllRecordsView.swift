@@ -7,84 +7,73 @@
 
 import SwiftUI
 
-
-
 struct AllRecordsView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Records",leftIconName: "xmark", hasShadow: false)
+    private let topBarConfig = CommonTopBarData(title: "Records", leftIconName: "xmark", hasShadow: false)
     @State private var currentPage = 0
-    
-    @StateObject var vm  = AllRecordsVM()
-    @State var selectedSortedDay : FilterByDatesEnums = .day_30
-    
-    let maxHeight: CGFloat = 50 // UIScreen.main.bounds.height / 2.3
+
+    @StateObject var vm = AllRecordsVM()
+    @State var selectedSortedDay: FilterByDatesEnums = .day_30
+
+    let maxHeight: CGFloat = 40 // UIScreen.main.bounds.height / 2.3
     var topEdge: CGFloat
     @State var offset: CGFloat = 0
     @State var searchText: String = ""
-    
-   // @State var filteredData : RecordFilterData?
+
+    // @State var filteredData : RecordFilterData?
 
     var body: some View {
-
-        VStack (spacing : 0){
-            
+        VStack(spacing: 0) {
             CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
                 self.presentationMode.wrappedValue.dismiss()
             })
-            
+
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
-                   
                     GeometryReader { _ in
-                     
-                        CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed : { searchText in
-                            
+
+                        CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed: { _ in
+
                         })
 
                     }.frame(height: maxHeight)
-                       .offset(y: -offset)
+                        .offset(y: -offset)
                         .zIndex(1)
 
+                    VStack(spacing: 15) {
                     
-                    VStack (spacing : 0){
-                        
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted(), id: \.self){ item in
-                            
+                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted{ $0 > $1 }, id: \.self) { item in
+
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
                             DateWiseRecordListItem(date: item, dataList: records)
                         }
-                        
                     }
-                    .padding(.top,20)
-                    
+                    .padding(.top, 20)
+
                     .zIndex(0)
                 }
                 .modifier(OffsetModifier(offset: $offset))
             }
             .coordinateSpace(.named("SCROLL"))
 
-           
             Spacer()
             RecordFilterView(filterData: $vm.filteredData)
-           // SwipeToResizeView()
+            // SwipeToResizeView()
         }
         .edgesIgnoringSafeArea(.bottom)
-        
+
         .navigationBarHidden(true)
-        
-        
     }
 }
 
 #Preview {
-    NavigationStack{
+    NavigationStack {
         AllRecordsView(topEdge: 0)
     }
-    
 }
 
 extension AllRecordsView {
-    var sotByDateSegmentedView : some View{
+    var sotByDateSegmentedView: some View {
         Picker("What is your favorite color?", selection: $selectedSortedDay) {
             Text(FilterByDatesEnums.day_7.rawValue).tag(FilterByDatesEnums.day_7)
             Text(FilterByDatesEnums.day_30.rawValue).tag(FilterByDatesEnums.day_30)

@@ -25,10 +25,12 @@ struct CDRecordRepository: RecordDataRepoProtocol {
 
     private func getRecordsEntityList() -> [RecordEntity] {
         let request = NSFetchRequest<RecordEntity>(entityName: Constants.CORE_DATA.RecordEntity)
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sort]
 
         do {
-            let currencyDatas = try manager.context.fetch(request)
 
+            let currencyDatas = try manager.context.fetch(request)
             return currencyDatas
 
         } catch {
@@ -84,7 +86,11 @@ struct CDRecordRepository: RecordDataRepoProtocol {
         let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: predicates)
      
         
-       request.predicate = andPredicate
+        request.predicate = andPredicate
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sort]
+        
+        
         do {
             let datas = try manager.context.fetch(request)
             

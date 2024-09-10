@@ -16,7 +16,6 @@ class RecordListVM : ObservableObject {
     
     init() {
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
-       
         initAccountSubscription()
     }
 
@@ -24,7 +23,7 @@ class RecordListVM : ObservableObject {
         let _ = recordRepo.getRecords()
         recordRepo.$recordList.sink { [weak self] recordList in
             DispatchQueue.main.async {
-                self?.recordsList = recordList
+                self?.recordsList = Array(recordList.prefix(3))
             }
           
         }.store(in: &cancellables)

@@ -78,6 +78,7 @@
 		F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D4B2BF21CD200D78E6B /* ListData.swift */; };
 		F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */; };
 		F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE932BB39ECC0001DA36 /* DropDownView.swift */; };
+		F390162F2C9041FA00DD3E80 /* ExpensePieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */; };
 		F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3963E5A2C0AD45C009DA266 /* AlertData.swift */; };
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
 		F39B068D2C83EE9800BB0407 /* AllRecordsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B068C2C83EE9800BB0407 /* AllRecordsVM.swift */; };
@@ -199,6 +200,7 @@
 		F3835D4B2BF21CD200D78E6B /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsView.swift; sourceTree = "<group>"; };
 		F38FFE932BB39ECC0001DA36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePieChartView.swift; sourceTree = "<group>"; };
 		F3963E5A2C0AD45C009DA266 /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
 		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
 		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 		F34B45512B8CED6800434B42 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F390162D2C9041DF00DD3E80 /* Expense Pie Chart View */,
 				F34B45522B8CED7A00434B42 /* HomeView.swift */,
 				7B549A652C016AEB0054AD70 /* HomeVm.swift */,
 			);
@@ -647,6 +650,14 @@
 				7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */,
 			);
 			path = "Add Record Details View";
+			sourceTree = "<group>";
+		};
+		F390162D2C9041DF00DD3E80 /* Expense Pie Chart View */ = {
+			isa = PBXGroup;
+			children = (
+				F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */,
+			);
+			path = "Expense Pie Chart View";
 			sourceTree = "<group>";
 		};
 		F39A6D9F2BABF4410006E60E /* WebView */ = {
@@ -910,6 +921,7 @@
 				F3D6A5A92BAAD58100EB3E80 /* SegmentedPickerIndicatorView.swift in Sources */,
 				F32326CD2C0AC37F0014498A /* CustomAlertView.swift in Sources */,
 				7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */,
+				F390162F2C9041FA00DD3E80 /* ExpensePieChartView.swift in Sources */,
 				F317D9852BAAFDA1003BB60A /* RecordTypeEnum.swift in Sources */,
 				F37A54FB2C04C82F0024CCE8 /* AddCurrencyViewModel.swift in Sources */,
 				7BC3FADA2C4F76AB0015A72C /* CDRecordRepository.swift in Sources */,

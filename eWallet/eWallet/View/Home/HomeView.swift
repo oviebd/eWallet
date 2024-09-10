@@ -31,6 +31,9 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 20)
                         .offset(y: -40)
+                        
+                        ExpensePieChartView()
+                            .padding(.horizontal, 20)
 
                         Spacer()
 

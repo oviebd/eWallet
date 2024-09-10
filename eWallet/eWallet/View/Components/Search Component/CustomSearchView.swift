@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomSearchView: View {
     
-    let maxHeight: CGFloat = 50 
+    let maxHeight: CGFloat = 40
     var topEdge: CGFloat = 0
     
     
@@ -26,23 +26,29 @@ struct CustomSearchView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
+                        .foregroundStyle(Color.theme.secondaryText)
                         .onTapGesture {
                             onSearchPressed(searchText)
                         }
 
                     TextField("Search", text: $searchText)
-                        .padding(.horizontal, 10)
-                        .foregroundStyle(Color.theme.primaryText.opacity(getProgress()))
+                        .padding(.horizontal, 5)
+                        .foregroundStyle(Color.theme.primaryText)
+                        .font(.system(size: 18))
                     
                     Spacer()
                     
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                        .onTapGesture {
-                            searchText = ""
-                        }
+                    if searchText.isEmptyString() == false {
+                        Image(systemName: "xmark.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.theme.secondaryText)
+                            .onTapGesture {
+                                searchText = ""
+                            }
+                    }
+                    
                 }
             }
 

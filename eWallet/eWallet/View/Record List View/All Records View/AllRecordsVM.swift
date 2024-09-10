@@ -24,26 +24,28 @@ class AllRecordsVM : ObservableObject {
     init() {
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
        
-        initAccountSubscription()
+      //  initAccountSubscription()
         
         $filteredData.sink { [weak self] value in
             self?.recordListByDateData = RecordListByDateData()
             self?.recordsList = self?.recordRepo.getFilteredDatas(recordFilterData: value) ?? []
             self?.recordListByDateData.prepareDatas(datas: self?.recordsList ?? [])
+          //  self?.recordListByDateData.dataByDateDic.sorted(by: {$0.key < $1.key})
+            
         }.store(in: &cancellables)
     }
 
-    func initAccountSubscription(){
-        let _ = recordRepo.getFilteredDatas(recordFilterData: filteredData)//getRecords()
-        recordRepo.$recordList.sink { [weak self] recordList in
-            DispatchQueue.main.async {
-                self?.recordListByDateData = RecordListByDateData()
-                self?.recordsList = recordList
-                self?.recordListByDateData.prepareDatas(datas: recordList)
-            }
-          
-        }.store(in: &cancellables)
-    }
+//    func initAccountSubscription(){
+//        let _ = recordRepo.getFilteredDatas(recordFilterData: filteredData)//getRecords()
+//        recordRepo.$recordList.sink { [weak self] recordList in
+//            DispatchQueue.main.async {
+//                self?.recordListByDateData = RecordListByDateData()
+//                self?.recordsList = recordList
+//                self?.recordListByDateData.prepareDatas(datas: recordList)
+//            }
+//          
+//        }.store(in: &cancellables)
+//    }
     deinit {
         cancellables.removeAll()
     }

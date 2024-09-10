@@ -41,7 +41,6 @@ struct SingleRecordItem: View {
                 
                 Text(recordData.note)
                     .font(.caption)
-                    .italic()
                     .foregroundStyle(.black.opacity(0.6))
                     .lineLimit(1)
             } .padding(.leading,5)
@@ -53,7 +52,7 @@ struct SingleRecordItem: View {
                 Text(recordData.amount.toAmountTextWithCurrency(currency: recordData.account?.currencyData))
                     .font(.subheadline)
                    .fontWeight(.semibold)
-                   .foregroundStyle(.darkRed)
+                   .foregroundStyle(getAmountTextColor())
                    .lineLimit(1)
                 
                 
@@ -77,6 +76,14 @@ struct SingleRecordItem: View {
             return recordData.date.toReadableDateString()
         }
         return recordData.date.toReadableTimeString()
+    }
+    
+    func getAmountTextColor() -> Color{
+        let recordType = RecordTypeEnum(rawValue: recordData.recordType)
+        if recordType == .INCOME {
+            return Color.theme.accountGridCardBG
+        }
+        return Color.theme.darkRed
     }
 }
 

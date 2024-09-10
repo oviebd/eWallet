@@ -14,6 +14,9 @@ extension Color {
         let primaryDivider = Color("primaryDivider")
         
         let primaryBG = Color("PrimaryBG")
+        let searchBG = Color("searchBG")
+        let darkRed = Color("DarkRed")
+        
      
         let white = Color("White")
         let green = Color("GreenColor")

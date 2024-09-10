@@ -15,7 +15,7 @@ class RecordListByDateData {
             
             let date = data.date.removeTime()
             
-            print("U>> Date is \(date.description)")
+           // print("U>> Date is \(date.description)")
             
             if dataByDateDic[date] == nil {
                 dataByDateDic[date] = [data]
@@ -25,6 +25,12 @@ class RecordListByDateData {
                 dataByDateDic[date] = recordList
             }
         }
+        
+//        let sortedByKey = dataByDateDic.sorted { $0.key > $1.key }
+//        //print("sorted keys \(sortedByKey)")
+//        dataByDateDic = Dictionary(uniqueKeysWithValues: sortedByKey)
+//        print(dataByDateDic.keys)
+        
     }
 }
 

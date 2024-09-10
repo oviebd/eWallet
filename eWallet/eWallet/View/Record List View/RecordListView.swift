@@ -8,22 +8,20 @@
 import SwiftUI
 
 struct RecordListView: View {
-
     @StateObject var vm = RecordListVM()
 
     var onShowMorePressed: () -> Void
     var onItemPresesd: (RecordData) -> Void
-   
-    
+
     var body: some View {
-        VStack (alignment:.trailing) {
+        VStack(alignment: .trailing) {
             HStack {
                 Text("Last Records")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
-                    .padding(.horizontal,20)
-                    .padding(.top,20)
-                    .padding(.bottom,10)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                    .padding(.bottom, 10)
 
                 Spacer()
             }
@@ -36,24 +34,20 @@ struct RecordListView: View {
                         }
                 }
             }.padding(.horizontal, 20)
-                .padding(.bottom,2)
-            
+                .padding(.bottom, 2)
+
             Button {
                 onShowMorePressed()
-            }label: {
+            } label: {
                 Text("Show More")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundStyle(Color.theme.normalBlue)
                     .padding(20)
             }
-           
-               
-               
-            
         }
         .frame(maxWidth: .infinity)
-       
+
         .background(
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.theme.primaryBG)
@@ -63,5 +57,5 @@ struct RecordListView: View {
 }
 
 #Preview {
-    RecordListView(onShowMorePressed: {}, onItemPresesd: {_ in}) 
+    RecordListView(onShowMorePressed: {}, onItemPresesd: { _ in })
 }
