@@ -12,8 +12,6 @@ struct CustomSearchView: View {
     let maxHeight: CGFloat = 40
     var topEdge: CGFloat = 0
     
-    
-    
     @Binding var searchText: String
     @Binding var offset: CGFloat
     var onSearchPressed: ((String) -> Void)

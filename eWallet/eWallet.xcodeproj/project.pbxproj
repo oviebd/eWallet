@@ -80,6 +80,8 @@
 		F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE932BB39ECC0001DA36 /* DropDownView.swift */; };
 		F390162F2C9041FA00DD3E80 /* ExpensePieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */; };
 		F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3963E5A2C0AD45C009DA266 /* AlertData.swift */; };
+		F39A39FD2C911AF800DFA736 /* RecordListByAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A39FC2C911AF800DFA736 /* RecordListByAccountView.swift */; };
+		F39A3A002C911C7100DFA736 /* AreaChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A39FF2C911C7100DFA736 /* AreaChartView.swift */; };
 		F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A6DA02BABF45C0006E60E /* WebViewTest.swift */; };
 		F39B068D2C83EE9800BB0407 /* AllRecordsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B068C2C83EE9800BB0407 /* AllRecordsVM.swift */; };
 		F3A0A0CC2BB0F20D00007ADB /* ImageInBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0A0CB2BB0F20D00007ADB /* ImageInBg.swift */; };
@@ -202,6 +204,8 @@
 		F38FFE932BB39ECC0001DA36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePieChartView.swift; sourceTree = "<group>"; };
 		F3963E5A2C0AD45C009DA266 /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
+		F39A39FC2C911AF800DFA736 /* RecordListByAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByAccountView.swift; sourceTree = "<group>"; };
+		F39A39FF2C911C7100DFA736 /* AreaChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartView.swift; sourceTree = "<group>"; };
 		F39A6DA02BABF45C0006E60E /* WebViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTest.swift; sourceTree = "<group>"; };
 		F39A6DA22BABFE2B0006E60E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F39B068C2C83EE9800BB0407 /* AllRecordsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecordsVM.swift; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F39A39FE2C911C5800DFA736 /* Chart */,
 				F3C6E2962C8753C900DD14DD /* Search Component */,
 				F3CBE4EC2C82195F007DE23A /* Divider */,
 				F3CBE4E92C81FBEB007DE23A /* Form  */,
@@ -633,6 +638,7 @@
 		F3835D462BF2108D00D78E6B /* Record List View */ = {
 			isa = PBXGroup;
 			children = (
+				F39A39FB2C911AC000DFA736 /* RecordList By Account */,
 				F3A8199A2C83365700F8ED4C /* All Records View */,
 				F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */,
 				F3835D492BF210CA00D78E6B /* RecordListView.swift */,
@@ -658,6 +664,22 @@
 				F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */,
 			);
 			path = "Expense Pie Chart View";
+			sourceTree = "<group>";
+		};
+		F39A39FB2C911AC000DFA736 /* RecordList By Account */ = {
+			isa = PBXGroup;
+			children = (
+				F39A39FC2C911AF800DFA736 /* RecordListByAccountView.swift */,
+			);
+			path = "RecordList By Account";
+			sourceTree = "<group>";
+		};
+		F39A39FE2C911C5800DFA736 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				F39A39FF2C911C7100DFA736 /* AreaChartView.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		F39A6D9F2BABF4410006E60E /* WebView */ = {
@@ -865,6 +887,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC3C67E2C31195100E5B6E0 /* CurrencyDataRepository.swift in Sources */,
+				F39A3A002C911C7100DFA736 /* AreaChartView.swift in Sources */,
 				F3C6E2982C87548000DD14DD /* CustomSearchView.swift in Sources */,
 				7B267CA02C33756200A1E84B /* CurrencyListView.swift in Sources */,
 				F3A0A0D72BB0F49B00007ADB /* SingleButton.swift in Sources */,
@@ -932,6 +955,7 @@
 				F324F5002BB98AF4002B5AAE /* TestAnimationView.swift in Sources */,
 				F3E9C0572C8C5D2600D314B5 /* ChartData.swift in Sources */,
 				F30448902C6D9A5B00A6485B /* ContentView.swift in Sources */,
+				F39A39FD2C911AF800DFA736 /* RecordListByAccountView.swift in Sources */,
 				7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */,
 				7BC3FAD82C4F72E50015A72C /* RecordDataRepository.swift in Sources */,
 				7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */,
