@@ -14,6 +14,8 @@ class HomeVm: ObservableObject {
     
     @Published var selectedRecordData : RecordData?
     @Published var onPressedShowMoreFromList : Bool = false
+    
+    @Published var onSingleAccountButtonPressed : Bool = false
 
     
 }

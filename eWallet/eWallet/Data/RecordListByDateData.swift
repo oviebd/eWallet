@@ -8,7 +8,18 @@
 import Foundation
 
 class RecordListByDateData {
+    
+    let todayRecordList = DummyDataUtils.todayRecordList
+    let yesterDayRecordList = DummyDataUtils.yesterdayRecordList
+    
     var dataByDateDic : [Date: [RecordData]] = [:]
+    
+//    init() {
+//        let allDatsList = todayRecordList + yesterDayRecordList
+//        let recordListByDate = RecordListByDateData()
+//        recordListByDate.prepareDatas(datas: DummyDataUtils.todayRecordList +  DummyDataUtils.yesterdayRecordList)
+//        dataByDateDic = recordListByDate.dataByDateDic
+//    }
     
     func prepareDatas(datas: [RecordData]){
         for data in datas {

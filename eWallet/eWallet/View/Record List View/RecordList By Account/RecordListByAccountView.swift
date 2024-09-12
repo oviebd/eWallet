@@ -9,14 +9,12 @@ import SwiftUI
 
 struct RecordListByAccountView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Records", leftIconName: "xmark", hasShadow: false)
-    
+    private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.normalBlue, forgroundColor : .white, leftIconName: "xmark", hasShadow: false)
+
 
     @StateObject var vm = AllRecordsVM()
-  
 
-    let maxHeight: CGFloat = 100
-    let minHeight: CGFloat = 50// UIScreen.main.bounds.height / 2.3
+    let maxHeight: CGFloat = 250
     var topEdge: CGFloat
     @State var offset: CGFloat = 0
     @State var searchText: String = ""
@@ -34,10 +32,11 @@ struct RecordListByAccountView: View {
                     GeometryReader { _ in
 
                         AreaChartView(offset: $offset)
-                        
-//                        CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed: { _ in
-//
-//                        })
+                            .padding(.bottom,20)
+                            .padding(.top,10)
+                            .padding(.horizontal,20)
+                            .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.normalBlue))
+
 
                     }.frame(height: maxHeight)
                         .offset(y: -offset)
@@ -51,7 +50,8 @@ struct RecordListByAccountView: View {
                             DateWiseRecordListItem(date: item, dataList: records)
                         }
                     }
-                    .padding(.top, 20)
+                    .padding(.top,40)
+                    .background(Color.theme.white)
 
                     .zIndex(0)
                 }
@@ -62,6 +62,7 @@ struct RecordListByAccountView: View {
             Spacer()
            
         }
+        .background(Color.theme.normalBlue)
         .edgesIgnoringSafeArea(.bottom)
 
         .navigationBarHidden(true)
