@@ -16,7 +16,7 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 CommonTopBar(data: topBarConfig)
-                ScrollView {
+                ScrollView (showsIndicators: false){
                     VStack(spacing: 0) {
                         AccountGridView(onAddButtonPressed: {
                                             vm.isCreateAccountButtonPressed = true

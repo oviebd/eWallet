@@ -8,40 +8,49 @@
 import Foundation
 
 class RecordListByDateData {
+   
+    var dataByDateDic: [Date: [RecordData]] = [:]
+ //   var dataByDateDic: [Date: [RecordData]] = [:]
     
-    let todayRecordList = DummyDataUtils.todayRecordList
-    let yesterDayRecordList = DummyDataUtils.yesterdayRecordList
-    
-    var dataByDateDic : [Date: [RecordData]] = [:]
-    
-//    init() {
-//        let allDatsList = todayRecordList + yesterDayRecordList
-//        let recordListByDate = RecordListByDateData()
-//        recordListByDate.prepareDatas(datas: DummyDataUtils.todayRecordList +  DummyDataUtils.yesterdayRecordList)
-//        dataByDateDic = recordListByDate.dataByDateDic
-//    }
-    
-    func prepareDatas(datas: [RecordData]){
+    func prepareDatas(datas: [RecordData]) {
         for data in datas {
-            
             let date = data.date.removeTime()
-            
-           // print("U>> Date is \(date.description)")
-            
+
+            // print("U>> Date is \(date.description)")
+
             if dataByDateDic[date] == nil {
                 dataByDateDic[date] = [data]
-            }else{
-                var recordList : [RecordData] = (dataByDateDic[date] ?? [])
+            } else {
+                var recordList: [RecordData] = (dataByDateDic[date] ?? [])
                 recordList.append(data)
                 dataByDateDic[date] = recordList
             }
         }
-        
+
 //        let sortedByKey = dataByDateDic.sorted { $0.key > $1.key }
 //        //print("sorted keys \(sortedByKey)")
 //        dataByDateDic = Dictionary(uniqueKeysWithValues: sortedByKey)
 //        print(dataByDateDic.keys)
+    }
+    
+    func getChartData() -> [Date:String] {
+       
+        var axisValues = [Date:String]()
         
+        for (key, value) in dataByDateDic {
+
+            let records : [RecordData] = dataByDateDic[key] ?? [RecordData]()
+           
+            var amount = 0.0
+            for record in records {
+                amount += record.amount
+            }
+            axisValues[key] = amount.to2Decimal()
+          //  datas.append(chartData)
+        }
+        print("U>> axix values \(axisValues)")
+        return axisValues
     }
 }
+
 

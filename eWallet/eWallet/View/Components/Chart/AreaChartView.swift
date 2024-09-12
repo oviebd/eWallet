@@ -17,6 +17,7 @@ struct AreaChartView: View {
     let minHeight : CGFloat = 100
     var topEdge: CGFloat = 0
     @Binding var offset: CGFloat
+    @Binding var chartDatas : [Date:String]
     
     var body: some View {
         
@@ -74,7 +75,7 @@ struct AreaChartView: View {
 }
 
 #Preview {
-    AreaChartView(offset: .constant(0))
+    AreaChartView(offset: .constant(0), chartDatas: .constant([:]))
 }
 
 extension AreaChartView {
@@ -108,27 +109,54 @@ extension AreaChartView {
     
     var chart : some View {
         Chart {
-            ForEach(weight) { data in
+            
+            ForEach(chartDatas.keys.sorted { $0 > $1 }, id: \.self) { item in
+
+                let yVal = chartDatas[item] ?? "0"
                 LineMark(
-                    x: .value("Day", data.date, unit: .day),
-                    y: .value("Weight", data.weight)
+                    x: .value("Day", item, unit: .hour),
+                    y: .value("Weight", Double(yVal) ?? 0)
                 )
                 .foregroundStyle(Color.theme.darkBlue)
             }
             
+            
+//            ForEach(weight) { data in
+//                LineMark(
+//                    x: .value("Day", data.date, unit: .day),
+//                    y: .value("Weight", data.weight)
+//                )
+//                .foregroundStyle(Color.theme.darkBlue)
+//            }
+            
            
             // Area Chart
-            ForEach(weight) { data in
+            
+            ForEach(chartDatas.keys.sorted { $0 > $1 }, id: \.self) { item in
+              //  let yVal = chartDatas[item] ?? "0"
+                
                 AreaMark(
-                    x: .value("Day", data.date, unit: .day),
-                    yStart: .value("WeightLow", 63),
-                    yEnd: .value("WeightLow",  data.weight)
+                    x: .value("Day", item, unit: .day),
+//                    yStart: .value("WeightLow", Date.now.dayBefore(dayNumber: 30) ?? .now),
+//                    yEnd: .value("WeightLow",  .now)
+                    yStart: .value("WeightLow", 0),
+                    yEnd: .value("WeightLow",  500)
                 )
               .foregroundStyle(blueGradient)
+
             }
             
+//            ForEach(weight) { data in
+//                AreaMark(
+//                    x: .value("Day", data.date, unit: .day),
+//                    yStart: .value("WeightLow", 63),
+//                    yEnd: .value("WeightLow",  data.weight)
+//                )
+//              .foregroundStyle(blueGradient)
+//            }
+            
         }
-        .chartYScale(domain: 62...70)
+       .chartYScale(domain: 0...500)
     }
     
     

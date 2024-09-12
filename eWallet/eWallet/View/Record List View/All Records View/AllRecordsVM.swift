@@ -16,6 +16,7 @@ class AllRecordsVM : ObservableObject {
     @Published var recordListByDateData : RecordListByDateData = RecordListByDateData()
     
     @Published var filteredData : RecordFilterData = RecordFilterData()
+    @Published var chartDatas : [Date:String] = [Date:String]()
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -30,6 +31,7 @@ class AllRecordsVM : ObservableObject {
             self?.recordListByDateData = RecordListByDateData()
             self?.recordsList = self?.recordRepo.getFilteredDatas(recordFilterData: value) ?? []
             self?.recordListByDateData.prepareDatas(datas: self?.recordsList ?? [])
+            self?.chartDatas = self?.recordListByDateData.getChartData() ?? [Date:String]()
           //  self?.recordListByDateData.dataByDateDic.sorted(by: {$0.key < $1.key})
             
         }.store(in: &cancellables)

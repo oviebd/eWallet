@@ -9,8 +9,7 @@ import SwiftUI
 
 struct RecordListByAccountView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.normalBlue, forgroundColor : .white, leftIconName: "xmark", hasShadow: false)
-
+    private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.normalBlue, forgroundColor: .white, leftIconName: "xmark", hasShadow: false)
 
     @StateObject var vm = AllRecordsVM()
 
@@ -31,26 +30,24 @@ struct RecordListByAccountView: View {
                 VStack(spacing: 0) {
                     GeometryReader { _ in
 
-                        AreaChartView(offset: $offset)
-                            .padding(.bottom,20)
-                            .padding(.top,10)
-                            .padding(.horizontal,20)
+                        AreaChartView(offset: $offset, chartDatas: $vm.chartDatas)
+                            .padding(.bottom, 20)
+                            .padding(.top, 10)
+                            .padding(.horizontal, 20)
                             .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.normalBlue))
-
 
                     }.frame(height: maxHeight)
                         .offset(y: -offset)
                         .zIndex(1)
 
                     VStack(spacing: 15) {
-                    
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted{ $0 > $1 }, id: \.self) { item in
+                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted { $0 > $1 }, id: \.self) { item in
 
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
                             DateWiseRecordListItem(date: item, dataList: records)
                         }
                     }
-                    .padding(.top,40)
+                    .padding(.top, 40)
                     .background(Color.theme.white)
 
                     .zIndex(0)
@@ -60,16 +57,12 @@ struct RecordListByAccountView: View {
             .coordinateSpace(.named("SCROLL"))
 
             Spacer()
-           
         }
         .background(Color.theme.normalBlue)
         .edgesIgnoringSafeArea(.bottom)
 
         .navigationBarHidden(true)
     }
-    
-    
-    
 }
 
 #Preview {
