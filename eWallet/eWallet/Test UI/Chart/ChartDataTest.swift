@@ -32,7 +32,3 @@ let barChartTargetDatas : [BarChartData] = [
     BarChartData(amount: 25, month: "Jun"),
     
 ]
-
-struct ChartDataUtils {
-    
-}

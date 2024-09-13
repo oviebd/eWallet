@@ -12,6 +12,9 @@ import Foundation
 enum DateFormat: String {
     case full = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     case y_m_d_h_m =  "yyyy-MM-dd HH:mm"
+    case m_d =  "MM-dd"
+
+    
 }
 
 extension Date {
@@ -35,9 +38,13 @@ extension Date {
 //       // dateFormatter.timeZone = NSTimeZone(name: "GMT") // this line resolved me the
 //    }
 //    
-//    func asQuoreDataFetchFormat() -> Date? {
-//        return getDateFormatter(format: DateFormat.y_m_d_h_m.rawValue).
-//    }
+    func asDateForChart() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormat.m_d.rawValue
+        let dateString = formatter.string(from: self)
+       return dateString
+
+    }
 
     private var shortFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -56,11 +63,8 @@ extension Date {
         // print(date)
         return date
     }
+
     
-//    func toReadableDateStringWithoutYear() -> String {
-//        return self.format: .dateTime.day().month().year())
-//    }
-   
     func toReadableDateString() -> String {
         return self.formatted(date: .abbreviated, time: .omitted)
     }

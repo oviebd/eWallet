@@ -13,6 +13,7 @@ class RecordListByDateData {
  //   var dataByDateDic: [Date: [RecordData]] = [:]
     
     func prepareDatas(datas: [RecordData]) {
+       dataByDateDic = [:]
         for data in datas {
             let date = data.date.removeTime()
 
@@ -33,9 +34,10 @@ class RecordListByDateData {
 //        print(dataByDateDic.keys)
     }
     
-    func getChartData() -> [Date:String] {
-       
-        var axisValues = [Date:String]()
+    func getChartData(datas: [RecordData]) -> ChartData {
+    
+        prepareDatas(datas: datas)
+        var singleChartDatas : [SingleChartData] = [SingleChartData]()
         
         for (key, value) in dataByDateDic {
 
@@ -45,11 +47,12 @@ class RecordListByDateData {
             for record in records {
                 amount += record.amount
             }
-            axisValues[key] = amount.to2Decimal()
+            singleChartDatas.append(SingleChartData(date: key, value: amount))
           //  datas.append(chartData)
         }
-        print("U>> axix values \(axisValues)")
-        return axisValues
+        let chartData = ChartData(datas: singleChartDatas)
+        print("U>> axix values \(singleChartDatas)")
+        return chartData
     }
 }
 

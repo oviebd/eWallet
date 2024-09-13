@@ -11,7 +11,7 @@ struct RecordListByAccountView: View {
     @Environment(\.presentationMode) var presentationMode
     private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.normalBlue, forgroundColor: .white, leftIconName: "xmark", hasShadow: false)
 
-    @StateObject var vm = AllRecordsVM()
+    @StateObject var vm = RecordsListByAccountVM()
 
     let maxHeight: CGFloat = 250
     var topEdge: CGFloat
@@ -30,7 +30,7 @@ struct RecordListByAccountView: View {
                 VStack(spacing: 0) {
                     GeometryReader { _ in
 
-                        AreaChartView(offset: $offset, chartDatas: $vm.chartDatas)
+                        AreaChartView(offset: $offset, chartDatas: $vm.chartData)
                             .padding(.bottom, 20)
                             .padding(.top, 10)
                             .padding(.horizontal, 20)

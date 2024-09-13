@@ -7,67 +7,50 @@
 
 import SwiftUI
 
-import SwiftUI
 import Charts
-
+import SwiftUI
 
 struct AreaChartView: View {
-    
     let maxHeight: CGFloat = 250
-    let minHeight : CGFloat = 100
+    let minHeight: CGFloat = 100
     var topEdge: CGFloat = 0
     @Binding var offset: CGFloat
-    @Binding var chartDatas : [Date:String]
-    
+    @Binding var chartDatas: ChartData
+
     var body: some View {
-        
-        VStack{
-            
-            VStack{
+        VStack {
+            VStack {
                 Spacer()
                 header
-                    .padding(.horizontal,20)
+                    .padding(.horizontal, 20)
                     .frame(height: 100)
-                
+
                 chart
-                   
-                 .chartXAxis {
-                     AxisMarks(values: .stride(by: .day)) { _ in
-                         AxisTick()
-                         AxisGridLine()
-                         AxisValueLabel(format: .dateTime.weekday(.abbreviated), centered: true)
-                     }
-                 }
-                 .padding(.horizontal,15)
-                 .padding(.bottom,15)
-                 .opacity(getProgress())
-                
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 15)
+                    .opacity(getProgress())
             }
-          
-            
-        }  // Sticky Effect ...
+        } // Sticky Effect ...
         .frame(height: getHeight())
         .background(RoundedRectangle(cornerRadius: 12).fill(Color.theme.white.opacity(1.0)))
     }
-    
+
     func getHeight() -> CGFloat {
         var topHeight = maxHeight + offset
         if topHeight < 0 {
             topHeight = 0
         }
-        
+
         if topHeight > maxHeight {
             topHeight = maxHeight
         }
         if topHeight <= minHeight {
             topHeight = minHeight
         }
-        
-        return topHeight// > maxHeight ? maxHeight : topHeight
+
+        return topHeight // > maxHeight ? maxHeight : topHeight
     }
-    
-    
-    
+
     func getProgress() -> CGFloat {
         let progress = -offset / (maxHeight - topEdge)
         return 1 - progress * 1.5
@@ -75,91 +58,77 @@ struct AreaChartView: View {
 }
 
 #Preview {
-    AreaChartView(offset: .constant(0), chartDatas: .constant([:]))
+    AreaChartView(offset: .constant(0), chartDatas: .constant(ChartData(datas: ChartDataUtility.chartDataList)))
 }
 
 extension AreaChartView {
-    
-    
-    var header : some View {
-       
-        VStack(alignment:.leading){
-           
+    var header: some View {
+        VStack(alignment: .leading) {
             Spacer()
-            
+
             Text("Last 30 Days")
                 .font(.system(size: 20))
                 .foregroundStyle(Color.theme.secondaryText)
-            
-            HStack (alignment: .bottom, spacing:4){
+
+            HStack(alignment: .bottom, spacing: 4) {
                 Text("15700")
                     .font(.system(size: 34))
                     .bold()
-                
+
                 Text("Bdt")
                     .font(.system(size: 28))
                 Spacer()
-                   
             }
             .foregroundStyle(Color.theme.primaryText)
-           
+
             Spacer()
         }
     }
-    
-    var chart : some View {
+
+    var chart: some View {
         Chart {
-            
-            ForEach(chartDatas.keys.sorted { $0 > $1 }, id: \.self) { item in
-
-                let yVal = chartDatas[item] ?? "0"
-                LineMark(
-                    x: .value("Day", item, unit: .hour),
-                    y: .value("Weight", Double(yVal) ?? 0)
-                )
-                .foregroundStyle(Color.theme.darkBlue)
+            ForEach(chartDatas.datas, id: \.id) { item in
+                LineMark(x: .value("Date", item.date),
+                         y: .value("Profit", item.value))
+                 //   .lineStyle(.init(lineWidth: 1, lineCap: .round, lineJoin: .round))
             }
-            
-            
-//            ForEach(weight) { data in
-//                LineMark(
-//                    x: .value("Day", data.date, unit: .day),
-//                    y: .value("Weight", data.weight)
-//                )
-//                .foregroundStyle(Color.theme.darkBlue)
-//            }
-            
-           
+            .foregroundStyle(Color.theme.darkBlue)
+            .interpolationMethod(.catmullRom)
+
             // Area Chart
-            
-            ForEach(chartDatas.keys.sorted { $0 > $1 }, id: \.self) { item in
-              //  let yVal = chartDatas[item] ?? "0"
-                
+            ForEach(chartDatas.datas) { data in
                 AreaMark(
-                    x: .value("Day", item, unit: .day),
-//                    yStart: .value("WeightLow", Date.now.dayBefore(dayNumber: 30) ?? .now),
-//                    yEnd: .value("WeightLow",  .now)
+                    x: .value("Day", data.date),
                     yStart: .value("WeightLow", 0),
-                    yEnd: .value("WeightLow",  500)
+                    yEnd: .value("WeightLow", data.value)
                 )
-              .foregroundStyle(blueGradient)
-
+               
+                .foregroundStyle(blueGradient)
+                .interpolationMethod(.catmullRom)
             }
-            
-//            ForEach(weight) { data in
-//                AreaMark(
-//                    x: .value("Day", data.date, unit: .day),
-//                    yStart: .value("WeightLow", 63),
-//                    yEnd: .value("WeightLow",  data.weight)
-//                )
-//              .foregroundStyle(blueGradient)
-//            }
-            
         }
-       .chartYScale(domain: 0...500)
+        .chartXAxis {
+            AxisMarks(preset: .aligned, values: stride(from: 0, to: chartDatas.datas.count, by: 1).map { chartDatas.datas[$0].date }) { value in
+                //     AxisMarks(preset: .aligned, position: .bottom,values: stride(from: 0, to: chartDatas.xAxisDates.count , by: 1).map { chartDatas.xAxisDates[$0] }) { value in
+                AxisValueLabel {
+                    if let yearMonthDay = value.as(Date.self) {
+                        Text("\(yearMonthDay.asDateForChart())")
+                            .padding(.top, 10)
+                    }
+                }
+            }
+        }
+        .chartYAxis {
+            AxisMarks(position: .leading, values: .automatic) { value in
+                AxisGridLine()
+                AxisValueLabel {
+                    if let intValue = value.as(Int.self) {
+                        Text("\(intValue)")
+                    }
+                }
+            }
+        }
     }
-    
-    
 }
 
 var blueGradient: LinearGradient {
