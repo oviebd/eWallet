@@ -74,7 +74,7 @@ struct CustomAlertDataModel {
 
 struct AlertDataUtils {
    
-    public static let alertDmmyDataSingleButton = CustomAlertDataModel(imageName: "xmark.octagon.fill", title: "title", message: "Message", alertType: AlertType.success, positiveButtonTitle: "Ok")
+    public static let alertDmmyDataSingleButton = CustomAlertDataModel(imageName: "xmark.octagon.fill", title: "Failed", message: "Message", alertType: AlertType.success, positiveButtonTitle: "Ok")
    
     public static let alertDmmyDataMultipleButton = CustomAlertDataModel(imageName: "xmark.octagon.fill", title: "title", message: "Message", alertType: AlertType.success, positiveButtonTitle: "Ok", negativeButtonTitle: "Cancel")
     

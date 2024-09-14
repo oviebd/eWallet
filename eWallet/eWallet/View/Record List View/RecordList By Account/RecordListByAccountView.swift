@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordListByAccountView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.normalBlue, forgroundColor: .white, leftIconName: "xmark", hasShadow: false)
+    private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.accountGridCardBG, forgroundColor: .white, leftIconName: "xmark", hasShadow: false)
 
     @StateObject var vm = RecordsListByAccountVM()
 
@@ -34,7 +34,7 @@ struct RecordListByAccountView: View {
                             .padding(.bottom, 20)
                             .padding(.top, 10)
                             .padding(.horizontal, 20)
-                            .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.normalBlue))
+                            .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.accountGridCardBG))
 
                     }.frame(height: maxHeight)
                         .offset(y: -offset)
@@ -46,6 +46,9 @@ struct RecordListByAccountView: View {
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
                             DateWiseRecordListItem(date: item, dataList: records)
                         }
+                        
+                        Rectangle().fill(Color.clear)
+                            .frame(height: 500)
                     }
                     .padding(.top, 40)
                     .background(Color.theme.white)
@@ -58,7 +61,7 @@ struct RecordListByAccountView: View {
 
             Spacer()
         }
-        .background(Color.theme.normalBlue)
+        .background(Color.theme.accountGridCardBG)
         .edgesIgnoringSafeArea(.bottom)
 
         .navigationBarHidden(true)

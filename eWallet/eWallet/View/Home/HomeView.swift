@@ -14,36 +14,37 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                CommonTopBar(data: topBarConfig)
-                ScrollView (showsIndicators: false){
-                    VStack(spacing: 0) {
-                        AccountGridView(onAddButtonPressed: {
-                                            vm.isCreateAccountButtonPressed = true
-                                        },
-                                        onAccountItemPressed: { _ in
-                            vm.onSingleAccountButtonPressed = true
-                        })
+            ZStack(alignment: .bottom) {
+                VStack(spacing: 0) {
+                    CommonTopBar(data: topBarConfig)
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 0) {
+                            AccountGridView(onAddButtonPressed: {
+                                                vm.isCreateAccountButtonPressed = true
+                                            },
+                                            onAccountItemPressed: { _ in
+                                                vm.onSingleAccountButtonPressed = true
+                                            })
 
-                        RecordListView(onShowMorePressed: {
-                            vm.onPressedShowMoreFromList = true
-                        }) { recordItem in
-                            vm.selectedRecordData = recordItem
-                            vm.isCreateRecordButtonPressed = true
-                        }
-                        .padding(.horizontal, 20)
-                        .offset(y: -40)
-                        
-                        ExpensePieChartView()
+                            RecordListView(onShowMorePressed: {
+                                vm.onPressedShowMoreFromList = true
+                            }) { recordItem in
+                                vm.selectedRecordData = recordItem
+                                vm.isCreateRecordButtonPressed = true
+                            }
                             .padding(.horizontal, 20)
+                            .offset(y: -40)
 
-                        Spacer()
+                            ExpensePieChartView()
+                                .padding(.horizontal, 20)
 
-                        floatingAddRecordButton
+                            Spacer()
+                        }
                     }
                 }
-            }
 
+                floatingAddRecordButton
+            }
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
             }
@@ -54,7 +55,7 @@ struct HomeView: View {
                 AllRecordsView(topEdge: 0)
 
             })
-            
+
             .navigationDestination(isPresented: $vm.onSingleAccountButtonPressed, destination: {
                 RecordListByAccountView(topEdge: 0)
 
@@ -69,22 +70,16 @@ struct HomeView: View {
 
 extension HomeView {
     var floatingAddRecordButton: some View {
-        HStack {
-            Spacer()
-            Button {
+        Text("Add")
+
+            .padding(.horizontal, 25)
+            .padding(.vertical, 6)
+            .font(.system(size: 16))
+            .WithDefaultRectangularBgModifier(bgColor: Color.theme.accountGridCardBG, cornerRadius: 10)
+            .foregroundStyle(.white)
+
+            .onTapGesture {
                 vm.isCreateRecordButtonPressed = true
-            } label: {
-                Image(systemName: "plus")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding(.all, 10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(Color.blue)
-                    )
-                    .foregroundColor(.white)
-                    .shadow(color: .gray, radius: 1)
             }
-        }.padding(.trailing, 30)
     }
 }

@@ -25,7 +25,6 @@
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
 		7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0A2BF79E2200D3DC76 /* Constants.swift */; };
 		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
-		7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */; };
 		7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA09A302C49FADA0047575C /* CreateRecordVM.swift */; };
 		7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */; };
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
@@ -80,8 +79,6 @@
 		F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */; };
 		F3835D4A2BF210CA00D78E6B /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D492BF210CA00D78E6B /* RecordListView.swift */; };
 		F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3835D4B2BF21CD200D78E6B /* ListData.swift */; };
-		F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */; };
-		F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FFE932BB39ECC0001DA36 /* DropDownView.swift */; };
 		F390162F2C9041FA00DD3E80 /* ExpensePieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */; };
 		F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3963E5A2C0AD45C009DA266 /* AlertData.swift */; };
 		F39A39FD2C911AF800DFA736 /* RecordListByAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A39FC2C911AF800DFA736 /* RecordListByAccountView.swift */; };
@@ -152,7 +149,6 @@
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7B821F0A2BF79E2200D3DC76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
-		7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsVM.swift; sourceTree = "<group>"; };
 		7BA09A302C49FADA0047575C /* CreateRecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordVM.swift; sourceTree = "<group>"; };
 		7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccountTest.swift; sourceTree = "<group>"; };
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
@@ -208,8 +204,6 @@
 		F3835D472BF210BB00D78E6B /* SingleRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecordItem.swift; sourceTree = "<group>"; };
 		F3835D492BF210CA00D78E6B /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		F3835D4B2BF21CD200D78E6B /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
-		F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordDetailsView.swift; sourceTree = "<group>"; };
-		F38FFE932BB39ECC0001DA36 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePieChartView.swift; sourceTree = "<group>"; };
 		F3963E5A2C0AD45C009DA266 /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
 		F39A39FC2C911AF800DFA736 /* RecordListByAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListByAccountView.swift; sourceTree = "<group>"; };
@@ -615,7 +609,6 @@
 		F366D8092BAA5A6D00224835 /* Create Record */ = {
 			isa = PBXGroup;
 			children = (
-				F38FFE902BB39ACD0001DA36 /* Add Record Details View */,
 				F366D80A2BAA5AA000224835 /* CreateRecordMainView.swift */,
 				F317D9892BAB02F0003BB60A /* RecordTypeSegmentedView.swift */,
 				7BA09A302C49FADA0047575C /* CreateRecordVM.swift */,
@@ -655,16 +648,6 @@
 				F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */,
 			);
 			path = "Record List View";
-			sourceTree = "<group>";
-		};
-		F38FFE902BB39ACD0001DA36 /* Add Record Details View */ = {
-			isa = PBXGroup;
-			children = (
-				F38FFE912BB39B210001DA36 /* AddRecordDetailsView.swift */,
-				F38FFE932BB39ECC0001DA36 /* DropDownView.swift */,
-				7B9BAA5C2C4CE1A2008757E3 /* AddRecordDetailsVM.swift */,
-			);
-			path = "Add Record Details View";
 			sourceTree = "<group>";
 		};
 		F390162D2C9041DF00DD3E80 /* Expense Pie Chart View */ = {
@@ -936,7 +919,6 @@
 				7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */,
 				F3A819A42C83809500F8ED4C /* DateWiseRecordListItem.swift in Sources */,
 				F32326D02C0ACA060014498A /* DummyDataUtils.swift in Sources */,
-				F38FFE922BB39B210001DA36 /* AddRecordDetailsView.swift in Sources */,
 				7B267CA22C33770C00A1E84B /* SingleCurrencyListItem.swift in Sources */,
 				F35A4AA82BB2BC3100345287 /* CategoryData.swift in Sources */,
 				7B20582B2C84833A00F53D99 /* SwipeToResizeView.swift in Sources */,
@@ -972,7 +954,6 @@
 				F3E9C0572C8C5D2600D314B5 /* ChartDataTest.swift in Sources */,
 				F30448902C6D9A5B00A6485B /* ContentView.swift in Sources */,
 				F39A39FD2C911AF800DFA736 /* RecordListByAccountView.swift in Sources */,
-				7B9BAA5D2C4CE1A2008757E3 /* AddRecordDetailsVM.swift in Sources */,
 				7BC3FAD82C4F72E50015A72C /* RecordDataRepository.swift in Sources */,
 				7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */,
 				F3E9C0552C8C5D1900D314B5 /* ChartView.swift in Sources */,
@@ -994,7 +975,6 @@
 				7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */,
 				F30448922C6D9D2700A6485B /* TopBarView.swift in Sources */,
 				F3E9C0602C8C841B00D314B5 /* AreaChartViewTest.swift in Sources */,
-				F38FFE942BB39ECC0001DA36 /* DropDownView.swift in Sources */,
 				F37A54F92C04BDD30024CCE8 /* AddCurrencyView.swift in Sources */,
 				F3CBE4EE2C821973007DE23A /* DefaultDividerView.swift in Sources */,
 				F34B454F2B8CCDE300434B42 /* Color.swift in Sources */,

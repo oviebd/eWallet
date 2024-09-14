@@ -92,7 +92,7 @@ extension AreaChartView {
                          y: .value("Profit", item.value))
                  //   .lineStyle(.init(lineWidth: 1, lineCap: .round, lineJoin: .round))
             }
-            .foregroundStyle(Color.theme.darkBlue)
+            .foregroundStyle(Color.theme.accountGridCardBG)
             .interpolationMethod(.stepCenter)
 
             // Area Chart
@@ -159,8 +159,8 @@ var blueGradient: LinearGradient {
     LinearGradient(
         gradient: Gradient(
             colors: [
-                Color.theme.normalBlue.opacity(0.9),
-                Color.theme.normalBlue.opacity(0.5),
+                Color.theme.accountGridCardBG.opacity(0.9),
+                Color.theme.accountGridCardBG.opacity(0.5),
             ]
         ),
         startPoint: .top,

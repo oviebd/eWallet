@@ -17,7 +17,7 @@ class CreateRecordVM: ObservableObject {
     @Published var isAccountTypePressed = false
     @Published var isFromAccountTypePressed = false
     @Published var isSelectCategoryPressed = false
-//    @Published var isDetailsBtnPressed = false
+
 
     @Published var fromAccount: AccountData? // Only use for transfer
     @Published var account: AccountData?
@@ -33,10 +33,10 @@ class CreateRecordVM: ObservableObject {
     @Published var isAddNotePressed = false
     @Published var noteText : String = ""
     
-   // @Published var additionalRecordData: AdditionalRecordData
-    
+ 
     let recordTypes : [RecordTypeEnum]
     var recordRepo: RecordDataRepository
+    
 
     init(recordData : RecordData?) {
         
@@ -68,47 +68,69 @@ class CreateRecordVM: ObservableObject {
     func getRecords() {
         _ = recordRepo.getRecords()
     }
-
-    func onSaveBtnPressed() {
+    
+    
+    func isDataValid() -> Bool {
         let amount = Double(amountInput) ?? 0.0
        // additionalRecordData.printData()
 
         guard let accountData = account else {
-            return
+            return false
         }
-//        guard let categoryData = selectedCategoryData else {
-//            return
-//        }
+        
+        if selectedRecordType != .TRANSFER && selectedCategoryData == nil  {
+            return false
+        }
+        
+        if selectedRecordType == .TRANSFER && fromAccount == nil {
+            return false
+        }
+        
+        return true
+    }
 
+    func onSaveBtnPressed() -> Bool {
+        
+        let amount = Double(amountInput) ?? 0.0
+       
+        if isDataValid() == false{
+            alertModel.title = "Failed!"
+            AlertDataUtils.getAlertDatafrom(alertData: &alertModel, message: "Please fill all required fields.", alertType: .failure, positiveButtonTitle: "Ok", negativeButtonTitle: "")
+            showingAlert = true
+            return false
+        }
+        
         var newRecordData = RecordData(note: noteText,
                                     recordType: selectedRecordType.rawValue,
                                     amount: amount,
                                     date: selectedDate,
                                     catagory: selectedCategoryData,
-                                    account: accountData,
+                                    account: account,
                                     fromAccount: fromAccount)
         
         if let id = recordData?.id, isEdit == true{
             newRecordData.id = id
         }
     
+        var isSuccess = false
         if isEdit {
-            let isSuccess = recordRepo.editRecord(recordData: newRecordData)
-            print("IS Record Added \(isSuccess)")
+            isSuccess = recordRepo.editRecord(recordData: newRecordData)
+            //print("IS Record Added \(isSuccess)")
         }else{
-            let isSuccess = recordRepo.addRecord(recordData: newRecordData)
-            print("IS Record Added \(isSuccess)")
+            isSuccess = recordRepo.addRecord(recordData: newRecordData)
+          //  print("IS Record Added \(isSuccess)")
         }
         
-
         getRecords()
+        return isSuccess
     }
+  
     
-    func onDeletePressed(){
+    func onDeletePressed() -> Bool {
         guard let recordData = recordData else {
-            return
+            return false
         }
-        recordRepo.deleteRecord(recordData: recordData)
+        return recordRepo.deleteRecord(recordData: recordData)
         
     }
     

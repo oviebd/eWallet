@@ -28,36 +28,47 @@ struct CreateRecordMainView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
+        
+        ZStack{
+            VStack(spacing: 0) {
 
-            CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
-                //  vm.prepareRecordDetailsData()
-                self.presentationMode.wrappedValue.dismiss()
-            })
+                CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
+                    //  vm.prepareRecordDetailsData()
+                    self.presentationMode.wrappedValue.dismiss()
+                })
 
-            ScrollView {
-                VStack(spacing: 0) {
-                    VStack {
-                        Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
-                            Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
-                            Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
-                            Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
-                        }
-                        .pickerStyle(.segmented)
+                ScrollView {
+                    VStack(spacing: 0) {
+                        VStack {
+                            Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
+                                Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
+                                Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
+                                Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
+                            }
+                            .pickerStyle(.segmented)
 
-                    }.padding(.horizontal, 20)
-                        .background(Color.theme.accountGridCardBG)
+                        }.padding(.horizontal, 20)
+                            .background(Color.theme.accountGridCardBG)
 
-                    addNumberView
-                        // middleView
-                        // .frame(height: 200)
-                        .background(Color.theme.accountGridCardBG)
-                    pickerFormView
-                    // Spacer()
+                        addNumberView
+                            // middleView
+                            // .frame(height: 200)
+                            .background(Color.theme.accountGridCardBG)
+                        pickerFormView
+                        // Spacer()
+                    }
+                    Spacer()
                 }
-                Spacer()
+            }
+            
+            if vm.showingAlert {
+                CustomAlertView(presentAlert: $vm.showingAlert, alertData: vm.alertModel,positiveButtonAction: {
+                }, negativeButtonAction: {
+                })
             }
         }
+        
+       
 
         .navigationBarHidden(true)
 
@@ -74,6 +85,7 @@ struct CreateRecordMainView: View {
         .popover(isPresented: $vm.isAddNotePressed) {
             AddNoteView(note: $vm.noteText)
         }
+        
     }
 }
 
@@ -216,7 +228,10 @@ extension CreateRecordMainView {
                 .padding(.horizontal,20)
                 .padding(.top,20)
                 .onTapGesture {
-                   vm.onSaveBtnPressed()
+                    let isSuccess = vm.onSaveBtnPressed()
+                    if isSuccess {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
             
             
@@ -229,7 +244,10 @@ extension CreateRecordMainView {
                 .padding(.horizontal,20)
                 .padding(.top,20)
                 .onTapGesture {
-                    vm.onDeletePressed()
+                    let isSuccess = vm.onDeletePressed()
+                    if isSuccess {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
             
 

@@ -29,5 +29,5 @@ class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() { }
     
-    let recordDetailsDatav = AdditionalRecordData(note: "sample Note ", date: Date.now, time: Date.now)
+   // let recordDetailsDatav = AdditionalRecordData(note: "sample Note ", date: Date.now, time: Date.now)
 }
