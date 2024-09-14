@@ -16,9 +16,11 @@
 		7B28D0562C41993D00A84142 /* AccountGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B28D0552C41993D00A84142 /* AccountGridVM.swift */; };
 		7B2C1C0D2C670BFD005C2D4B /* PinnedScrolledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */; };
 		7B360E692C86C17F00728330 /* CollapsableSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E682C86C17F00728330 /* CollapsableSearchView.swift */; };
+		7B4D0AF32C957A1A0039848E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D0AF22C957A1A0039848E /* PieChartView.swift */; };
+		7B4D0AF52C95AFB80039848E /* ExpensePieChartVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D0AF42C95AFB80039848E /* ExpensePieChartVM.swift */; };
 		7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549A652C016AEB0054AD70 /* HomeVm.swift */; };
 		7B6ECF1B2C93C74700FC851C /* RecordsListByAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6ECF1A2C93C74700FC851C /* RecordsListByAccountVM.swift */; };
-		7B6ECF1D2C93C78B00FC851C /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6ECF1C2C93C78B00FC851C /* ChartData.swift */; };
+		7B6ECF1D2C93C78B00FC851C /* BarChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6ECF1C2C93C78B00FC851C /* BarChartData.swift */; };
 		7B821F062BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */; };
 		7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */; };
 		7B821F0B2BF79E2200D3DC76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F0A2BF79E2200D3DC76 /* Constants.swift */; };
@@ -112,7 +114,7 @@
 		F3E9C0572C8C5D2600D314B5 /* ChartDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0562C8C5D2600D314B5 /* ChartDataTest.swift */; };
 		F3E9C0592C8C643700D314B5 /* ChartHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */; };
 		F3E9C05B2C8C651E00D314B5 /* BarRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */; };
-		F3E9C05D2C8C682300D314B5 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05C2C8C682300D314B5 /* PieChartView.swift */; };
+		F3E9C05D2C8C682300D314B5 /* PieChartViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05C2C8C682300D314B5 /* PieChartViewTest.swift */; };
 		F3E9C0602C8C841B00D314B5 /* AreaChartViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C05F2C8C841B00D314B5 /* AreaChartViewTest.swift */; };
 		F3F80D7C2C571A2B007A7298 /* RecordListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */; };
 		F3F80D7E2C572162007A7298 /* UtiltyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */; };
@@ -141,9 +143,11 @@
 		7B28D0552C41993D00A84142 /* AccountGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGridVM.swift; sourceTree = "<group>"; };
 		7B2C1C0C2C670BFD005C2D4B /* PinnedScrolledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedScrolledView.swift; sourceTree = "<group>"; };
 		7B360E682C86C17F00728330 /* CollapsableSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSearchView.swift; sourceTree = "<group>"; };
+		7B4D0AF22C957A1A0039848E /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		7B4D0AF42C95AFB80039848E /* ExpensePieChartVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePieChartVM.swift; sourceTree = "<group>"; };
 		7B549A652C016AEB0054AD70 /* HomeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVm.swift; sourceTree = "<group>"; };
 		7B6ECF1A2C93C74700FC851C /* RecordsListByAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListByAccountVM.swift; sourceTree = "<group>"; };
-		7B6ECF1C2C93C78B00FC851C /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		7B6ECF1C2C93C78B00FC851C /* BarChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartData.swift; sourceTree = "<group>"; };
 		7B821F052BF79B1200D3DC76 /* localDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = localDb.xcdatamodel; sourceTree = "<group>"; };
 		7B821F082BF79DF300D3DC76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7B821F0A2BF79E2200D3DC76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -239,7 +243,7 @@
 		F3E9C0562C8C5D2600D314B5 /* ChartDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTest.swift; sourceTree = "<group>"; };
 		F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHolderView.swift; sourceTree = "<group>"; };
 		F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRoundedRectangle.swift; sourceTree = "<group>"; };
-		F3E9C05C2C8C682300D314B5 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		F3E9C05C2C8C682300D314B5 /* PieChartViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewTest.swift; sourceTree = "<group>"; };
 		F3E9C05F2C8C841B00D314B5 /* AreaChartViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartViewTest.swift; sourceTree = "<group>"; };
 		F3F80D7B2C571A2B007A7298 /* RecordListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListVM.swift; sourceTree = "<group>"; };
 		F3F80D7D2C572162007A7298 /* UtiltyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiltyHelper.swift; sourceTree = "<group>"; };
@@ -603,7 +607,7 @@
 				F3835D4B2BF21CD200D78E6B /* ListData.swift */,
 				F32326CF2C0ACA060014498A /* DummyDataUtils.swift */,
 				F3A8199D2C83399100F8ED4C /* RecordListByDateData.swift */,
-				7B6ECF1C2C93C78B00FC851C /* ChartData.swift */,
+				7B6ECF1C2C93C78B00FC851C /* BarChartData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -667,6 +671,7 @@
 			isa = PBXGroup;
 			children = (
 				F390162E2C9041FA00DD3E80 /* ExpensePieChartView.swift */,
+				7B4D0AF42C95AFB80039848E /* ExpensePieChartVM.swift */,
 			);
 			path = "Expense Pie Chart View";
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 			isa = PBXGroup;
 			children = (
 				F39A39FF2C911C7100DFA736 /* AreaChartView.swift */,
+				7B4D0AF22C957A1A0039848E /* PieChartView.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -756,7 +762,7 @@
 				F3E9C0562C8C5D2600D314B5 /* ChartDataTest.swift */,
 				F3E9C0582C8C643700D314B5 /* ChartHolderView.swift */,
 				F3E9C05A2C8C651E00D314B5 /* BarRoundedRectangle.swift */,
-				F3E9C05C2C8C682300D314B5 /* PieChartView.swift */,
+				F3E9C05C2C8C682300D314B5 /* PieChartViewTest.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -905,7 +911,7 @@
 				F3A819992C82CCDF00F8ED4C /* AddNoteView.swift in Sources */,
 				7B549A662C016AEB0054AD70 /* HomeVm.swift in Sources */,
 				F366D80F2BAA647900224835 /* CustomSegmentedPickerExample.swift in Sources */,
-				F3E9C05D2C8C682300D314B5 /* PieChartView.swift in Sources */,
+				F3E9C05D2C8C682300D314B5 /* PieChartViewTest.swift in Sources */,
 				F3153B422C0A1351000DF53C /* AccountDataRepository.swift in Sources */,
 				F3963E5B2C0AD45C009DA266 /* AlertData.swift in Sources */,
 				F32746462BB6BF1700ECFDB7 /* AppNavBarView.swift in Sources */,
@@ -922,6 +928,7 @@
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
 				7B821F092BF79DF300D3DC76 /* CoreDataManager.swift in Sources */,
 				7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */,
+				7B4D0AF32C957A1A0039848E /* PieChartView.swift in Sources */,
 				F3AD988C2C8861410065719F /* View.swift in Sources */,
 				F34B45572B8CEDE800434B42 /* AccountGridView.swift in Sources */,
 				7B267CA62C33799600A1E84B /* CurrencyListVM.swift in Sources */,
@@ -936,9 +943,10 @@
 				F3A0A0D52BB0F47600007ADB /* CalculatorView.swift in Sources */,
 				F327464A2BB6C34D00ECFDB7 /* CustomNavLink.swift in Sources */,
 				F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */,
-				7B6ECF1D2C93C78B00FC851C /* ChartData.swift in Sources */,
+				7B6ECF1D2C93C78B00FC851C /* BarChartData.swift in Sources */,
 				F34B45532B8CED7A00434B42 /* HomeView.swift in Sources */,
 				F343EB082BB811D100D356E9 /* CommonTopBar.swift in Sources */,
+				7B4D0AF52C95AFB80039848E /* ExpensePieChartVM.swift in Sources */,
 				F34B454E2B8CCDE300434B42 /* UIApplication.swift in Sources */,
 				F3A0A0CC2BB0F20D00007ADB /* ImageInBg.swift in Sources */,
 				F3835D4A2BF210CA00D78E6B /* RecordListView.swift in Sources */,

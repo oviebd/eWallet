@@ -37,7 +37,7 @@ struct DateWiseRecordListItem: View {
             }
 
         }.background(Color.theme.white
-            .shadow(color: Color.theme.gray.opacity(0.5), radius: 5))
+            .shadow(color: Color.theme.gray.opacity(0.3), radius: 3))
     }
 
     

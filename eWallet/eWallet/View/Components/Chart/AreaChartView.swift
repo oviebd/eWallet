@@ -15,7 +15,7 @@ struct AreaChartView: View {
     let minHeight: CGFloat = 100
     var topEdge: CGFloat = 0
     @Binding var offset: CGFloat
-    @Binding var chartDatas: ChartData
+    @Binding var chartDatas: BarChartData
 
     var body: some View {
         VStack {
@@ -58,7 +58,7 @@ struct AreaChartView: View {
 }
 
 #Preview {
-    AreaChartView(offset: .constant(0), chartDatas: .constant(ChartData(datas: ChartDataUtility.chartDataList)))
+    AreaChartView(offset: .constant(0), chartDatas: .constant(BarChartData(datas: ChartDataUtility.chartDataList)))
 }
 
 extension AreaChartView {
@@ -93,7 +93,7 @@ extension AreaChartView {
                  //   .lineStyle(.init(lineWidth: 1, lineCap: .round, lineJoin: .round))
             }
             .foregroundStyle(Color.theme.darkBlue)
-            .interpolationMethod(.catmullRom)
+            .interpolationMethod(.stepCenter)
 
             // Area Chart
             ForEach(chartDatas.datas) { data in
@@ -104,11 +104,29 @@ extension AreaChartView {
                 )
                
                 .foregroundStyle(blueGradient)
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.stepCenter)
             }
         }
-        .chartXAxis {
+        
+        .chartXAxis{
             AxisMarks(preset: .aligned, values: stride(from: 0, to: chartDatas.datas.count, by: 1).map { chartDatas.datas[$0].date }) { value in
+               
+                AxisTick()
+                AxisGridLine()
+                
+                if value.index % 5 == 0 {
+                    AxisValueLabel {
+                        if let yearMonthDay = value.as(Date.self) {
+                            Text("\(yearMonthDay.asDateForChart())")
+                               // .padding(.top, 10)
+                        }
+                    }
+                }
+            }
+        }
+        
+        .chartXAxis {
+            AxisMarks(preset: .aligned, values: stride(from: 0, to: chartDatas.datas.count, by: 10).map { chartDatas.datas[$0].date }) { value in
                 //     AxisMarks(preset: .aligned, position: .bottom,values: stride(from: 0, to: chartDatas.xAxisDates.count , by: 1).map { chartDatas.xAxisDates[$0] }) { value in
                 AxisValueLabel {
                     if let yearMonthDay = value.as(Date.self) {
@@ -116,8 +134,14 @@ extension AreaChartView {
                             .padding(.top, 10)
                     }
                 }
+                
+                AxisTick()
+                AxisGridLine()
+                //AxisValueLabel(format: .dateTime.day(.abbreviated), centered: true)
             }
         }
+        
+        
         .chartYAxis {
             AxisMarks(position: .leading, values: .automatic) { value in
                 AxisGridLine()

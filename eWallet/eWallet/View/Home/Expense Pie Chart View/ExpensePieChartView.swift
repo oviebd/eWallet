@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ExpensePieChartView: View {
+    
+    @StateObject var vm = ExpensePieChartVM()
+   
     var body: some View {
         VStack {
             HStack {
@@ -21,7 +24,7 @@ struct ExpensePieChartView: View {
                 Spacer()
             }
 
-            PieChartView()
+            PieChartView(defaultData: $vm.expensePieChartDataOf30Days)
                // .frame(width: .infinity)
                 .frame(height: 200)
                 .padding(.horizontal, 20)

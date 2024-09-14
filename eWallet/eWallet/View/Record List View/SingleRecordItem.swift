@@ -22,7 +22,7 @@ struct SingleRecordItem: View {
             
             Image(systemName: recordData.catagory?.iconImage ?? "folder.fill")
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 20, height: 20)
                 .padding(10)
                 .WithDefaultCircularBgModifier(bgColor: recordData.catagory?.color ?? Color.gray)
                 .foregroundStyle(Color.white)
@@ -31,41 +31,38 @@ struct SingleRecordItem: View {
     
             VStack(alignment: .leading, spacing: 0) {
                 Text(recordData.catagory?.title ?? "")
+                    .font(.system(size: 16))
                     .foregroundStyle(.black.opacity(0.9))
                     .lineLimit(1)
                 
                 Text(recordData.account?.title ?? "")
-                    .font(.caption)
+                    .font(.system(size: 12))
                     .foregroundStyle(.black.opacity(0.5))
                     .lineLimit(1)
                 
                 Text(recordData.note)
-                    .font(.caption)
+                    .font(.system(size: 12))
                     .foregroundStyle(.black.opacity(0.6))
                     .lineLimit(1)
-            } .padding(.leading,5)
+            } .padding(.leading,2)
            
             
             Spacer()
             
-            VStack(alignment: .trailing) {
+            VStack(alignment: .trailing, spacing: 3) {
                 Text(recordData.amount.toAmountTextWithCurrency(currency: recordData.account?.currencyData))
-                    .font(.subheadline)
+                    .font(.system(size: 12))
                    .fontWeight(.semibold)
                    .foregroundStyle(getAmountTextColor())
                    .lineLimit(1)
                 
-                
-//                Text("(BDT 19700.00)")
-//                    .font(.caption2)
-//                    .foregroundStyle(.green)
-//                
-                //Text(Date.now, format: .dateTime.day().month().year())
+
                 Text(getDateTitle())
-                    .font(.caption)
+                    .font(.system(size: 12))
                     .foregroundStyle(.gray)
                     .lineLimit(1)
             }
+            .padding(.top,3)
                
         }
        

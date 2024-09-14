@@ -8,12 +8,11 @@
 import Foundation
 
 class RecordListByDateData {
-   
     var dataByDateDic: [Date: [RecordData]] = [:]
- //   var dataByDateDic: [Date: [RecordData]] = [:]
-    
+    //   var dataByDateDic: [Date: [RecordData]] = [:]
+
     func prepareDatas(datas: [RecordData]) {
-       dataByDateDic = [:]
+        dataByDateDic = [:]
         for data in datas {
             let date = data.date.removeTime()
 
@@ -33,27 +32,6 @@ class RecordListByDateData {
 //        dataByDateDic = Dictionary(uniqueKeysWithValues: sortedByKey)
 //        print(dataByDateDic.keys)
     }
-    
-    func getChartData(datas: [RecordData]) -> ChartData {
-    
-        prepareDatas(datas: datas)
-        var singleChartDatas : [SingleChartData] = [SingleChartData]()
-        
-        for (key, value) in dataByDateDic {
 
-            let records : [RecordData] = dataByDateDic[key] ?? [RecordData]()
-           
-            var amount = 0.0
-            for record in records {
-                amount += record.amount
-            }
-            singleChartDatas.append(SingleChartData(date: key, value: amount))
-          //  datas.append(chartData)
-        }
-        let chartData = ChartData(datas: singleChartDatas)
-        print("U>> axix values \(singleChartDatas)")
-        return chartData
-    }
+    
 }
-
-

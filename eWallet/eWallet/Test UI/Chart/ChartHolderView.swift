@@ -16,7 +16,7 @@ struct ChartHolderView: View {
                 .frame(width: .infinity)
                 .frame(height:200 )
             
-            PieChartView()
+            PieChartViewTest()
                // .frame(width: .infinity)
                 .frame(height:200 )
             

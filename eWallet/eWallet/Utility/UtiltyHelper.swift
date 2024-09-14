@@ -8,11 +8,65 @@
 import Foundation
 
 class UtiltyHelper {
-    
-    static func getAmountTextWithCurrency(amount : Double, currency : CurrencyData?){
-        
-        
-        
+    static func prepareRecordDataByDates(datas: [RecordData]) -> [Date: [RecordData]] {
+        var dataByDateDic: [Date: [RecordData]] = [:]
+        for data in datas {
+            let date = data.date.removeTime()
+
+            // print("U>> Date is \(date.description)")
+
+            if dataByDateDic[date] == nil {
+                dataByDateDic[date] = [data]
+            } else {
+                var recordList: [RecordData] = (dataByDateDic[date] ?? [])
+                recordList.append(data)
+                dataByDateDic[date] = recordList
+            }
+        }
+
+        return dataByDateDic
     }
-    
+
+    static func prepareBarChartDataFrom(recordList: [RecordData]) -> BarChartData {
+        var dataByDateDic = prepareRecordDataByDates(datas: recordList)
+        var singleChartDatas: [SingleBarChartData] = [SingleBarChartData]()
+
+        for i in 0 ..< 30 {
+            let key: Date = .now.dayBefore(dayNumber: 30 - i)?.removeTime() ?? .now.removeTime()
+            var amount = 0.0
+            if let records = dataByDateDic[key] {
+                for record in records {
+                    amount += record.amount
+                }
+            }
+            singleChartDatas.append(SingleBarChartData(date: key, value: amount))
+        }
+        let chartData = BarChartData(datas: singleChartDatas)
+        return chartData
+    }
+
+    static func preparePieChartDataFrom(recordList: [RecordData]) -> PieChartData {
+      
+        var pieDataDic: [String: SinglePieChartData] = [:]
+
+        for record in recordList {
+            let key: String = record.catagory?.id ?? ""
+            if pieDataDic[key] == nil {
+                pieDataDic[key] = SinglePieChartData(id: key, key: record.catagory?.title ?? "", value: record.amount)
+            } else {
+                if let data = pieDataDic[key] {
+                    pieDataDic[key] = SinglePieChartData(id: data.id, key: data.key, value: data.value + record.amount)
+                }
+            }
+        }
+
+        var singleBarDatas: [SinglePieChartData] = [SinglePieChartData]()
+        for (key, value) in pieDataDic {
+            if let data = pieDataDic[key] {
+                singleBarDatas.append(data)
+            }
+        }
+
+        return PieChartData(datas: singleBarDatas)
+    }
 }

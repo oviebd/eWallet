@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DefaultDividerView: View {
     var height = 0.5
-    var bgColor = Color.gray.opacity(0.5)
+    var bgColor = Color.gray.opacity(0.2)
    
     var body: some View {
         Rectangle()

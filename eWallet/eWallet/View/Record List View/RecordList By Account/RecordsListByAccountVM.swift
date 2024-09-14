@@ -16,7 +16,7 @@ class RecordsListByAccountVM : ObservableObject {
     @Published var recordListByDateData : RecordListByDateData = RecordListByDateData()
     
     @Published var filteredData : RecordFilterData = RecordFilterData()
-    @Published var chartData : ChartData = ChartData()
+    @Published var chartData : BarChartData = BarChartData()
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -31,8 +31,6 @@ class RecordsListByAccountVM : ObservableObject {
             self?.recordListByDateData = RecordListByDateData()
             self?.recordsList = self?.recordRepo.getFilteredDatas(recordFilterData: value) ?? []
             self?.recordListByDateData.prepareDatas(datas: self?.recordsList ?? [])
-            self?.chartData = self?.recordListByDateData.getChartData(datas: self?.recordsList ?? []) ?? ChartData(datas: [])
-        
             
         }.store(in: &cancellables)
     }
