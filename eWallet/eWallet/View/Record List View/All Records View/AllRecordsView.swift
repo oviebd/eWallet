@@ -45,7 +45,10 @@ struct AllRecordsView: View {
                         ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted{ $0 > $1 }, id: \.self) { item in
 
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records)
+                            DateWiseRecordListItem(date: item, dataList: records){ recordData in
+                                vm.selectedRecordData = recordData
+                                vm.goRecordScreen = true
+                            }
                         }
                     }
                     .padding(.top, 20)
@@ -59,6 +62,9 @@ struct AllRecordsView: View {
             Spacer()
             RecordFilterView(filterData: $vm.filteredData)
             // SwipeToResizeView()
+        }
+        .popover(isPresented: $vm.goRecordScreen) {
+            CreateRecordMainView(recordData: vm.selectedRecordData)
         }
         .edgesIgnoringSafeArea(.bottom)
 

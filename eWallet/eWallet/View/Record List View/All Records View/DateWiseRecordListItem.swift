@@ -10,6 +10,7 @@ import SwiftUI
 struct DateWiseRecordListItem: View {
     let date: Date
     let dataList: [RecordData]
+    var onItemPresesd: (RecordData) -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,6 +30,9 @@ struct DateWiseRecordListItem: View {
                 SingleRecordItem(recordData: data, itemType: .GroupedByDate)
                     .padding(.horizontal, 20)
                     .padding(.bottom, isLastItem ? 20 : 0)
+                    .onTapGesture {
+                        onItemPresesd(data)
+                    }
 
                 if !isLastItem {
                     DefaultDividerView()
@@ -44,5 +48,7 @@ struct DateWiseRecordListItem: View {
 }
 
 #Preview {
-    DateWiseRecordListItem(date: .now, dataList: DummyDataUtils.todayRecordList)
+    DateWiseRecordListItem(date: .now, dataList: DummyDataUtils.todayRecordList){ _ in
+        
+    }
 }

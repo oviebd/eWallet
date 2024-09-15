@@ -16,8 +16,9 @@ class AllRecordsVM : ObservableObject {
     @Published var recordListByDateData : RecordListByDateData = RecordListByDateData()
     
     @Published var filteredData : RecordFilterData = RecordFilterData()
-   // @Published var chartDatas : [Date:String] = [Date:String]()
-    
+  
+    @Published var goRecordScreen: Bool = false
+    @Published var selectedRecordData : RecordData?
     
     @Published var searchText: String = ""
     private var cancellables = Set<AnyCancellable>()

@@ -63,17 +63,31 @@ struct RecordFilterView: View {
     @State var selectedAccount: AccountData?
     @State var selectedCategory: CategoryData?
 
-   // var onFilterChanged: (RecordFilterData?) -> Void
-
     var body: some View {
         Spacer()
 
         VStack(spacing: 0) {
-            ZStack(alignment: .center) {
+            
+          
+            HStack() {
+                Spacer()
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.theme.primaryDivider)
                     .frame(width: 50, height: 5)
                     .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                    .offset(x: 0)
+                
+                Spacer()
+                Image(systemName: "xmark.circle")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .foregroundStyle(Color.red)
+                    .opacity(getCrossButtonOpacity())
+                    .onTapGesture {
+                        selectedCategory = nil
+                        selectedAccount = nil
+                    }
+                
             }.frame(maxWidth: .infinity)
                 .frame(height: 20)
                 .background(Color.white)
@@ -131,6 +145,13 @@ struct RecordFilterView: View {
             .popover(isPresented: $isSelectAccountPressed) {
                 AccountListView(selectedAccountData: $selectedAccount, isPopupView: true)
             }
+    }
+    
+    func getCrossButtonOpacity() -> Double {
+        if  selectedCategory != nil || selectedAccount != nil {
+            return isDragUp ? 1 : 0
+        }
+        return 0
     }
 }
 

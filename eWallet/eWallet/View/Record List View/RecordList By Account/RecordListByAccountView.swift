@@ -43,7 +43,9 @@ struct RecordListByAccountView: View {
                         ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted { $0 > $1 }, id: \.self) { item in
 
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records)
+                            DateWiseRecordListItem(date: item, dataList: records){ _ in
+                                
+                            }
                         }
                         
                         Rectangle().fill(Color.clear)
