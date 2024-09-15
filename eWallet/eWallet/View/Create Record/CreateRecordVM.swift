@@ -124,6 +124,21 @@ class CreateRecordVM: ObservableObject {
         getRecords()
         return isSuccess
     }
+    
+    func resetValues(){
+        recordData = nil
+        isEdit = false
+        amountInput = "0"
+        
+        selectedRecordType = .EXPENSE
+        fromAccount = nil
+        account = nil
+        selectedCategoryData = nil
+        alertModel = AlertDataUtils.alertDmmyDataSingleButton
+
+        selectedDate = Date.now
+        noteText = ""
+    }
   
     
     func onDeletePressed() -> Bool {

@@ -32,7 +32,7 @@ struct PinnedScrolledView: View {
                 
                 GeometryReader{ proxy in
                     
-                    TopBarView(topEdge: topEdge, offset: $offset, maxHeight: maxHeight)
+                    TopBarView(topEdge: topEdge, offset: $offset)
                         .foregroundStyle(Color.white)
                         .frame(maxWidth: .infinity)
                     

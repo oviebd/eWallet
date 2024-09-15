@@ -33,14 +33,13 @@ struct CreateRecordMainView: View {
             VStack(spacing: 0) {
 
                 CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
-                    //  vm.prepareRecordDetailsData()
-                    self.presentationMode.wrappedValue.dismiss()
+                    self.closeView()
                 })
 
                 ScrollView {
                     VStack(spacing: 0) {
                         VStack {
-                            Picker("What is your favorite color?", selection: $vm.selectedRecordType) {
+                            Picker("", selection: $vm.selectedRecordType) {
                                 Text(vm.recordTypes[0].rawValue).tag(RecordTypeEnum.INCOME)
                                 Text(vm.recordTypes[1].rawValue).tag(RecordTypeEnum.EXPENSE)
                                 Text(vm.recordTypes[2].rawValue).tag(RecordTypeEnum.TRANSFER)
@@ -86,6 +85,12 @@ struct CreateRecordMainView: View {
             AddNoteView(note: $vm.noteText)
         }
         
+    }
+    
+    func closeView(){
+        vm.resetValues()
+        self.presentationMode.wrappedValue.dismiss()
+       
     }
 }
 
@@ -230,7 +235,7 @@ extension CreateRecordMainView {
                 .onTapGesture {
                     let isSuccess = vm.onSaveBtnPressed()
                     if isSuccess {
-                        self.presentationMode.wrappedValue.dismiss()
+                        self.closeView()
                     }
                 }
             
@@ -246,7 +251,7 @@ extension CreateRecordMainView {
                 .onTapGesture {
                     let isSuccess = vm.onDeletePressed()
                     if isSuccess {
-                        self.presentationMode.wrappedValue.dismiss()
+                        self.closeView()
                     }
                 }
             

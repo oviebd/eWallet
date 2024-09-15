@@ -18,14 +18,31 @@ class AllRecordsVM : ObservableObject {
     @Published var filteredData : RecordFilterData = RecordFilterData()
    // @Published var chartDatas : [Date:String] = [Date:String]()
     
+    
+    @Published var searchText: String = ""
     private var cancellables = Set<AnyCancellable>()
     
     
     
     init() {
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
+        
+        
+        $searchText
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink { [weak self] newText in
+                if  self?.searchText.isEmptyString() == false{
+                    self?.filteredData.searchText = self?.searchText
+                }else{
+                    self?.filteredData.searchText = nil
+                }
+                
+            }
+            .store(in: &cancellables)
+        
+        
         $filteredData.sink { [weak self] value in
-            self?.recordListByDateData = RecordListByDateData()
+
             self?.recordsList = self?.recordRepo.getFilteredDatas(recordFilterData: value) ?? []
             self?.recordListByDateData.prepareDatas(datas: self?.recordsList ?? [])
             

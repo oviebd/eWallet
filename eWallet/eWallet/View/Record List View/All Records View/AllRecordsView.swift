@@ -18,7 +18,7 @@ struct AllRecordsView: View {
     let maxHeight: CGFloat = 40 // UIScreen.main.bounds.height / 2.3
     var topEdge: CGFloat
     @State var offset: CGFloat = 0
-    @State var searchText: String = ""
+    
 
     // @State var filteredData : RecordFilterData?
 
@@ -32,7 +32,7 @@ struct AllRecordsView: View {
                 VStack(spacing: 0) {
                     GeometryReader { _ in
 
-                        CustomSearchView(searchText: $searchText, offset: $offset, onSearchPressed: { _ in
+                        CustomSearchView(searchText: $vm.searchText, offset: $offset, onSearchPressed: { _ in
 
                         })
 

@@ -18,7 +18,6 @@ struct RecordListByAccountView: View {
     @State var offset: CGFloat = 0
     @State var searchText: String = ""
 
-    // @State var filteredData : RecordFilterData?
 
     var body: some View {
         VStack(spacing: 0) {

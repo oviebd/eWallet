@@ -11,7 +11,7 @@ struct TopBarView: View {
     
     var topEdge : CGFloat
     @Binding var offset : CGFloat
-    var maxHeight : CGFloat
+   
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15){
@@ -48,5 +48,5 @@ struct TopBarView: View {
 }
 
 #Preview {
-    TopBarView(topEdge: 500, offset: .constant(10), maxHeight: 200)
+    TopBarView(topEdge: 500, offset: .constant(10))
 }

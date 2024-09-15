@@ -79,6 +79,7 @@ extension HomeView {
             .foregroundStyle(.white)
 
             .onTapGesture {
+                vm.selectedRecordData = nil
                 vm.isCreateRecordButtonPressed = true
             }
     }
