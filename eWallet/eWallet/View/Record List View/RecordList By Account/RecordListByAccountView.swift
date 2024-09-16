@@ -43,8 +43,10 @@ struct RecordListByAccountView: View {
                         ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted { $0 > $1 }, id: \.self) { item in
 
                             let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records){ _ in
+                            DateWiseRecordListItem(date: item, dataList: records){ recordData in
                                 
+                                vm.selectedRecordData = recordData
+                                vm.goRecordScreen = true
                             }
                         }
                         
@@ -63,8 +65,10 @@ struct RecordListByAccountView: View {
             Spacer()
         }
         .background(Color.theme.accountGridCardBG)
+        .popover(isPresented: $vm.goRecordScreen) {
+            CreateRecordMainView(recordData: vm.selectedRecordData)
+        }
         .edgesIgnoringSafeArea(.bottom)
-
         .navigationBarHidden(true)
     }
 }

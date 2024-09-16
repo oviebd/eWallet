@@ -45,11 +45,16 @@ class UtiltyHelper {
         return chartData
     }
 
-    static func preparePieChartDataFrom(recordList: [RecordData]) -> PieChartData {
+    static func preparePieChartDataFrom(recordList: [RecordData],recordType : RecordTypeEnum? = nil) -> PieChartData {
       
         var pieDataDic: [String: SinglePieChartData] = [:]
 
         for record in recordList {
+            
+            if let type = recordType, type.rawValue !=  record.recordType {
+                continue
+            }
+            
             let key: String = record.catagory?.id ?? ""
             if pieDataDic[key] == nil {
                 pieDataDic[key] = SinglePieChartData(id: key, key: record.catagory?.title ?? "", value: record.amount)

@@ -26,6 +26,13 @@ struct SinglePieChartData : Identifiable  {
 
 struct PieChartData   {
     var datas : [SinglePieChartData] = [SinglePieChartData]()
+    var totalValue : Double {
+        var sum = 0.0
+        for data in datas {
+            sum += data.value
+        }
+        return sum
+    }
 }
 
 class ChartDataUtility {

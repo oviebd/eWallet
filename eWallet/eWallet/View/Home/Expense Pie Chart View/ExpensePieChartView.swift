@@ -12,18 +12,33 @@ struct ExpensePieChartView: View {
     @StateObject var vm = ExpensePieChartVM()
    
     var body: some View {
+     
         VStack {
-            HStack {
-                Text("Expenses")
-                    .font(.system(size: 18))
+            
+            ZStack(alignment:.topTrailing){
+                Text("Last 30 days")
+                    .font(.system(size: 12))
                     .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                    .padding(.top, 20)
-                // .padding(.bottom,10)
+                    .padding(.leading, 20)
+                    .padding(10)
+                    .foregroundStyle(Color.theme.accountGridCardBG)
+                
+                HStack (spacing:0){
+                    Text("Expenses - ")
+                        .font(.system(size: 18))
+                        .fontWeight(.bold)
+                        .padding(.leading, 20)
+                        .padding(.top, 20)
+                    
+                    Text("\(vm.expensePieChartDataOf30Days.totalValue.to2Decimal())")
+                        .font(.system(size: 15))
+                        .fontWeight(.bold)
+                        .padding(.top, 20)
 
-                Spacer()
+                    Spacer()
+                }.foregroundStyle(Color.theme.darkRed)
             }
-
+            
             PieChartView(defaultData: $vm.expensePieChartDataOf30Days)
                // .frame(width: .infinity)
                 .frame(height: 200)

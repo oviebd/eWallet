@@ -16,17 +16,21 @@ class RecordListVM : ObservableObject {
     
     init() {
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
-        initAccountSubscription()
+        initSubscription()
     }
 
-    func initAccountSubscription(){
-        let _ = recordRepo.getRecords()
-        recordRepo.$recordList.sink { [weak self] recordList in
+    func initSubscription(){
+        
+        recordRepo.$isRecordDbChanged.sink { [weak self] isChanged in
             DispatchQueue.main.async {
-                self?.recordsList = Array(recordList.prefix(3))
+                self?.fetchData()
             }
-          
         }.store(in: &cancellables)
+    }
+    
+    func fetchData(){
+        recordsList = recordRepo.getRecords()
+        recordsList = Array(recordsList.prefix(3))
     }
     deinit {
         cancellables.removeAll()

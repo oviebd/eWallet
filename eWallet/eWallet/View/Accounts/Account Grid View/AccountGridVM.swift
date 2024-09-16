@@ -24,7 +24,7 @@ class AccountGridVM : ObservableObject {
 
     func initRecordSubscription(){
             let _ = recordRepo.getRecords()
-            recordRepo.$recordList.sink { [weak self] recordList in
+            recordRepo.$isRecordDbChanged.sink { [weak self] isChanged in
                 DispatchQueue.main.async {
                     self?.accountList = self?.accountRepo.getAccounts() ?? []
                 }

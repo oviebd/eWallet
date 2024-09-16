@@ -34,7 +34,8 @@ class RecordDataRepository {
     private static var sharedInstance: RecordDataRepository!
 
     var recordRepo: RecordDataRepoProtocol
-    @Published var recordList = [RecordData]()
+    @Published private var recordList = [RecordData]()
+    @Published var isRecordDbChanged = false
 
     private init(recordRepo: RecordDataRepoProtocol) {
         self.recordRepo = recordRepo
@@ -68,6 +69,7 @@ class RecordDataRepository {
     func addRecord(recordData: RecordData) -> Bool {
         let isSuccess = recordRepo.addRecord(recordData: recordData)
         if isSuccess {
+            isRecordDbChanged = true
             let _ = getRecords()
         }
         return isSuccess
@@ -76,6 +78,7 @@ class RecordDataRepository {
     func editRecord(recordData: RecordData) -> Bool {
         let isSuccess = recordRepo.editRecord(recordData: recordData)
         if isSuccess {
+            isRecordDbChanged = true
             let _ = getRecords()
         }
         return isSuccess
@@ -84,6 +87,7 @@ class RecordDataRepository {
     func deleteRecord(recordData: RecordData) -> Bool{
         let isSuccess = recordRepo.deleteRecord(recordData: recordData)
         if isSuccess {
+            isRecordDbChanged = true
             let _ = getRecords()
         }
         return isSuccess
