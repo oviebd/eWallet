@@ -37,6 +37,11 @@ struct HomeView: View {
 
                             ExpensePieChartView()
                                 .padding(.horizontal, 20)
+                            
+                            CashFlowView()
+                                .padding(.top,20)
+                                .padding(.horizontal, 20)
+                            
 
                             Spacer()
                         }

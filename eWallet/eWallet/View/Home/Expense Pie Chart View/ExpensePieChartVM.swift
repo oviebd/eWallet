@@ -11,7 +11,6 @@ import Combine
 
 class ExpensePieChartVM : ObservableObject {
     
-    
     var recordRepo: RecordDataRepository
     @Published var expensePieChartDataOf30Days: PieChartData = PieChartData(datas: [])
     private var cancellables = Set<AnyCancellable>()

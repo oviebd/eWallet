@@ -27,6 +27,8 @@
 		7B821F112BF7B85300D3DC76 /* CategoryListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */; };
 		7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA09A302C49FADA0047575C /* CreateRecordVM.swift */; };
 		7BAD48162C6B69CF00D795C6 /* CoreDataAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */; };
+		7BB666952C98116300A851CB /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB666942C98116300A851CB /* CustomProgressView.swift */; };
+		7BB666982C9813EA00A851CB /* CashFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB666972C9813EA00A851CB /* CashFlowView.swift */; };
 		7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */; };
 		7BBBC79D2BB02FED00B417E0 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */; };
 		7BBBC79F2BB030E400B417E0 /* ChooseAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */; };
@@ -151,6 +153,8 @@
 		7B821F102BF7B85300D3DC76 /* CategoryListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVm.swift; sourceTree = "<group>"; };
 		7BA09A302C49FADA0047575C /* CreateRecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordVM.swift; sourceTree = "<group>"; };
 		7BAD48152C6B69CF00D795C6 /* CoreDataAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccountTest.swift; sourceTree = "<group>"; };
+		7BB666942C98116300A851CB /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		7BB666972C9813EA00A851CB /* CashFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowView.swift; sourceTree = "<group>"; };
 		7BB934992BFA5A2000322AED /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
 		7BBBC79C2BB02FED00B417E0 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
 		7BBBC79E2BB030E400B417E0 /* ChooseAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountItemView.swift; sourceTree = "<group>"; };
@@ -336,6 +340,22 @@
 				7B821F042BF79B1200D3DC76 /* CoreDataContainer.xcdatamodeld */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		7BB666932C98114000A851CB /* Custom Progress */ = {
+			isa = PBXGroup;
+			children = (
+				7BB666942C98116300A851CB /* CustomProgressView.swift */,
+			);
+			path = "Custom Progress";
+			sourceTree = "<group>";
+		};
+		7BB666962C9813D000A851CB /* CashFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				7BB666972C9813EA00A851CB /* CashFlowView.swift */,
+			);
+			path = CashFlowView;
 			sourceTree = "<group>";
 		};
 		7BB934982BFA59CB00322AED /* Repository */ = {
@@ -556,6 +576,7 @@
 		F34B45512B8CED6800434B42 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7BB666962C9813D000A851CB /* CashFlowView */,
 				F390162D2C9041DF00DD3E80 /* Expense Pie Chart View */,
 				F34B45522B8CED7A00434B42 /* HomeView.swift */,
 				7B549A652C016AEB0054AD70 /* HomeVm.swift */,
@@ -566,6 +587,7 @@
 		F34B45542B8CEDB900434B42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7BB666932C98114000A851CB /* Custom Progress */,
 				F39A39FE2C911C5800DFA736 /* Chart */,
 				F3C6E2962C8753C900DD14DD /* Search Component */,
 				F3CBE4EC2C82195F007DE23A /* Divider */,
@@ -906,6 +928,7 @@
 				F39A6DA12BABF45C0006E60E /* WebViewTest.swift in Sources */,
 				F317D98A2BAB02F0003BB60A /* RecordTypeSegmentedView.swift in Sources */,
 				7BF0D2722C4C8CA900A34A5A /* CategoryDataRepository.swift in Sources */,
+				7BB666982C9813EA00A851CB /* CashFlowView.swift in Sources */,
 				7BA09A312C49FADA0047575C /* CreateRecordVM.swift in Sources */,
 				F30448972C6DA29800A6485B /* OffsetModifier.swift in Sources */,
 				F3835D4C2BF21CD200D78E6B /* ListData.swift in Sources */,
@@ -967,6 +990,7 @@
 				F34B45592B8CF2CD00434B42 /* AccountGridItemView.swift in Sources */,
 				F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
+				7BB666952C98116300A851CB /* CustomProgressView.swift in Sources */,
 				F30448942C6D9F0C00A6485B /* CustomCorner.swift in Sources */,
 				7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */,
 				7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */,
