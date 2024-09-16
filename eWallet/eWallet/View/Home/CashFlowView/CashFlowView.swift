@@ -14,29 +14,41 @@ struct CashFlowView: View {
      
         VStack {
             
-            ZStack(alignment:.topTrailing){
-                Text("Last 30 days")
-                    .font(.system(size: 12))
-                    .fontWeight(.bold)
-                    .padding(.leading, 20)
-                    .padding(10)
-                    .foregroundStyle(Color.theme.accountGridCardBG)
-                
-                HStack (spacing:0){
-                    Text("Expenses - ")
-                        .font(.system(size: 18))
+            VStack{
+                ZStack(alignment:.topTrailing){
+                    Text("Last 30 days")
+                        .font(.system(size: 12))
                         .fontWeight(.bold)
                         .padding(.leading, 20)
-                        .padding(.top, 20)
+                        .padding(10)
+                        .foregroundStyle(Color.theme.accountGridCardBG)
                     
-                    Text("\(vm.expensePieChartDataOf30Days.totalValue.to2Decimal())")
-                        .font(.system(size: 15))
+                    HStack (spacing:0){
+                        Text("Cash Flow ")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                            .padding(.top, 20)
+                        Spacer()
+                    }.foregroundStyle(Color.theme.primaryText)
+                }
+                
+                HStack (spacing:0){
+                    Text("Income")
+                        .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
-
+                        
+                        
                     Spacer()
-                }.foregroundStyle(Color.theme.darkRed)
-            }
+                }.foregroundStyle(Color.theme.primaryText)
+                    .padding(.top, 20)
+                
+                
+            } .padding(.leading, 20)
+            
+             
+            
+          
+            
             
             CustomProgressView(fillColor: Color.theme.accountGridCardBG, maxValue: 100, currentValue: .constant(50))
                // .frame(width: .infinity)
