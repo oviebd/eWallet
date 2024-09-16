@@ -18,6 +18,7 @@ struct DefaultFormPicker: View {
     var iconBgShape : BgShapeType = .roundedRectangle
     var iconBgColor : Color = .green
     var iconForgroundColor : Color = .white
+    @Binding var isEditable : Bool
    
     
     var onItemPresesd : () -> Void
@@ -50,12 +51,15 @@ struct DefaultFormPicker: View {
                 .foregroundStyle(getRightTitleBgColor())
                 .font(.system(size: 16))
             
-            Image(systemName: "chevron.compact.right")
-                .resizable()
-                .frame(width: 7, height: 10)
-                .foregroundStyle(getRightTitleBgColor())
-                .offset(y:1.5)
-                .padding(.leading,5)
+            if isEditable {
+                Image(systemName: "chevron.compact.right")
+                    .resizable()
+                    .frame(width: 7, height: 10)
+                    .foregroundStyle(getRightTitleBgColor())
+                    .offset(y:1.5)
+                    .padding(.leading,5)
+            }
+            
         }
         .onTapGesture {
             onItemPresesd()
@@ -83,7 +87,7 @@ struct DefaultFormPicker: View {
 }
 
 #Preview {
-    DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "Eastern Bank", isRequired: true, iconBgShape: .circle, iconBgColor: .green){
+    DefaultFormPicker(iconName: "bag", mainTitle: "Account", rightTitle: "Eastern Bank", isRequired: true, iconBgShape: .circle, iconBgColor: .green, isEditable: .constant(true)){
         
     }
 }

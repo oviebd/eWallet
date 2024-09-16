@@ -177,7 +177,8 @@ extension RecordFilterView {
             DefaultFormPicker(iconName: "",
                               mainTitle: "Select Account",
                               rightTitle: selectedAccount?.title ?? "Select",
-                              iconBgShape: .none) {
+                              iconBgShape: .none,
+                              isEditable : .constant(true)) {
                 isSelectAccountPressed = true
             }.frame(height: isDragUp ? 60 : 0)
                 .hidden(!isDragUp)
@@ -188,7 +189,8 @@ extension RecordFilterView {
             DefaultFormPicker(iconName: "",
                               mainTitle: "Select Category",
                               rightTitle: selectedCategory?.title ?? "Select",
-                              iconBgShape: .none) {
+                              iconBgShape: .none,
+                              isEditable : .constant(true)) {
                 isSelectCategoryPressed = true
             }.frame(height: isDragUp ? 60 : 0)
                 .hidden(!isDragUp)

@@ -128,22 +128,8 @@ struct CDRecordRepository: RecordDataRepoProtocol {
     }
 
     func addRecord(recordData: RecordData) -> Bool {
-        let newRecord = RecordEntity(context: manager.context)
-        newRecord.note = recordData.note
-        newRecord.amount = recordData.amount
-        newRecord.id = recordData.id
-        newRecord.type = recordData.recordType
-        newRecord.date = recordData.date
-
-
-        let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
-        let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
-        let fromAccountEntity = accountRepo.getAccountEntityFromId(id: recordData.fromAccount?.id ?? "")
-
-        newRecord.category = categoryEntity
-        newRecord.account = accountEntity
-        newRecord.fromAccount = fromAccountEntity
-
+        var record = RecordEntity(context: manager.context)
+        prepareRecordEntityFrom(recordData: recordData,recordEntity: &record)
        
         let isRecordCreated = manager.save()
       
@@ -159,8 +145,22 @@ struct CDRecordRepository: RecordDataRepoProtocol {
     }
 
     func editRecord(recordData: RecordData) -> Bool {
-       // _ = getRecordEntityById(id: recordData.id)
-        return true
+        guard var recordEntity = getRecordEntityFromId(id: recordData.id) else{
+            return false
+        }
+        prepareRecordEntityFrom(recordData: recordData,recordEntity: &recordEntity)
+       
+        let isRecordCreated = manager.save()
+      
+        if isRecordCreated == false{
+            return false
+        }
+
+//        if isRecordCreated {
+//            _ = updateAccountsByRecordData(recordData: recordData)
+//        }
+
+        return isRecordCreated
     }
 
     func deleteRecord(recordData: RecordData) -> Bool {
@@ -176,6 +176,24 @@ struct CDRecordRepository: RecordDataRepoProtocol {
 
         return isSuccess
     }
+    
+    func prepareRecordEntityFrom(recordData : RecordData,recordEntity : inout RecordEntity){
+     
+        recordEntity.note = recordData.note
+        recordEntity.amount = recordData.amount
+        recordEntity.id = recordData.id
+        recordEntity.type = recordData.recordType
+        recordEntity.date = recordData.date
+
+
+        let categoryEntity = CategoryDataRepository.shared(categoryRepo: CDCategoryRepository()).getCategoryEntityFromId(id: recordData.catagory?.id ?? "")
+        let accountEntity = accountRepo.getAccountEntityFromId(id: recordData.account?.id ?? "")
+        let fromAccountEntity = accountRepo.getAccountEntityFromId(id: recordData.fromAccount?.id ?? "")
+
+        recordEntity.category = categoryEntity
+        recordEntity.account = accountEntity
+        recordEntity.fromAccount = fromAccountEntity
+    }
 }
 
 extension CDRecordRepository {
@@ -184,7 +202,7 @@ extension CDRecordRepository {
         let recordType = RecordTypeEnum(rawValue: recordData.recordType)
         let accountId : String = recordData.account?.id ?? ""
         let fromAccountId : String = recordData.fromAccount?.id ?? ""
-        let amount = recordData.amount
+     //   let amount = recordData.amount
         
         switch recordType {
         case .INCOME:

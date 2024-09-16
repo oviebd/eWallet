@@ -46,7 +46,8 @@ struct CreateRecordMainView: View {
                             }
                             .pickerStyle(.segmented)
 
-                        }.padding(.horizontal, 20)
+                        }.allowsHitTesting(hasInteraction())
+                        .padding(.horizontal, 20)
                             .background(Color.theme.accountGridCardBG)
 
                         addNumberView
@@ -92,6 +93,10 @@ struct CreateRecordMainView: View {
         self.presentationMode.wrappedValue.dismiss()
        
     }
+    //.allowsHitTesting(false)
+    func hasInteraction() -> Bool {
+        return !vm.isEdit
+    }
 }
 
 #Preview {
@@ -110,6 +115,7 @@ extension CreateRecordMainView {
                 .font(.system(size: 70))
                 .minimumScaleFactor(0.01)
                 .fontWeight(.semibold)
+                .allowsHitTesting(hasInteraction())
               //  .disabled(true)
 
             Text("BDT")
@@ -140,9 +146,9 @@ extension CreateRecordMainView {
             DefaultFormPicker(iconName: "bag",
                               mainTitle: vm.selectedRecordType == .TRANSFER ? "To Account" : "Account",
                               rightTitle: vm.account?.title ?? "",
-                              isRequired: true) {
+                              isRequired: true, isEditable : .constant(hasInteraction())) {
                 vm.isAccountTypePressed = true
-            }
+            }.allowsHitTesting(hasInteraction())
             .padding(.horizontal, 20)
             .padding(.vertical, formItemVerticalPadding)
          //   .padding(.top, formItemVerticalPadding)
@@ -154,9 +160,10 @@ extension CreateRecordMainView {
                                   mainTitle: "From Account",
                                   rightTitle: vm.fromAccount?.title ?? "",
                                   isRequired: true,
-                                  iconBgShape: .roundedRectangle) {
+                                  iconBgShape: .roundedRectangle,
+                                  isEditable : .constant(hasInteraction())) {
                     vm.isFromAccountTypePressed = true
-                }
+                }.allowsHitTesting(hasInteraction())
                 .padding(.horizontal, 20)
                 .padding(.vertical, formItemVerticalPadding)
 
@@ -166,7 +173,8 @@ extension CreateRecordMainView {
                                   rightTitle: vm.selectedCategoryData?.title ?? "",
                                   isRequired: true,
                                   iconBgShape: .circle,
-                                  iconBgColor: .gray) {
+                                  iconBgColor: .gray,
+                                  isEditable : .constant(true)) {
                     vm.isSelectCategoryPressed = true
                 }
                 .padding(.horizontal, 20)
@@ -181,7 +189,8 @@ extension CreateRecordMainView {
                               rightTitle: vm.selectedDate.asShortDateString(),
                               iconBgShape: .none,
                               iconBgColor: .green,
-                              iconForgroundColor: .gray) {
+                              iconForgroundColor: .gray,
+                              isEditable : .constant(true)) {
                 withAnimation(.easeInOut(duration: 0.5)) {
                     vm.showDatePicker.toggle()
                 }
@@ -209,7 +218,8 @@ extension CreateRecordMainView {
                               rightTitle: vm.noteText,
                               iconBgShape: .none,
                               iconBgColor: .green,
-                              iconForgroundColor: .gray) {
+                              iconForgroundColor: .gray,
+                              isEditable : .constant(true)) {
                 vm.isAddNotePressed = true
             }.padding(.horizontal, 20)
                 .padding(.vertical, formItemVerticalPadding)

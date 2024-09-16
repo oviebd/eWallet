@@ -50,14 +50,18 @@ struct SwipeToResizeView: View {
                 )
             
             VStack(spacing: 0) {
-                DefaultFormPicker(iconName: "", mainTitle: "Select Account", rightTitle: "Select", iconBgShape: .none) {
+                DefaultFormPicker(iconName: "",
+                                  mainTitle: "Select Account",
+                                  rightTitle: "Select",
+                                  iconBgShape: .none,
+                                  isEditable : .constant(true)) {
                 }.frame(height: isDragUp ? 60 : 0)
                     .hidden(!isDragUp)
 
                 DefaultDividerView()
                     .hidden(!isDragUp)
 
-                DefaultFormPicker(iconName: "", mainTitle: "Select Category", rightTitle: "Select", iconBgShape: .none) {
+                DefaultFormPicker(iconName: "", mainTitle: "Select Category", rightTitle: "Select", iconBgShape: .none, isEditable : .constant(true)) {
                 }.frame(height: isDragUp ? 60 : 0)
                     .hidden(!isDragUp)
             }.frame(height: isDragUp ? 125 : 0)
