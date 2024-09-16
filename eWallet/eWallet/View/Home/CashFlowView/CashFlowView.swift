@@ -14,14 +14,15 @@ struct CashFlowView: View {
      
         VStack {
             
-            VStack{
+            VStack (spacing: 0){
                 ZStack(alignment:.topTrailing){
-                    Text("Last 30 days")
+                    Text("This Month")
                         .font(.system(size: 12))
                         .fontWeight(.bold)
-                        .padding(.leading, 20)
                         .padding(10)
                         .foregroundStyle(Color.theme.accountGridCardBG)
+                        .offset(x: 20)
+                        .offset(y : -5)
                     
                     HStack (spacing:0){
                         Text("Cash Flow ")
@@ -30,38 +31,18 @@ struct CashFlowView: View {
                             .padding(.top, 20)
                         Spacer()
                     }.foregroundStyle(Color.theme.primaryText)
-                }
+                }.padding(.top,5)
                 
-                HStack (spacing:0){
-                    Text("Income")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                        
-                        
-                    Spacer()
-                }.foregroundStyle(Color.theme.primaryText)
-                    .padding(.top, 20)
+               incomeView
+                    .padding(.top,10)
+                
+               expenseView
+                    .padding(.top,10)
+                    .padding(.bottom,30)
                 
                 
-            } .padding(.leading, 20)
+            } .padding(.horizontal, 20)
             
-             
-            
-          
-            
-            
-            CustomProgressView(fillColor: Color.theme.accountGridCardBG, maxValue: 100, currentValue: .constant(50))
-               // .frame(width: .infinity)
-                .frame(height: 20)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 10)
-            
-            CustomProgressView(fillColor: Color.theme.darkRed, maxValue: 100, currentValue: .constant(80))
-               // .frame(width: .infinity)
-                .frame(height: 20)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 30)
-
         }.background(
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.theme.primaryBG)
@@ -72,4 +53,46 @@ struct CashFlowView: View {
 
 #Preview {
     CashFlowView()
+}
+
+extension CashFlowView {
+    var incomeView : some View {
+        VStack(spacing : 10) {
+            HStack (spacing:0){
+                Text("Income")
+                    
+                Spacer()
+                
+                Text("20,000")
+                    
+            }.foregroundStyle(Color.theme.accountGridCardBG)
+                .font(.system(size: 18))
+                .fontWeight(.bold)
+            
+            
+            CustomProgressView(fillColor: Color.theme.accountGridCardBG, maxValue: 100, currentValue: .constant(50))
+                .frame(height: 25)
+        }
+        
+    }
+    
+    var expenseView : some View {
+        VStack(spacing : 10) {
+            HStack (spacing:0){
+                Text("Expense")
+                    
+                Spacer()
+                
+                Text("20,000")
+                    
+            }.foregroundStyle( Color.theme.darkRed)
+                .font(.system(size: 18))
+                .fontWeight(.bold)
+            
+            
+            CustomProgressView(fillColor: Color.theme.darkRed, maxValue: 100, currentValue: .constant(100))
+                .frame(height: 25)
+        }
+        
+    }
 }
