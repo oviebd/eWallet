@@ -14,7 +14,7 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .bottom) {
+            ZStack(alignment: .bottomTrailing) {
                 VStack(spacing: 0) {
                     CommonTopBar(data: topBarConfig)
                     ScrollView(showsIndicators: false) {
@@ -49,6 +49,7 @@ struct HomeView: View {
                 }
 
                 floatingAddRecordButton
+                    .offset(x:-40, y : -30)
             }
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
@@ -75,14 +76,16 @@ struct HomeView: View {
 
 extension HomeView {
     var floatingAddRecordButton: some View {
-        Text("Add")
-
-            .padding(.horizontal, 25)
-            .padding(.vertical, 6)
-            .font(.system(size: 16))
-            .WithDefaultRectangularBgModifier(bgColor: Color.theme.accountGridCardBG, cornerRadius: 10)
-            .foregroundStyle(.white)
-
+        
+        Image(systemName: "plus")
+            .resizable()
+            .frame(width: 30, height: 30)
+            .padding()
+            
+            .background(
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Color.theme.accountGridCardBG)
+            ).foregroundStyle(Color.white)
             .onTapGesture {
                 vm.selectedRecordData = nil
                 vm.isCreateRecordButtonPressed = true

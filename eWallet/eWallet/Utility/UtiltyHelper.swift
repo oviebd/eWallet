@@ -66,12 +66,26 @@ class UtiltyHelper {
         }
 
         var singleBarDatas: [SinglePieChartData] = [SinglePieChartData]()
-        for (key, value) in pieDataDic {
+        for (key, _) in pieDataDic {
             if let data = pieDataDic[key] {
                 singleBarDatas.append(data)
             }
         }
 
         return PieChartData(datas: singleBarDatas)
+    }
+    
+    static func prepareCashFlowDataFrom(recordList: [RecordData]) -> CashFlowData {
+        var income = 0.0
+        var expense = 0.0
+        for record in recordList {
+            if record.recordType == RecordTypeEnum.EXPENSE.rawValue {
+                expense += record.amount
+            }
+            else if record.recordType == RecordTypeEnum.INCOME.rawValue {
+                income += record.amount
+            }
+        }
+        return CashFlowData(expenseAmount: expense, incomeAmount: income)
     }
 }

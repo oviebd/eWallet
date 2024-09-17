@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CashFlowView: View {
-    @StateObject var vm = ExpensePieChartVM()
+    @StateObject var vm = CashFlowVM()
    
     var body: some View {
      
@@ -25,7 +25,7 @@ struct CashFlowView: View {
                         .offset(y : -5)
                     
                     HStack (spacing:0){
-                        Text("Cash Flow ")
+                        Text("Cash Flow")
                             .font(.system(size: 18))
                             .fontWeight(.bold)
                             .padding(.top, 20)
@@ -63,14 +63,14 @@ extension CashFlowView {
                     
                 Spacer()
                 
-                Text("20,000")
+                Text(vm.cashFlowData.incomeAmount.to2Decimal())
                     
             }.foregroundStyle(Color.theme.accountGridCardBG)
                 .font(.system(size: 18))
                 .fontWeight(.bold)
             
             
-            CustomProgressView(fillColor: Color.theme.accountGridCardBG, maxValue: 100, currentValue: .constant(50))
+            CustomProgressView(fillColor: Color.theme.accountGridCardBG, maxValue: vm.cashFlowData.maxValue, currentValue: .constant(vm.cashFlowData.incomeAmount))
                 .frame(height: 25)
         }
         
@@ -83,14 +83,14 @@ extension CashFlowView {
                     
                 Spacer()
                 
-                Text("20,000")
+                Text(vm.cashFlowData.expenseAmount.to2Decimal())
                     
-            }.foregroundStyle( Color.theme.darkRed)
+            }.foregroundStyle(Color.theme.darkRed)
                 .font(.system(size: 18))
                 .fontWeight(.bold)
             
             
-            CustomProgressView(fillColor: Color.theme.darkRed, maxValue: 100, currentValue: .constant(100))
+            CustomProgressView(fillColor: Color.theme.darkRed, maxValue: vm.cashFlowData.maxValue, currentValue: .constant(vm.cashFlowData.expenseAmount))
                 .frame(height: 25)
         }
         

@@ -101,6 +101,7 @@
 		F3AD988C2C8861410065719F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988B2C8861410065719F /* View.swift */; };
 		F3AD988E2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988D2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift */; };
 		F3AD98902C88C1DE0065719F /* CategoryDataRepository_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD988F2C88C1DE0065719F /* CategoryDataRepository_Test.swift */; };
+		F3B3969B2C99428900578EE3 /* CashFlowVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3969A2C99428900578EE3 /* CashFlowVM.swift */; };
 		F3B5BD1F2C057AA300ED9A7F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */; };
 		F3BD5C492BF2F1A900DB5F7A /* RecordHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */; };
 		F3C6E2982C87548000DD14DD /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6E2972C87548000DD14DD /* CustomSearchView.swift */; };
@@ -229,6 +230,7 @@
 		F3AD988B2C8861410065719F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F3AD988D2C88B4D70065719F /* CDRecordRepository_FilteredRecordData_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRecordRepository_FilteredRecordData_Test.swift; sourceTree = "<group>"; };
 		F3AD988F2C88C1DE0065719F /* CategoryDataRepository_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataRepository_Test.swift; sourceTree = "<group>"; };
+		F3B3969A2C99428900578EE3 /* CashFlowVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowVM.swift; sourceTree = "<group>"; };
 		F3B5BD1E2C057AA300ED9A7F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F3BD5C482BF2F1A900DB5F7A /* RecordHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHeaderView.swift; sourceTree = "<group>"; };
 		F3C6E2972C87548000DD14DD /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				7BB666972C9813EA00A851CB /* CashFlowView.swift */,
+				F3B3969A2C99428900578EE3 /* CashFlowVM.swift */,
 			);
 			path = CashFlowView;
 			sourceTree = "<group>";
@@ -991,6 +994,7 @@
 				F3CBE4EB2C81FC3C007DE23A /* DefaultFormPicker.swift in Sources */,
 				F3835D482BF210BB00D78E6B /* SingleRecordItem.swift in Sources */,
 				7BB666952C98116300A851CB /* CustomProgressView.swift in Sources */,
+				F3B3969B2C99428900578EE3 /* CashFlowVM.swift in Sources */,
 				F30448942C6D9F0C00A6485B /* CustomCorner.swift in Sources */,
 				7BB9349A2BFA5A2000322AED /* CDCategoryRepository.swift in Sources */,
 				7BF0D2702C4C883E00A34A5A /* AccountListVM.swift in Sources */,

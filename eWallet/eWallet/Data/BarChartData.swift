@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct SingleBarChartData: Identifiable {
     var id = UUID()
     var date: Date
@@ -32,6 +33,18 @@ struct PieChartData   {
             sum += data.value
         }
         return sum
+    }
+}
+
+struct CashFlowData {
+    var expenseAmount : Double
+    var incomeAmount : Double
+    
+    var maxValue : Double {
+        if expenseAmount > incomeAmount {
+            return expenseAmount
+        }
+        return incomeAmount
     }
 }
 
