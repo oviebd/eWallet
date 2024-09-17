@@ -62,6 +62,8 @@ struct RecordFilterView: View {
 
     @State var selectedAccount: AccountData?
     @State var selectedCategory: CategoryData?
+    
+   
 
     var body: some View {
         Spacer()

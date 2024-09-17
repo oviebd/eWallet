@@ -41,6 +41,7 @@ struct HomeView: View {
                             CashFlowView()
                                 .padding(.top,40)
                                 .padding(.horizontal, 20)
+                                .padding(.bottom,100)
                             
 
                             Spacer()

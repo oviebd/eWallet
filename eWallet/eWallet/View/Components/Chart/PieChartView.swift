@@ -13,11 +13,23 @@ struct PieChartView: View {
     @Binding var defaultData : PieChartData
 
     var body: some View {
-        Chart(defaultData.datas) { data in
-            SectorMark(angle: .value("Amount", data.value),
-                       innerRadius: .ratio(0.6)
-            ).foregroundStyle(by: .value("Name", data.key))
+      
+        VStack{
+            if defaultData.datas.count <= 0 {
+                Text("No Data")
+                    .font(.system(size: 30))
+                    .bold()
+            }else{
+                Chart(defaultData.datas) { data in
+                    SectorMark(angle: .value("Amount", data.value),
+                               innerRadius: .ratio(0.6)
+                    ).foregroundStyle(by: .value("Name", data.key))
+                }
+            }
+           
         }
+        
+      
     }
 }
 

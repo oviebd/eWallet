@@ -20,50 +20,58 @@ struct RecordListByAccountView: View {
 
 
     var body: some View {
-        VStack(spacing: 0) {
-            CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
-                self.presentationMode.wrappedValue.dismiss()
-            })
+        ZStack(alignment: .bottomTrailing){
+            VStack(spacing: 0) {
+                CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
 
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
-                    GeometryReader { _ in
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        GeometryReader { _ in
 
-                        AreaChartView(offset: $offset, chartDatas: $vm.chartData)
-                            .padding(.bottom, 20)
-                            .padding(.top, 10)
-                            .padding(.horizontal, 20)
-                            .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.accountGridCardBG))
+                            AreaChartView(offset: $offset, chartDatas: $vm.chartData)
+                                .padding(.bottom, 20)
+                                .padding(.top, 10)
+                                .padding(.horizontal, 20)
+                                .background(RoundedRectangle(cornerRadius: 0).fill(Color.theme.accountGridCardBG))
 
-                    }.frame(height: maxHeight)
-                        .offset(y: -offset)
-                        .zIndex(1)
+                        }.frame(height: maxHeight)
+                            .offset(y: -offset)
+                            .zIndex(1)
 
-                    VStack(spacing: 15) {
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted { $0 > $1 }, id: \.self) { item in
+                        VStack(spacing: 15) {
+                            ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted { $0 > $1 }, id: \.self) { item in
 
-                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records){ recordData in
-                                
-                                vm.selectedRecordData = recordData
-                                vm.goRecordScreen = true
+                                let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                                DateWiseRecordListItem(date: item, dataList: records){ recordData in
+                                    
+                                    vm.selectedRecordData = recordData
+                                    vm.goRecordScreen = true
+                                }
                             }
+                            
+                            Rectangle().fill(Color.clear)
+                                .frame(height: 500)
                         }
-                        
-                        Rectangle().fill(Color.clear)
-                            .frame(height: 500)
+                        .padding(.top, 40)
+                        .background(Color.theme.white)
+
+                        .zIndex(0)
                     }
-                    .padding(.top, 40)
-                    .background(Color.theme.white)
-
-                    .zIndex(0)
+                    .modifier(OffsetModifier(offset: $offset))
                 }
-                .modifier(OffsetModifier(offset: $offset))
-            }
-            .coordinateSpace(.named("SCROLL"))
+                .coordinateSpace(.named("SCROLL"))
 
-            Spacer()
+                Spacer()
+            }
+            
+            
+            floatingAddRecordButton
+                .offset(x:-40, y : -50)
         }
+        
+     
         .background(Color.theme.accountGridCardBG)
         .popover(isPresented: $vm.goRecordScreen) {
             CreateRecordMainView(recordData: vm.selectedRecordData)
@@ -75,4 +83,23 @@ struct RecordListByAccountView: View {
 
 #Preview {
     RecordListByAccountView(topEdge: 40)
+}
+
+extension RecordListByAccountView {
+    var floatingAddRecordButton: some View {
+        
+        Image(systemName: "plus")
+            .resizable()
+            .frame(width: 25, height: 25)
+            .padding()
+            
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.theme.accountGridCardBG)
+            ).foregroundStyle(Color.white)
+            .onTapGesture {
+                vm.selectedRecordData = nil
+                vm.goRecordScreen = true
+            }
+    }
 }

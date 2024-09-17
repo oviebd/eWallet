@@ -21,44 +21,53 @@ struct AllRecordsView: View {
 
 
     var body: some View {
-        VStack(spacing: 0) {
-            CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
-                self.presentationMode.wrappedValue.dismiss()
-            })
+        
+        ZStack(alignment : .bottomTrailing){
+            VStack(spacing: 0) {
+                CommonTopBar(data: topBarConfig, onLeftButtonClicked: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
 
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
-                    GeometryReader { _ in
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        GeometryReader { _ in
 
-                        CustomSearchView(searchText: $vm.searchText, offset: $offset, onSearchPressed: { _ in })
+                            CustomSearchView(searchText: $vm.searchText, offset: $offset, onSearchPressed: { _ in })
 
-                    }.frame(height: maxHeight)
-                        .offset(y: -offset)
-                        .zIndex(1)
+                        }.frame(height: maxHeight)
+                            .offset(y: -offset)
+                            .zIndex(1)
 
-                    VStack(spacing: 15) {
-                    
-                        ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted{ $0 > $1 }, id: \.self) { item in
+                        VStack(spacing: 15) {
+                        
+                            ForEach(vm.recordListByDateData.dataByDateDic.keys.sorted{ $0 > $1 }, id: \.self) { item in
 
-                            let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
-                            DateWiseRecordListItem(date: item, dataList: records){ recordData in
-                                vm.selectedRecordData = recordData
-                                vm.goRecordScreen = true
+                                let records = vm.recordListByDateData.dataByDateDic[item] ?? [RecordData]()
+                                DateWiseRecordListItem(date: item, dataList: records){ recordData in
+                                    vm.selectedRecordData = recordData
+                                    vm.goRecordScreen = true
+                                }
                             }
                         }
+                        .padding(.top, 20)
+
+                        .zIndex(0)
                     }
-                    .padding(.top, 20)
-
-                    .zIndex(0)
+                    .modifier(OffsetModifier(offset: $offset))
                 }
-                .modifier(OffsetModifier(offset: $offset))
-            }
-            .coordinateSpace(.named("SCROLL"))
+                .coordinateSpace(.named("SCROLL"))
 
-            Spacer()
-            RecordFilterView(filterData: $vm.filteredData)
-            // SwipeToResizeView()
+                Spacer()
+                RecordFilterView(filterData: $vm.filteredData)
+                // SwipeToResizeView()
+            }
+            
+//            floatingAddRecordButton
+//                .offset(x:-40, y:-140)
+                
         }
+        
+        
         .popover(isPresented: $vm.goRecordScreen) {
             CreateRecordMainView(recordData: vm.selectedRecordData)
         }
@@ -85,3 +94,23 @@ extension AllRecordsView {
         .pickerStyle(.segmented)
     }
 }
+
+extension AllRecordsView {
+    var floatingAddRecordButton: some View {
+        
+        Image(systemName: "plus")
+            .resizable()
+            .frame(width: 25, height: 25)
+            .padding()
+            
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.theme.accountGridCardBG)
+            ).foregroundStyle(Color.white)
+            .onTapGesture {
+                vm.selectedRecordData = nil
+                vm.goRecordScreen = true
+            }
+    }
+}
+
