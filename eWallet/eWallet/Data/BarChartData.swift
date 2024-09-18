@@ -16,6 +16,10 @@ struct SingleBarChartData: Identifiable {
 
 struct BarChartData{
     var datas = [SingleBarChartData]()
+    var headerTitle : String = ""
+    var headerSubtitle : String = ""
+    var currencTitle : String = ""
+    var topLbl : String = ""
 }
 
 struct SinglePieChartData : Identifiable  {

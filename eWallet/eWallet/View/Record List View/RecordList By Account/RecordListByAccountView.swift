@@ -11,12 +11,18 @@ struct RecordListByAccountView: View {
     @Environment(\.presentationMode) var presentationMode
     private let topBarConfig = CommonTopBarData(title: "Records", bgColor: Color.theme.accountGridCardBG, forgroundColor: .white, leftIconName: "xmark", hasShadow: false)
 
-    @StateObject var vm = RecordsListByAccountVM()
+    @StateObject var vm : RecordsListByAccountVM
 
     let maxHeight: CGFloat = 250
     var topEdge: CGFloat
     @State var offset: CGFloat = 0
     @State var searchText: String = ""
+    
+    init(accountData : AccountData?, topEdge : CGFloat) {
+        _vm = StateObject(wrappedValue: RecordsListByAccountVM(accountData: accountData))
+        
+        self.topEdge = topEdge
+    }
 
 
     var body: some View {
@@ -72,7 +78,7 @@ struct RecordListByAccountView: View {
         }
         
      
-        .background(Color.theme.accountGridCardBG)
+        .background(Color.theme.white)
         .popover(isPresented: $vm.goRecordScreen) {
             CreateRecordMainView(recordData: vm.selectedRecordData)
         }
@@ -82,7 +88,7 @@ struct RecordListByAccountView: View {
 }
 
 #Preview {
-    RecordListByAccountView(topEdge: 40)
+    RecordListByAccountView(accountData: nil, topEdge: 40)
 }
 
 extension RecordListByAccountView {

@@ -21,11 +21,15 @@ class RecordsListByAccountVM : ObservableObject {
     @Published var goRecordScreen: Bool = false
     @Published var selectedRecordData: RecordData?
     
+    @Published var selectedAccountData : AccountData?
+    
     private var cancellables = Set<AnyCancellable>()
     
     
-    
-    init() {
+    init(accountData : AccountData?) {
+        self.selectedAccountData = accountData
+        filteredData = RecordFilterData(accountId: accountData?.id)
+        
         recordRepo = RecordDataRepository.shared(recordRepo: CDRecordRepository())
         chartData.datas = ChartDataUtility.chartDataList
         
@@ -45,12 +49,21 @@ class RecordsListByAccountVM : ObservableObject {
         }.store(in: &cancellables)
         
        
+        
+       prepareChartHeader()
     }
     
     private func fetchDataFrom(filterData: RecordFilterData) {
         recordsList = recordRepo.getFilteredDatas(recordFilterData: filterData)
         recordListByDateData.prepareDatas(datas: recordsList)
         chartData = UtiltyHelper.prepareBarChartDataFrom(recordList: recordsList)
+        prepareChartHeader()
+    }
+    
+    func prepareChartHeader(){
+        self.chartData.headerTitle = "Last 30 days"
+        self.chartData.headerSubtitle =  "\(selectedAccountData?.amount ?? 0)"
+        self.chartData.currencTitle = selectedAccountData?.currencyData?.short_code ?? ""
     }
     
     deinit {

@@ -16,6 +16,7 @@ class HomeVm: ObservableObject {
     @Published var onPressedShowMoreFromList: Bool = false
 
     @Published var onSingleAccountButtonPressed: Bool = false
+    @Published var selectedAccount: AccountData?
 
    
 }

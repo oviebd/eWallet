@@ -22,7 +22,8 @@ struct HomeView: View {
                             AccountGridView(onAddButtonPressed: {
                                                 vm.isCreateAccountButtonPressed = true
                                             },
-                                            onAccountItemPressed: { _ in
+                                            onAccountItemPressed: { selectedAccount in
+                                vm.selectedAccount = selectedAccount
                                                 vm.onSingleAccountButtonPressed = true
                                             })
 
@@ -64,7 +65,7 @@ struct HomeView: View {
             })
 
             .navigationDestination(isPresented: $vm.onSingleAccountButtonPressed, destination: {
-                RecordListByAccountView(topEdge: 0)
+                RecordListByAccountView(accountData: vm.selectedAccount, topEdge: 0)
 
             })
         }

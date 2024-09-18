@@ -66,16 +66,16 @@ extension AreaChartView {
         VStack(alignment: .leading) {
             Spacer()
 
-            Text("Last 30 Days")
+            Text(chartDatas.headerTitle)
                 .font(.system(size: 20))
                 .foregroundStyle(Color.theme.secondaryText)
 
             HStack(alignment: .bottom, spacing: 4) {
-                Text("15700")
+                Text(chartDatas.headerSubtitle)
                     .font(.system(size: 34))
                     .bold()
 
-                Text("Bdt")
+                Text(chartDatas.currencTitle)
                     .font(.system(size: 28))
                 Spacer()
             }
