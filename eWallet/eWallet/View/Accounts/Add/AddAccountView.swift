@@ -80,9 +80,6 @@ extension AddAccountView {
                     }
                 }
             }
-           
-            
-            
             if vm.showingAlert {
                 CustomAlertView(presentAlert: $vm.showingAlert, alertData: vm.alertModel,positiveButtonAction: {
                    
