@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var vm = HomeVm()
 
-    let topBarConfig = CommonTopBarData(title: "", bgColor: Color.theme.accountGridCardBG, leftIconName: "")
+    let topBarConfig = CommonTopBarData(title: "eWallet", bgColor: Color.theme.accountGridCardBG, forgroundColor: .white, leftIconName: "")
 
     var body: some View {
         NavigationStack {

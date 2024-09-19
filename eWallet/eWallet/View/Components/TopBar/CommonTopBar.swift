@@ -33,11 +33,11 @@ struct CommonTopBarData {
     }
 
     var hasLeftIcon: Bool {
-        return !leftIconName.isEmpty
+        return !leftIconName.isEmptyString()
     }
 
     var hasRightIcon: Bool {
-        return !rightIconName.isEmpty
+        return !rightIconName.isEmptyString()
     }
 }
 
@@ -62,9 +62,9 @@ struct CommonTopBar: View {
         HStack(alignment: .center, spacing: 0) {
             if data.hasLeftIcon {
                 leftButton
+                Spacer()
             }
 
-            Spacer()
             titleSection
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment: .center)
 
@@ -103,6 +103,7 @@ extension CommonTopBar {
     private var titleSection: some View {
         Text(data.title)
             .font(.system(size: 18))
+            .bold()
     }
 
     private var rightButton: some View {
