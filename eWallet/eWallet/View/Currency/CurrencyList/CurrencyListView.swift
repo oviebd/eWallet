@@ -36,6 +36,7 @@ struct CurrencyListView: View {
 
             Spacer()
         }
+        .background(Color.theme.white)
 
         .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
             AddCurrencyView()

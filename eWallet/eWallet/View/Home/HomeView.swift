@@ -53,6 +53,7 @@ struct HomeView: View {
                 floatingAddRecordButton
                     .offset(x:-40, y : -30)
             }
+            .background(Color.theme.white)
             .popover(isPresented: $vm.isCreateAccountButtonPressed) {
                 AddAccountView(includeNavigationStack: true)
             }

@@ -57,7 +57,7 @@ extension AccountListView {
 
             Spacer()
         }
-        .background(Color.white)
+        .background(Color.theme.white)
         .navigationDestination(isPresented: $vm.isAddAccountPressed, destination: {
             AddAccountView(includeNavigationStack: false)
 

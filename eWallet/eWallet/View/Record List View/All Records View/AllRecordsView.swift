@@ -61,6 +61,7 @@ struct AllRecordsView: View {
                 RecordFilterView(filterData: $vm.filteredData)
                 // SwipeToResizeView()
             }
+            .background(Color.theme.white)
             
 //            floatingAddRecordButton
 //                .offset(x:-40, y:-140)

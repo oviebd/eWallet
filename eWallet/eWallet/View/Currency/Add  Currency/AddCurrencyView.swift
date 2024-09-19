@@ -44,6 +44,7 @@ struct AddCurrencyView: View {
                     }
                 }
             }
+          
             
             if vm.showingAlert {
                 CustomAlertView(presentAlert: $vm.showingAlert, alertData: vm.alertModel,positiveButtonAction: {
@@ -58,7 +59,7 @@ struct AddCurrencyView: View {
                     }
                 })
             }
-        }
+        }.background(Color.theme.white)
         
         .navigationBarHidden(true)
 

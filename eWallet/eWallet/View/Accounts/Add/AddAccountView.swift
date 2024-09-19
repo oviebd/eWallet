@@ -80,6 +80,7 @@ extension AddAccountView {
                     }
                 }
             }
+           
             
             
             if vm.showingAlert {
@@ -95,7 +96,7 @@ extension AddAccountView {
                     }
                 })
             }
-        }
+        } .background(Color.theme.white)
         
         .navigationDestination(isPresented: $vm.isAddCurrencyPressed, destination: {
             CurrencyListView(selectedCurrency: $vm.selectedCurrency)
