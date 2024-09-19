@@ -40,11 +40,11 @@ class AddCurrencyViewModel : ObservableObject {
         
         isCreated = isSuccess
         if isSuccess {
-            AlertDataUtils.getAlertDatafrom(alertData: &alertModel, message: "Data saved Successfully", alertType: .success, positiveButtonTitle: "Add More", negativeButtonTitle: "Ok")
+            AlertDataUtils.getAlertDatafrom(alertData: &alertModel, title : "Success", message: "Data saved Successfully", alertType: .success, positiveButtonTitle: "Add More", negativeButtonTitle: "Ok")
             showingAlert = true
 
         } else {
-            AlertDataUtils.getAlertDatafrom(alertData: &alertModel, message: "Failed to save Account data.", alertType: .failure, positiveButtonTitle: "Ok", negativeButtonTitle: "")
+            AlertDataUtils.getAlertDatafrom(alertData: &alertModel,title : "Failed", message: "Failed to save Account data.", alertType: .failure, positiveButtonTitle: "Ok", negativeButtonTitle: "")
             showingAlert = true
         }
     }

@@ -73,7 +73,8 @@ extension AddAccountView {
                         }
 
                         HStack {
-                            Text("Initial Amount - ")
+                            Text("Amount - ")
+                            Spacer()
                             TextField("Amount", text: $vm.initialAmount)
                         }
                     }

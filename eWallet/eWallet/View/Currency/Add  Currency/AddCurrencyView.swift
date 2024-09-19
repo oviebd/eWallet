@@ -34,12 +34,12 @@ struct AddCurrencyView: View {
 
                         HStack {
                             Text("Symbol - ")
-                            TextField("Amount", text: $vm.symbol)
+                            TextField("Symbol", text: $vm.symbol)
                         }
 
                         HStack {
                             Text("Short Code - ")
-                            TextField("Amount", text: $vm.short_code)
+                            TextField("Code", text: $vm.short_code)
                         }
                     }
                 }
